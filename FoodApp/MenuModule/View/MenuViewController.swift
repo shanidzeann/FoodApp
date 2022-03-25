@@ -20,7 +20,7 @@ class MenuViewController: UIViewController {
     
     private func createCollectionView() {
         collectionView = UICollectionView(frame: view.bounds, collectionViewLayout: createLayout())
-        collectionView?.register(UICollectionViewCell.self, forCellWithReuseIdentifier: Constants.CollectionView.CellIdentifiers.menuCell)
+        collectionView?.register(MenuCollectionViewCell.self, forCellWithReuseIdentifier: Constants.CollectionView.CellIdentifiers.menuCell)
         collectionView?.register(UICollectionReusableView.self, forSupplementaryViewOfKind: Constants.CollectionView.Headers.elementKind, withReuseIdentifier: Constants.CollectionView.Headers.menuHeader)
         collectionView?.dataSource = self
         collectionView?.delegate = self
@@ -83,16 +83,15 @@ extension MenuViewController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Constants.CollectionView.CellIdentifiers.menuCell, for: indexPath)
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Constants.CollectionView.CellIdentifiers.menuCell, for: indexPath) as! MenuCollectionViewCell
         
-//        cellPresenter = MenuCellPresenter(view: cell)
-//        cell.inject(presenter: cellPresenter)
+        let cellPresenter = MenuCellPresenter(view: cell)
+        cell.inject(presenter: cellPresenter)
 //
 //        if let item = presenter.item(for: indexPath) {
 //            cell.configure(item: item)
 //        }
         
-        cell.backgroundColor = .white
         
         return cell
     }
