@@ -30,10 +30,8 @@ class MenuViewController: UIViewController {
     
     private func createLayout() -> UICollectionViewLayout {
         let layout = UICollectionViewCompositionalLayout { sectionIndex, layoutEnvironment in
-            guard let sectionKind = Section(rawValue: sectionIndex) else { return nil }
-            
-            switch sectionKind {
-            case .banner:
+            let sectionKind = Section(rawValue: sectionIndex)
+            if sectionKind == .banner {
                 let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(1.0))
                 let item = NSCollectionLayoutItem(layoutSize: itemSize)
                 
@@ -46,8 +44,7 @@ class MenuViewController: UIViewController {
                 section.orthogonalScrollingBehavior = .groupPaging
                 
                 return section
-                
-            case .menu:
+            } else {
                 let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(1.0))
                 let item = NSCollectionLayoutItem(layoutSize: itemSize)
                 

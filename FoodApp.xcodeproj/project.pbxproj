@@ -12,6 +12,9 @@
 		01AFD60927EDBF5D0081BA4C /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01AFD60827EDBF5D0081BA4C /* MenuViewController.swift */; };
 		01AFD60E27EDBF600081BA4C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 01AFD60D27EDBF600081BA4C /* Assets.xcassets */; };
 		01AFD61127EDBF600081BA4C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 01AFD60F27EDBF600081BA4C /* LaunchScreen.storyboard */; };
+		01B60CC327EE182F0045C827 /* Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B60CC227EE182F0045C827 /* Menu.swift */; };
+		01B60CC527EE195E0045C827 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B60CC427EE195E0045C827 /* NetworkManager.swift */; };
+		01B60CC727EE19830045C827 /* NetworkManagerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B60CC627EE19830045C827 /* NetworkManagerProtocol.swift */; };
 		01C0F27E27EDC58E00380895 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01C0F27D27EDC58E00380895 /* Constants.swift */; };
 		01C0F28027EDC65000380895 /* Section.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01C0F27F27EDC65000380895 /* Section.swift */; };
 		01C0F28527EDD20100380895 /* MenuPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01C0F28427EDD20100380895 /* MenuPresenter.swift */; };
@@ -35,6 +38,9 @@
 		01AFD60D27EDBF600081BA4C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		01AFD61027EDBF600081BA4C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		01AFD61227EDBF600081BA4C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		01B60CC227EE182F0045C827 /* Menu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Menu.swift; sourceTree = "<group>"; };
+		01B60CC427EE195E0045C827 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		01B60CC627EE19830045C827 /* NetworkManagerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManagerProtocol.swift; sourceTree = "<group>"; };
 		01C0F27D27EDC58E00380895 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		01C0F27F27EDC65000380895 /* Section.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Section.swift; sourceTree = "<group>"; };
 		01C0F28427EDD20100380895 /* MenuPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuPresenter.swift; sourceTree = "<group>"; };
@@ -87,6 +93,7 @@
 			children = (
 				01AFD61827EDBFC90081BA4C /* AppDelegate */,
 				01C0F27C27EDC2AE00380895 /* MenuModule */,
+				01C0F29927EDEE6400380895 /* Managers */,
 				01AFD60D27EDBF600081BA4C /* Assets.xcassets */,
 				01AFD60F27EDBF600081BA4C /* LaunchScreen.storyboard */,
 				01C0F27D27EDC58E00380895 /* Constants.swift */,
@@ -119,6 +126,7 @@
 			isa = PBXGroup;
 			children = (
 				01C0F27F27EDC65000380895 /* Section.swift */,
+				01B60CC227EE182F0045C827 /* Menu.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -153,6 +161,15 @@
 				01C0F29527EDD92A00380895 /* MenuHeaderPresenterProtocol.swift */,
 			);
 			path = Protocols;
+			sourceTree = "<group>";
+		};
+		01C0F29927EDEE6400380895 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				01B60CC427EE195E0045C827 /* NetworkManager.swift */,
+				01B60CC627EE19830045C827 /* NetworkManagerProtocol.swift */,
+			);
+			path = Managers;
 			sourceTree = "<group>";
 		};
 		55B65E4FA964BC3A5D9BEC69 /* Pods */ = {
@@ -296,9 +313,12 @@
 				01C0F29227EDD90500380895 /* MenuHeaderSupplementaryView.swift in Sources */,
 				01C0F28E27EDD89C00380895 /* MenuCellPresenter.swift in Sources */,
 				01C0F29627EDD92A00380895 /* MenuHeaderPresenterProtocol.swift in Sources */,
+				01B60CC727EE19830045C827 /* NetworkManagerProtocol.swift in Sources */,
+				01B60CC527EE195E0045C827 /* NetworkManager.swift in Sources */,
 				01AFD60727EDBF5D0081BA4C /* SceneDelegate.swift in Sources */,
 				01C0F27E27EDC58E00380895 /* Constants.swift in Sources */,
 				01C0F28527EDD20100380895 /* MenuPresenter.swift in Sources */,
+				01B60CC327EE182F0045C827 /* Menu.swift in Sources */,
 				01C0F28827EDD23F00380895 /* MenuPresenterProtocol.swift in Sources */,
 				01C0F29427EDD91A00380895 /* MenuHeaderPresenter.swift in Sources */,
 			);

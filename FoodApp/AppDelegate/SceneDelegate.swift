@@ -15,7 +15,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         window = UIWindow(frame: UIScreen.main.bounds)
         let vc = MenuViewController()
-        let presenter = MenuPresenter(view: vc)
+        let networkManager = NetworkManager()
+        let presenter = MenuPresenter(view: vc, networkManager: networkManager)
         vc.presenter = presenter
         window?.rootViewController = vc
         window?.makeKeyAndVisible()
