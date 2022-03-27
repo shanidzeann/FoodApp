@@ -30,10 +30,8 @@ extension MenuViewController: UICollectionViewDataSource {
             
             return cell
         } else {
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "mycell", for: indexPath)
-            cell.backgroundColor = .red
-            cell.clipsToBounds = true
-            cell.layer.cornerRadius = cell.contentView.frame.height/2
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Constants.CollectionView.CellIdentifiers.categoryCell, for: indexPath) as! CategoryCollectionViewCell
+            
             return  cell
         }
        

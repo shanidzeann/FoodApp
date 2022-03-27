@@ -34,6 +34,7 @@ class MenuViewController: UIViewController {
         addSubviews()
         createCategoriesCollectionView()
         createMenuCollectionView()
+        
     }
     
     // MARK: - UI
@@ -53,8 +54,10 @@ class MenuViewController: UIViewController {
         layout.sectionInset = UIEdgeInsets(top: 5, left: 0, bottom: 5, right: 0)
         layout.scrollDirection = .horizontal
         
+        layout.estimatedItemSize = CGSize(width: .zero, height: 40)
+        
         categoriesCollectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
-        categoriesCollectionView?.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "mycell")
+        categoriesCollectionView?.register(CategoryCollectionViewCell.self, forCellWithReuseIdentifier: Constants.CollectionView.CellIdentifiers.categoryCell)
         
         categoriesCollectionView?.dataSource = self
         categoriesCollectionView?.delegate = self
