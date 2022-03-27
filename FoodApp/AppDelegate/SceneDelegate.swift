@@ -14,10 +14,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         window = UIWindow(frame: UIScreen.main.bounds)
-        let vc = MenuViewController()
-        let networkManager = NetworkManager()
-        let presenter = MenuPresenter(view: vc, networkManager: networkManager)
-        vc.presenter = presenter
+        let vc = HomeViewController()
         window?.rootViewController = vc
         window?.makeKeyAndVisible()
         window?.windowScene = windowScene
