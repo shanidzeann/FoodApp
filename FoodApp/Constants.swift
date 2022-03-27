@@ -11,6 +11,7 @@ enum Constants {
     enum CollectionView {
         enum CellIdentifiers {
             static let menuCell = "menuCell"
+            static let bannerCell = "bannerCell"
         }
         
         enum Headers {
