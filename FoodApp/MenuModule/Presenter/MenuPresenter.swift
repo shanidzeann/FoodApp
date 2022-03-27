@@ -14,14 +14,14 @@ class MenuPresenter: MenuPresenterProtocol {
     
     weak var view: MenuViewProtocol?
     let networkManager: NetworkManagerProtocol!
-    var menu: [Result<(url: String, menu: Menu), Error>]!
+    var menu: [Result<(url: String, menu: Menu), Error>]?
     
     // MARK: - Init
     
     required init(view: MenuViewProtocol, networkManager: NetworkManagerProtocol) {
         self.view = view
         self.networkManager = networkManager
-        getMenu()
+    //    getMenu()
     }
     
     // MARK: - Helper Methods
@@ -33,23 +33,42 @@ class MenuPresenter: MenuPresenterProtocol {
     }
     
     func numberOfItemsInSection(_ section: Int) -> Int {
-     //   let sectionKind = Section(rawValue: section)
-        if section == 0  {
-            return 2
-        } else {
-            switch menu[section - 1] {
-            case .success(let result):
-                return result.menu.menuItems.count
-            case .failure(let error):
-                print(error)
-                return 0
-            }
-        }
+        return 10
+//            switch menu[section] {
+//            case .success(let result):
+//                return result.menu.menuItems.count
+//            case .failure(let error):
+//                print(error)
+//                return 0
+//            }
     }
     
     func numberOfSections() -> Int {
-        print(menu.count)
-        return menu.count + 1
+        return 3
+        //return menu.count
+    }
+    
+    func menuItem(for indexPath: IndexPath) -> MenuItem? {
+        guard let menu = menu else { return nil }
+
+        switch menu[indexPath.section] {
+        case .success(let result):
+            return result.menu.menuItems[indexPath.row]
+        case .failure(let error):
+            print(error)
+            return nil
+        }
+    }
+    
+    func url(for indexPath: IndexPath) -> String? {
+        guard let menu = menu else { return nil }
+        switch menu[indexPath.section] {
+        case .success(let result):
+            return result.url
+        case .failure(let error):
+            print(error)
+            return nil
+        }
     }
     
 }

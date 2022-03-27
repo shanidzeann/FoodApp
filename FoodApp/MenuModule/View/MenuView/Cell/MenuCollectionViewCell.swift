@@ -22,36 +22,37 @@ class MenuCollectionViewCell: UICollectionViewCell {
         imageView.clipsToBounds = true
         imageView.layer.cornerRadius = 10
         imageView.contentMode = .scaleAspectFill
-        imageView.backgroundColor = .white
+        imageView.backgroundColor = .label
         return imageView
     }()
     
     private let titleLabel: UILabel = {
         let label = UILabel()
         label.textColor = .label
-        label.font = .boldSystemFont(ofSize: 20)
+        label.font = .boldSystemFont(ofSize: 17)
         label.adjustsFontSizeToFitWidth = true
         label.minimumScaleFactor = 0.5
-        label.numberOfLines = 1
-        label.backgroundColor = .yellow
-        label.text = "food"
+        label.numberOfLines = 2
+        label.text = "Food"
         return label
     }()
     
     private let desctiptionLabel: UILabel = {
         let label = UILabel()
-        label.textColor = .white
+        label.textColor = .secondaryLabel
         label.font = .systemFont(ofSize: 15)
         label.numberOfLines = 0
-        label.backgroundColor = .green
-        label.text = "fjskjdjskdjskdjskdjkjkjkjkjkkjkjkjkjkjkjskdjskdjskdjskdj"
+        label.text = "nyam"
         return label
     }()
     
     private let priceButton: UIButton = {
         let button = UIButton(configuration: .plain(), primaryAction: nil)
-        button.backgroundColor = .orange
-        button.setTitle("560 р", for: .normal)
+        button.backgroundColor = .secondarySystemBackground
+        button.titleLabel?.tintColor = .label
+        button.clipsToBounds = true
+        button.layer.cornerRadius = 5
+        button.setTitle("374 р", for: .normal)
         return button
     }()
     
@@ -61,6 +62,26 @@ class MenuCollectionViewCell: UICollectionViewCell {
         super.init(frame: frame)
         
         createUI()
+        
+        backgroundColor = .systemBackground
+        clipsToBounds = true
+        layer.masksToBounds = false
+        layer.cornerRadius = 10
+        
+        layer.shadowRadius = 4.0
+        layer.shadowColor = UIColor.black.cgColor
+        layer.shadowOpacity = 0.1
+        layer.shadowOffset = CGSize(width: 0, height: 2)
+        
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        
+        layer.shadowPath = UIBezierPath(
+            roundedRect: bounds,
+            cornerRadius: 10.0
+        ).cgPath
     }
     
     required init?(coder: NSCoder) {
@@ -71,6 +92,10 @@ class MenuCollectionViewCell: UICollectionViewCell {
     
     func inject(presenter: MenuCellPresenterProtocol) {
         self.presenter = presenter
+    }
+    
+    func configure(with item: MenuItem) {
+        presenter.configure(with: item)
     }
     
     private func createUI() {
@@ -84,7 +109,7 @@ class MenuCollectionViewCell: UICollectionViewCell {
     
     private func setupConstraints() {
         menuImageView.snp.makeConstraints { make in
-            make.left.top.bottom.equalToSuperview().inset(10)
+            make.left.top.bottom.equalToSuperview()
             make.width.equalTo(menuImageView.snp.height)
         }
         
@@ -102,7 +127,7 @@ class MenuCollectionViewCell: UICollectionViewCell {
             make.top.greaterThanOrEqualTo(desctiptionLabel.snp.bottom).offset(5)
             make.bottom.equalToSuperview().inset(10)
             make.right.equalTo(titleLabel)
-            make.height.equalToSuperview().dividedBy(4)
+            make.height.equalToSuperview().dividedBy(3.6)
             make.width.equalTo(priceButton.snp.height).multipliedBy(2.5)
         }
         
@@ -119,5 +144,9 @@ class MenuCollectionViewCell: UICollectionViewCell {
 
 // MARK: -  MovieCellProtocol
 extension MenuCollectionViewCell: MenuCellProtocol {
- 
+    func setData(title: String, description: String, price: Int) {
+        titleLabel.text = title
+        desctiptionLabel.text = description
+        priceButton.setTitle("\(price) ₽", for: .normal)
+    }
 }

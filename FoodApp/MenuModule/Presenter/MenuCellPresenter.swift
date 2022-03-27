@@ -15,8 +15,12 @@ class MenuCellPresenter: MenuCellPresenterProtocol {
         self.view = view
     }
     
-//    func configure(item: ) {
-
-//    }
+    func configure(with item: MenuItem) {
+        let title = item.title
+        let description = item.restaurantChain
+        let price = item.id / 1000
+        
+        view?.setData(title: title, description: description, price: price)
+    }
     
 }
