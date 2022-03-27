@@ -7,6 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0171492827EF80720012379E /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0171492727EF80720012379E /* HomeViewController.swift */; };
+		019ACD3927EF1A6500589642 /* BannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 019ACD3827EF1A6500589642 /* BannerViewController.swift */; };
+		01A3069F27F0931C0098C791 /* MenuHeaderProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A3069E27F0931C0098C791 /* MenuHeaderProtocol.swift */; };
+		01A306A127F0BD760098C791 /* BannerCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A306A027F0BD760098C791 /* BannerCollectionViewCell.swift */; };
+		01A306A627F10B530098C791 /* HomeViewController+UIGestureRecognizerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A306A527F10B530098C791 /* HomeViewController+UIGestureRecognizerDelegate.swift */; };
+		01A306A827F10BB10098C791 /* BannerViewController+UICollectionViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A306A727F10BB10098C791 /* BannerViewController+UICollectionViewDataSource.swift */; };
+		01A306AA27F10BED0098C791 /* BannerViewController+UICollectionViewDelegateFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A306A927F10BED0098C791 /* BannerViewController+UICollectionViewDelegateFlowLayout.swift */; };
+		01A306AE27F10C730098C791 /* MenuViewController+UICollectionViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A306AD27F10C730098C791 /* MenuViewController+UICollectionViewDataSource.swift */; };
+		01A306B027F10CB10098C791 /* MenuViewController+UICollectionViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A306AF27F10CB10098C791 /* MenuViewController+UICollectionViewDelegate.swift */; };
+		01A306B227F10CEC0098C791 /* MenuViewController+UIScrollViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A306B127F10CEC0098C791 /* MenuViewController+UIScrollViewDelegate.swift */; };
+		01A306B427F10D2D0098C791 /* MenuViewController+UICollectionViewDelegateFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A306B327F10D2D0098C791 /* MenuViewController+UICollectionViewDelegateFlowLayout.swift */; };
+		01A306B727F10DB00098C791 /* UIView+roundCorners.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A306B627F10DB00098C791 /* UIView+roundCorners.swift */; };
 		01AFD60527EDBF5D0081BA4C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01AFD60427EDBF5D0081BA4C /* AppDelegate.swift */; };
 		01AFD60727EDBF5D0081BA4C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01AFD60627EDBF5D0081BA4C /* SceneDelegate.swift */; };
 		01AFD60927EDBF5D0081BA4C /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01AFD60827EDBF5D0081BA4C /* MenuViewController.swift */; };
@@ -31,6 +43,18 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0171492727EF80720012379E /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		019ACD3827EF1A6500589642 /* BannerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerViewController.swift; sourceTree = "<group>"; };
+		01A3069E27F0931C0098C791 /* MenuHeaderProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuHeaderProtocol.swift; sourceTree = "<group>"; };
+		01A306A027F0BD760098C791 /* BannerCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerCollectionViewCell.swift; sourceTree = "<group>"; };
+		01A306A527F10B530098C791 /* HomeViewController+UIGestureRecognizerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeViewController+UIGestureRecognizerDelegate.swift"; sourceTree = "<group>"; };
+		01A306A727F10BB10098C791 /* BannerViewController+UICollectionViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BannerViewController+UICollectionViewDataSource.swift"; sourceTree = "<group>"; };
+		01A306A927F10BED0098C791 /* BannerViewController+UICollectionViewDelegateFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BannerViewController+UICollectionViewDelegateFlowLayout.swift"; sourceTree = "<group>"; };
+		01A306AD27F10C730098C791 /* MenuViewController+UICollectionViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MenuViewController+UICollectionViewDataSource.swift"; sourceTree = "<group>"; };
+		01A306AF27F10CB10098C791 /* MenuViewController+UICollectionViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MenuViewController+UICollectionViewDelegate.swift"; sourceTree = "<group>"; };
+		01A306B127F10CEC0098C791 /* MenuViewController+UIScrollViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MenuViewController+UIScrollViewDelegate.swift"; sourceTree = "<group>"; };
+		01A306B327F10D2D0098C791 /* MenuViewController+UICollectionViewDelegateFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MenuViewController+UICollectionViewDelegateFlowLayout.swift"; sourceTree = "<group>"; };
+		01A306B627F10DB00098C791 /* UIView+roundCorners.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+roundCorners.swift"; sourceTree = "<group>"; };
 		01AFD60127EDBF5D0081BA4C /* FoodApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FoodApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		01AFD60427EDBF5D0081BA4C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		01AFD60627EDBF5D0081BA4C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -70,6 +94,88 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		01A306A227F10AEA0098C791 /* HomeView */ = {
+			isa = PBXGroup;
+			children = (
+				0171492727EF80720012379E /* HomeViewController.swift */,
+				01A306A527F10B530098C791 /* HomeViewController+UIGestureRecognizerDelegate.swift */,
+			);
+			path = HomeView;
+			sourceTree = "<group>";
+		};
+		01A306A327F10B0B0098C791 /* BannerView */ = {
+			isa = PBXGroup;
+			children = (
+				01A306AB27F10C1B0098C791 /* Controller */,
+				01A306AC27F10C310098C791 /* Cell */,
+			);
+			path = BannerView;
+			sourceTree = "<group>";
+		};
+		01A306A427F10B210098C791 /* MenuView */ = {
+			isa = PBXGroup;
+			children = (
+				01A306B827F10E0A0098C791 /* Controller */,
+				01A306B927F10E210098C791 /* Cell */,
+				01A306BA27F10E2F0098C791 /* Header */,
+			);
+			path = MenuView;
+			sourceTree = "<group>";
+		};
+		01A306AB27F10C1B0098C791 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				019ACD3827EF1A6500589642 /* BannerViewController.swift */,
+				01A306A727F10BB10098C791 /* BannerViewController+UICollectionViewDataSource.swift */,
+				01A306A927F10BED0098C791 /* BannerViewController+UICollectionViewDelegateFlowLayout.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		01A306AC27F10C310098C791 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				01A306A027F0BD760098C791 /* BannerCollectionViewCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		01A306B527F10D6E0098C791 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				01A306B627F10DB00098C791 /* UIView+roundCorners.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		01A306B827F10E0A0098C791 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				01AFD60827EDBF5D0081BA4C /* MenuViewController.swift */,
+				01A306AD27F10C730098C791 /* MenuViewController+UICollectionViewDataSource.swift */,
+				01A306AF27F10CB10098C791 /* MenuViewController+UICollectionViewDelegate.swift */,
+				01A306B127F10CEC0098C791 /* MenuViewController+UIScrollViewDelegate.swift */,
+				01A306B327F10D2D0098C791 /* MenuViewController+UICollectionViewDelegateFlowLayout.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		01A306B927F10E210098C791 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				01C0F28B27EDD87900380895 /* MenuCollectionViewCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		01A306BA27F10E2F0098C791 /* Header */ = {
+			isa = PBXGroup;
+			children = (
+				01C0F29127EDD90500380895 /* MenuHeaderSupplementaryView.swift */,
+			);
+			path = Header;
+			sourceTree = "<group>";
+		};
 		01AFD5F827EDBF5D0081BA4C = {
 			isa = PBXGroup;
 			children = (
@@ -94,6 +200,7 @@
 				01AFD61827EDBFC90081BA4C /* AppDelegate */,
 				01C0F27C27EDC2AE00380895 /* MenuModule */,
 				01C0F29927EDEE6400380895 /* Managers */,
+				01A306B527F10D6E0098C791 /* Extensions */,
 				01AFD60D27EDBF600081BA4C /* Assets.xcassets */,
 				01AFD60F27EDBF600081BA4C /* LaunchScreen.storyboard */,
 				01C0F27D27EDC58E00380895 /* Constants.swift */,
@@ -134,9 +241,9 @@
 		01C0F28227EDD17700380895 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				01AFD60827EDBF5D0081BA4C /* MenuViewController.swift */,
-				01C0F28B27EDD87900380895 /* MenuCollectionViewCell.swift */,
-				01C0F29127EDD90500380895 /* MenuHeaderSupplementaryView.swift */,
+				01A306A227F10AEA0098C791 /* HomeView */,
+				01A306A327F10B0B0098C791 /* BannerView */,
+				01A306A427F10B210098C791 /* MenuView */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -158,6 +265,7 @@
 				01C0F28727EDD23F00380895 /* MenuPresenterProtocol.swift */,
 				01C0F29727EDDC4200380895 /* MenuCellProtocol.swift */,
 				01C0F28F27EDD8C600380895 /* MenuCellPresenterProtocol.swift */,
+				01A3069E27F0931C0098C791 /* MenuHeaderProtocol.swift */,
 				01C0F29527EDD92A00380895 /* MenuHeaderPresenterProtocol.swift */,
 			);
 			path = Protocols;
@@ -303,24 +411,36 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				01A306A827F10BB10098C791 /* BannerViewController+UICollectionViewDataSource.swift in Sources */,
+				01A306AE27F10C730098C791 /* MenuViewController+UICollectionViewDataSource.swift in Sources */,
 				01C0F28027EDC65000380895 /* Section.swift in Sources */,
+				01A306B027F10CB10098C791 /* MenuViewController+UICollectionViewDelegate.swift in Sources */,
 				01AFD60927EDBF5D0081BA4C /* MenuViewController.swift in Sources */,
 				01C0F28C27EDD87900380895 /* MenuCollectionViewCell.swift in Sources */,
+				01A306AA27F10BED0098C791 /* BannerViewController+UICollectionViewDelegateFlowLayout.swift in Sources */,
 				01AFD60527EDBF5D0081BA4C /* AppDelegate.swift in Sources */,
 				01C0F28A27EDD26200380895 /* MenuViewProtocol.swift in Sources */,
+				01A3069F27F0931C0098C791 /* MenuHeaderProtocol.swift in Sources */,
 				01C0F29827EDDC4200380895 /* MenuCellProtocol.swift in Sources */,
 				01C0F29027EDD8C600380895 /* MenuCellPresenterProtocol.swift in Sources */,
 				01C0F29227EDD90500380895 /* MenuHeaderSupplementaryView.swift in Sources */,
 				01C0F28E27EDD89C00380895 /* MenuCellPresenter.swift in Sources */,
 				01C0F29627EDD92A00380895 /* MenuHeaderPresenterProtocol.swift in Sources */,
+				019ACD3927EF1A6500589642 /* BannerViewController.swift in Sources */,
+				01A306A127F0BD760098C791 /* BannerCollectionViewCell.swift in Sources */,
+				01A306A627F10B530098C791 /* HomeViewController+UIGestureRecognizerDelegate.swift in Sources */,
 				01B60CC727EE19830045C827 /* NetworkManagerProtocol.swift in Sources */,
+				01A306B427F10D2D0098C791 /* MenuViewController+UICollectionViewDelegateFlowLayout.swift in Sources */,
 				01B60CC527EE195E0045C827 /* NetworkManager.swift in Sources */,
 				01AFD60727EDBF5D0081BA4C /* SceneDelegate.swift in Sources */,
 				01C0F27E27EDC58E00380895 /* Constants.swift in Sources */,
+				0171492827EF80720012379E /* HomeViewController.swift in Sources */,
 				01C0F28527EDD20100380895 /* MenuPresenter.swift in Sources */,
 				01B60CC327EE182F0045C827 /* Menu.swift in Sources */,
 				01C0F28827EDD23F00380895 /* MenuPresenterProtocol.swift in Sources */,
+				01A306B227F10CEC0098C791 /* MenuViewController+UIScrollViewDelegate.swift in Sources */,
 				01C0F29427EDD91A00380895 /* MenuHeaderPresenter.swift in Sources */,
+				01A306B727F10DB00098C791 /* UIView+roundCorners.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
