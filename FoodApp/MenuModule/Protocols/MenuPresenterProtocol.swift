@@ -10,4 +10,6 @@ import Foundation
 protocol MenuPresenterProtocol {
     func numberOfItemsInSection(_ section: Int) -> Int
     func numberOfSections() -> Int
+    func menuItem(for indexPath: IndexPath) -> MenuItem?
+    func url(for indexPath: IndexPath) -> String?
 }

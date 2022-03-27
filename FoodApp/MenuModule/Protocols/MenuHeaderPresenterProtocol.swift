@@ -6,3 +6,7 @@
 //
 
 import Foundation
+
+protocol MenuHeaderPresenterProtocol {
+    func setTitle(for urlString: String)
+}
