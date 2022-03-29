@@ -118,6 +118,18 @@
 			path = Cell;
 			sourceTree = "<group>";
 		};
+		014F1CD627F3986E00D7F799 /* Menu */ = {
+			isa = PBXGroup;
+			children = (
+				0114B2FE27F1109000D54393 /* MenuViewController.swift */,
+				01A306AD27F10C730098C791 /* MenuViewController+UICollectionViewDataSource.swift */,
+				01A306AF27F10CB10098C791 /* MenuViewController+UICollectionViewDelegate.swift */,
+				01A306B127F10CEC0098C791 /* MenuViewController+UIScrollViewDelegate.swift */,
+				01161EA027F314DE007695CF /* MenuViewController+UICollectionViewDelegateFlowLayout.swift */,
+			);
+			path = Menu;
+			sourceTree = "<group>";
+		};
 		01A306A227F10AEA0098C791 /* HomeView */ = {
 			isa = PBXGroup;
 			children = (
@@ -176,11 +188,7 @@
 		01A306B827F10E0A0098C791 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				0114B2FE27F1109000D54393 /* MenuViewController.swift */,
-				01A306AD27F10C730098C791 /* MenuViewController+UICollectionViewDataSource.swift */,
-				01A306AF27F10CB10098C791 /* MenuViewController+UICollectionViewDelegate.swift */,
-				01A306B127F10CEC0098C791 /* MenuViewController+UIScrollViewDelegate.swift */,
-				01161EA027F314DE007695CF /* MenuViewController+UICollectionViewDelegateFlowLayout.swift */,
+				014F1CD627F3986E00D7F799 /* Menu */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
