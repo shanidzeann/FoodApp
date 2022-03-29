@@ -11,12 +11,16 @@ class NetworkManager: NetworkManagerProtocol {
     
     let pizzaURL = URL(string: "https://api.spoonacular.com/food/menuItems/search?query=pizza&apiKey=79cc381a96da454889639c69fa3edc2d")
     let burgerURL = URL(string: "https://api.spoonacular.com/food/menuItems/search?query=burger&apiKey=79cc381a96da454889639c69fa3edc2d")
+    let soupURL = URL(string: "https://api.spoonacular.com/food/menuItems/search?query=soup&apiKey=79cc381a96da454889639c69fa3edc2d")
+    let wokURL = URL(string: "https://api.spoonacular.com/food/menuItems/search?query=wok&apiKey=79cc381a96da454889639c69fa3edc2d")
     
     func downloadMenu(completion: @escaping ([Result<(url: String, menu: Menu), Error>]) -> Void) {
         guard let pizzaURL = pizzaURL,
-              let burgerURL = burgerURL else { return }
+              let burgerURL = burgerURL,
+              let soupURL = soupURL,
+              let wokURL = wokURL else { return }
         
-        let urls = [pizzaURL, burgerURL]
+        let urls = [pizzaURL, burgerURL, soupURL, wokURL]
         var menuCollection: [Result<(url: String, menu: Menu), Error>] = []
         let urlDownloadGroup = DispatchGroup()
         

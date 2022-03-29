@@ -9,12 +9,12 @@
 /* Begin PBXBuildFile section */
 		0114B2FF27F1109000D54393 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0114B2FE27F1109000D54393 /* MenuViewController.swift */; };
 		0114B30427F112C500D54393 /* CategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0114B30327F112C500D54393 /* CategoryCollectionViewCell.swift */; };
-		0114B30627F119CC00D54393 /* CategoryCellProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0114B30527F119CC00D54393 /* CategoryCellProtocol.swift */; };
-		0114B30827F119DA00D54393 /* CategoryCellPresenterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0114B30727F119DA00D54393 /* CategoryCellPresenterProtocol.swift */; };
-		0114B30A27F11A1200D54393 /* CategoryCellPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0114B30927F11A1200D54393 /* CategoryCellPresenter.swift */; };
+		01161E9B27F30A49007695CF /* BannerPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01161E9A27F30A49007695CF /* BannerPresenter.swift */; };
+		01161E9D27F30A69007695CF /* BannerPresenterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01161E9C27F30A69007695CF /* BannerPresenterProtocol.swift */; };
+		01161E9F27F30A80007695CF /* BannerViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01161E9E27F30A80007695CF /* BannerViewProtocol.swift */; };
+		01161EA127F314DE007695CF /* MenuViewController+UICollectionViewDelegateFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01161EA027F314DE007695CF /* MenuViewController+UICollectionViewDelegateFlowLayout.swift */; };
 		0171492827EF80720012379E /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0171492727EF80720012379E /* HomeViewController.swift */; };
 		019ACD3927EF1A6500589642 /* BannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 019ACD3827EF1A6500589642 /* BannerViewController.swift */; };
-		01A3069F27F0931C0098C791 /* MenuHeaderProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A3069E27F0931C0098C791 /* MenuHeaderProtocol.swift */; };
 		01A306A127F0BD760098C791 /* BannerCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A306A027F0BD760098C791 /* BannerCollectionViewCell.swift */; };
 		01A306A627F10B530098C791 /* HomeViewController+UIGestureRecognizerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A306A527F10B530098C791 /* HomeViewController+UIGestureRecognizerDelegate.swift */; };
 		01A306A827F10BB10098C791 /* BannerViewController+UICollectionViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A306A727F10BB10098C791 /* BannerViewController+UICollectionViewDataSource.swift */; };
@@ -31,7 +31,7 @@
 		01B60CC527EE195E0045C827 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B60CC427EE195E0045C827 /* NetworkManager.swift */; };
 		01B60CC727EE19830045C827 /* NetworkManagerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B60CC627EE19830045C827 /* NetworkManagerProtocol.swift */; };
 		01C0F27E27EDC58E00380895 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01C0F27D27EDC58E00380895 /* Constants.swift */; };
-		01C0F28027EDC65000380895 /* Section.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01C0F27F27EDC65000380895 /* Section.swift */; };
+		01C0F28027EDC65000380895 /* CollectionViewType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01C0F27F27EDC65000380895 /* CollectionViewType.swift */; };
 		01C0F28527EDD20100380895 /* MenuPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01C0F28427EDD20100380895 /* MenuPresenter.swift */; };
 		01C0F28827EDD23F00380895 /* MenuPresenterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01C0F28727EDD23F00380895 /* MenuPresenterProtocol.swift */; };
 		01C0F28A27EDD26200380895 /* MenuViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01C0F28927EDD26200380895 /* MenuViewProtocol.swift */; };
@@ -39,8 +39,6 @@
 		01C0F28E27EDD89C00380895 /* MenuCellPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01C0F28D27EDD89C00380895 /* MenuCellPresenter.swift */; };
 		01C0F29027EDD8C600380895 /* MenuCellPresenterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01C0F28F27EDD8C600380895 /* MenuCellPresenterProtocol.swift */; };
 		01C0F29227EDD90500380895 /* MenuHeaderSupplementaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01C0F29127EDD90500380895 /* MenuHeaderSupplementaryView.swift */; };
-		01C0F29427EDD91A00380895 /* MenuHeaderPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01C0F29327EDD91A00380895 /* MenuHeaderPresenter.swift */; };
-		01C0F29627EDD92A00380895 /* MenuHeaderPresenterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01C0F29527EDD92A00380895 /* MenuHeaderPresenterProtocol.swift */; };
 		01C0F29827EDDC4200380895 /* MenuCellProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01C0F29727EDDC4200380895 /* MenuCellProtocol.swift */; };
 		7F4DD034F91F3E3A7A28FBC8 /* Pods_FoodApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 40BBDBAD5A42439B91312C84 /* Pods_FoodApp.framework */; };
 /* End PBXBuildFile section */
@@ -48,12 +46,12 @@
 /* Begin PBXFileReference section */
 		0114B2FE27F1109000D54393 /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		0114B30327F112C500D54393 /* CategoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCollectionViewCell.swift; sourceTree = "<group>"; };
-		0114B30527F119CC00D54393 /* CategoryCellProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCellProtocol.swift; sourceTree = "<group>"; };
-		0114B30727F119DA00D54393 /* CategoryCellPresenterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCellPresenterProtocol.swift; sourceTree = "<group>"; };
-		0114B30927F11A1200D54393 /* CategoryCellPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCellPresenter.swift; sourceTree = "<group>"; };
+		01161E9A27F30A49007695CF /* BannerPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerPresenter.swift; sourceTree = "<group>"; };
+		01161E9C27F30A69007695CF /* BannerPresenterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerPresenterProtocol.swift; sourceTree = "<group>"; };
+		01161E9E27F30A80007695CF /* BannerViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerViewProtocol.swift; sourceTree = "<group>"; };
+		01161EA027F314DE007695CF /* MenuViewController+UICollectionViewDelegateFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MenuViewController+UICollectionViewDelegateFlowLayout.swift"; sourceTree = "<group>"; };
 		0171492727EF80720012379E /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		019ACD3827EF1A6500589642 /* BannerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerViewController.swift; sourceTree = "<group>"; };
-		01A3069E27F0931C0098C791 /* MenuHeaderProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuHeaderProtocol.swift; sourceTree = "<group>"; };
 		01A306A027F0BD760098C791 /* BannerCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerCollectionViewCell.swift; sourceTree = "<group>"; };
 		01A306A527F10B530098C791 /* HomeViewController+UIGestureRecognizerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeViewController+UIGestureRecognizerDelegate.swift"; sourceTree = "<group>"; };
 		01A306A727F10BB10098C791 /* BannerViewController+UICollectionViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BannerViewController+UICollectionViewDataSource.swift"; sourceTree = "<group>"; };
@@ -72,7 +70,7 @@
 		01B60CC427EE195E0045C827 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		01B60CC627EE19830045C827 /* NetworkManagerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManagerProtocol.swift; sourceTree = "<group>"; };
 		01C0F27D27EDC58E00380895 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-		01C0F27F27EDC65000380895 /* Section.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Section.swift; sourceTree = "<group>"; };
+		01C0F27F27EDC65000380895 /* CollectionViewType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewType.swift; sourceTree = "<group>"; };
 		01C0F28427EDD20100380895 /* MenuPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuPresenter.swift; sourceTree = "<group>"; };
 		01C0F28727EDD23F00380895 /* MenuPresenterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuPresenterProtocol.swift; sourceTree = "<group>"; };
 		01C0F28927EDD26200380895 /* MenuViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewProtocol.swift; sourceTree = "<group>"; };
@@ -80,8 +78,6 @@
 		01C0F28D27EDD89C00380895 /* MenuCellPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuCellPresenter.swift; sourceTree = "<group>"; };
 		01C0F28F27EDD8C600380895 /* MenuCellPresenterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuCellPresenterProtocol.swift; sourceTree = "<group>"; };
 		01C0F29127EDD90500380895 /* MenuHeaderSupplementaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuHeaderSupplementaryView.swift; sourceTree = "<group>"; };
-		01C0F29327EDD91A00380895 /* MenuHeaderPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuHeaderPresenter.swift; sourceTree = "<group>"; };
-		01C0F29527EDD92A00380895 /* MenuHeaderPresenterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuHeaderPresenterProtocol.swift; sourceTree = "<group>"; };
 		01C0F29727EDDC4200380895 /* MenuCellProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuCellProtocol.swift; sourceTree = "<group>"; };
 		40BBDBAD5A42439B91312C84 /* Pods_FoodApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FoodApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4B9ACDA479593E06CF29CB92 /* Pods-FoodApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FoodApp.debug.xcconfig"; path = "Target Support Files/Pods-FoodApp/Pods-FoodApp.debug.xcconfig"; sourceTree = "<group>"; };
@@ -105,6 +101,8 @@
 			children = (
 				01C0F28927EDD26200380895 /* MenuViewProtocol.swift */,
 				01C0F28727EDD23F00380895 /* MenuPresenterProtocol.swift */,
+				01161E9E27F30A80007695CF /* BannerViewProtocol.swift */,
+				01161E9C27F30A69007695CF /* BannerPresenterProtocol.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -114,19 +112,8 @@
 			children = (
 				01C0F29727EDDC4200380895 /* MenuCellProtocol.swift */,
 				01C0F28F27EDD8C600380895 /* MenuCellPresenterProtocol.swift */,
-				0114B30527F119CC00D54393 /* CategoryCellProtocol.swift */,
-				0114B30727F119DA00D54393 /* CategoryCellPresenterProtocol.swift */,
 			);
 			path = Cell;
-			sourceTree = "<group>";
-		};
-		0114B30227F1126000D54393 /* Header */ = {
-			isa = PBXGroup;
-			children = (
-				01A3069E27F0931C0098C791 /* MenuHeaderProtocol.swift */,
-				01C0F29527EDD92A00380895 /* MenuHeaderPresenterProtocol.swift */,
-			);
-			path = Header;
 			sourceTree = "<group>";
 		};
 		01A306A227F10AEA0098C791 /* HomeView */ = {
@@ -190,6 +177,7 @@
 				01A306AD27F10C730098C791 /* MenuViewController+UICollectionViewDataSource.swift */,
 				01A306AF27F10CB10098C791 /* MenuViewController+UICollectionViewDelegate.swift */,
 				01A306B127F10CEC0098C791 /* MenuViewController+UIScrollViewDelegate.swift */,
+				01161EA027F314DE007695CF /* MenuViewController+UICollectionViewDelegateFlowLayout.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -267,7 +255,7 @@
 		01C0F28127EDD17100380895 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				01C0F27F27EDC65000380895 /* Section.swift */,
+				01C0F27F27EDC65000380895 /* CollectionViewType.swift */,
 				01B60CC227EE182F0045C827 /* Menu.swift */,
 			);
 			path = Model;
@@ -288,8 +276,7 @@
 			children = (
 				01C0F28427EDD20100380895 /* MenuPresenter.swift */,
 				01C0F28D27EDD89C00380895 /* MenuCellPresenter.swift */,
-				0114B30927F11A1200D54393 /* CategoryCellPresenter.swift */,
-				01C0F29327EDD91A00380895 /* MenuHeaderPresenter.swift */,
+				01161E9A27F30A49007695CF /* BannerPresenter.swift */,
 			);
 			path = Presenter;
 			sourceTree = "<group>";
@@ -299,7 +286,6 @@
 			children = (
 				0114B30027F1124E00D54393 /* View */,
 				0114B30127F1125800D54393 /* Cell */,
-				0114B30227F1126000D54393 /* Header */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -447,20 +433,17 @@
 				01A306A827F10BB10098C791 /* BannerViewController+UICollectionViewDataSource.swift in Sources */,
 				0114B2FF27F1109000D54393 /* MenuViewController.swift in Sources */,
 				01A306AE27F10C730098C791 /* MenuViewController+UICollectionViewDataSource.swift in Sources */,
-				01C0F28027EDC65000380895 /* Section.swift in Sources */,
-				0114B30A27F11A1200D54393 /* CategoryCellPresenter.swift in Sources */,
+				01C0F28027EDC65000380895 /* CollectionViewType.swift in Sources */,
 				01A306B027F10CB10098C791 /* MenuViewController+UICollectionViewDelegate.swift in Sources */,
-				0114B30627F119CC00D54393 /* CategoryCellProtocol.swift in Sources */,
 				01C0F28C27EDD87900380895 /* MenuCollectionViewCell.swift in Sources */,
 				01A306AA27F10BED0098C791 /* BannerViewController+UICollectionViewDelegateFlowLayout.swift in Sources */,
 				01AFD60527EDBF5D0081BA4C /* AppDelegate.swift in Sources */,
+				01161E9B27F30A49007695CF /* BannerPresenter.swift in Sources */,
 				01C0F28A27EDD26200380895 /* MenuViewProtocol.swift in Sources */,
-				01A3069F27F0931C0098C791 /* MenuHeaderProtocol.swift in Sources */,
 				01C0F29827EDDC4200380895 /* MenuCellProtocol.swift in Sources */,
 				01C0F29027EDD8C600380895 /* MenuCellPresenterProtocol.swift in Sources */,
 				01C0F29227EDD90500380895 /* MenuHeaderSupplementaryView.swift in Sources */,
 				01C0F28E27EDD89C00380895 /* MenuCellPresenter.swift in Sources */,
-				01C0F29627EDD92A00380895 /* MenuHeaderPresenterProtocol.swift in Sources */,
 				019ACD3927EF1A6500589642 /* BannerViewController.swift in Sources */,
 				01A306A127F0BD760098C791 /* BannerCollectionViewCell.swift in Sources */,
 				0114B30427F112C500D54393 /* CategoryCollectionViewCell.swift in Sources */,
@@ -468,15 +451,16 @@
 				01B60CC727EE19830045C827 /* NetworkManagerProtocol.swift in Sources */,
 				01B60CC527EE195E0045C827 /* NetworkManager.swift in Sources */,
 				01AFD60727EDBF5D0081BA4C /* SceneDelegate.swift in Sources */,
+				01161E9D27F30A69007695CF /* BannerPresenterProtocol.swift in Sources */,
 				01C0F27E27EDC58E00380895 /* Constants.swift in Sources */,
+				01161E9F27F30A80007695CF /* BannerViewProtocol.swift in Sources */,
+				01161EA127F314DE007695CF /* MenuViewController+UICollectionViewDelegateFlowLayout.swift in Sources */,
 				0171492827EF80720012379E /* HomeViewController.swift in Sources */,
 				01C0F28527EDD20100380895 /* MenuPresenter.swift in Sources */,
 				01B60CC327EE182F0045C827 /* Menu.swift in Sources */,
 				01C0F28827EDD23F00380895 /* MenuPresenterProtocol.swift in Sources */,
 				01A306B227F10CEC0098C791 /* MenuViewController+UIScrollViewDelegate.swift in Sources */,
-				01C0F29427EDD91A00380895 /* MenuHeaderPresenter.swift in Sources */,
 				01A306B727F10DB00098C791 /* UIView+roundCorners.swift in Sources */,
-				0114B30827F119DA00D54393 /* CategoryCellPresenterProtocol.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
