@@ -1,5 +1,5 @@
 //
-//  UIView+roundCorners.swift
+//  UIView.swift
 //  FoodApp
 //
 //  Created by Anna Shanidze on 28.03.2022.
