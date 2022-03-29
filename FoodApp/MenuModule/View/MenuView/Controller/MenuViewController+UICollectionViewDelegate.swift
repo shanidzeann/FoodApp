@@ -14,8 +14,15 @@ extension MenuViewController: UICollectionViewDelegate {
         
         if collectionViewType == .categories {
             let indexPath = IndexPath(item: 0, section: indexPath.item)
-            menuCollectionView?.scrollToItem(at: indexPath, at: .top, animated: true)
+            menuCollectionView?.scrollToSupplementaryView(ofKind: Constants.CollectionView.Headers.elementKind, at: indexPath, animated: true)
         }
     }
     
+    func collectionView(_ collectionView: UICollectionView, willDisplaySupplementaryView view: UICollectionReusableView, forElementKind elementKind: String, at indexPath: IndexPath) {
+        let collectionViewType = CollectionViewType(rawValue: collectionView.tag)
+        
+        if collectionViewType == .menu {
+            categoriesCollectionView?.scrollToItem(at: IndexPath(item: indexPath.section, section: 0), at: [.centeredVertically, .left], animated: true)
+        }
+    }
 }
