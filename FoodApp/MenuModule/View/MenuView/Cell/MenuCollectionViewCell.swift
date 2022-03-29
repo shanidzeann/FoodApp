@@ -22,14 +22,13 @@ class MenuCollectionViewCell: UICollectionViewCell {
         imageView.clipsToBounds = true
         imageView.layer.cornerRadius = 10
         imageView.contentMode = .scaleAspectFill
-        imageView.backgroundColor = .label
         return imageView
     }()
     
     private let titleLabel: UILabel = {
         let label = UILabel()
         label.textColor = .label
-        label.font = .boldSystemFont(ofSize: 17)
+        label.font = .boldSystemFont(ofSize: 15)
         label.adjustsFontSizeToFitWidth = true
         label.minimumScaleFactor = 0.5
         label.numberOfLines = 2
@@ -40,7 +39,7 @@ class MenuCollectionViewCell: UICollectionViewCell {
     private let desctiptionLabel: UILabel = {
         let label = UILabel()
         label.textColor = .secondaryLabel
-        label.font = .systemFont(ofSize: 15)
+        label.font = .systemFont(ofSize: 12)
         label.numberOfLines = 0
         label.text = "nyam"
         return label
@@ -62,17 +61,11 @@ class MenuCollectionViewCell: UICollectionViewCell {
         super.init(frame: frame)
         
         createUI()
-        
-        backgroundColor = .systemBackground
-        clipsToBounds = true
-        layer.masksToBounds = false
-        layer.cornerRadius = 10
-        
-        layer.shadowRadius = 4.0
-        layer.shadowColor = UIColor.black.cgColor
-        layer.shadowOpacity = 0.1
-        layer.shadowOffset = CGSize(width: 0, height: 2)
-        
+        configureView()
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
     
     override func layoutSubviews() {
@@ -84,10 +77,6 @@ class MenuCollectionViewCell: UICollectionViewCell {
         ).cgPath
     }
     
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
     // MARK: - Helper Methods
     
     func inject(presenter: MenuCellPresenterProtocol) {
@@ -96,6 +85,18 @@ class MenuCollectionViewCell: UICollectionViewCell {
     
     func configure(with item: MenuItem) {
         presenter.configure(with: item)
+    }
+    
+    private func configureView() {
+        backgroundColor = .systemBackground
+        clipsToBounds = true
+        layer.masksToBounds = false
+        layer.cornerRadius = 10
+        
+        layer.shadowRadius = 4.0
+        layer.shadowColor = UIColor.black.cgColor
+        layer.shadowOpacity = 0.1
+        layer.shadowOffset = CGSize(width: 0, height: 2)
     }
     
     private func createUI() {
@@ -144,9 +145,10 @@ class MenuCollectionViewCell: UICollectionViewCell {
 
 // MARK: -  MovieCellProtocol
 extension MenuCollectionViewCell: MenuCellProtocol {
-    func setData(title: String, description: String, price: Int) {
+    func setData(title: String, description: String, price: Int, imageURL: URL?) {
         titleLabel.text = title
         desctiptionLabel.text = description
         priceButton.setTitle("\(price) ₽", for: .normal)
+        menuImageView.kf.setImage(with: imageURL)
     }
 }

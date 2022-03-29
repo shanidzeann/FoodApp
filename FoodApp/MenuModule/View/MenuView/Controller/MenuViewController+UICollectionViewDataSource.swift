@@ -10,31 +10,43 @@ import UIKit
 extension MenuViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return presenter.numberOfItemsInSection(section)
+        guard let collectionViewType = CollectionViewType(rawValue: collectionView.tag) else { return 0 }
+        switch collectionViewType {
+        case .categories:
+            return presenter.numberOfSections()
+        case .menu:
+            return presenter.numberOfItemsInSection(section)
+        }
     }
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return presenter.numberOfSections()
+        guard let collectionViewType = CollectionViewType(rawValue: collectionView.tag) else { return 0 }
+        switch collectionViewType {
+        case .categories:
+            return 1
+        case .menu:
+            return presenter.numberOfSections()
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        if collectionView.tag == 1 {
+        guard let collectionViewType = CollectionViewType(rawValue: collectionView.tag) else { return UICollectionViewCell() }
+
+        switch collectionViewType {
+        case .categories:
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Constants.CollectionView.CellIdentifiers.categoryCell, for: indexPath) as! CategoryCollectionViewCell
+            let title = presenter.sectionTitle(for: indexPath.item)
+            cell.configure(with: title)
+            return  cell
+        case .menu:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Constants.CollectionView.CellIdentifiers.menuCell, for: indexPath) as! MenuCollectionViewCell
-            
             let cellPresenter = MenuCellPresenter(view: cell)
             cell.inject(presenter: cellPresenter)
-            
             if let item = presenter.menuItem(for: indexPath) {
                 cell.configure(with: item)
             }
-            
             return cell
-        } else {
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Constants.CollectionView.CellIdentifiers.categoryCell, for: indexPath) as! CategoryCollectionViewCell
-            
-            return  cell
         }
-       
     }
     
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
@@ -42,11 +54,8 @@ extension MenuViewController: UICollectionViewDataSource {
             return UICollectionReusableView()
         }
         
-        let headerPresenter = MenuHeaderPresenter(view: headerView)
-        headerView.inject(presenter: headerPresenter)
-        if let urlString = presenter.url(for: indexPath) {
-            headerView.configure(with: urlString)
-        }
+        let title = presenter.sectionTitle(for: indexPath.section)
+        headerView.configure(with: title)
         
         return headerView
     }

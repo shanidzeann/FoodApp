@@ -9,16 +9,12 @@ import UIKit
 
 class CategoryCollectionViewCell: UICollectionViewCell {
     
-    // MARK: - Properties
-    
-    //private var presenter: MenuCellPresenterProtocol!
-    
     // MARK: - UI
     
     private let titleLabel: UILabel = {
         let label = UILabel()
         label.textColor = .label
-        label.font = .boldSystemFont(ofSize: 17)
+        label.font = .systemFont(ofSize: 17)
         label.numberOfLines = 1
         label.text = "Fuukdhfkdhfksdd"
         return label
@@ -32,26 +28,24 @@ class CategoryCollectionViewCell: UICollectionViewCell {
         
         createUI()
         
-        backgroundColor = .systemBackground
         clipsToBounds = true
         layer.masksToBounds = false
-        layer.cornerRadius = contentView.frame.height/2
     }
-    
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        layer.cornerRadius = contentView.frame.height/2
+    }
+    
     // MARK: - Helper Methods
-//    
-//    func inject(presenter: MenuCellPresenterProtocol) {
-//        self.presenter = presenter
-//    }
-//    
-//    func configure(with item: MenuItem) {
-//        presenter.configure(with: item)
-//    }
+    
+    func configure(with title: String) {
+        titleLabel.text = title
+    }
     
     private func createUI() {
         contentView.addSubview(titleLabel)
@@ -61,7 +55,8 @@ class CategoryCollectionViewCell: UICollectionViewCell {
     
     private func setupConstraints() {
         titleLabel.snp.makeConstraints { make in
-            make.top.bottom.left.right.equalToSuperview()
+            make.top.bottom.equalToSuperview()
+            make.left.right.equalToSuperview().inset(10)
         }
     }
     

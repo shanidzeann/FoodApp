@@ -62,14 +62,23 @@ class HomeViewController: UIViewController {
     private func createUI() {
         view.backgroundColor = .secondarySystemBackground
         
-        bannerViewController = BannerViewController()
-        addChild(bannerViewController)
-        view.addSubview(bannerViewController.view)
-        bannerViewController.didMove(toParent: self)
-        
         visualEffectVuew = UIVisualEffectView()
         visualEffectVuew.frame = view.frame
         
+        createBanner()
+        createMenu()
+    }
+    
+    private func createBanner() {
+        bannerViewController = BannerViewController()
+        let presenter = BannerPresenter(view: bannerViewController)
+        bannerViewController.presenter = presenter
+        addChild(bannerViewController)
+        view.addSubview(bannerViewController.view)
+        bannerViewController.didMove(toParent: self)
+    }
+    
+    private func createMenu() {
         menuViewController = MenuViewController()
         let networkManager = NetworkManager()
         let presenter = MenuPresenter(view: menuViewController, networkManager: networkManager)

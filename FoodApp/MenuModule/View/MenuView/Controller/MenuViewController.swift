@@ -34,7 +34,13 @@ class MenuViewController: UIViewController {
         addSubviews()
         createCategoriesCollectionView()
         createMenuCollectionView()
+    }
+    
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
         
+        layout()
     }
     
     // MARK: - UI
@@ -51,26 +57,22 @@ class MenuViewController: UIViewController {
     
     private func createCategoriesCollectionView() {
         let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
-        layout.sectionInset = UIEdgeInsets(top: 5, left: 0, bottom: 5, right: 0)
+        layout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 10)
         layout.scrollDirection = .horizontal
         
-        layout.estimatedItemSize = CGSize(width: .zero, height: 40)
-        
         categoriesCollectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        categoriesCollectionView?.tag = 0
         categoriesCollectionView?.register(CategoryCollectionViewCell.self, forCellWithReuseIdentifier: Constants.CollectionView.CellIdentifiers.categoryCell)
-        
         categoriesCollectionView?.dataSource = self
         categoriesCollectionView?.delegate = self
         categoriesCollectionView?.backgroundColor = .clear
         categoriesCollectionView?.showsHorizontalScrollIndicator = false
         view.addSubview(categoriesCollectionView ?? UICollectionView())
-        
-        categoriesCollectionView?.frame = CGRect(x: 50, y: 0, width: view.frame.width - 30, height: 50)
-        categoriesCollectionView?.tag = 2
     }
     
     private func createMenuCollectionView() {
         menuCollectionView = UICollectionView(frame: .zero, collectionViewLayout: createLayout())
+        menuCollectionView?.tag = 1
         menuCollectionView?.register(MenuCollectionViewCell.self, forCellWithReuseIdentifier: Constants.CollectionView.CellIdentifiers.menuCell)
         menuCollectionView?.register(MenuHeaderSupplementaryView.self, forSupplementaryViewOfKind: Constants.CollectionView.Headers.elementKind, withReuseIdentifier: Constants.CollectionView.Headers.menuHeader)
         menuCollectionView?.dataSource = self
@@ -80,14 +82,6 @@ class MenuViewController: UIViewController {
         view.addSubview(menuCollectionView ?? UICollectionView())
         
         menuCollectionView?.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            menuCollectionView!.topAnchor.constraint(equalTo: categoriesCollectionView!.bottomAnchor),
-            menuCollectionView!.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
-            menuCollectionView!.leftAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leftAnchor),
-            menuCollectionView!.rightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.rightAnchor)
-        ])
-        
-        menuCollectionView?.tag = 1
     }
     
     private func createLayout() -> UICollectionViewLayout {
@@ -111,6 +105,15 @@ class MenuViewController: UIViewController {
         return layout
     }
     
+    private func layout() {
+        categoriesCollectionView?.frame = CGRect(x: 50, y: 0, width: view.frame.width - 50, height: 50)
+        NSLayoutConstraint.activate([
+            menuCollectionView!.topAnchor.constraint(equalTo: categoriesCollectionView!.bottomAnchor),
+            menuCollectionView!.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
+            menuCollectionView!.leftAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leftAnchor),
+            menuCollectionView!.rightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.rightAnchor)
+        ])
+    }
 }
 
 
@@ -119,4 +122,3 @@ class MenuViewController: UIViewController {
 extension MenuViewController: MenuViewProtocol {
     
 }
-

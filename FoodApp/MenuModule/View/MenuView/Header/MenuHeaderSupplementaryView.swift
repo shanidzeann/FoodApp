@@ -9,10 +9,6 @@ import UIKit
 
 class MenuHeaderSupplementaryView: UICollectionReusableView {
     
-    // MARK: - Properties
-    
-    private var presenter: MenuHeaderPresenterProtocol!
-    
     // MARK: - UI
     
     private let label: UILabel = {
@@ -37,12 +33,8 @@ class MenuHeaderSupplementaryView: UICollectionReusableView {
     
     // MARK: - Helper Methods
     
-    func inject(presenter: MenuHeaderPresenterProtocol) {
-        self.presenter = presenter
-    }
-    
-    func configure(with urlString: String) {
-        presenter.setTitle(for: urlString)
+    func configure(with title: String) {
+        label.text = title
     }
     
     func createUI() {
@@ -51,11 +43,5 @@ class MenuHeaderSupplementaryView: UICollectionReusableView {
             make.bottom.equalToSuperview()
             make.left.equalToSuperview().inset(15)
         }
-    }
-}
-
-extension MenuHeaderSupplementaryView: MenuHeaderProtocol {
-    func setTitle(_ title: String) {
-        label.text = title
     }
 }
