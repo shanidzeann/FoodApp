@@ -20,12 +20,12 @@ extension HomeViewController: UIGestureRecognizerDelegate {
             return abs((recognizer.velocity(in: recognizer.view)).y) > abs((recognizer.velocity(in: recognizer.view)).x)
         case .menu:
             if recognizer.velocity(in: recognizer.view).y > 0 {
-                if gestureEnabled && scrolledToTop {
+                if collectionViewPanGestureEnabled && scrolledToTop {
                     return true
                 }
                 return false
             } else if recognizer.velocity(in: recognizer.view).y < 0 {
-                if gestureEnabled {
+                if collectionViewPanGestureEnabled {
                     return false
                 }
             }

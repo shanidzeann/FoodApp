@@ -16,7 +16,7 @@ class HomeViewController: UIViewController {
         case collapsed
     }
     
-    var gestureEnabled = false
+    var collectionViewPanGestureEnabled = false
     var scrolledToTop = false
     
     var menuViewController: MenuViewController!
@@ -51,10 +51,17 @@ class HomeViewController: UIViewController {
     
     private func addObservers() {
         NotificationCenter.default.addObserver(self, selector: #selector(enablePanGestureRecognizer), name: NSNotification.Name("enableHomePanGestureRecognizer"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(animateTransition), name: NSNotification.Name("animateTransitionIfNeeded"), object: nil)
     }
     
     @objc func enablePanGestureRecognizer() {
         scrolledToTop = true
+    }
+    
+    @objc func animateTransition() {
+        if !collectionViewPanGestureEnabled {
+            animateTransitionIfNeeded(state: nextState, duration: 0.9)
+        }
     }
     
     // MARK: - UI
@@ -134,11 +141,11 @@ class HomeViewController: UIViewController {
                 switch state {
                 case .expanded:
                     self.menuViewController.view.frame.origin.y = self.view.safeAreaInsets.top
-                    self.gestureEnabled = true
+                    self.collectionViewPanGestureEnabled = true
                     self.scrolledToTop = false
                 case .collapsed:
                     self.menuViewController.view.frame.origin.y = self.view.frame.height/4
-                    self.gestureEnabled = false
+                    self.collectionViewPanGestureEnabled = false
                 }
             }
             
