@@ -13,6 +13,7 @@ extension MenuViewController: UICollectionViewDelegate {
         let collectionViewType = CollectionViewType(rawValue: collectionView.tag)
         
         if collectionViewType == .categories {
+            NotificationCenter.default.post(name: NSNotification.Name("animateTransitionIfNeeded"), object: nil)
             let indexPath = IndexPath(item: 0, section: indexPath.item)
             menuCollectionView?.scrollToSupplementaryView(ofKind: Constants.CollectionView.Headers.elementKind, at: indexPath, animated: true)
         }
