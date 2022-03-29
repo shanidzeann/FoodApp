@@ -11,6 +11,7 @@ class BannerViewController: UIViewController {
     
     // MARK: - Properties
     
+    var presenter: BannerPresenterProtocol!
     private var collectionView: UICollectionView!
     
     // MARK: - VC Lifecycle
@@ -18,6 +19,7 @@ class BannerViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         createCollectionView()
+        setupConstraints()
     }
     
     // MARK: - UI
@@ -36,7 +38,9 @@ class BannerViewController: UIViewController {
         collectionView.delegate = self
         collectionView.showsHorizontalScrollIndicator = false
         view.addSubview(collectionView)
-        
+    }
+    
+    private func setupConstraints() {
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             collectionView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
@@ -44,7 +48,12 @@ class BannerViewController: UIViewController {
             collectionView.leftAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leftAnchor),
             collectionView.rightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.rightAnchor)
         ])
-        
     }
 }
 
+
+// MARK: - BannerViewProtocol
+
+extension BannerViewController: BannerViewProtocol {
+    
+}

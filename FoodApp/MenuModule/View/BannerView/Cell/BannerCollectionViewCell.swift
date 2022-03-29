@@ -11,18 +11,12 @@ import SnapKit
 
 class BannerCollectionViewCell: UICollectionViewCell {
     
-    // MARK: - Properties
-    
-  //  private var presenter: BannerCellPresenterProtocol!
-    
     // MARK: - UI
     
     private let bannerImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.clipsToBounds = true
         imageView.layer.cornerRadius = 10
-        imageView.contentMode = .scaleAspectFill
-        imageView.backgroundColor = .label
         return imageView
     }()
     
@@ -32,6 +26,7 @@ class BannerCollectionViewCell: UICollectionViewCell {
         super.init(frame: frame)
         
         createUI()
+        setupConstraints()
     }
     
     required init?(coder: NSCoder) {
@@ -49,16 +44,11 @@ class BannerCollectionViewCell: UICollectionViewCell {
         ).cgPath
     }
     
-//    func inject(presenter: MenuCellPresenterProtocol) {
-//        self.presenter = presenter
-//    }
-//
-//    func configure(with item: MenuItem) {
-//        presenter.configure(with: item)
-//    }
+    func configure(with image: String) {
+        bannerImageView.image = UIImage(named: image)
+    }
     
     private func createUI() {
-        backgroundColor = .systemBackground
         clipsToBounds = true
         layer.masksToBounds = false
         layer.cornerRadius = 10
@@ -68,17 +58,12 @@ class BannerCollectionViewCell: UICollectionViewCell {
         layer.shadowOffset = CGSize(width: 0, height: 2)
         
         contentView.addSubview(bannerImageView)
-        setupConstraints()
     }
     
     private func setupConstraints() {
-        
-    }
-    
-    override func prepareForReuse() {
-        bannerImageView.kf.cancelDownloadTask()
-        bannerImageView.kf.setImage(with: URL(string: ""))
-        bannerImageView.image = nil
+        bannerImageView.snp.makeConstraints { make in
+            make.top.left.right.bottom.equalToSuperview()
+        }
     }
 
 }
