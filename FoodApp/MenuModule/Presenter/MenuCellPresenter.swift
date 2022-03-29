@@ -20,7 +20,10 @@ class MenuCellPresenter: MenuCellPresenterProtocol {
         let description = item.restaurantChain
         let price = item.id / 1000
         
-        view?.setData(title: title, description: description, price: price)
+        let image = item.image
+        let url = URL(string: image)
+        
+        view?.setData(title: title, description: description, price: price, imageURL: url)
     }
     
 }
