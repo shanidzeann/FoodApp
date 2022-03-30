@@ -43,8 +43,8 @@ class HomeViewController: UIViewController {
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        bannerViewController.view.frame = CGRect(x: 0, y: 0, width: view.bounds.width, height: view.bounds.height/4)
-        menuViewController.view.frame = CGRect(x: 0, y: view.frame.height/4, width: view.bounds.width, height: view.bounds.height -  view.safeAreaInsets.top)
+        bannerViewController.view.frame = CGRect(x: 0, y: view.safeAreaInsets.top, width: view.bounds.width, height: view.bounds.height/4)
+        menuViewController.view.frame = CGRect(x: 0, y: view.bounds.height/4 + view.safeAreaInsets.top, width: view.bounds.width, height: view.bounds.height - view.safeAreaInsets.top)
     }
     
     // MARK: - Observers
@@ -74,6 +74,8 @@ class HomeViewController: UIViewController {
         
         createBanner()
         createMenu()
+        
+        configureNavBar()
     }
     
     private func createBanner() {
@@ -93,6 +95,24 @@ class HomeViewController: UIViewController {
         addChild(menuViewController)
         view.addSubview(menuViewController.view)
         menuViewController.didMove(toParent: self)
+    }
+    
+    private func configureNavBar() {
+        navigationItem.leftBarButtonItem = UIBarButtonItem(
+            image: UIImage(systemName: "chevron.left"),
+            style: .plain,
+            target: self,
+            action: nil
+        )
+        
+        navigationItem.rightBarButtonItem = UIBarButtonItem(
+            image: UIImage(systemName: "cart"),
+            style: .plain,
+            target: self,
+            action: nil
+        )
+        navigationController?.navigationBar.tintColor = .black
+        navigationController?.navigationBar.barTintColor = .systemBackground
     }
     
     // MARK: - PanGestureRecognizer
@@ -144,7 +164,7 @@ class HomeViewController: UIViewController {
                     self.collectionViewPanGestureEnabled = true
                     self.scrolledToTop = false
                 case .collapsed:
-                    self.menuViewController.view.frame.origin.y = self.view.frame.height/4
+                    self.menuViewController.view.frame.origin.y = self.view.frame.height/4 + self.view.safeAreaInsets.top
                     self.collectionViewPanGestureEnabled = false
                 }
             }

@@ -46,6 +46,8 @@
 		01C0F29027EDD8C600380895 /* MenuCellPresenterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01C0F28F27EDD8C600380895 /* MenuCellPresenterProtocol.swift */; };
 		01C0F29227EDD90500380895 /* MenuHeaderSupplementaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01C0F29127EDD90500380895 /* MenuHeaderSupplementaryView.swift */; };
 		01C0F29827EDDC4200380895 /* MenuCellProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01C0F29727EDDC4200380895 /* MenuCellProtocol.swift */; };
+		01C995AB27F4F25A00FE3F1F /* CardViewController+UITableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01C995AA27F4F25A00FE3F1F /* CardViewController+UITableViewDataSource.swift */; };
+		01C995AD27F4F26900FE3F1F /* CardViewController+UITableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01C995AC27F4F26900FE3F1F /* CardViewController+UITableViewDelegate.swift */; };
 		7F4DD034F91F3E3A7A28FBC8 /* Pods_FoodApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 40BBDBAD5A42439B91312C84 /* Pods_FoodApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -91,6 +93,8 @@
 		01C0F28F27EDD8C600380895 /* MenuCellPresenterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuCellPresenterProtocol.swift; sourceTree = "<group>"; };
 		01C0F29127EDD90500380895 /* MenuHeaderSupplementaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuHeaderSupplementaryView.swift; sourceTree = "<group>"; };
 		01C0F29727EDDC4200380895 /* MenuCellProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuCellProtocol.swift; sourceTree = "<group>"; };
+		01C995AA27F4F25A00FE3F1F /* CardViewController+UITableViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CardViewController+UITableViewDataSource.swift"; sourceTree = "<group>"; };
+		01C995AC27F4F26900FE3F1F /* CardViewController+UITableViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CardViewController+UITableViewDelegate.swift"; sourceTree = "<group>"; };
 		40BBDBAD5A42439B91312C84 /* Pods_FoodApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FoodApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4B9ACDA479593E06CF29CB92 /* Pods-FoodApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FoodApp.debug.xcconfig"; path = "Target Support Files/Pods-FoodApp/Pods-FoodApp.debug.xcconfig"; sourceTree = "<group>"; };
 		BB60A4A5B4A199978A91D4E3 /* Pods-FoodApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FoodApp.release.xcconfig"; path = "Target Support Files/Pods-FoodApp/Pods-FoodApp.release.xcconfig"; sourceTree = "<group>"; };
@@ -147,6 +151,8 @@
 			children = (
 				014F1CD827F398B000D7F799 /* PresentationController.swift */,
 				014F1CDC27F39A0B00D7F799 /* CardViewController.swift */,
+				01C995AA27F4F25A00FE3F1F /* CardViewController+UITableViewDataSource.swift */,
+				01C995AC27F4F26900FE3F1F /* CardViewController+UITableViewDelegate.swift */,
 			);
 			path = BottomCard;
 			sourceTree = "<group>";
@@ -469,6 +475,7 @@
 				01A306A827F10BB10098C791 /* BannerViewController+UICollectionViewDataSource.swift in Sources */,
 				0114B2FF27F1109000D54393 /* MenuViewController.swift in Sources */,
 				01A306AE27F10C730098C791 /* MenuViewController+UICollectionViewDataSource.swift in Sources */,
+				01C995AD27F4F26900FE3F1F /* CardViewController+UITableViewDelegate.swift in Sources */,
 				01C0F28027EDC65000380895 /* CollectionViewType.swift in Sources */,
 				01A306B027F10CB10098C791 /* MenuViewController+UICollectionViewDelegate.swift in Sources */,
 				01C0F28C27EDD87900380895 /* MenuCollectionViewCell.swift in Sources */,
@@ -481,6 +488,7 @@
 				01C0F29827EDDC4200380895 /* MenuCellProtocol.swift in Sources */,
 				01C0F29027EDD8C600380895 /* MenuCellPresenterProtocol.swift in Sources */,
 				01C0F29227EDD90500380895 /* MenuHeaderSupplementaryView.swift in Sources */,
+				01C995AB27F4F25A00FE3F1F /* CardViewController+UITableViewDataSource.swift in Sources */,
 				014F1CD927F398B000D7F799 /* PresentationController.swift in Sources */,
 				01C0F28E27EDD89C00380895 /* MenuCellPresenter.swift in Sources */,
 				019ACD3927EF1A6500589642 /* BannerViewController.swift in Sources */,
