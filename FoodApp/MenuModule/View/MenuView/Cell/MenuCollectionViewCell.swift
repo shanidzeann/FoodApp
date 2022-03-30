@@ -149,6 +149,14 @@ extension MenuCollectionViewCell: MenuCellProtocol {
         titleLabel.text = title
         desctiptionLabel.text = description
         priceButton.setTitle("\(price) ₽", for: .normal)
-        menuImageView.kf.setImage(with: imageURL)
+        menuImageView.kf.setImage(with: imageURL) { result in
+            switch result {
+            case .success(_):
+                break
+            case .failure(_):
+                self.menuImageView.image = UIImage(systemName: "fork.knife.circle")
+                self.menuImageView.tintColor = .black
+            }
+        }
     }
 }
