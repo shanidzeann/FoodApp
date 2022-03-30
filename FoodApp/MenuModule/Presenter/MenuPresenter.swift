@@ -15,7 +15,7 @@ class MenuPresenter: MenuPresenterProtocol {
     weak var view: MenuViewProtocol?
     let networkManager: NetworkManagerProtocol!
     var menu: [Result<(url: String, menu: Menu), Error>]?
-    var sections = [String]()
+    var sections = [(title: String, itemsCount: Int)]()
     
     // MARK: - Init
     
@@ -65,33 +65,33 @@ class MenuPresenter: MenuPresenterProtocol {
     }
     
     private func getSectionTitles() {
-        let urls = urls()
-        for url in urls {
-            if let titleRange = url.range(of: #"=[a-z]*&"#,
+        let categories = categoriesData()
+        for category in categories {
+            if let titleRange = category.url.range(of: #"=[a-z]*&"#,
                                              options: .regularExpression) {
-                let title = url[titleRange].dropFirst().dropLast().description.capitalized
-                sections.append(title)
+                let title = category.url[titleRange].dropFirst().dropLast().description.capitalized
+                sections.append((title: title, itemsCount: category.itemsCount))
             }
         }
     }
     
-    private func urls() -> [String] {
-        var urlArray = [String]()
+    private func categoriesData() ->[(url: String, itemsCount: Int)] {
+        var categoriesData = [(url: String, itemsCount: Int)]()
         guard let menu = menu else { return [] }
         for category in menu {
             switch category {
             case .success(let result):
-                urlArray.append(result.url)
+                categoriesData.append((url: result.url, itemsCount: result.menu.menuItems.count))
             case .failure(let error):
                 print(error)
-                urlArray.append("Error")
+                categoriesData.append((url: "Error", itemsCount: 0))
             }
         }
-        return urlArray
+        return categoriesData
     }
     
     func sectionTitle(for section: Int) -> String {
-        return sections[section]
+        return sections[section].title
     }
     
 }

@@ -11,6 +11,6 @@ protocol MenuPresenterProtocol {
     func numberOfItemsInSection(_ section: Int) -> Int
     func numberOfSections() -> Int
     func menuItem(for indexPath: IndexPath) -> MenuItem?
-    var sections: [String] { get set }
+    var sections: [(title: String, itemsCount: Int)] { get set }
     func sectionTitle(for section: Int) -> String
 }

@@ -14,6 +14,7 @@ class MenuViewController: UIViewController {
     var presenter: MenuPresenterProtocol!
     var menuCollectionView: UICollectionView?
     var categoriesCollectionView: UICollectionView?
+    let cardVC = CardViewController()
     
     private let moreButton: UIButton = {
         let button = UIButton(configuration: .plain(), primaryAction: nil)
@@ -30,12 +31,13 @@ class MenuViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        configureCardVC()
         configureView()
         addSubviews()
         createCategoriesCollectionView()
         createMenuCollectionView()
+        moreButton.addTarget(self, action: #selector(didTapMore), for: .touchUpInside)
     }
-    
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
@@ -44,6 +46,17 @@ class MenuViewController: UIViewController {
     }
     
     // MARK: - UI
+    
+    @objc private func didTapMore() {
+        present(cardVC, animated: true, completion: nil)
+    }
+    
+    private func configureCardVC() {
+        cardVC.modalPresentationStyle = .custom
+        cardVC.transitioningDelegate = self
+        cardVC.sections = presenter.sections
+        cardVC.menu = self
+    }
     
     private func configureView() {
         view.backgroundColor = .systemBackground

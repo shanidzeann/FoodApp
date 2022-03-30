@@ -14,6 +14,11 @@
 		01161E9F27F30A80007695CF /* BannerViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01161E9E27F30A80007695CF /* BannerViewProtocol.swift */; };
 		01161EA127F314DE007695CF /* MenuViewController+UICollectionViewDelegateFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01161EA027F314DE007695CF /* MenuViewController+UICollectionViewDelegateFlowLayout.swift */; };
 		01161EA327F36464007695CF /* UICollectionViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01161EA227F36464007695CF /* UICollectionViewExtensions.swift */; };
+		01456F4527F46106002AF950 /* MenuDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01456F4427F46106002AF950 /* MenuDelegate.swift */; };
+		01456F4727F461FF002AF950 /* MenuViewController+MenuDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01456F4627F461FF002AF950 /* MenuViewController+MenuDelegate.swift */; };
+		014F1CD927F398B000D7F799 /* PresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 014F1CD827F398B000D7F799 /* PresentationController.swift */; };
+		014F1CDB27F3998A00D7F799 /* MenuViewController+UIViewControllerTransitioningDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 014F1CDA27F3998A00D7F799 /* MenuViewController+UIViewControllerTransitioningDelegate.swift */; };
+		014F1CDD27F39A0B00D7F799 /* CardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 014F1CDC27F39A0B00D7F799 /* CardViewController.swift */; };
 		0171492827EF80720012379E /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0171492727EF80720012379E /* HomeViewController.swift */; };
 		019ACD3927EF1A6500589642 /* BannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 019ACD3827EF1A6500589642 /* BannerViewController.swift */; };
 		01A306A127F0BD760098C791 /* BannerCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A306A027F0BD760098C791 /* BannerCollectionViewCell.swift */; };
@@ -52,6 +57,11 @@
 		01161E9E27F30A80007695CF /* BannerViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerViewProtocol.swift; sourceTree = "<group>"; };
 		01161EA027F314DE007695CF /* MenuViewController+UICollectionViewDelegateFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MenuViewController+UICollectionViewDelegateFlowLayout.swift"; sourceTree = "<group>"; };
 		01161EA227F36464007695CF /* UICollectionViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UICollectionViewExtensions.swift; sourceTree = "<group>"; };
+		01456F4427F46106002AF950 /* MenuDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuDelegate.swift; sourceTree = "<group>"; };
+		01456F4627F461FF002AF950 /* MenuViewController+MenuDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MenuViewController+MenuDelegate.swift"; sourceTree = "<group>"; };
+		014F1CD827F398B000D7F799 /* PresentationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentationController.swift; sourceTree = "<group>"; };
+		014F1CDA27F3998A00D7F799 /* MenuViewController+UIViewControllerTransitioningDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MenuViewController+UIViewControllerTransitioningDelegate.swift"; sourceTree = "<group>"; };
+		014F1CDC27F39A0B00D7F799 /* CardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardViewController.swift; sourceTree = "<group>"; };
 		0171492727EF80720012379E /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		019ACD3827EF1A6500589642 /* BannerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerViewController.swift; sourceTree = "<group>"; };
 		01A306A027F0BD760098C791 /* BannerCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -126,8 +136,19 @@
 				01A306AF27F10CB10098C791 /* MenuViewController+UICollectionViewDelegate.swift */,
 				01A306B127F10CEC0098C791 /* MenuViewController+UIScrollViewDelegate.swift */,
 				01161EA027F314DE007695CF /* MenuViewController+UICollectionViewDelegateFlowLayout.swift */,
+				014F1CDA27F3998A00D7F799 /* MenuViewController+UIViewControllerTransitioningDelegate.swift */,
+				01456F4627F461FF002AF950 /* MenuViewController+MenuDelegate.swift */,
 			);
 			path = Menu;
+			sourceTree = "<group>";
+		};
+		014F1CD727F3989000D7F799 /* BottomCard */ = {
+			isa = PBXGroup;
+			children = (
+				014F1CD827F398B000D7F799 /* PresentationController.swift */,
+				014F1CDC27F39A0B00D7F799 /* CardViewController.swift */,
+			);
+			path = BottomCard;
 			sourceTree = "<group>";
 		};
 		01A306A227F10AEA0098C791 /* HomeView */ = {
@@ -189,6 +210,7 @@
 			isa = PBXGroup;
 			children = (
 				014F1CD627F3986E00D7F799 /* Menu */,
+				014F1CD727F3989000D7F799 /* BottomCard */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -295,6 +317,7 @@
 		01C0F28627EDD21E00380895 /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
+				01456F4427F46106002AF950 /* MenuDelegate.swift */,
 				0114B30027F1124E00D54393 /* View */,
 				0114B30127F1125800D54393 /* Cell */,
 			);
@@ -442,12 +465,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				01161EA327F36464007695CF /* UICollectionViewExtensions.swift in Sources */,
+				014F1CDB27F3998A00D7F799 /* MenuViewController+UIViewControllerTransitioningDelegate.swift in Sources */,
 				01A306A827F10BB10098C791 /* BannerViewController+UICollectionViewDataSource.swift in Sources */,
 				0114B2FF27F1109000D54393 /* MenuViewController.swift in Sources */,
 				01A306AE27F10C730098C791 /* MenuViewController+UICollectionViewDataSource.swift in Sources */,
 				01C0F28027EDC65000380895 /* CollectionViewType.swift in Sources */,
 				01A306B027F10CB10098C791 /* MenuViewController+UICollectionViewDelegate.swift in Sources */,
 				01C0F28C27EDD87900380895 /* MenuCollectionViewCell.swift in Sources */,
+				01456F4727F461FF002AF950 /* MenuViewController+MenuDelegate.swift in Sources */,
+				014F1CDD27F39A0B00D7F799 /* CardViewController.swift in Sources */,
 				01A306AA27F10BED0098C791 /* BannerViewController+UICollectionViewDelegateFlowLayout.swift in Sources */,
 				01AFD60527EDBF5D0081BA4C /* AppDelegate.swift in Sources */,
 				01161E9B27F30A49007695CF /* BannerPresenter.swift in Sources */,
@@ -455,6 +481,7 @@
 				01C0F29827EDDC4200380895 /* MenuCellProtocol.swift in Sources */,
 				01C0F29027EDD8C600380895 /* MenuCellPresenterProtocol.swift in Sources */,
 				01C0F29227EDD90500380895 /* MenuHeaderSupplementaryView.swift in Sources */,
+				014F1CD927F398B000D7F799 /* PresentationController.swift in Sources */,
 				01C0F28E27EDD89C00380895 /* MenuCellPresenter.swift in Sources */,
 				019ACD3927EF1A6500589642 /* BannerViewController.swift in Sources */,
 				01A306A127F0BD760098C791 /* BannerCollectionViewCell.swift in Sources */,
@@ -467,6 +494,7 @@
 				01C0F27E27EDC58E00380895 /* Constants.swift in Sources */,
 				01161E9F27F30A80007695CF /* BannerViewProtocol.swift in Sources */,
 				01161EA127F314DE007695CF /* MenuViewController+UICollectionViewDelegateFlowLayout.swift in Sources */,
+				01456F4527F46106002AF950 /* MenuDelegate.swift in Sources */,
 				0171492827EF80720012379E /* HomeViewController.swift in Sources */,
 				01C0F28527EDD20100380895 /* MenuPresenter.swift in Sources */,
 				01B60CC327EE182F0045C827 /* Menu.swift in Sources */,
