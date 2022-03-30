@@ -44,7 +44,7 @@ class CardViewController: UIViewController {
             pointOrigin = view.frame.origin
         }
         
-        slideIdicator.layer.cornerRadius = 5
+        slideIdicator.layer.cornerRadius = 2.5
     }
     
     private func addSubviews() {
@@ -66,7 +66,7 @@ class CardViewController: UIViewController {
         
         slideIdicator.snp.makeConstraints { make in
             make.center.equalToSuperview()
-            make.height.equalTo(10)
+            make.height.equalTo(5)
             make.width.equalTo(70)
         }
         
@@ -99,26 +99,5 @@ class CardViewController: UIViewController {
             }
         }
         
-    }
-}
-
-extension CardViewController: UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return sections.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        cell.textLabel?.text = "\(sections[indexPath.row].title) \(sections[indexPath.row].itemsCount)"
-        return cell
-    }
-}
-
-extension CardViewController: UITableViewDelegate {
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true)
-        dismiss(animated: true, completion: nil)
-        NotificationCenter.default.post(name: NSNotification.Name("animateTransitionIfNeeded"), object: nil)
-        menu?.showCategory(at: indexPath)
     }
 }
