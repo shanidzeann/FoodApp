@@ -33,6 +33,7 @@ class CardViewController: UIViewController {
         addSubviews()
         configureTableView()
         setupConstraints()
+        setGestureRecognizer()
         
         slideIdicator.backgroundColor = UIColor.darkGray
         view.backgroundColor = .systemBackground
@@ -49,7 +50,7 @@ class CardViewController: UIViewController {
     
     private func addSubviews() {
         view.addSubview(panGestureView)
-        panGestureView.addSubview(slideIdicator)
+        view.addSubview(slideIdicator)
         view.addSubview(tableView)
     }
     
@@ -65,7 +66,7 @@ class CardViewController: UIViewController {
         }
         
         slideIdicator.snp.makeConstraints { make in
-            make.center.equalToSuperview()
+            make.center.equalTo(panGestureView)
             make.height.equalTo(5)
             make.width.equalTo(70)
         }
@@ -89,8 +90,8 @@ class CardViewController: UIViewController {
         view.frame.origin = CGPoint(x: 0, y: self.pointOrigin!.y + translation.y)
         
         if sender.state == .ended {
-            let dragVelocity = sender.velocity(in: view)
-            if dragVelocity.y >= 1300 {
+            let velocity = sender.velocity(in: view)
+            if velocity.y >= 1300 {
                 self.dismiss(animated: true, completion: nil)
             } else {
                 UIView.animate(withDuration: 0.3) {
