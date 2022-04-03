@@ -9,7 +9,7 @@ import UIKit
 
 class PresentationController: UIPresentationController {
     
-    let blurEffectView: UIVisualEffectView!
+    let blurEffectView: UIVisualEffectView
     var tapGestureRecognizer: UITapGestureRecognizer!
     
     override init(presentedViewController: UIViewController, presenting presentingViewController: UIViewController?) {
@@ -58,7 +58,7 @@ class PresentationController: UIPresentationController {
         blurEffectView.frame = containerView!.bounds
     }
     
-    @objc func dismissController(){
+    @objc func dismissController() {
         self.presentedViewController.dismiss(animated: true, completion: nil)
     }
 }
