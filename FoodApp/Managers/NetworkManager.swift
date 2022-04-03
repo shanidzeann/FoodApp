@@ -9,10 +9,10 @@ import Foundation
 
 class NetworkManager: NetworkManagerProtocol {
     
-    let pizzaURL = URL(string: "https://api.spoonacular.com/food/menuItems/search?query=pizza&apiKey=79cc381a96da454889639c69fa3edc2d")
-    let burgerURL = URL(string: "https://api.spoonacular.com/food/menuItems/search?query=burger&apiKey=79cc381a96da454889639c69fa3edc2d")
-    let soupURL = URL(string: "https://api.spoonacular.com/food/menuItems/search?query=soup&apiKey=79cc381a96da454889639c69fa3edc2d")
-    let wokURL = URL(string: "https://api.spoonacular.com/food/menuItems/search?query=wok&apiKey=79cc381a96da454889639c69fa3edc2d")
+    let pizzaURL = URL(string: "https://api.spoonacular.com/food/menuItems/search?query=pizza&apiKey=\(yourKey)")
+    let burgerURL = URL(string: "https://api.spoonacular.com/food/menuItems/search?query=burger&apiKey=\(yourKey)")
+    let soupURL = URL(string: "https://api.spoonacular.com/food/menuItems/search?query=soup&apiKey=\(yourKey)")
+    let wokURL = URL(string: "https://api.spoonacular.com/food/menuItems/search?query=wok&apiKey=\(yourKey)")
     
     func downloadMenu(completion: @escaping ([Result<(url: String, menu: Menu), Error>]) -> Void) {
         guard let pizzaURL = pizzaURL,
