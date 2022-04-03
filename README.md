@@ -4,6 +4,7 @@
 - MVP
 - Верстка кодом
 - UIPanGestureRecognizer 
+- UITapGestureRecognizer 
 - UIViewPropertyAnimator
 - UIVisualEffectView
 - UIPresentationController 
