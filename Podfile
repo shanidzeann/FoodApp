@@ -9,5 +9,6 @@ target 'FoodApp' do
   
   pod 'SnapKit'
   pod 'Kingfisher'
+  pod 'SQLite.swift', '~> 0.13.3'
 
 end

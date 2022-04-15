@@ -52,6 +52,7 @@ class MenuViewController: UIViewController {
     }
     
     private func configureCardVC() {
+        #warning("переделать")
         cardVC.modalPresentationStyle = .custom
         cardVC.transitioningDelegate = self
         cardVC.sections = presenter.sections

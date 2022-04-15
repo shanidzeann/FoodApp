@@ -13,7 +13,7 @@ extension CardViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: Constants.TableView.CellIdentifiers.cardCell, for: indexPath)
         let cellText = "\(sections[indexPath.row].title) \(sections[indexPath.row].itemsCount)"
         let itemsCount = "\(sections[indexPath.row].itemsCount)"
         

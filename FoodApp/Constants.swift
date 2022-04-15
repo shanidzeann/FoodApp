@@ -21,4 +21,11 @@ enum Constants {
         }
     }
     
+    enum TableView {
+        enum CellIdentifiers {
+            static let cartCell = "cartCell"
+            static let cardCell = "cardCell"
+        }
+    }
+    
 }

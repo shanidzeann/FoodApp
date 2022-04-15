@@ -99,7 +99,7 @@ class HomeViewController: UIViewController {
     
     private func configureNavBar() {
         navigationItem.leftBarButtonItem = UIBarButtonItem(
-            image: UIImage(systemName: "chevron.left"),
+            image: UIImage(systemName: "text.justify.left"),
             style: .plain,
             target: self,
             action: nil
@@ -109,10 +109,28 @@ class HomeViewController: UIViewController {
             image: UIImage(systemName: "cart"),
             style: .plain,
             target: self,
-            action: nil
+            action: #selector(showShoppingCart)
         )
+        
+        navigationController?.navigationBar.prefersLargeTitles = false
         navigationController?.navigationBar.tintColor = .black
         navigationController?.navigationBar.barTintColor = .systemBackground
+        navigationController?.navigationItem.backButtonTitle = ""
+
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.navigationBar.prefersLargeTitles = false
+    }
+    
+    @objc private func showShoppingCart() {
+        let cartVC = CartViewController()
+        let databaseManager = DatabaseManager()
+        let cartPresenter = CartPresenter(view: cartVC, databaseManager: databaseManager)
+        cartVC.presenter = cartPresenter
+        
+        navigationController?.pushViewController(cartVC, animated: true)
     }
     
     // MARK: - PanGestureRecognizer
