@@ -83,7 +83,6 @@ class DatabaseManager: DatabaseManagerProtocol {
         var items = [Item]()
         do {
             for row in try db!.prepare("SELECT title, description, price FROM dishes") {
-                print("id: \(row[0]), title: \(row[1])")
                 let title = row[0] as! String
                 let description = row[1] as! String
                 let price = row[2] as! Int64

@@ -10,7 +10,3 @@ import Foundation
 protocol CartCellPresenterProtocol {
     
 }
-
-class CartCellPresenter: CartCellPresenterProtocol {
-    
-}
