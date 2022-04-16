@@ -8,7 +8,8 @@
 import Foundation
 
 protocol DatabaseManagerProtocol {
-    func getItems() -> [CartItem]
+    func getItems()
     func addToDB(id: Int, title: String, description: String, price: Int, count: Int)
     func deleteFromDB(id: Int)
+    var items: [CartItem]? { get set }
 }

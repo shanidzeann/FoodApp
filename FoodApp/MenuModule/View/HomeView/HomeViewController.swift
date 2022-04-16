@@ -126,7 +126,7 @@ class HomeViewController: UIViewController {
     
     @objc private func showShoppingCart() {
         let cartVC = CartViewController()
-        let databaseManager = DatabaseManager()
+        let databaseManager = DatabaseManager.shared
         let cartPresenter = CartPresenter(view: cartVC, databaseManager: databaseManager)
         cartVC.presenter = cartPresenter
         

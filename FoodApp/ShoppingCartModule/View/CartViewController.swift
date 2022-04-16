@@ -38,10 +38,6 @@ class CartViewController: UIViewController {
         setupConstraints()
         
         configureTableView()
-        
-        presenter.addToCart(CartItem(id: 1, title: "food", description: "d", price: 221, count: 1))
-
-        
     }
     
     private func configureTableView() {
@@ -79,7 +75,7 @@ extension CartViewController: UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: Constants.TableView.CellIdentifiers.cartCell, for: indexPath) as! CartTableViewCell
         
         if let item = presenter.cartItem(for: indexPath) {
-            let databaseManager = DatabaseManager()
+            let databaseManager = DatabaseManager.shared
             let cellPresenter = CartCellPresenter(view: cell, databaseManager: databaseManager, item: item)
             cell.inject(presenter: cellPresenter, delegate: self)
             
@@ -100,7 +96,6 @@ extension CartViewController: CartViewProtocol {
 
 extension CartViewController: CartDelegate {
     func reloadData() {
-        presenter.getCart()
         tableView.reloadData()
     }
 }

@@ -10,6 +10,8 @@ import SQLite
 
 class DatabaseManager: DatabaseManagerProtocol {
     
+    static let shared = DatabaseManager()
+    
     var db: Connection?
     var dishes = Table("dishes")
     
@@ -19,10 +21,13 @@ class DatabaseManager: DatabaseManagerProtocol {
     let description = Expression<String>("description")
     let count = Expression<Int>("count")
     
+    var items: [CartItem]?
     
     init() {
         connectToDB()
         createTable()
+        getItems()
+        print(items)
     }
     
     private func connectToDB() {
@@ -75,6 +80,7 @@ class DatabaseManager: DatabaseManagerProtocol {
         } catch {
             print(error)
         }
+        getItems()
     }
     
     func deleteFromDB(id: Int) {
@@ -86,9 +92,10 @@ class DatabaseManager: DatabaseManagerProtocol {
         } catch {
             print(error)
         }
+        getItems()
     }
     
-    func getItems() -> [CartItem] {
+    func getItems() {
         var items = [CartItem]()
         do {
             for row in try db!.prepare("SELECT id, title, description, price, count FROM dishes") {
@@ -103,7 +110,6 @@ class DatabaseManager: DatabaseManagerProtocol {
         } catch {
             print(error)
         }
-        print(items)
-        return items
+        self.items = items
     }
 }
