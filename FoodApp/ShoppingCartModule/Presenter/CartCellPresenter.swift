@@ -27,7 +27,7 @@ class CartCellPresenter: CartCellPresenterProtocol {
     
     func addToCart() {
         guard let cartItem = cartItem else { return }
-        databaseManager.addToDB(id: cartItem.id, title: cartItem.title, description: cartItem.description, price: cartItem.price, count: 0)
+        databaseManager.addToDB(id: cartItem.id, title: cartItem.title, description: cartItem.description, price: cartItem.price, imageUrl: cartItem.imageUrl, count: 0)
         view?.reloadData()
     }
     
@@ -43,7 +43,8 @@ class CartCellPresenter: CartCellPresenterProtocol {
         let description = cartItem.description
         let price = String(cartItem.price)
         let count = String(cartItem.count)
+        let imageUrl = cartItem.imageUrl
 
-        view?.setData(title: title, description: description, price: price, count: count)
+        view?.setData(title: title, description: description, price: price, imageUrl: imageUrl, count: count)
     }
 }

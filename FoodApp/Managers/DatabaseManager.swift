@@ -19,6 +19,7 @@ class DatabaseManager: DatabaseManagerProtocol {
     let title = Expression<String>("title")
     let price = Expression<Int>("price")
     let description = Expression<String>("description")
+    let imageUrl = Expression<String>("imageUrl")
     let count = Expression<Int>("count")
     
     var items: [CartItem]?
@@ -66,6 +67,7 @@ class DatabaseManager: DatabaseManagerProtocol {
                 t.column(title)
                 t.column(description)
                 t.column(price)
+                t.column(imageUrl)
                 t.column(count)
             })
         } catch {
@@ -73,10 +75,10 @@ class DatabaseManager: DatabaseManagerProtocol {
         }
     }
     
-    func addToDB(id: Int, title: String, description: String, price: Int, count: Int) {
+    func addToDB(id: Int, title: String, description: String, price: Int, imageUrl: String, count: Int) {
         do {
-            let stmt = try db?.prepare("INSERT INTO dishes VALUES (?, ?, ?, ?, ?) ON CONFLICT(id) DO UPDATE SET count = count + 1")
-            try stmt?.run(id, title, description, price, count)
+            let stmt = try db?.prepare("INSERT INTO dishes VALUES (?, ?, ?, ?, ?, ?) ON CONFLICT(id) DO UPDATE SET count = count + 1")
+            try stmt?.run(id, title, description, price, imageUrl, count)
         } catch {
             print(error)
         }
@@ -98,13 +100,14 @@ class DatabaseManager: DatabaseManagerProtocol {
     func getItems() {
         var items = [CartItem]()
         do {
-            for row in try db!.prepare("SELECT id, title, description, price, count FROM dishes") {
+            for row in try db!.prepare("SELECT id, title, description, price, imageUrl, count FROM dishes") {
                 let id = row[0] as! Int64
                 let title = row[1] as! String
                 let description = row[2] as! String
                 let price = row[3] as! Int64
-                let count = row[4] as! Int64
-                let item = CartItem(id: Int(id), title: title, description: description, price: Int(price), count: Int(count))
+                let image = row[4] as! String
+                let count = row[5] as! Int64
+                let item = CartItem(id: Int(id), title: title, description: description, price: Int(price), imageUrl: image, count: Int(count))
                 items.append(item)
             }
         } catch {

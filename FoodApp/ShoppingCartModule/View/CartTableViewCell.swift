@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class CartTableViewCell: UITableViewCell {
 
@@ -143,13 +144,13 @@ class CartTableViewCell: UITableViewCell {
         priceLabel.snp.makeConstraints { make in
             make.left.equalTo(desctiptionLabel)
             make.bottom.equalToSuperview().inset(5)
-            make.height.equalTo(20)
+            make.height.equalTo(25)
             make.right.lessThanOrEqualTo(deleteButton.snp.left)
         }
         
         addButton.snp.makeConstraints { make in
             make.right.equalTo(titleLabel)
-            make.height.width.equalTo(20)
+            make.height.width.equalTo(25)
             make.bottom.equalTo(priceLabel)
         }
         
@@ -178,10 +179,18 @@ extension CartTableViewCell: CartCellProtocol {
         cartDelegate.reloadData()
     }
     
-    func setData(title: String, description: String, price: String, count: String) {
+    func setData(title: String, description: String, price: String, imageUrl: String, count: String) {
         titleLabel.text = title
         desctiptionLabel.text = description
         priceLabel.text = price
         countLabel.text = count
-    }
+        cartImageView.kf.setImage(with: URL(string: imageUrl)) { result in
+            switch result {
+            case .success(_):
+                break
+            case .failure(_):
+                self.cartImageView.image = UIImage(systemName: "fork.knife.circle")
+                self.cartImageView.tintColor = .black
+            }
+        }    }
 }

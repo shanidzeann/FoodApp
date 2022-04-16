@@ -43,7 +43,7 @@ class MenuCellPresenter: MenuCellPresenterProtocol {
     
     func addToCart() {
         guard let menuItem = menuItem, let title = title, let description = description, let price = price else { return }
-        databaseManager.addToDB(id: menuItem.id, title: title, description: description, price: price, count: 1)
+        databaseManager.addToDB(id: menuItem.id, title: title, description: description, price: price, imageUrl: menuItem.image, count: 1)
         view?.reloadData()
     }
     

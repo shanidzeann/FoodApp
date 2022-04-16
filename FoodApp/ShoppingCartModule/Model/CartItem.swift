@@ -12,5 +12,6 @@ struct CartItem {
     let title: String
     let description: String
     let price: Int
+    let imageUrl: String
     var count: Int
 }
