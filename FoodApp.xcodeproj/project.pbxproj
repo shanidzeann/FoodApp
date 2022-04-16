@@ -17,6 +17,8 @@
 		01456F4527F46106002AF950 /* MenuDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01456F4427F46106002AF950 /* MenuDelegate.swift */; };
 		01456F4727F461FF002AF950 /* MenuViewController+MenuDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01456F4627F461FF002AF950 /* MenuViewController+MenuDelegate.swift */; };
 		014E94192809E4DD00143B32 /* CartCellPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 014E94182809E4DD00143B32 /* CartCellPresenter.swift */; };
+		014E941C2809E72000143B32 /* CartPresenterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 014E941B2809E72000143B32 /* CartPresenterProtocol.swift */; };
+		014E941E2809E99900143B32 /* DatabaseManagerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 014E941D2809E99900143B32 /* DatabaseManagerProtocol.swift */; };
 		014F1CD927F398B000D7F799 /* PresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 014F1CD827F398B000D7F799 /* PresentationController.swift */; };
 		014F1CDB27F3998A00D7F799 /* MenuViewController+UIViewControllerTransitioningDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 014F1CDA27F3998A00D7F799 /* MenuViewController+UIViewControllerTransitioningDelegate.swift */; };
 		014F1CDD27F39A0B00D7F799 /* CardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 014F1CDC27F39A0B00D7F799 /* CardViewController.swift */; };
@@ -29,7 +31,7 @@
 		01A0483A280737E1001CB6B6 /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A04839280737E1001CB6B6 /* DatabaseManager.swift */; };
 		01A0483C28082390001CB6B6 /* CartPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A0483B28082390001CB6B6 /* CartPresenter.swift */; };
 		01A0483E2808240A001CB6B6 /* CartViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A0483D2808240A001CB6B6 /* CartViewProtocol.swift */; };
-		01A04840280854D7001CB6B6 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A0483F280854D7001CB6B6 /* Item.swift */; };
+		01A04840280854D7001CB6B6 /* CartItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A0483F280854D7001CB6B6 /* CartItem.swift */; };
 		01A306A127F0BD760098C791 /* BannerCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A306A027F0BD760098C791 /* BannerCollectionViewCell.swift */; };
 		01A306A627F10B530098C791 /* HomeViewController+UIGestureRecognizerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A306A527F10B530098C791 /* HomeViewController+UIGestureRecognizerDelegate.swift */; };
 		01A306A827F10BB10098C791 /* BannerViewController+UICollectionViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A306A727F10BB10098C791 /* BannerViewController+UICollectionViewDataSource.swift */; };
@@ -84,6 +86,8 @@
 		01456F4427F46106002AF950 /* MenuDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuDelegate.swift; sourceTree = "<group>"; };
 		01456F4627F461FF002AF950 /* MenuViewController+MenuDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MenuViewController+MenuDelegate.swift"; sourceTree = "<group>"; };
 		014E94182809E4DD00143B32 /* CartCellPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartCellPresenter.swift; sourceTree = "<group>"; };
+		014E941B2809E72000143B32 /* CartPresenterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartPresenterProtocol.swift; sourceTree = "<group>"; };
+		014E941D2809E99900143B32 /* DatabaseManagerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseManagerProtocol.swift; sourceTree = "<group>"; };
 		014F1CD827F398B000D7F799 /* PresentationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentationController.swift; sourceTree = "<group>"; };
 		014F1CDA27F3998A00D7F799 /* MenuViewController+UIViewControllerTransitioningDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MenuViewController+UIViewControllerTransitioningDelegate.swift"; sourceTree = "<group>"; };
 		014F1CDC27F39A0B00D7F799 /* CardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardViewController.swift; sourceTree = "<group>"; };
@@ -97,7 +101,7 @@
 		01A04839280737E1001CB6B6 /* DatabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = "<group>"; };
 		01A0483B28082390001CB6B6 /* CartPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartPresenter.swift; sourceTree = "<group>"; };
 		01A0483D2808240A001CB6B6 /* CartViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartViewProtocol.swift; sourceTree = "<group>"; };
-		01A0483F280854D7001CB6B6 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
+		01A0483F280854D7001CB6B6 /* CartItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartItem.swift; sourceTree = "<group>"; };
 		01A306A027F0BD760098C791 /* BannerCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerCollectionViewCell.swift; sourceTree = "<group>"; };
 		01A306A527F10B530098C791 /* HomeViewController+UIGestureRecognizerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeViewController+UIGestureRecognizerDelegate.swift"; sourceTree = "<group>"; };
 		01A306A727F10BB10098C791 /* BannerViewController+UICollectionViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BannerViewController+UICollectionViewDataSource.swift"; sourceTree = "<group>"; };
@@ -186,7 +190,7 @@
 		014E94162809E4A100143B32 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				01A0483F280854D7001CB6B6 /* Item.swift */,
+				01A0483F280854D7001CB6B6 /* CartItem.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -204,6 +208,7 @@
 			isa = PBXGroup;
 			children = (
 				01A0483D2808240A001CB6B6 /* CartViewProtocol.swift */,
+				014E941B2809E72000143B32 /* CartPresenterProtocol.swift */,
 				01F6C4B22809A4D100EABCE2 /* CartCellProtocol.swift */,
 				01F6C4B02809A48200EABCE2 /* CartCellPresenterProtocol.swift */,
 			);
@@ -438,6 +443,7 @@
 				01B60CC427EE195E0045C827 /* NetworkManager.swift */,
 				01B60CC627EE19830045C827 /* NetworkManagerProtocol.swift */,
 				01A04839280737E1001CB6B6 /* DatabaseManager.swift */,
+				014E941D2809E99900143B32 /* DatabaseManagerProtocol.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -622,7 +628,7 @@
 				01C0F28027EDC65000380895 /* CollectionViewType.swift in Sources */,
 				01A048382807242C001CB6B6 /* CartViewController.swift in Sources */,
 				01A306B027F10CB10098C791 /* MenuViewController+UICollectionViewDelegate.swift in Sources */,
-				01A04840280854D7001CB6B6 /* Item.swift in Sources */,
+				01A04840280854D7001CB6B6 /* CartItem.swift in Sources */,
 				01C0F28C27EDD87900380895 /* MenuCollectionViewCell.swift in Sources */,
 				01456F4727F461FF002AF950 /* MenuViewController+MenuDelegate.swift in Sources */,
 				014F1CDD27F39A0B00D7F799 /* CardViewController.swift in Sources */,
@@ -630,6 +636,7 @@
 				01F6C4AF2809A3ED00EABCE2 /* CartTableViewCell.swift in Sources */,
 				01AFD60527EDBF5D0081BA4C /* AppDelegate.swift in Sources */,
 				01161E9B27F30A49007695CF /* BannerPresenter.swift in Sources */,
+				014E941C2809E72000143B32 /* CartPresenterProtocol.swift in Sources */,
 				01C0F28A27EDD26200380895 /* MenuViewProtocol.swift in Sources */,
 				01C0F29827EDDC4200380895 /* MenuCellProtocol.swift in Sources */,
 				01C0F29027EDD8C600380895 /* MenuCellPresenterProtocol.swift in Sources */,
@@ -649,6 +656,7 @@
 				01B60CC727EE19830045C827 /* NetworkManagerProtocol.swift in Sources */,
 				01B60CC527EE195E0045C827 /* NetworkManager.swift in Sources */,
 				01AFD60727EDBF5D0081BA4C /* SceneDelegate.swift in Sources */,
+				014E941E2809E99900143B32 /* DatabaseManagerProtocol.swift in Sources */,
 				01161E9D27F30A69007695CF /* BannerPresenterProtocol.swift in Sources */,
 				01C0F27E27EDC58E00380895 /* Constants.swift in Sources */,
 				01161E9F27F30A80007695CF /* BannerViewProtocol.swift in Sources */,

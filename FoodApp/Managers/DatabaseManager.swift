@@ -8,20 +8,17 @@
 import Foundation
 import SQLite
 
-protocol DatabaseManagerProtocol {
-    func getItems() -> [Item]
-    func addToDB(title: String, description: String, price: Int)
-}
-
 class DatabaseManager: DatabaseManagerProtocol {
     
     var db: Connection?
     var dishes = Table("dishes")
     
-    let id = Expression<Int64>("id")
+    let id = Expression<Int>("id")
     let title = Expression<String>("title")
-    let price = Expression<Int64>("price")
+    let price = Expression<Int>("price")
     let description = Expression<String>("description")
+    let count = Expression<Int>("count")
+    
     
     init() {
         connectToDB()
@@ -33,7 +30,7 @@ class DatabaseManager: DatabaseManagerProtocol {
             let path = NSSearchPathForDirectoriesInDomains(
                 .documentDirectory, .userDomainMask, true
             ).first!
-       //     copyDatabaseIfNeeded(sourcePath: Bundle.main.path(forResource: "db", ofType: "sqlite3")!)
+            //     copyDatabaseIfNeeded(sourcePath: Bundle.main.path(forResource: "db", ofType: "sqlite3")!)
             db = try Connection("\(path)/db.sqlite3")
         } catch {
             print(error)
@@ -50,7 +47,7 @@ class DatabaseManager: DatabaseManagerProtocol {
             try FileManager.default.copyItem(atPath: sourcePath, toPath: destinationPath)
             return true
         } catch {
-          print("error during file copy: \(error)")
+            print("error during file copy: \(error)")
             return false
         }
     }
@@ -62,31 +59,45 @@ class DatabaseManager: DatabaseManagerProtocol {
             try db.run(dishes.create(ifNotExists: true) { t in
                 t.column(id, primaryKey: true)
                 t.column(title)
-                t.column(price)
                 t.column(description)
+                t.column(price)
+                t.column(count)
             })
         } catch {
             print(error)
         }
     }
     
-    func addToDB(title: String, description: String, price: Int) {
+    func addToDB(id: Int, title: String, description: String, price: Int, count: Int) {
         do {
-            let stmt = try db?.prepare("INSERT INTO dishes (title, description, price) VALUES (?, ?, ?)")
-            try stmt?.run(title, description, price)
+            let stmt = try db?.prepare("INSERT INTO dishes VALUES (?, ?, ?, ?, ?) ON CONFLICT(id) DO UPDATE SET count = count + 1")
+            try stmt?.run(id, title, description, price, count)
         } catch {
             print(error)
         }
     }
     
-    func getItems() -> [Item] {
-        var items = [Item]()
+    func deleteFromDB(id: Int) {
         do {
-            for row in try db!.prepare("SELECT title, description, price FROM dishes") {
-                let title = row[0] as! String
-                let description = row[1] as! String
-                let price = row[2] as! Int64
-                let item = Item(title: title, description: description, price: Int(price))
+            let updateStmt = try db?.prepare("UPDATE dishes SET count = CASE WHEN count > 0 THEN count - 1 ELSE 0 END WHERE id = (?)")
+            try updateStmt?.run(id)
+            let deleteStmt = try db?.prepare("DELETE FROM dishes WHERE count = 0 AND id = (?)")
+            try deleteStmt?.run(id)
+        } catch {
+            print(error)
+        }
+    }
+    
+    func getItems() -> [CartItem] {
+        var items = [CartItem]()
+        do {
+            for row in try db!.prepare("SELECT id, title, description, price, count FROM dishes") {
+                let id = row[0] as! Int64
+                let title = row[1] as! String
+                let description = row[2] as! String
+                let price = row[3] as! Int64
+                let count = row[4] as! Int64
+                let item = CartItem(id: Int(id), title: title, description: description, price: Int(price), count: Int(count))
                 items.append(item)
             }
         } catch {

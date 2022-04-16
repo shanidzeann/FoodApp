@@ -39,7 +39,8 @@ class CartViewController: UIViewController {
         
         configureTableView()
         
-        presenter.addToCart(Item(title: "food", description: "d", price: 221))
+        presenter.addToCart(CartItem(id: 1, title: "food", description: "d", price: 221, count: 1))
+
         
     }
     
@@ -77,6 +78,12 @@ extension CartViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: Constants.TableView.CellIdentifiers.cartCell, for: indexPath) as! CartTableViewCell
         
+        if let item = presenter.cartItem(for: indexPath) {
+            let databaseManager = DatabaseManager()
+            let cellPresenter = CartCellPresenter(view: cell, databaseManager: databaseManager, item: item)
+            cell.inject(presenter: cellPresenter, delegate: self)
+            
+        }
         
         return cell
     }
@@ -89,4 +96,11 @@ extension CartViewController: UITableViewDelegate {
 
 extension CartViewController: CartViewProtocol {
     
+}
+
+extension CartViewController: CartDelegate {
+    func reloadData() {
+        presenter.getCart()
+        tableView.reloadData()
+    }
 }

@@ -8,5 +8,6 @@
 import Foundation
 
 protocol CartCellPresenterProtocol {
-    
+    func addToCart()
+    func deleteFromCart()
 }

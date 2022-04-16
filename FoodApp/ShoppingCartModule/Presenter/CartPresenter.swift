@@ -7,11 +7,6 @@
 
 import Foundation
 
-protocol CartPresenterProtocol {
-    func addToCart(_ item: Item)
-    func numberOfRowsInSection(_ section: Int) -> Int
-}
-
 class CartPresenter: CartPresenterProtocol {
     
     // MARK: - Properties
@@ -19,7 +14,7 @@ class CartPresenter: CartPresenterProtocol {
     weak var view: CartViewProtocol?
     var databaseManager: DatabaseManagerProtocol!
     
-    var items: [Item]?
+    var items: [CartItem]?
     
     // MARK: - Init
     
@@ -29,17 +24,22 @@ class CartPresenter: CartPresenterProtocol {
         getCart()
     }
     
-    private func getCart() {
+    func getCart() {
         items = databaseManager.getItems()
     }
     
-    func addToCart(_ item: Item) {
-        databaseManager.addToDB(title: item.title, description: item.description, price: item.price)
+    func addToCart(_ item: CartItem) {
+        databaseManager.addToDB(id: item.id, title: item.title, description: item.description, price: item.price, count: 1)
     }
     
     func numberOfRowsInSection(_ section: Int) -> Int {
         return items?.count ?? 0
     }
     
+    func cartItem(for indexPath: IndexPath) -> CartItem? {
+        return items?[indexPath.row]
+    }
+    
     
 }
+

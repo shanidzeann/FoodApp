@@ -8,5 +8,6 @@
 import Foundation
 
 protocol CartCellProtocol: AnyObject {
-    
+    func setData(title: String, description: String, price: String, count: String)
+    func reloadData()
 }

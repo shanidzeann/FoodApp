@@ -12,6 +12,7 @@ class CartTableViewCell: UITableViewCell {
     // MARK: - Properties
     
     private var presenter: CartCellPresenterProtocol!
+    private var cartDelegate: CartDelegate!
     
     // MARK: - UI
     
@@ -65,14 +66,14 @@ class CartTableViewCell: UITableViewCell {
     private let addButton: UIButton = {
         let button = UIButton(configuration: .plain(), primaryAction: nil)
         button.setImage(UIImage(systemName: "plus"), for: .normal)
-        button.tintColor = .white
+        button.tintColor = .label
         return button
     }()
     
     private let deleteButton: UIButton = {
         let button = UIButton(configuration: .plain(), primaryAction: nil)
         button.setImage(UIImage(systemName: "minus"), for: .normal)
-        button.tintColor = .white
+        button.tintColor = .label
         return button
     }()
     
@@ -82,6 +83,9 @@ class CartTableViewCell: UITableViewCell {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         createUI()
         configureView()
+        
+        addButton.addTarget(self, action: #selector(didTapAdd), for: .touchUpInside)
+        deleteButton.addTarget(self, action: #selector(didTapDelete), for: .touchUpInside)
     }
     
     required init?(coder: NSCoder) {
@@ -90,12 +94,21 @@ class CartTableViewCell: UITableViewCell {
     
     // MARK: - Helper Methods
     
-    func inject(presenter: CartCellPresenterProtocol) {
+    func inject(presenter: CartCellPresenterProtocol, delegate: CartDelegate) {
         self.presenter = presenter
+        self.cartDelegate = delegate
     }
     
     func configure(with item: MenuItem) {
       //  presenter.configure(with: item)
+    }
+    
+    @objc private func didTapAdd() {
+        presenter.addToCart()
+    }
+    
+    @objc private func didTapDelete() {
+        presenter.deleteFromCart()
     }
     
     private func configureView() {
@@ -163,4 +176,18 @@ class CartTableViewCell: UITableViewCell {
     }
     
 
+}
+
+extension CartTableViewCell: CartCellProtocol {
+    
+    func reloadData() {
+        cartDelegate.reloadData()
+    }
+    
+    func setData(title: String, description: String, price: String, count: String) {
+        titleLabel.text = title
+        desctiptionLabel.text = description
+        priceLabel.text = price
+        countLabel.text = count
+    }
 }
