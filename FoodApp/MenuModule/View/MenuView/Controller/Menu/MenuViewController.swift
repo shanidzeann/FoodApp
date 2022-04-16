@@ -136,3 +136,9 @@ class MenuViewController: UIViewController {
 extension MenuViewController: MenuViewProtocol {
     
 }
+
+extension MenuViewController: CartDelegate {
+    func reloadData() {
+        // или не надо
+    }
+}

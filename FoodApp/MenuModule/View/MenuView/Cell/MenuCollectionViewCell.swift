@@ -14,6 +14,7 @@ class MenuCollectionViewCell: UICollectionViewCell {
     // MARK: - Properties
     
     private var presenter: MenuCellPresenterProtocol!
+    private var cartDelegate: CartDelegate!
     
     // MARK: - UI
     
@@ -62,6 +63,8 @@ class MenuCollectionViewCell: UICollectionViewCell {
         
         createUI()
         configureView()
+        
+        priceButton.addTarget(self, action: #selector(didTapBuy), for: .touchUpInside)
     }
     
     required init?(coder: NSCoder) {
@@ -79,8 +82,13 @@ class MenuCollectionViewCell: UICollectionViewCell {
     
     // MARK: - Helper Methods
     
-    func inject(presenter: MenuCellPresenterProtocol) {
+    @objc private func didTapBuy() {
+        presenter.addToCart()
+    }
+    
+    func inject(presenter: MenuCellPresenterProtocol, cartDelegate: CartDelegate) {
         self.presenter = presenter
+        self.cartDelegate = cartDelegate
     }
     
     func configure(with item: MenuItem) {
@@ -158,5 +166,9 @@ extension MenuCollectionViewCell: MenuCellProtocol {
                 self.menuImageView.tintColor = .black
             }
         }
+    }
+    
+    func reloadData() {
+        cartDelegate.reloadData()
     }
 }

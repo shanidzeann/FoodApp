@@ -41,7 +41,6 @@ class CartViewController: UIViewController {
     }
     
     private func configureTableView() {
-        tableView.delegate = self
         tableView.dataSource = self
         tableView.rowHeight = view.frame.height/5
         tableView.allowsSelection = false
@@ -83,10 +82,6 @@ extension CartViewController: UITableViewDataSource {
         
         return cell
     }
-    
-}
-
-extension CartViewController: UITableViewDelegate {
     
 }
 

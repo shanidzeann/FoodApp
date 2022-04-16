@@ -40,11 +40,13 @@ extension MenuViewController: UICollectionViewDataSource {
             return  cell
         case .menu:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Constants.CollectionView.CellIdentifiers.menuCell, for: indexPath) as! MenuCollectionViewCell
-            let cellPresenter = MenuCellPresenter(view: cell)
-            cell.inject(presenter: cellPresenter)
+            
+            let dbManager = DatabaseManager.shared
             if let item = presenter.menuItem(for: indexPath) {
-                cell.configure(with: item)
+                let cellPresenter = MenuCellPresenter(view: cell, databaseManager: dbManager, item: item)
+                cell.inject(presenter: cellPresenter, cartDelegate: self)
             }
+            
             return cell
         }
     }

@@ -99,10 +99,6 @@ class CartTableViewCell: UITableViewCell {
         self.cartDelegate = delegate
     }
     
-    func configure(with item: MenuItem) {
-      //  presenter.configure(with: item)
-    }
-    
     @objc private func didTapAdd() {
         presenter.addToCart()
     }
@@ -174,8 +170,6 @@ class CartTableViewCell: UITableViewCell {
         cartImageView.kf.setImage(with: URL(string: ""))
         cartImageView.image = nil
     }
-    
-
 }
 
 extension CartTableViewCell: CartCellProtocol {
