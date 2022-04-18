@@ -14,7 +14,6 @@ class MenuCollectionViewCell: UICollectionViewCell {
     // MARK: - Properties
     
     private var presenter: MenuCellPresenterProtocol!
-    private var cartDelegate: CartDelegate!
     
     // MARK: - UI
     
@@ -63,8 +62,7 @@ class MenuCollectionViewCell: UICollectionViewCell {
         
         createUI()
         configureView()
-        
-        priceButton.addTarget(self, action: #selector(didTapBuy), for: .touchUpInside)
+        addTargets()
     }
     
     required init?(coder: NSCoder) {
@@ -82,17 +80,20 @@ class MenuCollectionViewCell: UICollectionViewCell {
     
     // MARK: - Helper Methods
     
-    @objc private func didTapBuy() {
-        presenter.addToCart()
-    }
-    
-    func inject(presenter: MenuCellPresenterProtocol, cartDelegate: CartDelegate) {
+    func inject(presenter: MenuCellPresenterProtocol) {
         self.presenter = presenter
-        self.cartDelegate = cartDelegate
     }
     
     func configure(with item: MenuItem) {
         presenter.configure(with: item)
+    }
+    
+    private func addTargets() {
+        priceButton.addTarget(self, action: #selector(didTapBuy), for: .touchUpInside)
+    }
+    
+    @objc private func didTapBuy() {
+        presenter.addToCart()
     }
     
     private func configureView() {
@@ -169,6 +170,6 @@ extension MenuCollectionViewCell: MenuCellProtocol {
     }
     
     func reloadData() {
-        cartDelegate.reloadData()
+        // обновить картинку корзины?
     }
 }

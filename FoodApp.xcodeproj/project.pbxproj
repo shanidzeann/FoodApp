@@ -14,6 +14,9 @@
 		01161E9F27F30A80007695CF /* BannerViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01161E9E27F30A80007695CF /* BannerViewProtocol.swift */; };
 		01161EA127F314DE007695CF /* MenuViewController+UICollectionViewDelegateFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01161EA027F314DE007695CF /* MenuViewController+UICollectionViewDelegateFlowLayout.swift */; };
 		01161EA327F36464007695CF /* UICollectionViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01161EA227F36464007695CF /* UICollectionViewExtensions.swift */; };
+		012D7B18280D67E10068C99D /* CartViewController+UITableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 012D7B17280D67E10068C99D /* CartViewController+UITableViewDataSource.swift */; };
+		012D7B1A280D67FE0068C99D /* CartViewController+CartViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 012D7B19280D67FE0068C99D /* CartViewController+CartViewProtocol.swift */; };
+		012D7B1C280D69AF0068C99D /* CartDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 012D7B1B280D69AF0068C99D /* CartDelegate.swift */; };
 		01456F4527F46106002AF950 /* MenuDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01456F4427F46106002AF950 /* MenuDelegate.swift */; };
 		01456F4727F461FF002AF950 /* MenuViewController+MenuDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01456F4627F461FF002AF950 /* MenuViewController+MenuDelegate.swift */; };
 		014E94192809E4DD00143B32 /* CartCellPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 014E94182809E4DD00143B32 /* CartCellPresenter.swift */; };
@@ -83,6 +86,9 @@
 		01161E9E27F30A80007695CF /* BannerViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerViewProtocol.swift; sourceTree = "<group>"; };
 		01161EA027F314DE007695CF /* MenuViewController+UICollectionViewDelegateFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MenuViewController+UICollectionViewDelegateFlowLayout.swift"; sourceTree = "<group>"; };
 		01161EA227F36464007695CF /* UICollectionViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UICollectionViewExtensions.swift; sourceTree = "<group>"; };
+		012D7B17280D67E10068C99D /* CartViewController+UITableViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CartViewController+UITableViewDataSource.swift"; sourceTree = "<group>"; };
+		012D7B19280D67FE0068C99D /* CartViewController+CartViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CartViewController+CartViewProtocol.swift"; sourceTree = "<group>"; };
+		012D7B1B280D69AF0068C99D /* CartDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartDelegate.swift; sourceTree = "<group>"; };
 		01456F4427F46106002AF950 /* MenuDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuDelegate.swift; sourceTree = "<group>"; };
 		01456F4627F461FF002AF950 /* MenuViewController+MenuDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MenuViewController+MenuDelegate.swift"; sourceTree = "<group>"; };
 		014E94182809E4DD00143B32 /* CartCellPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartCellPresenter.swift; sourceTree = "<group>"; };
@@ -182,6 +188,8 @@
 			isa = PBXGroup;
 			children = (
 				01A048372807242C001CB6B6 /* CartViewController.swift */,
+				012D7B17280D67E10068C99D /* CartViewController+UITableViewDataSource.swift */,
+				012D7B19280D67FE0068C99D /* CartViewController+CartViewProtocol.swift */,
 				01F6C4AE2809A3ED00EABCE2 /* CartTableViewCell.swift */,
 			);
 			path = View;
@@ -211,6 +219,7 @@
 				014E941B2809E72000143B32 /* CartPresenterProtocol.swift */,
 				01F6C4B22809A4D100EABCE2 /* CartCellProtocol.swift */,
 				01F6C4B02809A48200EABCE2 /* CartCellPresenterProtocol.swift */,
+				012D7B1B280D69AF0068C99D /* CartDelegate.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -628,6 +637,8 @@
 				01C0F28027EDC65000380895 /* CollectionViewType.swift in Sources */,
 				01A048382807242C001CB6B6 /* CartViewController.swift in Sources */,
 				01A306B027F10CB10098C791 /* MenuViewController+UICollectionViewDelegate.swift in Sources */,
+				012D7B1C280D69AF0068C99D /* CartDelegate.swift in Sources */,
+				012D7B1A280D67FE0068C99D /* CartViewController+CartViewProtocol.swift in Sources */,
 				01A04840280854D7001CB6B6 /* CartItem.swift in Sources */,
 				01C0F28C27EDD87900380895 /* MenuCollectionViewCell.swift in Sources */,
 				01456F4727F461FF002AF950 /* MenuViewController+MenuDelegate.swift in Sources */,
@@ -639,6 +650,7 @@
 				014E941C2809E72000143B32 /* CartPresenterProtocol.swift in Sources */,
 				01C0F28A27EDD26200380895 /* MenuViewProtocol.swift in Sources */,
 				01C0F29827EDDC4200380895 /* MenuCellProtocol.swift in Sources */,
+				012D7B18280D67E10068C99D /* CartViewController+UITableViewDataSource.swift in Sources */,
 				01C0F29027EDD8C600380895 /* MenuCellPresenterProtocol.swift in Sources */,
 				014E94192809E4DD00143B32 /* CartCellPresenter.swift in Sources */,
 				01C0F29227EDD90500380895 /* MenuHeaderSupplementaryView.swift in Sources */,

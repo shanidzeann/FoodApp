@@ -84,9 +84,7 @@ class CartTableViewCell: UITableViewCell {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         createUI()
         configureView()
-        
-        addButton.addTarget(self, action: #selector(didTapAdd), for: .touchUpInside)
-        deleteButton.addTarget(self, action: #selector(didTapDelete), for: .touchUpInside)
+        addTargets()
     }
     
     required init?(coder: NSCoder) {
@@ -108,10 +106,6 @@ class CartTableViewCell: UITableViewCell {
         presenter.deleteFromCart()
     }
     
-    private func configureView() {
-        backgroundColor = .systemBackground
-    }
-    
     private func createUI() {
         contentView.addSubview(cartImageView)
         contentView.addSubview(titleLabel)
@@ -122,6 +116,15 @@ class CartTableViewCell: UITableViewCell {
         contentView.addSubview(countLabel)
         
         setupConstraints()
+    }
+    
+    private func configureView() {
+        backgroundColor = .systemBackground
+    }
+    
+    private func addTargets() {
+        addButton.addTarget(self, action: #selector(didTapAdd), for: .touchUpInside)
+        deleteButton.addTarget(self, action: #selector(didTapDelete), for: .touchUpInside)
     }
     
     private func setupConstraints() {

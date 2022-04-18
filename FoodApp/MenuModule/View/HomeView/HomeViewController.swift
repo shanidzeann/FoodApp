@@ -116,7 +116,6 @@ class HomeViewController: UIViewController {
         navigationController?.navigationBar.tintColor = .black
         navigationController?.navigationBar.barTintColor = .systemBackground
         navigationController?.navigationBar.topItem?.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
-
     }
     
     override func viewWillAppear(_ animated: Bool) {

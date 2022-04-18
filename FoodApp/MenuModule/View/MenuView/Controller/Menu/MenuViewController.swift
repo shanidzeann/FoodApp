@@ -36,7 +36,7 @@ class MenuViewController: UIViewController {
         addSubviews()
         createCategoriesCollectionView()
         createMenuCollectionView()
-        moreButton.addTarget(self, action: #selector(didTapMore), for: .touchUpInside)
+        addTargets()
     }
     
     override func viewDidLayoutSubviews() {
@@ -46,6 +46,14 @@ class MenuViewController: UIViewController {
     }
     
     // MARK: - UI
+    
+    private func addSubviews() {
+        view.addSubview(moreButton)
+    }
+    
+    private func addTargets() {
+        moreButton.addTarget(self, action: #selector(didTapMore), for: .touchUpInside)
+    }
     
     @objc private func didTapMore() {
         present(cardVC, animated: true, completion: nil)
@@ -63,10 +71,6 @@ class MenuViewController: UIViewController {
         view.backgroundColor = .systemBackground
         view.clipsToBounds = true
         view.roundCorners(corners: [.topLeft, .topRight], radius: 10.0)
-    }
-    
-    private func addSubviews() {
-        view.addSubview(moreButton)
     }
     
     private func createCategoriesCollectionView() {
@@ -135,10 +139,4 @@ class MenuViewController: UIViewController {
 
 extension MenuViewController: MenuViewProtocol {
     
-}
-
-extension MenuViewController: CartDelegate {
-    func reloadData() {
-        // или не надо
-    }
 }

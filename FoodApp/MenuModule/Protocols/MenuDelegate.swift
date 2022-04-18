@@ -7,6 +7,6 @@
 
 import Foundation
 
-protocol MenuDelegate {
+protocol MenuDelegate: AnyObject {
     func showCategory(at indexPath: IndexPath)
 }

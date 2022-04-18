@@ -36,7 +36,6 @@ class CartPresenter: CartPresenterProtocol {
             return ("Оформить заказ на \(databaseManager.totalPrice)", true)
         }
     }
-    
-    
+
 }
 

@@ -12,9 +12,7 @@ class CardViewController: UIViewController {
     
     var hasSetPointOrigin = false
     var pointOrigin: CGPoint?
-    
-    var menu: MenuDelegate?
-    
+    weak var menu: MenuDelegate?
     var sections = [(title: String, itemsCount: Int)]()
     
     private let slideIdicator = UIView()
@@ -34,9 +32,7 @@ class CardViewController: UIViewController {
         configureTableView()
         setupConstraints()
         setGestureRecognizer()
-        
-        slideIdicator.backgroundColor = UIColor.darkGray
-        view.backgroundColor = .systemBackground
+        configureViews()
     }
     
     override func viewDidLayoutSubviews() {
@@ -44,7 +40,6 @@ class CardViewController: UIViewController {
             hasSetPointOrigin = true
             pointOrigin = view.frame.origin
         }
-        
         slideIdicator.layer.cornerRadius = 2.5
     }
     
@@ -52,6 +47,11 @@ class CardViewController: UIViewController {
         view.addSubview(panGestureView)
         view.addSubview(slideIdicator)
         view.addSubview(tableView)
+    }
+    
+    private func configureViews() {
+        slideIdicator.backgroundColor = UIColor.darkGray
+        view.backgroundColor = .systemBackground
     }
     
     private func configureTableView() {
@@ -99,6 +99,6 @@ class CardViewController: UIViewController {
                 }
             }
         }
-        
     }
+    
 }

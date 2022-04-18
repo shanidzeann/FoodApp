@@ -14,7 +14,6 @@ class DatabaseManager: DatabaseManagerProtocol {
     
     var db: Connection?
     var dishes = Table("dishes")
-    
     let id = Expression<Int>("id")
     let title = Expression<String>("title")
     let price = Expression<Int>("price")
@@ -30,7 +29,6 @@ class DatabaseManager: DatabaseManagerProtocol {
         createTable()
         getItems()
         totalPrice = getTotalPrice()
-        print(items)
     }
     
     private func connectToDB() {
@@ -38,25 +36,9 @@ class DatabaseManager: DatabaseManagerProtocol {
             let path = NSSearchPathForDirectoriesInDomains(
                 .documentDirectory, .userDomainMask, true
             ).first!
-            //     copyDatabaseIfNeeded(sourcePath: Bundle.main.path(forResource: "db", ofType: "sqlite3")!)
             db = try Connection("\(path)/db.sqlite3")
         } catch {
             print(error)
-        }
-    }
-    
-    @discardableResult
-    func copyDatabaseIfNeeded(sourcePath: String) -> Bool {
-        let documents = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first!
-        let destinationPath = documents + "/db.sqlite3"
-        let exists = FileManager.default.fileExists(atPath: destinationPath)
-        guard !exists else { return false }
-        do {
-            try FileManager.default.copyItem(atPath: sourcePath, toPath: destinationPath)
-            return true
-        } catch {
-            print("error during file copy: \(error)")
-            return false
         }
     }
     

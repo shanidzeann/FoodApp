@@ -44,7 +44,7 @@ extension MenuViewController: UICollectionViewDataSource {
             let dbManager = DatabaseManager.shared
             if let item = presenter.menuItem(for: indexPath) {
                 let cellPresenter = MenuCellPresenter(view: cell, databaseManager: dbManager, item: item)
-                cell.inject(presenter: cellPresenter, cartDelegate: self)
+                cell.inject(presenter: cellPresenter)
             }
             
             return cell

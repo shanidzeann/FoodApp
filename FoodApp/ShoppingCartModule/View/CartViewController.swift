@@ -33,23 +33,11 @@ class CartViewController: UIViewController {
         super.viewDidLoad()
         
         view.backgroundColor = .systemBackground
-        title = "Корзина"
-        navigationController?.navigationBar.prefersLargeTitles = true
-        navigationController?.navigationBar.topItem?.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+        configureNavBar()
         addSubviews()
         setupConstraints()
-        
         configureTableView()
-        
-        checkoutButton.setTitle(presenter.checkoutButton().title, for: .normal)
-        checkoutButton.isEnabled = presenter.checkoutButton().isEnabled
-
-    }
-    
-    private func configureTableView() {
-        tableView.dataSource = self
-        tableView.rowHeight = view.frame.height/5
-        tableView.allowsSelection = false
+        configureCheckoutButton()
     }
     
     private func addSubviews() {
@@ -69,30 +57,24 @@ class CartViewController: UIViewController {
         }
     }
 
-}
-
-extension CartViewController: UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return presenter.numberOfRowsInSection(section)
+    private func configureNavBar() {
+        title = "Корзина"
+        
+        navigationController?.navigationBar.prefersLargeTitles = true
+        navigationController?.navigationBar.topItem?.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: Constants.TableView.CellIdentifiers.cartCell, for: indexPath) as! CartTableViewCell
-        
-        if let item = presenter.cartItem(for: indexPath) {
-            let databaseManager = DatabaseManager.shared
-            let cellPresenter = CartCellPresenter(view: cell, databaseManager: databaseManager, item: item)
-            cell.inject(presenter: cellPresenter, delegate: self)
-            
-        }
-        
-        return cell
+    private func configureCheckoutButton() {
+        checkoutButton.setTitle(presenter.checkoutButton().title, for: .normal)
+        checkoutButton.isEnabled = presenter.checkoutButton().isEnabled
     }
     
-}
+    private func configureTableView() {
+        tableView.dataSource = self
+        tableView.rowHeight = view.frame.height/5
+        tableView.allowsSelection = false
+    }
 
-extension CartViewController: CartViewProtocol {
-    
 }
 
 extension CartViewController: CartDelegate {

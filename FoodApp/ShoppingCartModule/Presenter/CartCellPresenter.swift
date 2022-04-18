@@ -7,15 +7,10 @@
 
 import Foundation
 
-protocol CartDelegate {
-    func reloadData()
-}
-
 class CartCellPresenter: CartCellPresenterProtocol {
     
     weak var view: CartCellProtocol?
     var cartItem: CartItem?
-    
     var databaseManager: DatabaseManagerProtocol!
     
     required init(view: CartCellProtocol, databaseManager: DatabaseManager, item: CartItem) {
