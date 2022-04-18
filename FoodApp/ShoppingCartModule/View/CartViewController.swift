@@ -24,6 +24,8 @@ class CartViewController: UIViewController {
         let button = UIButton()
         button.backgroundColor = .systemRed
         button.tintColor = .white
+        button.layer.cornerRadius = 10
+        button.setTitleColor(.lightGray, for: .disabled)
         return button
     }()
 
@@ -33,11 +35,15 @@ class CartViewController: UIViewController {
         view.backgroundColor = .systemBackground
         title = "Корзина"
         navigationController?.navigationBar.prefersLargeTitles = true
-    
+        navigationController?.navigationBar.topItem?.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
         addSubviews()
         setupConstraints()
         
         configureTableView()
+        
+        checkoutButton.setTitle(presenter.checkoutButton().title, for: .normal)
+        checkoutButton.isEnabled = presenter.checkoutButton().isEnabled
+
     }
     
     private func configureTableView() {
@@ -92,5 +98,7 @@ extension CartViewController: CartViewProtocol {
 extension CartViewController: CartDelegate {
     func reloadData() {
         tableView.reloadData()
+        checkoutButton.setTitle(presenter.checkoutButton().title, for: .normal)
+        checkoutButton.isEnabled = presenter.checkoutButton().isEnabled
     }
 }

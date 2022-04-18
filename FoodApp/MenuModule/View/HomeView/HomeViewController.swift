@@ -115,7 +115,7 @@ class HomeViewController: UIViewController {
         navigationController?.navigationBar.prefersLargeTitles = false
         navigationController?.navigationBar.tintColor = .black
         navigationController?.navigationBar.barTintColor = .systemBackground
-        navigationController?.navigationItem.backButtonTitle = ""
+        navigationController?.navigationBar.topItem?.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
 
     }
     

@@ -29,6 +29,14 @@ class CartPresenter: CartPresenterProtocol {
         return databaseManager.items?[indexPath.row]
     }
     
+    func checkoutButton() -> (title: String, isEnabled: Bool) {
+        if databaseManager.totalPrice == 0 {
+            return ("Корзина пуста", false)
+        } else {
+            return ("Оформить заказ на \(databaseManager.totalPrice)", true)
+        }
+    }
+    
     
 }
 

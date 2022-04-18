@@ -12,4 +12,5 @@ protocol DatabaseManagerProtocol {
     func addToDB(id: Int, title: String, description: String, price: Int, imageUrl: String, count: Int)
     func deleteFromDB(id: Int)
     var items: [CartItem]? { get set }
+    var totalPrice: Int { get set }
 }

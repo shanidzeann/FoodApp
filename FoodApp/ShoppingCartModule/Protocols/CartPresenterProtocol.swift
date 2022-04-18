@@ -10,4 +10,5 @@ import Foundation
 protocol CartPresenterProtocol {
     func numberOfRowsInSection(_ section: Int) -> Int
     func cartItem(for indexPath: IndexPath) -> CartItem?
+    func checkoutButton() -> (title: String, isEnabled: Bool)
 }

@@ -23,11 +23,13 @@ class DatabaseManager: DatabaseManagerProtocol {
     let count = Expression<Int>("count")
     
     var items: [CartItem]?
+    var totalPrice: Int = 0
     
     init() {
         connectToDB()
         createTable()
         getItems()
+        totalPrice = getTotalPrice()
         print(items)
     }
     
@@ -79,6 +81,7 @@ class DatabaseManager: DatabaseManagerProtocol {
         do {
             let stmt = try db?.prepare("INSERT INTO dishes VALUES (?, ?, ?, ?, ?, ?) ON CONFLICT(id) DO UPDATE SET count = count + 1")
             try stmt?.run(id, title, description, price, imageUrl, count)
+            totalPrice += price
         } catch {
             print(error)
         }
@@ -87,6 +90,12 @@ class DatabaseManager: DatabaseManagerProtocol {
     
     func deleteFromDB(id: Int) {
         do {
+            let delete = try db?.prepare("SELECT price FROM dishes WHERE id = (?)")
+            for row in try delete!.run(id) {
+                let price = row[0] as! Int64
+                totalPrice -= Int(price)
+            }
+            
             let updateStmt = try db?.prepare("UPDATE dishes SET count = CASE WHEN count > 0 THEN count - 1 ELSE 0 END WHERE id = (?)")
             try updateStmt?.run(id)
             let deleteStmt = try db?.prepare("DELETE FROM dishes WHERE count = 0 AND id = (?)")
@@ -114,5 +123,19 @@ class DatabaseManager: DatabaseManagerProtocol {
             print(error)
         }
         self.items = items
+    }
+    
+    func getTotalPrice() -> Int {
+        var totalPrice = 0
+        do {
+            for row in try db!.prepare("SELECT price, count FROM dishes") {
+                let price = row[0] as! Int64
+                let count = row[1] as! Int64
+                totalPrice += Int(price) * Int(count)
+            }
+        } catch {
+            print(error)
+        }
+        return totalPrice
     }
 }

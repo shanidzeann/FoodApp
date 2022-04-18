@@ -126,7 +126,8 @@ class CartTableViewCell: UITableViewCell {
     
     private func setupConstraints() {
         cartImageView.snp.makeConstraints { make in
-            make.left.top.bottom.equalToSuperview()
+            make.top.bottom.equalToSuperview().inset(5)
+            make.left.equalToSuperview().inset(10)
             make.width.equalTo(cartImageView.snp.height)
         }
         
@@ -192,5 +193,6 @@ extension CartTableViewCell: CartCellProtocol {
                 self.cartImageView.image = UIImage(systemName: "fork.knife.circle")
                 self.cartImageView.tintColor = .black
             }
-        }    }
+        }
+    }
 }
