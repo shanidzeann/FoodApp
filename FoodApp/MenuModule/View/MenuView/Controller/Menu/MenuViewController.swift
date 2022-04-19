@@ -11,6 +11,8 @@ class MenuViewController: UIViewController {
     
     // MARK: - Properties
     
+    var callback: (() -> Void)?
+    
     var presenter: MenuPresenterProtocol!
     var menuCollectionView: UICollectionView?
     var categoriesCollectionView: UICollectionView?

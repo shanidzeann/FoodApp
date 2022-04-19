@@ -40,9 +40,10 @@ class MenuCellPresenter: MenuCellPresenterProtocol {
 
         let image = item.image
         let url = URL(string: image)
-        let inCart = isInCart()
+        let priceRub = "\(price) ₽"
+        let subtitle = isInCart() ? "В корзине" : nil
         
-        view?.setData(title: title, description: description, price: price, imageURL: url, isInCart: inCart)
+        view?.setData(title: title, description: description, price: priceRub, imageURL: url, subtitle: subtitle)
     }
     
     func addToCart() {

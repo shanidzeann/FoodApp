@@ -14,9 +14,7 @@ class MenuCollectionViewCell: UICollectionViewCell {
     // MARK: - Properties
     
     private var presenter: MenuCellPresenterProtocol!
-    
     var delegate: MenuViewController?
-    
     var callback: (() -> Void)?
     
     // MARK: - UI
@@ -49,12 +47,13 @@ class MenuCollectionViewCell: UICollectionViewCell {
         return label
     }()
     
-    private let priceButton: UIButton = {
+    private var priceButton: UIButton = {
         let button = UIButton(configuration: .plain(), primaryAction: nil)
         button.backgroundColor = .secondarySystemBackground
-        button.titleLabel?.tintColor = .label
         button.clipsToBounds = true
+        button.configuration?.baseForegroundColor = .label
         button.layer.cornerRadius = 5
+        button.configuration?.attributedSubtitle?.font = .systemFont(ofSize: 8)
         button.setTitle("374 р", for: .normal)
         return button
     }()
@@ -97,8 +96,19 @@ class MenuCollectionViewCell: UICollectionViewCell {
     }
     
     @objc private func didTapBuy() {
+      //  animateView(sender)
         presenter.addToCart()
         callback?()
+    }
+    
+    private func animateView(_ viewToAnimate: UIView) {
+        UIView.animate(withDuration: 0.15, delay: 0, usingSpringWithDamping: 0.2, initialSpringVelocity: 0.5, options: .curveEaseIn) {
+            viewToAnimate.transform = CGAffineTransform(scaleX: 0.92, y: 0.92)
+        } completion: { _ in
+            UIView.animate(withDuration: 0.15, delay: 0, usingSpringWithDamping: 0.4, initialSpringVelocity: 2, options: .curveEaseIn, animations: {
+                viewToAnimate.transform = CGAffineTransform(scaleX: 1, y: 1)
+            }, completion: nil)
+        }
     }
     
     private func configureView() {
@@ -159,16 +169,11 @@ class MenuCollectionViewCell: UICollectionViewCell {
 
 // MARK: -  MovieCellProtocol
 extension MenuCollectionViewCell: MenuCellProtocol {
-    func setData(title: String, description: String, price: Int, imageURL: URL?, isInCart: Bool) {
+    func setData(title: String, description: String, price: String, imageURL: URL?, subtitle: String?) {
         titleLabel.text = title
         desctiptionLabel.text = description
-        priceButton.setTitle("\(price) ₽", for: .normal)
-        
-        if isInCart {
-            priceButton.backgroundColor = .green
-        } else {
-            priceButton.backgroundColor = .systemBackground
-        }
+        priceButton.setTitle(price, for: .normal)
+        priceButton.configuration?.subtitle = subtitle
         
         menuImageView.kf.setImage(with: imageURL) { result in
             switch result {
