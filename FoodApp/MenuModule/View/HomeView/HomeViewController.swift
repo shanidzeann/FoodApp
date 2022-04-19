@@ -45,8 +45,8 @@ class HomeViewController: UIViewController {
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        bannerViewController.view.frame = CGRect(x: 0, y: view.safeAreaInsets.top, width: view.bounds.width, height: view.bounds.height/4)
-        menuViewController.view.frame = CGRect(x: 0, y: view.bounds.height/4 + view.safeAreaInsets.top, width: view.bounds.width, height: view.bounds.height - view.safeAreaInsets.top)
+        bannerViewController.view.frame = CGRect(x: 0, y: view.safeAreaInsets.top, width: view.bounds.width, height: view.bounds.height/5)
+        menuViewController.view.frame = CGRect(x: 0, y: view.bounds.height/5 + view.safeAreaInsets.top, width: view.bounds.width, height: view.bounds.height - view.safeAreaInsets.top)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -164,7 +164,7 @@ class HomeViewController: UIViewController {
             startInteractiveTransition(state: nextState, duration: 0.9)
         case .changed:
             let translation = recognizer.translation(in: menuViewController.menuCollectionView)
-            var fractionComplete = translation.y / (view.bounds.height/4)
+            var fractionComplete = translation.y / (view.bounds.height/5)
             fractionComplete = cardVisible ? fractionComplete : -fractionComplete
             updateInteractiveTransition(fractionCompleted: fractionComplete)
         case .ended:
@@ -194,7 +194,7 @@ class HomeViewController: UIViewController {
                     self.collectionViewPanGestureEnabled = true
                     self.scrolledToTop = false
                 case .collapsed:
-                    self.menuViewController.view.frame.origin.y = self.view.frame.height/4 + self.view.safeAreaInsets.top
+                    self.menuViewController.view.frame.origin.y = self.view.frame.height/5 + self.view.safeAreaInsets.top
                     self.collectionViewPanGestureEnabled = false
                 }
             }
