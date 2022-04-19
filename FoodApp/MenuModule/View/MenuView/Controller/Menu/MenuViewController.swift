@@ -104,6 +104,8 @@ class MenuViewController: UIViewController {
         menuCollectionView?.delegate = self
         menuCollectionView?.backgroundColor = .clear
         menuCollectionView?.showsVerticalScrollIndicator = false
+        menuCollectionView?.delaysContentTouches = true
+        menuCollectionView?.canCancelContentTouches = true
         view.addSubview(menuCollectionView ?? UICollectionView())
         
         menuCollectionView?.translatesAutoresizingMaskIntoConstraints = false

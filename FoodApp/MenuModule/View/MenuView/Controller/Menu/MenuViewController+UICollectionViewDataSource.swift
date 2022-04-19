@@ -47,6 +47,7 @@ extension MenuViewController: UICollectionViewDataSource {
                 cell.inject(presenter: cellPresenter)
                 cell.configure(with: item)
                 cell.callback = {
+               //     self.animateView(cell.priceButton)
                     collectionView.reloadData()
                 }
             }
