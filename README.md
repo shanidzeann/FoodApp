@@ -2,6 +2,7 @@
 
 - UIKit
 - MVP
+- SQLite.swift
 - Верстка кодом
 - UIPanGestureRecognizer 
 - UITapGestureRecognizer 
