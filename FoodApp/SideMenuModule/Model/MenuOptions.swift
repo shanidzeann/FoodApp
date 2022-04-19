@@ -10,6 +10,7 @@ import Foundation
 enum MenuOptions: String, CaseIterable {
     case home = "Menu"
     case profile = "Profile"
+    case delivery = "Delivery"
     
     var imageName: String {
         switch self {
@@ -17,6 +18,8 @@ enum MenuOptions: String, CaseIterable {
             return "menucard"
         case .profile:
             return "person.crop.circle"
+        case .delivery:
+            return "scooter"
         }
     }
 }

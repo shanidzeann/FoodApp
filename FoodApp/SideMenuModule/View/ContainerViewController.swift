@@ -9,15 +9,10 @@ import UIKit
 
 class ContainerViewController: UIViewController {
     
-    enum SideMenuState {
-        case opened
-        case closed
-    }
-    
     var hasSetFrame = false
     var frame: CGRect!
     
-    private var sideMenuState: SideMenuState = .closed
+    var sideMenuState: SideMenuState = .closed
     
     let menuVC = SideMenuViewController()
     let homeVC = HomeViewController()
@@ -26,6 +21,9 @@ class ContainerViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .lightGray
+        
+        let presenter = SideMenuPresenter(view: menuVC)
+        menuVC.presenter = presenter
         
         addChilds()
         
@@ -54,6 +52,16 @@ class ContainerViewController: UIViewController {
         view.addSubview(navController.view)
         navController.didMove(toParent: self)
         self.navController = navController
+        
+        let tap = UITapGestureRecognizer(target: self, action: #selector(handleTap(_:)))
+        
+        navController.view.addGestureRecognizer(tap)
+    }
+    
+    @objc func handleTap(_ gestureRecognizer: UITapGestureRecognizer) {
+        guard gestureRecognizer.view != nil else { return }
+        print("tapped")
+        toggleMenu()
     }
     
 }
@@ -72,7 +80,7 @@ extension ContainerViewController: HomeViewControllerDelegate {
                 self.navController?.view.frame.origin.y = self.frame.size.height * 0.05
                 self.navController?.view.frame.size.height = self.frame.size.height * 0.9
                 self.homeVC.bannerViewController.collectionView?.collectionViewLayout.invalidateLayout()
-                // interactive?
+                self.homeVC.menuViewController.moreButton.isUserInteractionEnabled = false
             } completion: { [weak self] done in
                 if done {
                     self?.sideMenuState = .opened
@@ -84,8 +92,7 @@ extension ContainerViewController: HomeViewControllerDelegate {
                 self.navController?.view.frame.origin.x = 0
                 self.navController?.view.frame.origin.y = 0
                 self.navController?.view.frame.size.height = self.frame.size.height
-              //  self.homeVC.bannerViewController.collectionView?.collectionViewLayout.invalidateLayout()
-                
+                self.homeVC.menuViewController.moreButton.isUserInteractionEnabled = true
             } completion: { [weak self] done in
                 self?.sideMenuState = .closed
             }
@@ -101,6 +108,8 @@ extension ContainerViewController: SideMenuViewControllerDelegate {
         case .home:
             resetToHome()
         case .profile:
+            break
+        case .delivery:
             break
         }
     }

@@ -7,10 +7,6 @@
 
 import UIKit
 
-protocol HomeViewControllerDelegate: AnyObject {
-    func showSideMenu()
-}
-
 class HomeViewController: UIViewController {
     
     // MARK: - Properties

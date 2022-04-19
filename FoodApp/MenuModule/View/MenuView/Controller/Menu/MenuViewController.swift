@@ -16,7 +16,7 @@ class MenuViewController: UIViewController {
     var categoriesCollectionView: UICollectionView?
     let cardVC = CardViewController()
     
-    private let moreButton: UIButton = {
+    let moreButton: UIButton = {
         let button = UIButton(configuration: .plain(), primaryAction: nil)
         var config = UIButton.Configuration.plain()
         config.image = UIImage(systemName: "text.justify")

@@ -33,6 +33,8 @@
 		014F1CDD27F39A0B00D7F799 /* CardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 014F1CDC27F39A0B00D7F799 /* CardViewController.swift */; };
 		0171492827EF80720012379E /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0171492727EF80720012379E /* HomeViewController.swift */; };
 		0178A00727FA3B6500698C2F /* ImagineItIsHidden.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0178A00627FA3B6500698C2F /* ImagineItIsHidden.swift */; };
+		017FC4D1280E874C006D6A9B /* HomeViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 017FC4D0280E874C006D6A9B /* HomeViewControllerDelegate.swift */; };
+		017FC4F5280E936A006D6A9B /* SideMenuState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 017FC4F4280E936A006D6A9B /* SideMenuState.swift */; };
 		0185009B280D8A8700CDF11C /* ContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0185009A280D8A8700CDF11C /* ContainerViewController.swift */; };
 		0185851628056514000E68F7 /* FoodAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0185851528056514000E68F7 /* FoodAppTests.swift */; };
 		0185851D28056537000E68F7 /* NetworkingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0185851C28056537000E68F7 /* NetworkingTests.swift */; };
@@ -112,6 +114,8 @@
 		014F1CDC27F39A0B00D7F799 /* CardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardViewController.swift; sourceTree = "<group>"; };
 		0171492727EF80720012379E /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		0178A00627FA3B6500698C2F /* ImagineItIsHidden.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagineItIsHidden.swift; sourceTree = "<group>"; };
+		017FC4D0280E874C006D6A9B /* HomeViewControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewControllerDelegate.swift; sourceTree = "<group>"; };
+		017FC4F4280E936A006D6A9B /* SideMenuState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuState.swift; sourceTree = "<group>"; };
 		0185009A280D8A8700CDF11C /* ContainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerViewController.swift; sourceTree = "<group>"; };
 		0185851328056514000E68F7 /* FoodAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FoodAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0185851528056514000E68F7 /* FoodAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodAppTests.swift; sourceTree = "<group>"; };
@@ -202,6 +206,7 @@
 			isa = PBXGroup;
 			children = (
 				014AE380280DE972008D9A06 /* MenuOptions.swift */,
+				017FC4F4280E936A006D6A9B /* SideMenuState.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -501,6 +506,7 @@
 			isa = PBXGroup;
 			children = (
 				01456F4427F46106002AF950 /* MenuDelegate.swift */,
+				017FC4D0280E874C006D6A9B /* HomeViewControllerDelegate.swift */,
 				0114B30027F1124E00D54393 /* View */,
 				0114B30127F1125800D54393 /* Cell */,
 			);
@@ -703,6 +709,7 @@
 				012D7B1A280D67FE0068C99D /* CartViewController+CartViewProtocol.swift in Sources */,
 				01A04840280854D7001CB6B6 /* CartItem.swift in Sources */,
 				014AE387280DEC46008D9A06 /* SideMenuPresenter.swift in Sources */,
+				017FC4F5280E936A006D6A9B /* SideMenuState.swift in Sources */,
 				01C0F28C27EDD87900380895 /* MenuCollectionViewCell.swift in Sources */,
 				01456F4727F461FF002AF950 /* MenuViewController+MenuDelegate.swift in Sources */,
 				014F1CDD27F39A0B00D7F799 /* CardViewController.swift in Sources */,
@@ -720,6 +727,7 @@
 				01C0F29227EDD90500380895 /* MenuHeaderSupplementaryView.swift in Sources */,
 				01C995AB27F4F25A00FE3F1F /* CardViewController+UITableViewDataSource.swift in Sources */,
 				01F6C4B12809A48200EABCE2 /* CartCellPresenterProtocol.swift in Sources */,
+				017FC4D1280E874C006D6A9B /* HomeViewControllerDelegate.swift in Sources */,
 				01A0483A280737E1001CB6B6 /* DatabaseManager.swift in Sources */,
 				014F1CD927F398B000D7F799 /* PresentationController.swift in Sources */,
 				01C0F28E27EDD89C00380895 /* MenuCellPresenter.swift in Sources */,

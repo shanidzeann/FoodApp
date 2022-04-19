@@ -59,4 +59,8 @@ extension SideMenuViewController: UITableViewDelegate {
     }
 }
 
+extension SideMenuViewController: SideMenuViewProtocol {
+    
+}
+
 

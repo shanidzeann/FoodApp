@@ -47,7 +47,8 @@ class CartViewController: UIViewController {
     
     private func setupConstraints() {
         tableView.snp.makeConstraints { make in
-            make.top.left.right.equalTo(view.safeAreaLayoutGuide)
+            make.top.equalTo(view.safeAreaLayoutGuide)
+            make.left.right.equalToSuperview()
         }
         
         checkoutButton.snp.makeConstraints { make in
@@ -59,7 +60,6 @@ class CartViewController: UIViewController {
 
     private func configureNavBar() {
         title = "Корзина"
-        
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationController?.navigationBar.topItem?.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
     }
