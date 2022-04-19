@@ -61,7 +61,7 @@ class ContainerViewController: UIViewController {
     
     private func addGestureRecognizers() {
         let tap = UITapGestureRecognizer(target: self, action: #selector(handleTap(_:)))
-        navController?.view.addGestureRecognizer(tap)
+        homeVC.view.addGestureRecognizer(tap)
     }
     
     @objc func handleTap(_ gestureRecognizer: UITapGestureRecognizer) {
