@@ -295,6 +295,14 @@
 			path = BottomCardView;
 			sourceTree = "<group>";
 		};
+		017FC4FF280F0E25006D6A9B /* Container */ = {
+			isa = PBXGroup;
+			children = (
+				0185009A280D8A8700CDF11C /* ContainerViewController.swift */,
+			);
+			path = Container;
+			sourceTree = "<group>";
+		};
 		0185009C280D8A8C00CDF11C /* SideMenuModule */ = {
 			isa = PBXGroup;
 			children = (
@@ -430,6 +438,7 @@
 			isa = PBXGroup;
 			children = (
 				01AFD61827EDBFC90081BA4C /* AppDelegate */,
+				017FC4FF280F0E25006D6A9B /* Container */,
 				0185009C280D8A8C00CDF11C /* SideMenuModule */,
 				01C0F27C27EDC2AE00380895 /* MenuModule */,
 				01A04836280723C0001CB6B6 /* ShoppingCartModule */,
@@ -449,7 +458,6 @@
 			children = (
 				01AFD60427EDBF5D0081BA4C /* AppDelegate.swift */,
 				01AFD60627EDBF5D0081BA4C /* SceneDelegate.swift */,
-				0185009A280D8A8700CDF11C /* ContainerViewController.swift */,
 			);
 			path = AppDelegate;
 			sourceTree = "<group>";
