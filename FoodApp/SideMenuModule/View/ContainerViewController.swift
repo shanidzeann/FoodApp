@@ -86,6 +86,7 @@ extension ContainerViewController: HomeViewControllerDelegate {
                 self.navController?.view.frame.size.height = self.frame.size.height * 0.9
                 self.homeVC.bannerViewController.collectionView?.collectionViewLayout.invalidateLayout()
                 self.homeVC.menuViewController.moreButton.isUserInteractionEnabled = false
+                #warning("свернуть меню")
             } completion: { [weak self] done in
                 if done {
                     self?.sideMenuState = .opened
