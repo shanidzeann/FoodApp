@@ -22,11 +22,8 @@ class ContainerViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .lightGray
         
-        let presenter = SideMenuPresenter(view: menuVC)
-        menuVC.presenter = presenter
-        
         addChilds()
-        
+        addGestureRecognizers()
     }
     
     override func viewDidLayoutSubviews() {
@@ -40,27 +37,35 @@ class ContainerViewController: UIViewController {
     }
     
     private func addChilds() {
-        
+        addMenuVC()
+        addHomeVC()
+    }
+    
+    private func addMenuVC() {
+        let presenter = SideMenuPresenter(view: menuVC)
+        menuVC.presenter = presenter
         menuVC.delegate = self
         addChild(menuVC)
         view.addSubview(menuVC.view)
         menuVC.didMove(toParent: self)
-        
+    }
+    
+    private func addHomeVC() {
         homeVC.delegate = self
         let navController = UINavigationController(rootViewController: homeVC)
         addChild(navController)
         view.addSubview(navController.view)
         navController.didMove(toParent: self)
         self.navController = navController
-        
+    }
+    
+    private func addGestureRecognizers() {
         let tap = UITapGestureRecognizer(target: self, action: #selector(handleTap(_:)))
-        
-        navController.view.addGestureRecognizer(tap)
+        navController?.view.addGestureRecognizer(tap)
     }
     
     @objc func handleTap(_ gestureRecognizer: UITapGestureRecognizer) {
         guard gestureRecognizer.view != nil else { return }
-        print("tapped")
         toggleMenu()
     }
     

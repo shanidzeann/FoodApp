@@ -33,7 +33,7 @@ class CartPresenter: CartPresenterProtocol {
         if databaseManager.totalPrice == 0 {
             return ("Корзина пуста", false)
         } else {
-            return ("Оформить заказ на \(databaseManager.totalPrice)", true)
+            return ("Оформить заказ на \(databaseManager.totalPrice) ₽", true)
         }
     }
 

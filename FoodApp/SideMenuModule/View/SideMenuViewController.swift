@@ -10,7 +10,6 @@ import UIKit
 class SideMenuViewController: UIViewController {
     
     var presenter: SideMenuPresenterProtocol!
-    
     weak var delegate: SideMenuViewControllerDelegate?
     
     private let tableView: UITableView = {

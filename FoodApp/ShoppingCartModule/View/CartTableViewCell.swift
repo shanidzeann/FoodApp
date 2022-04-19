@@ -186,7 +186,7 @@ extension CartTableViewCell: CartCellProtocol {
     func setData(title: String, description: String, price: String, imageUrl: String, count: String) {
         titleLabel.text = title
         desctiptionLabel.text = description
-        priceLabel.text = price
+        priceLabel.text = price + " ₽"
         countLabel.text = count
         cartImageView.kf.setImage(with: URL(string: imageUrl)) { result in
             switch result {
