@@ -12,6 +12,12 @@ class CartViewController: UIViewController {
     
     var presenter: CartPresenterProtocol!
     
+    private let emptyCartImageView: UIImageView = {
+       let imageView = UIImageView()
+        imageView.image = UIImage(named: "cart_empty.png")
+        return imageView
+    }()
+    
     private let tableView: UITableView = {
         let tableView = UITableView(frame: .zero)
         tableView.backgroundColor = .systemBackground
@@ -37,12 +43,13 @@ class CartViewController: UIViewController {
         addSubviews()
         setupConstraints()
         configureTableView()
-        presenter.setCheckoutButtonTitle()
+        presenter.checkCart()
     }
     
     private func addSubviews() {
         view.addSubview(tableView)
         view.addSubview(checkoutButton)
+        view.addSubview(emptyCartImageView)
     }
     
     private func setupConstraints() {
@@ -55,6 +62,12 @@ class CartViewController: UIViewController {
             make.left.right.bottom.equalTo(view.safeAreaLayoutGuide).inset(20)
             make.top.equalTo(tableView.snp.bottom).offset(5)
             make.height.equalTo(50)
+        }
+        
+        emptyCartImageView.snp.makeConstraints { make in
+            make.left.right.equalToSuperview()
+            make.center.equalToSuperview()
+            
         }
     }
 
@@ -77,11 +90,21 @@ extension CartViewController: CartViewProtocol {
         checkoutButton.setTitle(title, for: .normal)
         checkoutButton.isEnabled = isEnabled
     }
+    
+    func showEmptyCart() {
+        tableView.alpha = 0
+        emptyCartImageView.alpha = 1
+    }
+    
+    func showCart() {
+        tableView.alpha = 1
+        emptyCartImageView.alpha = 0
+    }
 }
 
 extension CartViewController: CartDelegate {
     func reloadData() {
         tableView.reloadData()
-        presenter.setCheckoutButtonTitle()
+        presenter.checkCart()
     }
 }
