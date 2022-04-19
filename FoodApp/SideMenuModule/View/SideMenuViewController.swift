@@ -16,6 +16,7 @@ class SideMenuViewController: UIViewController {
         let tableView = UITableView()
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: Constants.TableView.CellIdentifiers.sideMenuCell)
         tableView.separatorStyle = .none
+        tableView.isScrollEnabled = false
         return tableView
     }()
     

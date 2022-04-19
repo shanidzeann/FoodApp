@@ -53,7 +53,7 @@ class MenuCollectionViewCell: UICollectionViewCell {
         button.clipsToBounds = true
         button.configuration?.baseForegroundColor = .label
         button.layer.cornerRadius = 5
-        button.configuration?.attributedSubtitle?.font = .systemFont(ofSize: 8)
+   //     button.configuration?.attributedSubtitle?.font = .systemFont(ofSize: 8)
         button.setTitle("374 р", for: .normal)
         return button
     }()
@@ -174,6 +174,7 @@ extension MenuCollectionViewCell: MenuCellProtocol {
         desctiptionLabel.text = description
         priceButton.setTitle(price, for: .normal)
         priceButton.configuration?.subtitle = subtitle
+        priceButton.configuration?.attributedSubtitle?.font = .systemFont(ofSize: 8)
         
         menuImageView.kf.setImage(with: imageURL) { result in
             switch result {

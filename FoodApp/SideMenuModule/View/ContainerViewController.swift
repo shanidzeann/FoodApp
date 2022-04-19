@@ -18,6 +18,8 @@ class ContainerViewController: UIViewController {
     let homeVC = HomeViewController()
     var navController: UINavigationController?
     
+  //  var userinteractive = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .lightGray
@@ -61,6 +63,7 @@ class ContainerViewController: UIViewController {
     
     private func addGestureRecognizers() {
         let tap = UITapGestureRecognizer(target: self, action: #selector(handleTap(_:)))
+        tap.delegate = self
         homeVC.view.addGestureRecognizer(tap)
     }
     
@@ -77,6 +80,7 @@ extension ContainerViewController: HomeViewControllerDelegate {
     }
     
     func toggleMenu() {
+        NotificationCenter.default.post(name: NSNotification.Name("animateTransitionBeforeSideMenu"), object: nil)
         switch sideMenuState {
         case .closed:
             UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 0.8, initialSpringVelocity: 0, options: .curveEaseInOut) {
@@ -86,7 +90,6 @@ extension ContainerViewController: HomeViewControllerDelegate {
                 self.navController?.view.frame.size.height = self.frame.size.height * 0.9
                 self.homeVC.bannerViewController.collectionView?.collectionViewLayout.invalidateLayout()
                 self.homeVC.menuViewController.moreButton.isUserInteractionEnabled = false
-                #warning("свернуть меню")
             } completion: { [weak self] done in
                 if done {
                     self?.sideMenuState = .opened
@@ -125,7 +128,16 @@ extension ContainerViewController: SideMenuViewControllerDelegate {
     }
 }
 
-
+extension ContainerViewController: UIGestureRecognizerDelegate {
+    func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
+        switch sideMenuState {
+        case .opened:
+            return true
+        case .closed:
+            return false
+        }
+    }
+}
 
 
 

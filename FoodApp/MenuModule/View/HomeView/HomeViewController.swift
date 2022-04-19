@@ -59,6 +59,7 @@ class HomeViewController: UIViewController {
     private func addObservers() {
         NotificationCenter.default.addObserver(self, selector: #selector(enablePanGestureRecognizer), name: NSNotification.Name("enableHomePanGestureRecognizer"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(animateTransition), name: NSNotification.Name("animateTransitionIfNeeded"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(animateTransitionBeforeSideMenu), name: NSNotification.Name("animateTransitionBeforeSideMenu"), object: nil)
     }
     
     @objc func enablePanGestureRecognizer() {
@@ -67,6 +68,12 @@ class HomeViewController: UIViewController {
     
     @objc func animateTransition() {
         if !collectionViewPanGestureEnabled {
+            animateTransitionIfNeeded(state: nextState, duration: 0.9)
+        }
+    }
+    
+    @objc func animateTransitionBeforeSideMenu() {
+        if nextState == .collapsed {
             animateTransitionIfNeeded(state: nextState, duration: 0.9)
         }
     }

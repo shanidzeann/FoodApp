@@ -47,6 +47,11 @@ class MenuViewController: UIViewController {
         layout()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        menuCollectionView?.reloadData()
+    }
+    
     // MARK: - UI
     
     private func addSubviews() {
