@@ -29,12 +29,13 @@ class CartPresenter: CartPresenterProtocol {
         return databaseManager.items?[indexPath.row]
     }
     
-    func checkoutButton() -> (title: String, isEnabled: Bool) {
+    func setCheckoutButtonTitle() {
         if databaseManager.totalPrice == 0 {
-            return ("Корзина пуста", false)
+            view?.configureCheckoutButton(title: "Корзина пуста", isEnabled: false)
         } else {
-            return ("Оформить заказ на \(databaseManager.totalPrice) ₽", true)
+            view?.configureCheckoutButton(title: "Оформить заказ на \(databaseManager.totalPrice) ₽", isEnabled: true)
         }
+        
     }
 
 }

@@ -10,15 +10,8 @@ import Foundation
 class BannerPresenter: BannerPresenterProtocol {
     
     // MARK: - Properties
-    
-    weak var view: BannerViewProtocol?
+
     let images = ["image1.png", "image2.png"]
-    
-    // MARK: - Init
-    
-    required init(view: BannerViewProtocol) {
-        self.view = view
-    }
     
     // MARK: - Helper Methods
     

@@ -12,6 +12,6 @@ extension CardViewController: UITableViewDelegate {
         tableView.deselectRow(at: indexPath, animated: true)
         dismiss(animated: true, completion: nil)
         NotificationCenter.default.post(name: NSNotification.Name("animateTransitionIfNeeded"), object: nil)
-        menu?.showCategory(at: indexPath)
+        delegate?.showCategory(at: indexPath)
     }
 }

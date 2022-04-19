@@ -50,10 +50,3 @@ class BannerViewController: UIViewController {
         ])
     }
 }
-
-
-// MARK: - BannerViewProtocol
-
-extension BannerViewController: BannerViewProtocol {
-    
-}

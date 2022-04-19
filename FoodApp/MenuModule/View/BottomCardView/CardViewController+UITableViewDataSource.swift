@@ -9,21 +9,17 @@ import UIKit
 
 extension CardViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return sections.count
+        presenter.numberOfRowsInSection()
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: Constants.TableView.CellIdentifiers.cardCell, for: indexPath)
-        #warning("presenter")
-        let cellText = "\(sections[indexPath.row].title) \(sections[indexPath.row].itemsCount)"
-        let itemsCount = "\(sections[indexPath.row].itemsCount)"
         
-        let range = (cellText as NSString).range(of: itemsCount)
-        
-        let attributedString = NSMutableAttributedString(string: cellText)
+        let attributedString = presenter.cellText(for: indexPath).attributedString
+        let range = presenter.cellText(for: indexPath).range
         attributedString.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor.gray, range: range)
-        
         cell.textLabel?.attributedText = attributedString
+        
         return cell
     }
 }

@@ -18,8 +18,6 @@ class ContainerViewController: UIViewController {
     let homeVC = HomeViewController()
     var navController: UINavigationController?
     
-  //  var userinteractive = false
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .lightGray
@@ -44,7 +42,7 @@ class ContainerViewController: UIViewController {
     }
     
     private func addMenuVC() {
-        let presenter = SideMenuPresenter(view: menuVC)
+        let presenter = SideMenuPresenter()
         menuVC.presenter = presenter
         menuVC.delegate = self
         addChild(menuVC)
@@ -138,13 +136,3 @@ extension ContainerViewController: UIGestureRecognizerDelegate {
         }
     }
 }
-
-
-
-
-
-
-
-
-
-

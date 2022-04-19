@@ -12,15 +12,13 @@ class MenuPresenter: MenuPresenterProtocol {
     
     // MARK: - Properties
     
-    weak var view: MenuViewProtocol?
     let networkManager: NetworkManagerProtocol!
     var menu: [Result<(url: String, menu: Menu), Error>]?
     var sections = [(title: String, itemsCount: Int)]()
     
     // MARK: - Init
     
-    required init(view: MenuViewProtocol, networkManager: NetworkManagerProtocol) {
-        self.view = view
+    required init(networkManager: NetworkManagerProtocol) {
         self.networkManager = networkManager
         getMenu()
         getSectionTitles()

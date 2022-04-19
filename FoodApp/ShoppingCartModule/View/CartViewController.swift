@@ -37,7 +37,7 @@ class CartViewController: UIViewController {
         addSubviews()
         setupConstraints()
         configureTableView()
-        configureCheckoutButton()
+        presenter.setCheckoutButtonTitle()
     }
     
     private func addSubviews() {
@@ -64,11 +64,6 @@ class CartViewController: UIViewController {
         navigationController?.navigationBar.topItem?.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
     }
     
-    private func configureCheckoutButton() {
-        checkoutButton.setTitle(presenter.checkoutButton().title, for: .normal)
-        checkoutButton.isEnabled = presenter.checkoutButton().isEnabled
-    }
-    
     private func configureTableView() {
         tableView.dataSource = self
         tableView.rowHeight = view.frame.height/5
@@ -77,10 +72,16 @@ class CartViewController: UIViewController {
 
 }
 
+extension CartViewController: CartViewProtocol {
+    func configureCheckoutButton(title: String, isEnabled: Bool) {
+        checkoutButton.setTitle(title, for: .normal)
+        checkoutButton.isEnabled = isEnabled
+    }
+}
+
 extension CartViewController: CartDelegate {
     func reloadData() {
         tableView.reloadData()
-        checkoutButton.setTitle(presenter.checkoutButton().title, for: .normal)
-        checkoutButton.isEnabled = presenter.checkoutButton().isEnabled
+        presenter.setCheckoutButtonTitle()
     }
 }

@@ -8,5 +8,5 @@
 import Foundation
 
 protocol CartViewProtocol: AnyObject {
-    
+    func configureCheckoutButton(title: String, isEnabled: Bool)
 }

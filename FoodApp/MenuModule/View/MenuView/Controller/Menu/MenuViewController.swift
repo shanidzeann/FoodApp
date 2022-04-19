@@ -16,7 +16,7 @@ class MenuViewController: UIViewController {
     var presenter: MenuPresenterProtocol!
     var menuCollectionView: UICollectionView?
     var categoriesCollectionView: UICollectionView?
-    let cardVC = CardViewController()
+    lazy var cardVC = CardViewController()
     
     let moreButton: UIButton = {
         let button = UIButton(configuration: .plain(), primaryAction: nil)
@@ -67,11 +67,11 @@ class MenuViewController: UIViewController {
     }
     
     private func configureCardVC() {
-        #warning("переделать")
+        let cardPresenter = CardPresenter(sections: presenter.sections)
+        cardVC.presenter = cardPresenter
         cardVC.modalPresentationStyle = .custom
         cardVC.transitioningDelegate = self
-        cardVC.sections = presenter.sections
-        cardVC.menu = self
+        cardVC.delegate = self
     }
     
     private func configureView() {
@@ -139,11 +139,4 @@ class MenuViewController: UIViewController {
             menuCollectionView!.rightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.rightAnchor)
         ])
     }
-}
-
-
-// MARK: - MenuViewProtocol
-
-extension MenuViewController: MenuViewProtocol {
-    
 }

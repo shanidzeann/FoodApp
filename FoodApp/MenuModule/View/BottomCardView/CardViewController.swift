@@ -10,10 +10,11 @@ import SnapKit
 
 class CardViewController: UIViewController {
     
+    var presenter: CardPresenterProtocol!
+    
     var hasSetPointOrigin = false
     var pointOrigin: CGPoint?
-    weak var menu: MenuDelegate?
-    var sections = [(title: String, itemsCount: Int)]()
+    weak var delegate: CardViewControllerDelegate?
     
     private let slideIdicator = UIView()
     private let panGestureView = UIView()

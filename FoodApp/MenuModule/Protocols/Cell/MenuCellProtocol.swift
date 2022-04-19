@@ -9,5 +9,4 @@ import Foundation
 
 protocol MenuCellProtocol: AnyObject {
     func setData(title: String, description: String, price: String, imageURL: URL?, subtitle: String?)
-    func reloadData()
 }

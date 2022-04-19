@@ -94,7 +94,7 @@ class HomeViewController: UIViewController {
     
     private func createBanner() {
         bannerViewController = BannerViewController()
-        let presenter = BannerPresenter(view: bannerViewController)
+        let presenter = BannerPresenter()
         bannerViewController.presenter = presenter
         addChild(bannerViewController)
         view.addSubview(bannerViewController.view)
@@ -104,7 +104,7 @@ class HomeViewController: UIViewController {
     private func createMenu() {
         menuViewController = MenuViewController()
         let networkManager = NetworkManager()
-        let presenter = MenuPresenter(view: menuViewController, networkManager: networkManager)
+        let presenter = MenuPresenter(networkManager: networkManager)
         menuViewController.presenter = presenter
         addChild(menuViewController)
         view.addSubview(menuViewController.view)

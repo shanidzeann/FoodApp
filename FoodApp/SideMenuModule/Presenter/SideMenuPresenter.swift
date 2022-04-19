@@ -9,20 +9,14 @@ import Foundation
 
 class SideMenuPresenter: SideMenuPresenterProtocol {
     
-    // MARK: - Properties
-    
-    weak var view: SideMenuViewProtocol?
-    
-    // MARK: - Init
-    
-    required init(view: SideMenuViewProtocol) {
-        self.view = view
-    }
-    
     // MARK: - Helper Methods
     
     func numberOfRowsInSection() -> Int {
         return MenuOptions.allCases.count
+    }
+    
+    func item(for indexPath: IndexPath) -> MenuOptions {
+        return MenuOptions.allCases[indexPath.row]
     }
     
     // создать презентер для ячейки?
@@ -32,10 +26,6 @@ class SideMenuPresenter: SideMenuPresenterProtocol {
     
     func cellImageName(at indexPath: IndexPath) -> String {
         return MenuOptions.allCases[indexPath.row].imageName
-    }
-    
-    func item(for indexPath: IndexPath) -> MenuOptions {
-        return MenuOptions.allCases[indexPath.row]
     }
     
 }
