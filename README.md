@@ -10,6 +10,7 @@
 - UIVisualEffectView
 - UIPresentationController 
 - Kingfisher
+- SnapKit
 - URLSession
 - DispatchGroup
 - API - spoonacular (не все нужные данные имеются, так что потом подберу другой)
