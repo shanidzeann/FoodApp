@@ -20,7 +20,7 @@ class NetworkingTest: XCTestCase {
         networkManager = nil
     }
     
-    func testGetMoviesSuccess() {
+    func testGetMenuSuccess() {
         let menuExpectation = expectation(description: "menu")
         
         networkManager.downloadMenu { results in
