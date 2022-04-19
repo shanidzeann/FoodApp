@@ -7,6 +7,10 @@
 
 import UIKit
 
+protocol HomeViewControllerDelegate: AnyObject {
+    func showSideMenu()
+}
+
 class HomeViewController: UIViewController {
     
     // MARK: - Properties
@@ -30,6 +34,8 @@ class HomeViewController: UIViewController {
     
     var runningAnimations = [UIViewPropertyAnimator]()
     var animationProgressWhenInterrupted: CGFloat = 0
+    
+    weak var delegate: HomeViewControllerDelegate?
 
     // MARK: - VC Lifecycle
     
@@ -45,6 +51,11 @@ class HomeViewController: UIViewController {
         super.viewDidLayoutSubviews()
         bannerViewController.view.frame = CGRect(x: 0, y: view.safeAreaInsets.top, width: view.bounds.width, height: view.bounds.height/4)
         menuViewController.view.frame = CGRect(x: 0, y: view.bounds.height/4 + view.safeAreaInsets.top, width: view.bounds.width, height: view.bounds.height - view.safeAreaInsets.top)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.navigationBar.prefersLargeTitles = false
     }
     
     // MARK: - Observers
@@ -102,7 +113,7 @@ class HomeViewController: UIViewController {
             image: UIImage(systemName: "text.justify.left"),
             style: .plain,
             target: self,
-            action: nil
+            action: #selector(didTapSideMenu)
         )
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(
@@ -118,9 +129,8 @@ class HomeViewController: UIViewController {
         navigationController?.navigationBar.topItem?.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        navigationController?.navigationBar.prefersLargeTitles = false
+    @objc private func didTapSideMenu() {
+        delegate?.showSideMenu()
     }
     
     @objc private func showShoppingCart() {

@@ -25,6 +25,7 @@ enum Constants {
         enum CellIdentifiers {
             static let cartCell = "cartCell"
             static let cardCell = "cardCell"
+            static let sideMenuCell = "sideMenuCell"
         }
     }
     
