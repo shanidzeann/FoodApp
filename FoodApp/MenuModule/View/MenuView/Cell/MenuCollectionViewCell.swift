@@ -15,6 +15,10 @@ class MenuCollectionViewCell: UICollectionViewCell {
     
     private var presenter: MenuCellPresenterProtocol!
     
+    var delegate: MenuViewController?
+    
+    var callback: (() -> Void)?
+    
     // MARK: - UI
     
     private let menuImageView: UIImageView = {
@@ -94,6 +98,7 @@ class MenuCollectionViewCell: UICollectionViewCell {
     
     @objc private func didTapBuy() {
         presenter.addToCart()
+        callback?()
     }
     
     private func configureView() {
@@ -154,10 +159,17 @@ class MenuCollectionViewCell: UICollectionViewCell {
 
 // MARK: -  MovieCellProtocol
 extension MenuCollectionViewCell: MenuCellProtocol {
-    func setData(title: String, description: String, price: Int, imageURL: URL?) {
+    func setData(title: String, description: String, price: Int, imageURL: URL?, isInCart: Bool) {
         titleLabel.text = title
         desctiptionLabel.text = description
         priceButton.setTitle("\(price) ₽", for: .normal)
+        
+        if isInCart {
+            priceButton.backgroundColor = .green
+        } else {
+            priceButton.backgroundColor = .systemBackground
+        }
+        
         menuImageView.kf.setImage(with: imageURL) { result in
             switch result {
             case .success(_):

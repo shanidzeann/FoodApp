@@ -13,4 +13,5 @@ protocol DatabaseManagerProtocol {
     func deleteFromDB(id: Int)
     var items: [CartItem]? { get set }
     var totalPrice: Int { get set }
+    func checkIfCartContains(id: Int) -> Bool
 }

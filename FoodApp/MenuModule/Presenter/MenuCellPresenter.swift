@@ -25,20 +25,24 @@ class MenuCellPresenter: MenuCellPresenterProtocol {
         return (menuItem?.id ?? 0) / 1000
     }
     
-    required init(view: MenuCellProtocol, databaseManager: DatabaseManager, item: MenuItem) {
+    var id: Int? {
+        return menuItem?.id
+    }
+    
+    required init(view: MenuCellProtocol, databaseManager: DatabaseManager) {
         self.view = view
         self.databaseManager = databaseManager
-        self.menuItem = item
-        configure(with: item)
     }
     
     func configure(with item: MenuItem) {
+        menuItem = item
         guard let title = title, let description = description, let price = price else { return }
 
         let image = item.image
         let url = URL(string: image)
+        let inCart = isInCart()
         
-        view?.setData(title: title, description: description, price: price, imageURL: url)
+        view?.setData(title: title, description: description, price: price, imageURL: url, isInCart: inCart)
     }
     
     func addToCart() {
@@ -51,5 +55,10 @@ class MenuCellPresenter: MenuCellPresenterProtocol {
         guard let menuItem = menuItem else { return }
         databaseManager.deleteFromDB(id: menuItem.id)
         view?.reloadData()
+    }
+    
+    func isInCart() -> Bool {
+        guard let id = id else { return false}
+        return databaseManager.checkIfCartContains(id: id)
     }
 }

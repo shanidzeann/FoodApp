@@ -11,4 +11,5 @@ protocol MenuCellPresenterProtocol {
     func configure(with item: MenuItem)
     func addToCart()
     func deleteFromCart()
+    func isInCart() -> Bool
 }

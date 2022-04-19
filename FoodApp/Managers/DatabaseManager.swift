@@ -120,4 +120,21 @@ class DatabaseManager: DatabaseManagerProtocol {
         }
         return totalPrice
     }
+    
+    func checkIfCartContains(id: Int) -> Bool {
+        do {
+            let search = try db?.prepare("SELECT EXISTS(SELECT id FROM dishes WHERE id = (?))")
+            for row in try search!.run(id) {
+                let id = row[0] as! Int64
+                if Int(id) == 0 {
+                    return false
+                } else {
+                    return true
+                }
+            }
+        } catch {
+            print(error)
+        }
+        return false
+    }
 }

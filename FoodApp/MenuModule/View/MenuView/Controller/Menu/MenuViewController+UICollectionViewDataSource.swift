@@ -43,8 +43,12 @@ extension MenuViewController: UICollectionViewDataSource {
             
             let dbManager = DatabaseManager.shared
             if let item = presenter.menuItem(for: indexPath) {
-                let cellPresenter = MenuCellPresenter(view: cell, databaseManager: dbManager, item: item)
+                let cellPresenter = MenuCellPresenter(view: cell, databaseManager: dbManager)
                 cell.inject(presenter: cellPresenter)
+                cell.configure(with: item)
+                cell.callback = {
+                    collectionView.reloadData()
+                }
             }
             
             return cell
