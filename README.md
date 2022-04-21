@@ -1,14 +1,14 @@
 # FoodApp
 
 - UIKit
-- MVP
-- SQLite.swift
+- Архитектура - MVP
+- SQLite.swift для хранения заказа в корзине
 - Верстка кодом
 - UIPanGestureRecognizer 
 - UITapGestureRecognizer 
-- UIViewPropertyAnimator
+- UIViewPropertyAnimator - для анимации сворачивания/разворачивания меню
 - UIVisualEffectView
-- UIPresentationController 
+- UIPresentationController - для контроллера со списком категорий
 - Kingfisher
 - SnapKit
 - URLSession
