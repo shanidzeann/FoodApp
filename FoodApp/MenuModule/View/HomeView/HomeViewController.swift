@@ -11,9 +11,16 @@ class HomeViewController: UIViewController {
     
     // MARK: - Properties
     
-    enum CardState {
+    enum MenuState {
         case expanded
         case collapsed
+        
+        var change: MenuState {
+            switch self {
+            case .expanded: return .collapsed
+            case .collapsed: return .expanded
+            }
+        }
     }
     
     var collectionViewPanGestureEnabled = false
@@ -21,23 +28,21 @@ class HomeViewController: UIViewController {
     
     var menuViewController: MenuViewController!
     var bannerViewController: BannerViewController!
-    var visualEffectVuew: UIVisualEffectView!
+    private var visualEffectVuew: UIVisualEffectView!
+
+    private var state: MenuState = .collapsed
     
-    var cardVisible = false
-    var nextState: CardState {
-        return cardVisible ? .collapsed : .expanded
-    }
-    
-    var runningAnimations = [UIViewPropertyAnimator]()
-    var animationProgressWhenInterrupted: CGFloat = 0
+    private var runningAnimations = [UIViewPropertyAnimator]()
+    private var animationProgressWhenInterrupted: CGFloat = 0
+    private var fractionComplete: CGFloat = 0
     
     weak var delegate: HomeViewControllerDelegate?
-
+    
     // MARK: - VC Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         createUI()
         addObservers()
         setGestureRecognizers()
@@ -68,13 +73,13 @@ class HomeViewController: UIViewController {
     
     @objc func animateTransition() {
         if !collectionViewPanGestureEnabled {
-            animateTransitionIfNeeded(state: nextState, duration: 0.9)
+            animateTransitionIfNeeded(duration: 0.9)
         }
     }
     
     @objc func animateTransitionBeforeSideMenu() {
-        if nextState == .collapsed {
-            animateTransitionIfNeeded(state: nextState, duration: 0.9)
+        if state == .expanded {
+            animateTransitionIfNeeded(duration: 0.9)
         }
     }
     
@@ -82,13 +87,10 @@ class HomeViewController: UIViewController {
     
     private func createUI() {
         view.backgroundColor = .secondarySystemBackground
-        
         visualEffectVuew = UIVisualEffectView()
         visualEffectVuew.frame = view.frame
-        
         createBanner()
         createMenu()
-        
         configureNavBar()
     }
     
@@ -161,23 +163,22 @@ class HomeViewController: UIViewController {
     @objc func handleMenuPan(recognizer: UIPanGestureRecognizer) {
         switch recognizer.state {
         case .began:
-            startInteractiveTransition(state: nextState, duration: 0.9)
+            startInteractiveTransition(duration: 0.9)
         case .changed:
             let translation = recognizer.translation(in: menuViewController.menuCollectionView)
-            var fractionComplete = translation.y / (view.bounds.height/5)
-            fractionComplete = cardVisible ? fractionComplete : -fractionComplete
+            fractionComplete = translation.y / (view.bounds.height/5)
+            fractionComplete = state == .expanded ? fractionComplete : -fractionComplete
             updateInteractiveTransition(fractionCompleted: fractionComplete)
         case .ended:
+            reverseAnimation(recognizer: recognizer)
             continueInteractiveTransition()
         default:
             break
         }
     }
     
-    func startInteractiveTransition(state: CardState, duration: TimeInterval) {
-        if runningAnimations.isEmpty {
-            animateTransitionIfNeeded(state: state, duration: duration)
-        }
+    func startInteractiveTransition(duration: TimeInterval) {
+        animateTransitionIfNeeded(duration: duration)
         
         for animator in runningAnimations {
             animator.pauseAnimation()
@@ -185,42 +186,10 @@ class HomeViewController: UIViewController {
         }
     }
     
-    func animateTransitionIfNeeded(state: CardState, duration: TimeInterval) {
+    func animateTransitionIfNeeded(duration: TimeInterval) {
         if runningAnimations.isEmpty {
-            let frameAnimator = UIViewPropertyAnimator(duration: duration, dampingRatio: 1) {
-                switch state {
-                case .expanded:
-                    self.menuViewController.view.frame.origin.y = self.view.safeAreaInsets.top
-                    self.collectionViewPanGestureEnabled = true
-                    self.scrolledToTop = false
-                case .collapsed:
-                    self.menuViewController.view.frame.origin.y = self.view.frame.height/5 + self.view.safeAreaInsets.top
-                    self.collectionViewPanGestureEnabled = false
-                }
-            }
-            
-            frameAnimator.addCompletion { _ in
-                self.cardVisible = !self.cardVisible
-                self.runningAnimations.removeAll()
-            }
-            
-            frameAnimator.startAnimation()
-            runningAnimations.append(frameAnimator)
-            
-            let blurAnimator = UIViewPropertyAnimator(duration: duration, dampingRatio: 1) {
-                switch state {
-                case .expanded:
-                    self.bannerViewController.view.addSubview(self.visualEffectVuew)
-                    self.visualEffectVuew.effect = UIBlurEffect(style: .dark)
-                case .collapsed:
-                    self.visualEffectVuew.effect = nil
-                    self.visualEffectVuew.removeFromSuperview()
-                }
-            }
-            
-            visualEffectVuew.alpha = 0.1
-            blurAnimator.startAnimation()
-            runningAnimations.append(blurAnimator)
+            addFrameAnimator(duration: duration)
+            addBlurAnimator(duration: duration)
         }
     }
     
@@ -234,6 +203,72 @@ class HomeViewController: UIViewController {
         for animator in runningAnimations {
             animator.continueAnimation(withTimingParameters: nil, durationFactor: 0)
         }
+    }
+    
+    private func reverseAnimation(recognizer: UIPanGestureRecognizer) {
+        let velocity = recognizer.velocity(in: menuViewController.categoriesCollectionView)
+        let shouldComplete = velocity.y > 0
+        
+        if velocity.y == 0 {
+            continueInteractiveTransition()
+            return
+        }
+        
+        for animator in runningAnimations {
+            switch state {
+            case .expanded:
+                if !shouldComplete && !animator.isReversed { animator.isReversed = !animator.isReversed }
+                if shouldComplete && animator.isReversed { animator.isReversed = !animator.isReversed }
+            case .collapsed:
+                if shouldComplete && !animator.isReversed { animator.isReversed = !animator.isReversed }
+                if !shouldComplete && animator.isReversed { animator.isReversed = !animator.isReversed }
+            }
+        }
+    }
+    
+    private func addFrameAnimator(duration: TimeInterval) {
+        let frameAnimator = UIViewPropertyAnimator(duration: duration, dampingRatio: 1) {
+            switch self.state {
+            case .expanded:
+                self.menuViewController.view.frame.origin.y = self.view.frame.height/5 + self.view.safeAreaInsets.top
+            case .collapsed:
+                self.menuViewController.view.frame.origin.y = self.view.safeAreaInsets.top
+            }
+        }
+        
+        frameAnimator.addCompletion { position in
+            if position == .end {
+                switch self.state {
+                case .expanded:
+                    self.collectionViewPanGestureEnabled = false
+                case .collapsed:
+                    self.collectionViewPanGestureEnabled = true
+                    self.scrolledToTop = false
+                }
+                self.state = self.state.change
+            }
+            self.runningAnimations.removeAll()
+        }
+        
+        frameAnimator.startAnimation()
+        runningAnimations.append(frameAnimator)
+    }
+    
+    private func addBlurAnimator(duration: TimeInterval) {
+        let blurAnimator = UIViewPropertyAnimator(duration: duration, dampingRatio: 1) {
+            switch self.state {
+            case .expanded:
+                self.visualEffectVuew.effect = nil
+                self.visualEffectVuew.removeFromSuperview()
+            case .collapsed:
+                self.bannerViewController.view.addSubview(self.visualEffectVuew)
+                self.visualEffectVuew.effect = UIBlurEffect(style: .dark)
+            }
+        }
+        
+        visualEffectVuew.alpha = 0.1
+        blurAnimator.startAnimation()
+        runningAnimations.append(blurAnimator)
     }
 }
 
