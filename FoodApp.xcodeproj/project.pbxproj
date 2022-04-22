@@ -31,6 +31,9 @@
 		0171492827EF80720012379E /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0171492727EF80720012379E /* HomeViewController.swift */; };
 		0178A00727FA3B6500698C2F /* ImagineItIsHidden.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0178A00627FA3B6500698C2F /* ImagineItIsHidden.swift */; };
 		017E2C3B28127E4700C82CBF /* DeliveryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 017E2C3A28127E4700C82CBF /* DeliveryViewController.swift */; };
+		017E2C3F2812BDAC00C82CBF /* Restaurant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 017E2C3E2812BDAC00C82CBF /* Restaurant.swift */; };
+		017E2C422812BDCD00C82CBF /* DeliveryPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 017E2C412812BDCD00C82CBF /* DeliveryPresenter.swift */; };
+		017E2C452812BDE200C82CBF /* DeliveryPresenterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 017E2C442812BDE100C82CBF /* DeliveryPresenterProtocol.swift */; };
 		017FC4D1280E874C006D6A9B /* HomeViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 017FC4D0280E874C006D6A9B /* HomeViewControllerDelegate.swift */; };
 		017FC4F5280E936A006D6A9B /* SideMenuState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 017FC4F4280E936A006D6A9B /* SideMenuState.swift */; };
 		017FC4F9280EFFF3006D6A9B /* CardPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 017FC4F8280EFFF3006D6A9B /* CardPresenter.swift */; };
@@ -111,6 +114,9 @@
 		0171492727EF80720012379E /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		0178A00627FA3B6500698C2F /* ImagineItIsHidden.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagineItIsHidden.swift; sourceTree = "<group>"; };
 		017E2C3A28127E4700C82CBF /* DeliveryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeliveryViewController.swift; sourceTree = "<group>"; };
+		017E2C3E2812BDAC00C82CBF /* Restaurant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Restaurant.swift; sourceTree = "<group>"; };
+		017E2C412812BDCD00C82CBF /* DeliveryPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeliveryPresenter.swift; sourceTree = "<group>"; };
+		017E2C442812BDE100C82CBF /* DeliveryPresenterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeliveryPresenterProtocol.swift; sourceTree = "<group>"; };
 		017FC4D0280E874C006D6A9B /* HomeViewControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewControllerDelegate.swift; sourceTree = "<group>"; };
 		017FC4F4280E936A006D6A9B /* SideMenuState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuState.swift; sourceTree = "<group>"; };
 		017FC4F8280EFFF3006D6A9B /* CardPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardPresenter.swift; sourceTree = "<group>"; };
@@ -300,9 +306,44 @@
 		017E2C3C28127E4B00C82CBF /* DeliveryModule */ = {
 			isa = PBXGroup;
 			children = (
-				017E2C3A28127E4700C82CBF /* DeliveryViewController.swift */,
+				017E2C402812BDB000C82CBF /* Model */,
+				017E2C3D2812BD9F00C82CBF /* View */,
+				017E2C432812BDD500C82CBF /* Presenter */,
+				017E2C462812BE0D00C82CBF /* Protocols */,
 			);
 			path = DeliveryModule;
+			sourceTree = "<group>";
+		};
+		017E2C3D2812BD9F00C82CBF /* View */ = {
+			isa = PBXGroup;
+			children = (
+				017E2C3A28127E4700C82CBF /* DeliveryViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		017E2C402812BDB000C82CBF /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				017E2C3E2812BDAC00C82CBF /* Restaurant.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		017E2C432812BDD500C82CBF /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				017E2C412812BDCD00C82CBF /* DeliveryPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		017E2C462812BE0D00C82CBF /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				017E2C442812BDE100C82CBF /* DeliveryPresenterProtocol.swift */,
+			);
+			path = Protocols;
 			sourceTree = "<group>";
 		};
 		017FC4FF280F0E25006D6A9B /* Container */ = {
@@ -724,6 +765,7 @@
 				017FC4F5280E936A006D6A9B /* SideMenuState.swift in Sources */,
 				01C0F28C27EDD87900380895 /* MenuCollectionViewCell.swift in Sources */,
 				01456F4727F461FF002AF950 /* MenuViewController+CardViewControllerDelegate.swift in Sources */,
+				017E2C3F2812BDAC00C82CBF /* Restaurant.swift in Sources */,
 				014F1CDD27F39A0B00D7F799 /* CardViewController.swift in Sources */,
 				01A306AA27F10BED0098C791 /* BannerViewController+UICollectionViewDelegateFlowLayout.swift in Sources */,
 				01F6C4AF2809A3ED00EABCE2 /* CartTableViewCell.swift in Sources */,
@@ -752,6 +794,7 @@
 				01A306A627F10B530098C791 /* HomeViewController+UIGestureRecognizerDelegate.swift in Sources */,
 				01A0483E2808240A001CB6B6 /* CartViewProtocol.swift in Sources */,
 				01B60CC727EE19830045C827 /* NetworkManagerProtocol.swift in Sources */,
+				017E2C422812BDCD00C82CBF /* DeliveryPresenter.swift in Sources */,
 				01B60CC527EE195E0045C827 /* NetworkManager.swift in Sources */,
 				01AFD60727EDBF5D0081BA4C /* SceneDelegate.swift in Sources */,
 				014E941E2809E99900143B32 /* DatabaseManagerProtocol.swift in Sources */,
@@ -761,6 +804,7 @@
 				01161EA127F314DE007695CF /* MenuViewController+UICollectionViewDelegateFlowLayout.swift in Sources */,
 				01456F4527F46106002AF950 /* CardViewControllerDelegate.swift in Sources */,
 				014AE389280DEC7A008D9A06 /* SideMenuViewControllerDelegate.swift in Sources */,
+				017E2C452812BDE200C82CBF /* DeliveryPresenterProtocol.swift in Sources */,
 				0185009B280D8A8700CDF11C /* ContainerViewController.swift in Sources */,
 				0178A00727FA3B6500698C2F /* ImagineItIsHidden.swift in Sources */,
 				0171492827EF80720012379E /* HomeViewController.swift in Sources */,

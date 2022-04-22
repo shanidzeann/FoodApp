@@ -19,8 +19,9 @@ class DeliveryViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupMapConstraints()
-        let initialLocation = CLLocation(latitude: 59.929691, longitude: 30.362239)
-        mapView.centerLocation(initialLocation)
+        setInitialLocation()
+        constrainCamera()
+        addAnnotation()
     }
     
     private func setupMapConstraints() {
@@ -33,6 +34,29 @@ class DeliveryViewController: UIViewController {
         mapView.leadingAnchor.constraint(equalTo: safeArea.leadingAnchor).isActive = true
         mapView.trailingAnchor.constraint(equalTo: safeArea.trailingAnchor).isActive = true
         
+    }
+    
+    private func setInitialLocation() {
+        let initialLocation = CLLocation(latitude: 55.752004, longitude: 37.617734)
+        mapView.centerLocation(initialLocation)
+    }
+    
+    private func constrainCamera() {
+        let center = CLLocation(latitude: 55.752004, longitude: 37.617734)
+        let region = MKCoordinateRegion(center: center.coordinate, latitudinalMeters: 50000, longitudinalMeters:  50000)
+        mapView.setCameraBoundary(MKMapView.CameraBoundary(coordinateRegion: region), animated: true)
+        
+        let zoomRange = MKMapView.CameraZoomRange(maxCenterCoordinateDistance: 100000)
+        mapView.setCameraZoomRange(zoomRange, animated: true)
+    }
+    
+    private func addAnnotation() {
+        let restaurant = Restaurant(
+          title: "The Best Restaurant Ever",
+          locationName: "The Best Location Ever",
+          discipline: "Restaurant",
+          coordinate: CLLocationCoordinate2D(latitude: 55.752004, longitude: 37.617734))
+        mapView.addAnnotation(restaurant)
     }
     
     deinit {
