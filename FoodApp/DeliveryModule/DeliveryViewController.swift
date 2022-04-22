@@ -18,7 +18,6 @@ class DeliveryViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         setupMapConstraints()
         let initialLocation = CLLocation(latitude: 59.929691, longitude: 30.362239)
         mapView.centerLocation(initialLocation)
