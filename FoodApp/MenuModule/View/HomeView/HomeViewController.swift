@@ -28,7 +28,7 @@ class HomeViewController: UIViewController {
     
     var menuViewController: MenuViewController!
     var bannerViewController: BannerViewController!
-    private var visualEffectVuew: UIVisualEffectView!
+    private var visualEffectView: UIVisualEffectView!
 
     private var state: MenuState = .collapsed
     
@@ -87,10 +87,9 @@ class HomeViewController: UIViewController {
     
     private func createUI() {
         view.backgroundColor = .secondarySystemBackground
-        visualEffectVuew = UIVisualEffectView()
-        visualEffectVuew.frame = view.frame
         createBanner()
         createMenu()
+        createVisualEffectView()
         configureNavBar()
     }
     
@@ -111,6 +110,13 @@ class HomeViewController: UIViewController {
         addChild(menuViewController)
         view.addSubview(menuViewController.view)
         menuViewController.didMove(toParent: self)
+    }
+    
+    private func createVisualEffectView() {
+        visualEffectView = UIVisualEffectView()
+        visualEffectView.frame = view.frame
+        bannerViewController.view.addSubview(visualEffectView)
+        visualEffectView.isUserInteractionEnabled = false
     }
     
     private func configureNavBar() {
@@ -258,15 +264,13 @@ class HomeViewController: UIViewController {
         let blurAnimator = UIViewPropertyAnimator(duration: duration, dampingRatio: 1) {
             switch self.state {
             case .expanded:
-                self.visualEffectVuew.effect = nil
-                self.visualEffectVuew.removeFromSuperview()
+                self.visualEffectView.effect = nil
             case .collapsed:
-                self.bannerViewController.view.addSubview(self.visualEffectVuew)
-                self.visualEffectVuew.effect = UIBlurEffect(style: .dark)
+                self.visualEffectView.effect = UIBlurEffect(style: .dark)
             }
         }
         
-        visualEffectVuew.alpha = 0.1
+        visualEffectView.alpha = 0.1
         blurAnimator.startAnimation()
         runningAnimations.append(blurAnimator)
     }
