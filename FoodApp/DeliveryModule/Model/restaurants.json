@@ -1,0 +1,141 @@
+{
+    "type": "FeatureCollection",
+    "features": [
+        {
+            "type": "Feature",
+            "properties": {
+                "location": "Somewhere",
+                "longitude": "37.50457763671875",
+                "latitude": "55.79047317030209",
+                "discipline": "Restaurant",
+                "title": "The Best Restaurant #1"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    37.50457763671875,
+                    55.79047317030209
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "location": "Somewhere",
+                "longitude": "37.78953552246094",
+                "latitude": "55.80706963076952",
+                "discipline": "Restaurant",
+                "title": "The Best Restaurant #2"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    37.78953552246094,
+                    55.80706963076952
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "location": "Somewhere",
+                "longitude": "37.642593383789055",
+                "latitude": "55.75455430203406",
+                "discipline": "Restaurant",
+                "title": "The Best Restaurant #3"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    37.642593383789055,
+                    55.75455430203406
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "location": "Somewhere",
+                "longitude": "37.58422851562499",
+                "latitude": "55.69655087260051",
+                "discipline": "Restaurant",
+                "title": "The Best Restaurant #4"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    37.58422851562499,
+                    55.69655087260051
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "location": "Somewhere",
+                "longitude": "37.51487731933594",
+                "latitude": "55.64931118969408",
+                "discipline": "Restaurant",
+                "title": "The Best Restaurant #5"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    37.51487731933594,
+                    55.64931118969408
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "location": "Somewhere",
+                "longitude": "37.88909912109375",
+                "latitude": "55.67293816096562",
+                "discipline": "Restaurant",
+                "title": "The Best Restaurant #6"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    37.88909912109375,
+                    55.67293816096562
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "location": "Somewhere",
+                "longitude": "37.53753662109374",
+                "latitude": "55.43057190604551",
+                "discipline": "Restaurant",
+                "title": "The Best Restaurant #7"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    37.53753662109374,
+                    55.43057190604551
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "location": "Somewhere",
+                "longitude": "37.177734375",
+                "latitude": "55.989164255467934",
+                "discipline": "Restaurant",
+                "title": "The Best Restaurant #8"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    37.177734375,
+                    55.989164255467934
+                ]
+            }
+        }
+    ]
+}
