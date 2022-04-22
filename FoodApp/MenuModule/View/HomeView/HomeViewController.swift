@@ -36,6 +36,7 @@ class HomeViewController: UIViewController {
     private var animationProgressWhenInterrupted: CGFloat = 0
     private var fractionComplete: CGFloat = 0
     private let duration: TimeInterval = 0.9
+    private let dampingRatio: CGFloat = 1
     
     weak var delegate: HomeViewControllerDelegate?
     
@@ -234,7 +235,7 @@ class HomeViewController: UIViewController {
     }
     
     private func addFrameAnimator() {
-        let frameAnimator = UIViewPropertyAnimator(duration: duration, dampingRatio: 1) {
+        let frameAnimator = UIViewPropertyAnimator(duration: duration, dampingRatio: dampingRatio) {
             switch self.state {
             case .expanded:
                 self.menuViewController.view.frame.origin.y = self.view.frame.height/5 + self.view.safeAreaInsets.top
@@ -262,7 +263,7 @@ class HomeViewController: UIViewController {
     }
     
     private func addBlurAnimator() {
-        let blurAnimator = UIViewPropertyAnimator(duration: duration, dampingRatio: 1) {
+        let blurAnimator = UIViewPropertyAnimator(duration: duration, dampingRatio: dampingRatio) {
             switch self.state {
             case .expanded:
                 self.visualEffectView.effect = nil
