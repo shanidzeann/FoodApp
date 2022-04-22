@@ -106,7 +106,8 @@ class HomeViewController: UIViewController {
     
     private func createMenu() {
         menuViewController = MenuViewController()
-        let networkManager = NetworkManager()
+        let jsonParser = JSONParser()
+        let networkManager = NetworkManager(jsonParser: jsonParser)
         let presenter = MenuPresenter(networkManager: networkManager)
         menuViewController.presenter = presenter
         addChild(menuViewController)

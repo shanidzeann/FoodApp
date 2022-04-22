@@ -39,6 +39,11 @@
 		017E2C4E2812F29900C82CBF /* MapsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 017E2C4D2812F29900C82CBF /* MapsManager.swift */; };
 		017E2C502812F5B300C82CBF /* MapsManagerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 017E2C4F2812F5B300C82CBF /* MapsManagerProtocol.swift */; };
 		017E2C522812F61700C82CBF /* DeliveryViewController+CLLocationManagerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 017E2C512812F61700C82CBF /* DeliveryViewController+CLLocationManagerDelegate.swift */; };
+		017E2C542812F74D00C82CBF /* ContainerViewController+HomeViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 017E2C532812F74D00C82CBF /* ContainerViewController+HomeViewControllerDelegate.swift */; };
+		017E2C562812F78900C82CBF /* ContainerViewController+SideMenuViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 017E2C552812F78900C82CBF /* ContainerViewController+SideMenuViewControllerDelegate.swift */; };
+		017E2C582812F7AE00C82CBF /* ContainerViewController+UIGestureRecognizerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 017E2C572812F7AE00C82CBF /* ContainerViewController+UIGestureRecognizerDelegate.swift */; };
+		017E2C5A2812F8ED00C82CBF /* JSONParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 017E2C592812F8ED00C82CBF /* JSONParser.swift */; };
+		017E2C5C2812F9BE00C82CBF /* JSONParserProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 017E2C5B2812F9BE00C82CBF /* JSONParserProtocol.swift */; };
 		017FC4D1280E874C006D6A9B /* HomeViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 017FC4D0280E874C006D6A9B /* HomeViewControllerDelegate.swift */; };
 		017FC4F5280E936A006D6A9B /* SideMenuState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 017FC4F4280E936A006D6A9B /* SideMenuState.swift */; };
 		017FC4F9280EFFF3006D6A9B /* CardPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 017FC4F8280EFFF3006D6A9B /* CardPresenter.swift */; };
@@ -127,6 +132,11 @@
 		017E2C4D2812F29900C82CBF /* MapsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapsManager.swift; sourceTree = "<group>"; };
 		017E2C4F2812F5B300C82CBF /* MapsManagerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapsManagerProtocol.swift; sourceTree = "<group>"; };
 		017E2C512812F61700C82CBF /* DeliveryViewController+CLLocationManagerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DeliveryViewController+CLLocationManagerDelegate.swift"; sourceTree = "<group>"; };
+		017E2C532812F74D00C82CBF /* ContainerViewController+HomeViewControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ContainerViewController+HomeViewControllerDelegate.swift"; sourceTree = "<group>"; };
+		017E2C552812F78900C82CBF /* ContainerViewController+SideMenuViewControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ContainerViewController+SideMenuViewControllerDelegate.swift"; sourceTree = "<group>"; };
+		017E2C572812F7AE00C82CBF /* ContainerViewController+UIGestureRecognizerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ContainerViewController+UIGestureRecognizerDelegate.swift"; sourceTree = "<group>"; };
+		017E2C592812F8ED00C82CBF /* JSONParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONParser.swift; sourceTree = "<group>"; };
+		017E2C5B2812F9BE00C82CBF /* JSONParserProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONParserProtocol.swift; sourceTree = "<group>"; };
 		017FC4D0280E874C006D6A9B /* HomeViewControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewControllerDelegate.swift; sourceTree = "<group>"; };
 		017FC4F4280E936A006D6A9B /* SideMenuState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuState.swift; sourceTree = "<group>"; };
 		017FC4F8280EFFF3006D6A9B /* CardPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardPresenter.swift; sourceTree = "<group>"; };
@@ -363,6 +373,9 @@
 			isa = PBXGroup;
 			children = (
 				0185009A280D8A8700CDF11C /* ContainerViewController.swift */,
+				017E2C532812F74D00C82CBF /* ContainerViewController+HomeViewControllerDelegate.swift */,
+				017E2C552812F78900C82CBF /* ContainerViewController+SideMenuViewControllerDelegate.swift */,
+				017E2C572812F7AE00C82CBF /* ContainerViewController+UIGestureRecognizerDelegate.swift */,
 			);
 			path = Container;
 			sourceTree = "<group>";
@@ -589,6 +602,8 @@
 				014E941D2809E99900143B32 /* DatabaseManagerProtocol.swift */,
 				017E2C4D2812F29900C82CBF /* MapsManager.swift */,
 				017E2C4F2812F5B300C82CBF /* MapsManagerProtocol.swift */,
+				017E2C592812F8ED00C82CBF /* JSONParser.swift */,
+				017E2C5B2812F9BE00C82CBF /* JSONParserProtocol.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -780,7 +795,9 @@
 				01A04840280854D7001CB6B6 /* CartItem.swift in Sources */,
 				014AE387280DEC46008D9A06 /* SideMenuPresenter.swift in Sources */,
 				017FC4F5280E936A006D6A9B /* SideMenuState.swift in Sources */,
+				017E2C562812F78900C82CBF /* ContainerViewController+SideMenuViewControllerDelegate.swift in Sources */,
 				01C0F28C27EDD87900380895 /* MenuCollectionViewCell.swift in Sources */,
+				017E2C542812F74D00C82CBF /* ContainerViewController+HomeViewControllerDelegate.swift in Sources */,
 				01456F4727F461FF002AF950 /* MenuViewController+CardViewControllerDelegate.swift in Sources */,
 				017E2C3F2812BDAC00C82CBF /* Restaurant.swift in Sources */,
 				014F1CDD27F39A0B00D7F799 /* CardViewController.swift in Sources */,
@@ -795,14 +812,17 @@
 				014E94192809E4DD00143B32 /* CartCellPresenter.swift in Sources */,
 				01C0F29227EDD90500380895 /* MenuHeaderSupplementaryView.swift in Sources */,
 				01C995AB27F4F25A00FE3F1F /* CardViewController+UITableViewDataSource.swift in Sources */,
+				017E2C5A2812F8ED00C82CBF /* JSONParser.swift in Sources */,
 				017FC4F9280EFFF3006D6A9B /* CardPresenter.swift in Sources */,
 				01F6C4B12809A48200EABCE2 /* CartCellPresenterProtocol.swift in Sources */,
 				017FC4D1280E874C006D6A9B /* HomeViewControllerDelegate.swift in Sources */,
 				01A0483A280737E1001CB6B6 /* DatabaseManager.swift in Sources */,
+				017E2C5C2812F9BE00C82CBF /* JSONParserProtocol.swift in Sources */,
 				014F1CD927F398B000D7F799 /* PresentationController.swift in Sources */,
 				01C0F28E27EDD89C00380895 /* MenuCellPresenter.swift in Sources */,
 				014AE381280DE972008D9A06 /* MenuOptions.swift in Sources */,
 				017E2C502812F5B300C82CBF /* MapsManagerProtocol.swift in Sources */,
+				017E2C582812F7AE00C82CBF /* ContainerViewController+UIGestureRecognizerDelegate.swift in Sources */,
 				014AE37D280DC0D0008D9A06 /* SideMenuViewController.swift in Sources */,
 				017E2C4C2812F13400C82CBF /* DeliveryViewProtocol.swift in Sources */,
 				017FC4FE280F0662006D6A9B /* CardPresenterProtocol.swift in Sources */,

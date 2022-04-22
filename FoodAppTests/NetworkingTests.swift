@@ -13,7 +13,8 @@ class NetworkingTest: XCTestCase {
     var networkManager: NetworkManagerProtocol!
     
     override func setUpWithError() throws {
-        networkManager = NetworkManager()
+        let jsonParser = JSONParser()
+        networkManager = NetworkManager(jsonParser: jsonParser)
     }
     
     override func tearDownWithError() throws {
