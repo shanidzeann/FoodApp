@@ -88,6 +88,9 @@ class ContainerViewController: UIViewController {
     
     private func addDeliveryVC() {
         let deliveryVC = DeliveryViewController()
+        let mapsManager = MapsManager()
+        let presenter = DeliveryPresenter(view: deliveryVC, mapsManager: mapsManager)
+        deliveryVC.inject(presenter: presenter)
         createShadowView()
         if let shadowView = shadowView {
             deliveryVC.view.addSubview(shadowView)

@@ -34,7 +34,11 @@
 		017E2C3F2812BDAC00C82CBF /* Restaurant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 017E2C3E2812BDAC00C82CBF /* Restaurant.swift */; };
 		017E2C422812BDCD00C82CBF /* DeliveryPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 017E2C412812BDCD00C82CBF /* DeliveryPresenter.swift */; };
 		017E2C452812BDE200C82CBF /* DeliveryPresenterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 017E2C442812BDE100C82CBF /* DeliveryPresenterProtocol.swift */; };
-		017E2C4A2812E5D200C82CBF /* restaurants.json in Resources */ = {isa = PBXBuildFile; fileRef = 017E2C492812E5D200C82CBF /* restaurants.json */; };
+		017E2C4A2812E5D200C82CBF /* restaurants.geojson in Resources */ = {isa = PBXBuildFile; fileRef = 017E2C492812E5D200C82CBF /* restaurants.geojson */; };
+		017E2C4C2812F13400C82CBF /* DeliveryViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 017E2C4B2812F13400C82CBF /* DeliveryViewProtocol.swift */; };
+		017E2C4E2812F29900C82CBF /* MapsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 017E2C4D2812F29900C82CBF /* MapsManager.swift */; };
+		017E2C502812F5B300C82CBF /* MapsManagerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 017E2C4F2812F5B300C82CBF /* MapsManagerProtocol.swift */; };
+		017E2C522812F61700C82CBF /* DeliveryViewController+CLLocationManagerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 017E2C512812F61700C82CBF /* DeliveryViewController+CLLocationManagerDelegate.swift */; };
 		017FC4D1280E874C006D6A9B /* HomeViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 017FC4D0280E874C006D6A9B /* HomeViewControllerDelegate.swift */; };
 		017FC4F5280E936A006D6A9B /* SideMenuState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 017FC4F4280E936A006D6A9B /* SideMenuState.swift */; };
 		017FC4F9280EFFF3006D6A9B /* CardPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 017FC4F8280EFFF3006D6A9B /* CardPresenter.swift */; };
@@ -118,7 +122,11 @@
 		017E2C3E2812BDAC00C82CBF /* Restaurant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Restaurant.swift; sourceTree = "<group>"; };
 		017E2C412812BDCD00C82CBF /* DeliveryPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeliveryPresenter.swift; sourceTree = "<group>"; };
 		017E2C442812BDE100C82CBF /* DeliveryPresenterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeliveryPresenterProtocol.swift; sourceTree = "<group>"; };
-		017E2C492812E5D200C82CBF /* restaurants.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = restaurants.json; sourceTree = "<group>"; };
+		017E2C492812E5D200C82CBF /* restaurants.geojson */ = {isa = PBXFileReference; lastKnownFileType = text; path = restaurants.geojson; sourceTree = "<group>"; };
+		017E2C4B2812F13400C82CBF /* DeliveryViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeliveryViewProtocol.swift; sourceTree = "<group>"; };
+		017E2C4D2812F29900C82CBF /* MapsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapsManager.swift; sourceTree = "<group>"; };
+		017E2C4F2812F5B300C82CBF /* MapsManagerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapsManagerProtocol.swift; sourceTree = "<group>"; };
+		017E2C512812F61700C82CBF /* DeliveryViewController+CLLocationManagerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DeliveryViewController+CLLocationManagerDelegate.swift"; sourceTree = "<group>"; };
 		017FC4D0280E874C006D6A9B /* HomeViewControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewControllerDelegate.swift; sourceTree = "<group>"; };
 		017FC4F4280E936A006D6A9B /* SideMenuState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuState.swift; sourceTree = "<group>"; };
 		017FC4F8280EFFF3006D6A9B /* CardPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardPresenter.swift; sourceTree = "<group>"; };
@@ -320,6 +328,7 @@
 			isa = PBXGroup;
 			children = (
 				017E2C3A28127E4700C82CBF /* DeliveryViewController.swift */,
+				017E2C512812F61700C82CBF /* DeliveryViewController+CLLocationManagerDelegate.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -328,7 +337,7 @@
 			isa = PBXGroup;
 			children = (
 				017E2C3E2812BDAC00C82CBF /* Restaurant.swift */,
-				017E2C492812E5D200C82CBF /* restaurants.json */,
+				017E2C492812E5D200C82CBF /* restaurants.geojson */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -344,6 +353,7 @@
 		017E2C462812BE0D00C82CBF /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
+				017E2C4B2812F13400C82CBF /* DeliveryViewProtocol.swift */,
 				017E2C442812BDE100C82CBF /* DeliveryPresenterProtocol.swift */,
 			);
 			path = Protocols;
@@ -577,6 +587,8 @@
 				01B60CC627EE19830045C827 /* NetworkManagerProtocol.swift */,
 				01A04839280737E1001CB6B6 /* DatabaseManager.swift */,
 				014E941D2809E99900143B32 /* DatabaseManagerProtocol.swift */,
+				017E2C4D2812F29900C82CBF /* MapsManager.swift */,
+				017E2C4F2812F5B300C82CBF /* MapsManagerProtocol.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -689,7 +701,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				01AFD61127EDBF600081BA4C /* LaunchScreen.storyboard in Resources */,
-				017E2C4A2812E5D200C82CBF /* restaurants.json in Resources */,
+				017E2C4A2812E5D200C82CBF /* restaurants.geojson in Resources */,
 				01AFD60E27EDBF600081BA4C /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -762,6 +774,7 @@
 				01C995AD27F4F26900FE3F1F /* CardViewController+UITableViewDelegate.swift in Sources */,
 				01C0F28027EDC65000380895 /* CollectionViewType.swift in Sources */,
 				01A048382807242C001CB6B6 /* CartViewController.swift in Sources */,
+				017E2C4E2812F29900C82CBF /* MapsManager.swift in Sources */,
 				01A306B027F10CB10098C791 /* MenuViewController+UICollectionViewDelegate.swift in Sources */,
 				012D7B1C280D69AF0068C99D /* CartDelegate.swift in Sources */,
 				01A04840280854D7001CB6B6 /* CartItem.swift in Sources */,
@@ -789,7 +802,9 @@
 				014F1CD927F398B000D7F799 /* PresentationController.swift in Sources */,
 				01C0F28E27EDD89C00380895 /* MenuCellPresenter.swift in Sources */,
 				014AE381280DE972008D9A06 /* MenuOptions.swift in Sources */,
+				017E2C502812F5B300C82CBF /* MapsManagerProtocol.swift in Sources */,
 				014AE37D280DC0D0008D9A06 /* SideMenuViewController.swift in Sources */,
+				017E2C4C2812F13400C82CBF /* DeliveryViewProtocol.swift in Sources */,
 				017FC4FE280F0662006D6A9B /* CardPresenterProtocol.swift in Sources */,
 				019ACD3927EF1A6500589642 /* BannerViewController.swift in Sources */,
 				01A306A127F0BD760098C791 /* BannerCollectionViewCell.swift in Sources */,
@@ -801,6 +816,7 @@
 				017E2C422812BDCD00C82CBF /* DeliveryPresenter.swift in Sources */,
 				01B60CC527EE195E0045C827 /* NetworkManager.swift in Sources */,
 				01AFD60727EDBF5D0081BA4C /* SceneDelegate.swift in Sources */,
+				017E2C522812F61700C82CBF /* DeliveryViewController+CLLocationManagerDelegate.swift in Sources */,
 				014E941E2809E99900143B32 /* DatabaseManagerProtocol.swift in Sources */,
 				01161E9D27F30A69007695CF /* BannerPresenterProtocol.swift in Sources */,
 				01C0F27E27EDC58E00380895 /* Constants.swift in Sources */,

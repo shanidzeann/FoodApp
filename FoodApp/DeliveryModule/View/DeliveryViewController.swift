@@ -11,20 +11,15 @@ import CoreLocation
 
 class DeliveryViewController: UIViewController {
     
-    let mapView: MKMapView = {
-        let map = MKMapView()
-        //  map.overrideUserInterfaceStyle = .dark
-        return map
-    }()
+    private var presenter: DeliveryPresenterProtocol!
     
-    let locationManager = CLLocationManager()
+    private let mapView = MKMapView()
+    private let locationManager = CLLocationManager()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupMapConstraints()
-//        setInitialLocation()
-//        constrainCamera()
-        addAnnotation()
+        presenter.loadInitialData()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -45,44 +40,10 @@ class DeliveryViewController: UIViewController {
         mapView.bottomAnchor.constraint(equalTo: safeArea.bottomAnchor).isActive = true
         mapView.leadingAnchor.constraint(equalTo: safeArea.leadingAnchor).isActive = true
         mapView.trailingAnchor.constraint(equalTo: safeArea.trailingAnchor).isActive = true
-        
     }
     
-    private func setInitialLocation() {
-        let initialLocation = CLLocation(latitude: 55.752004, longitude: 37.617734)
-        mapView.centerLocation(initialLocation)
-    }
-    
-    private func constrainCamera() {
-        let center = CLLocation(latitude: 55.752004, longitude: 37.617734)
-        let region = MKCoordinateRegion(center: center.coordinate, latitudinalMeters: 50000, longitudinalMeters:  50000)
-        mapView.setCameraBoundary(MKMapView.CameraBoundary(coordinateRegion: region), animated: true)
-        
-        let zoomRange = MKMapView.CameraZoomRange(maxCenterCoordinateDistance: 100000)
-        mapView.setCameraZoomRange(zoomRange, animated: true)
-    }
-    
-    private func addAnnotation() {
-        let restaurant = Restaurant(
-          title: "The Best Restaurant Ever",
-          locationName: "The Best Location Ever",
-          discipline: "Restaurant",
-          coordinate: CLLocationCoordinate2D(latitude: 55.752004, longitude: 37.617734))
-        mapView.addAnnotation(restaurant)
-    }
-    
-    deinit {
-        print("deinit")
-    }
-}
-
-extension DeliveryViewController: CLLocationManagerDelegate {
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        if let location = locations.first {
-            manager.startUpdatingLocation()
-            
-            render(location)
-        }
+    func inject(presenter: DeliveryPresenterProtocol) {
+        self.presenter = presenter
     }
     
     func render(_ location: CLLocation) {
@@ -91,12 +52,11 @@ extension DeliveryViewController: CLLocationManagerDelegate {
         let region = MKCoordinateRegion(center: coordinate, span: span)
         mapView.setRegion(region, animated: true)
     }
+
 }
 
-
-extension MKMapView {
-    func centerLocation(_ location: CLLocation, regionRadius: CLLocationDistance = 1000) {
-        let coordinateRegion = MKCoordinateRegion(center: location.coordinate, latitudinalMeters: regionRadius, longitudinalMeters: regionRadius)
-        setRegion(coordinateRegion, animated: true)
+extension DeliveryViewController: DeliveryViewProtocol {
+    func addAnnotations(restaurants: [Restaurant]) {
+        mapView.addAnnotations(restaurants)
     }
 }
