@@ -35,6 +35,7 @@ class HomeViewController: UIViewController {
     private var runningAnimations = [UIViewPropertyAnimator]()
     private var animationProgressWhenInterrupted: CGFloat = 0
     private var fractionComplete: CGFloat = 0
+    private let duration: TimeInterval = 0.9
     
     weak var delegate: HomeViewControllerDelegate?
     
@@ -73,13 +74,13 @@ class HomeViewController: UIViewController {
     
     @objc func animateTransition() {
         if !collectionViewPanGestureEnabled {
-            animateTransitionIfNeeded(duration: 0.9)
+            animateTransitionIfNeeded()
         }
     }
     
     @objc func animateTransitionBeforeSideMenu() {
         if state == .expanded {
-            animateTransitionIfNeeded(duration: 0.9)
+            animateTransitionIfNeeded()
         }
     }
     
@@ -169,7 +170,7 @@ class HomeViewController: UIViewController {
     @objc func handleMenuPan(recognizer: UIPanGestureRecognizer) {
         switch recognizer.state {
         case .began:
-            startInteractiveTransition(duration: 0.9)
+            startInteractiveTransition()
         case .changed:
             let translation = recognizer.translation(in: menuViewController.menuCollectionView)
             fractionComplete = translation.y / (view.bounds.height/5)
@@ -183,8 +184,8 @@ class HomeViewController: UIViewController {
         }
     }
     
-    func startInteractiveTransition(duration: TimeInterval) {
-        animateTransitionIfNeeded(duration: duration)
+    func startInteractiveTransition() {
+        animateTransitionIfNeeded()
         
         for animator in runningAnimations {
             animator.pauseAnimation()
@@ -192,10 +193,10 @@ class HomeViewController: UIViewController {
         }
     }
     
-    func animateTransitionIfNeeded(duration: TimeInterval) {
+    func animateTransitionIfNeeded() {
         if runningAnimations.isEmpty {
-            addFrameAnimator(duration: duration)
-            addBlurAnimator(duration: duration)
+            addFrameAnimator()
+            addBlurAnimator()
         }
     }
     
@@ -232,7 +233,7 @@ class HomeViewController: UIViewController {
         }
     }
     
-    private func addFrameAnimator(duration: TimeInterval) {
+    private func addFrameAnimator() {
         let frameAnimator = UIViewPropertyAnimator(duration: duration, dampingRatio: 1) {
             switch self.state {
             case .expanded:
@@ -260,7 +261,7 @@ class HomeViewController: UIViewController {
         runningAnimations.append(frameAnimator)
     }
     
-    private func addBlurAnimator(duration: TimeInterval) {
+    private func addBlurAnimator() {
         let blurAnimator = UIViewPropertyAnimator(duration: duration, dampingRatio: 1) {
             switch self.state {
             case .expanded:
