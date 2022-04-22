@@ -30,6 +30,7 @@
 		014F1CDD27F39A0B00D7F799 /* CardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 014F1CDC27F39A0B00D7F799 /* CardViewController.swift */; };
 		0171492827EF80720012379E /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0171492727EF80720012379E /* HomeViewController.swift */; };
 		0178A00727FA3B6500698C2F /* ImagineItIsHidden.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0178A00627FA3B6500698C2F /* ImagineItIsHidden.swift */; };
+		017E2C3B28127E4700C82CBF /* DeliveryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 017E2C3A28127E4700C82CBF /* DeliveryViewController.swift */; };
 		017FC4D1280E874C006D6A9B /* HomeViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 017FC4D0280E874C006D6A9B /* HomeViewControllerDelegate.swift */; };
 		017FC4F5280E936A006D6A9B /* SideMenuState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 017FC4F4280E936A006D6A9B /* SideMenuState.swift */; };
 		017FC4F9280EFFF3006D6A9B /* CardPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 017FC4F8280EFFF3006D6A9B /* CardPresenter.swift */; };
@@ -109,6 +110,7 @@
 		014F1CDC27F39A0B00D7F799 /* CardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardViewController.swift; sourceTree = "<group>"; };
 		0171492727EF80720012379E /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		0178A00627FA3B6500698C2F /* ImagineItIsHidden.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagineItIsHidden.swift; sourceTree = "<group>"; };
+		017E2C3A28127E4700C82CBF /* DeliveryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeliveryViewController.swift; sourceTree = "<group>"; };
 		017FC4D0280E874C006D6A9B /* HomeViewControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewControllerDelegate.swift; sourceTree = "<group>"; };
 		017FC4F4280E936A006D6A9B /* SideMenuState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuState.swift; sourceTree = "<group>"; };
 		017FC4F8280EFFF3006D6A9B /* CardPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardPresenter.swift; sourceTree = "<group>"; };
@@ -295,6 +297,14 @@
 			path = BottomCardView;
 			sourceTree = "<group>";
 		};
+		017E2C3C28127E4B00C82CBF /* DeliveryModule */ = {
+			isa = PBXGroup;
+			children = (
+				017E2C3A28127E4700C82CBF /* DeliveryViewController.swift */,
+			);
+			path = DeliveryModule;
+			sourceTree = "<group>";
+		};
 		017FC4FF280F0E25006D6A9B /* Container */ = {
 			isa = PBXGroup;
 			children = (
@@ -441,6 +451,7 @@
 				017FC4FF280F0E25006D6A9B /* Container */,
 				0185009C280D8A8C00CDF11C /* SideMenuModule */,
 				01C0F27C27EDC2AE00380895 /* MenuModule */,
+				017E2C3C28127E4B00C82CBF /* DeliveryModule */,
 				01A04836280723C0001CB6B6 /* ShoppingCartModule */,
 				01C0F29927EDEE6400380895 /* Managers */,
 				01A306B527F10D6E0098C791 /* Extensions */,
@@ -746,6 +757,7 @@
 				014E941E2809E99900143B32 /* DatabaseManagerProtocol.swift in Sources */,
 				01161E9D27F30A69007695CF /* BannerPresenterProtocol.swift in Sources */,
 				01C0F27E27EDC58E00380895 /* Constants.swift in Sources */,
+				017E2C3B28127E4700C82CBF /* DeliveryViewController.swift in Sources */,
 				01161EA127F314DE007695CF /* MenuViewController+UICollectionViewDelegateFlowLayout.swift in Sources */,
 				01456F4527F46106002AF950 /* CardViewControllerDelegate.swift in Sources */,
 				014AE389280DEC7A008D9A06 /* SideMenuViewControllerDelegate.swift in Sources */,

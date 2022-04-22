@@ -117,12 +117,23 @@ extension ContainerViewController: SideMenuViewControllerDelegate {
         case .profile:
             break
         case .delivery:
-            break
+            addDeliveryVC()
         }
     }
     
     func resetToHome() {
-        //remove from superview, did move to parent nil
+        if homeVC.children.count > 2 {
+            homeVC.view.subviews[2].removeFromSuperview()
+            homeVC.children[2].removeFromParent()
+        }
+    }
+    
+    private func addDeliveryVC() {
+        let deliveryVC = DeliveryViewController()
+        homeVC.addChild(deliveryVC)
+        homeVC.view.addSubview(deliveryVC.view)
+        deliveryVC.view.frame = homeVC.view.frame
+        deliveryVC.didMove(toParent: homeVC)
     }
 }
 
