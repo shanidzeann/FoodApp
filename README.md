@@ -14,6 +14,7 @@
 - URLSession
 - DispatchGroup
 - API - spoonacular (не все нужные данные имеются, так что потом подберу другой)
+- MapKit, CoreLocation
 
 ![Image alt](https://github.com/shanidzeann/Screenshots/blob/main/food1.png)
 ![Image alt](https://github.com/shanidzeann/Screenshots/blob/main/food2.png)
