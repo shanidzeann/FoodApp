@@ -15,10 +15,12 @@ class HomeViewController: UIViewController {
         case expanded
         case collapsed
         
-        var change: MenuState {
+        mutating func toggle() {
             switch self {
-            case .expanded: return .collapsed
-            case .collapsed: return .expanded
+            case .expanded:
+                self = .collapsed
+            case .collapsed:
+                self = .expanded
             }
         }
     }
@@ -254,7 +256,7 @@ class HomeViewController: UIViewController {
                     self.collectionViewPanGestureEnabled = true
                     self.scrolledToTop = false
                 }
-                self.state = self.state.change
+                self.state.toggle()
             }
             self.runningAnimations.removeAll()
         }
