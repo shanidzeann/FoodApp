@@ -55,6 +55,7 @@
 		018EB48F2816CA9F00C08E3F /* DeliveryTermsPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 018EB48E2816CA9F00C08E3F /* DeliveryTermsPresentationController.swift */; };
 		018EB4912816CBA200C08E3F /* DeliveryTermsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 018EB4902816CBA200C08E3F /* DeliveryTermsViewController.swift */; };
 		018EB4932816D46A00C08E3F /* DeliveryViewController+UIViewControllerTransitioningDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 018EB4922816D46A00C08E3F /* DeliveryViewController+UIViewControllerTransitioningDelegate.swift */; };
+		018EB4972816E56D00C08E3F /* DeliveryAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 018EB4962816E56D00C08E3F /* DeliveryAlert.swift */; };
 		019ACD3927EF1A6500589642 /* BannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 019ACD3827EF1A6500589642 /* BannerViewController.swift */; };
 		01A048382807242C001CB6B6 /* CartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A048372807242C001CB6B6 /* CartViewController.swift */; };
 		01A0483A280737E1001CB6B6 /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A04839280737E1001CB6B6 /* DatabaseManager.swift */; };
@@ -153,6 +154,7 @@
 		018EB48E2816CA9F00C08E3F /* DeliveryTermsPresentationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeliveryTermsPresentationController.swift; sourceTree = "<group>"; };
 		018EB4902816CBA200C08E3F /* DeliveryTermsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeliveryTermsViewController.swift; sourceTree = "<group>"; };
 		018EB4922816D46A00C08E3F /* DeliveryViewController+UIViewControllerTransitioningDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DeliveryViewController+UIViewControllerTransitioningDelegate.swift"; sourceTree = "<group>"; };
+		018EB4962816E56D00C08E3F /* DeliveryAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeliveryAlert.swift; sourceTree = "<group>"; };
 		019ACD3827EF1A6500589642 /* BannerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerViewController.swift; sourceTree = "<group>"; };
 		01A048372807242C001CB6B6 /* CartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartViewController.swift; sourceTree = "<group>"; };
 		01A04839280737E1001CB6B6 /* DatabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = "<group>"; };
@@ -345,6 +347,7 @@
 		017E2C3D2812BD9F00C82CBF /* View */ = {
 			isa = PBXGroup;
 			children = (
+				018EB4962816E56D00C08E3F /* DeliveryAlert.swift */,
 				018EB4942816D4BF00C08E3F /* Map */,
 				018EB4952816D4CA00C08E3F /* DeliveryTermsCard */,
 			);
@@ -873,6 +876,7 @@
 				01161E9D27F30A69007695CF /* BannerPresenterProtocol.swift in Sources */,
 				01C0F27E27EDC58E00380895 /* Constants.swift in Sources */,
 				017E2C3B28127E4700C82CBF /* DeliveryViewController.swift in Sources */,
+				018EB4972816E56D00C08E3F /* DeliveryAlert.swift in Sources */,
 				01161EA127F314DE007695CF /* MenuViewController+UICollectionViewDelegateFlowLayout.swift in Sources */,
 				01456F4527F46106002AF950 /* CardViewControllerDelegate.swift in Sources */,
 				014AE389280DEC7A008D9A06 /* SideMenuViewControllerDelegate.swift in Sources */,

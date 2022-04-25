@@ -17,6 +17,7 @@ class DeliveryViewController: UIViewController {
     private let locationManager = CLLocationManager()
     let regionInMeters: Double = 10000
     var previousLocation: CLLocation?
+    lazy var deliveryAlert = DeliveryAlert()
     
     lazy var deliveryRegionCenter = CLLocationCoordinate2D(latitude: 55.751999, longitude: 37.617734)
     lazy var deliveryRegion = CLCircularRegion(center: deliveryRegionCenter, radius: 20000, identifier: "delivery")
@@ -86,16 +87,19 @@ class DeliveryViewController: UIViewController {
             let deliveryTermsVC = DeliveryTermsViewController()
             deliveryTermsVC.modalPresentationStyle = .custom
             deliveryTermsVC.transitioningDelegate = self
-            
             present(deliveryTermsVC, animated: true, completion: nil)
         } else {
-            print("unavailable")
+            showDeliveryIsUnavailableAlert()
         }
     }
     
     private func deliveryIsAvailable() -> Bool {
         let location = getCenterLocation(for: mapView)
         return deliveryRegion.contains(location.coordinate)
+    }
+    
+    private func showDeliveryIsUnavailableAlert() {
+        deliveryAlert.showAlert(on: self)
     }
     
     private func checkLocationServices() {
