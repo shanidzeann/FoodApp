@@ -16,7 +16,7 @@ class MenuViewController: UIViewController {
     var presenter: MenuPresenterProtocol!
     var menuCollectionView: UICollectionView?
     var categoriesCollectionView: UICollectionView?
-    lazy var cardVC = CardViewController()
+    var cardVC = CardViewController()
     
     let moreButton: UIButton = {
         let button = UIButton(configuration: .plain(), primaryAction: nil)

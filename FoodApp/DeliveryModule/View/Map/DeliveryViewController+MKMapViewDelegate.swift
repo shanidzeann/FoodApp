@@ -1,20 +1,12 @@
 //
-//  DeliveryViewController+CLLocationManagerDelegate.swift
+//  DeliveryViewController+MKMapViewDelegate.swift
 //  FoodApp
 //
-//  Created by Anna Shanidze on 22.04.2022.
+//  Created by Anna Shanidze on 25.04.2022.
 //
 
 import UIKit
-import CoreLocation
 import MapKit
-
-extension DeliveryViewController: CLLocationManagerDelegate {
-    
-    func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
-        checkLocationAuthorization()
-    }
-}
 
 extension DeliveryViewController: MKMapViewDelegate {
     func mapView(_ mapView: MKMapView, regionDidChangeAnimated animated: Bool) {
@@ -45,6 +37,5 @@ extension DeliveryViewController: MKMapViewDelegate {
             self.addressLabel.text = streetNumber + " " + streetName
             
         }
-        
     }
 }

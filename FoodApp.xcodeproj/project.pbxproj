@@ -51,6 +51,10 @@
 		0185009B280D8A8700CDF11C /* ContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0185009A280D8A8700CDF11C /* ContainerViewController.swift */; };
 		0185851628056514000E68F7 /* FoodAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0185851528056514000E68F7 /* FoodAppTests.swift */; };
 		0185851D28056537000E68F7 /* NetworkingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0185851C28056537000E68F7 /* NetworkingTests.swift */; };
+		018EB48D2816B45A00C08E3F /* DeliveryViewController+MKMapViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 018EB48C2816B45A00C08E3F /* DeliveryViewController+MKMapViewDelegate.swift */; };
+		018EB48F2816CA9F00C08E3F /* DeliveryTermsPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 018EB48E2816CA9F00C08E3F /* DeliveryTermsPresentationController.swift */; };
+		018EB4912816CBA200C08E3F /* DeliveryTermsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 018EB4902816CBA200C08E3F /* DeliveryTermsViewController.swift */; };
+		018EB4932816D46A00C08E3F /* DeliveryViewController+UIViewControllerTransitioningDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 018EB4922816D46A00C08E3F /* DeliveryViewController+UIViewControllerTransitioningDelegate.swift */; };
 		019ACD3927EF1A6500589642 /* BannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 019ACD3827EF1A6500589642 /* BannerViewController.swift */; };
 		01A048382807242C001CB6B6 /* CartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A048372807242C001CB6B6 /* CartViewController.swift */; };
 		01A0483A280737E1001CB6B6 /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A04839280737E1001CB6B6 /* DatabaseManager.swift */; };
@@ -145,6 +149,10 @@
 		0185851328056514000E68F7 /* FoodAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FoodAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0185851528056514000E68F7 /* FoodAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodAppTests.swift; sourceTree = "<group>"; };
 		0185851C28056537000E68F7 /* NetworkingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingTests.swift; sourceTree = "<group>"; };
+		018EB48C2816B45A00C08E3F /* DeliveryViewController+MKMapViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DeliveryViewController+MKMapViewDelegate.swift"; sourceTree = "<group>"; };
+		018EB48E2816CA9F00C08E3F /* DeliveryTermsPresentationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeliveryTermsPresentationController.swift; sourceTree = "<group>"; };
+		018EB4902816CBA200C08E3F /* DeliveryTermsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeliveryTermsViewController.swift; sourceTree = "<group>"; };
+		018EB4922816D46A00C08E3F /* DeliveryViewController+UIViewControllerTransitioningDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DeliveryViewController+UIViewControllerTransitioningDelegate.swift"; sourceTree = "<group>"; };
 		019ACD3827EF1A6500589642 /* BannerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerViewController.swift; sourceTree = "<group>"; };
 		01A048372807242C001CB6B6 /* CartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartViewController.swift; sourceTree = "<group>"; };
 		01A04839280737E1001CB6B6 /* DatabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = "<group>"; };
@@ -337,8 +345,8 @@
 		017E2C3D2812BD9F00C82CBF /* View */ = {
 			isa = PBXGroup;
 			children = (
-				017E2C3A28127E4700C82CBF /* DeliveryViewController.swift */,
-				017E2C512812F61700C82CBF /* DeliveryViewController+CLLocationManagerDelegate.swift */,
+				018EB4942816D4BF00C08E3F /* Map */,
+				018EB4952816D4CA00C08E3F /* DeliveryTermsCard */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -398,6 +406,26 @@
 				0185851C28056537000E68F7 /* NetworkingTests.swift */,
 			);
 			path = FoodAppTests;
+			sourceTree = "<group>";
+		};
+		018EB4942816D4BF00C08E3F /* Map */ = {
+			isa = PBXGroup;
+			children = (
+				017E2C3A28127E4700C82CBF /* DeliveryViewController.swift */,
+				017E2C512812F61700C82CBF /* DeliveryViewController+CLLocationManagerDelegate.swift */,
+				018EB48C2816B45A00C08E3F /* DeliveryViewController+MKMapViewDelegate.swift */,
+				018EB4922816D46A00C08E3F /* DeliveryViewController+UIViewControllerTransitioningDelegate.swift */,
+			);
+			path = Map;
+			sourceTree = "<group>";
+		};
+		018EB4952816D4CA00C08E3F /* DeliveryTermsCard */ = {
+			isa = PBXGroup;
+			children = (
+				018EB48E2816CA9F00C08E3F /* DeliveryTermsPresentationController.swift */,
+				018EB4902816CBA200C08E3F /* DeliveryTermsViewController.swift */,
+			);
+			path = DeliveryTermsCard;
 			sourceTree = "<group>";
 		};
 		01A04836280723C0001CB6B6 /* ShoppingCartModule */ = {
@@ -787,6 +815,8 @@
 				0114B2FF27F1109000D54393 /* MenuViewController.swift in Sources */,
 				01A306AE27F10C730098C791 /* MenuViewController+UICollectionViewDataSource.swift in Sources */,
 				01C995AD27F4F26900FE3F1F /* CardViewController+UITableViewDelegate.swift in Sources */,
+				018EB48D2816B45A00C08E3F /* DeliveryViewController+MKMapViewDelegate.swift in Sources */,
+				018EB4912816CBA200C08E3F /* DeliveryTermsViewController.swift in Sources */,
 				01C0F28027EDC65000380895 /* CollectionViewType.swift in Sources */,
 				01A048382807242C001CB6B6 /* CartViewController.swift in Sources */,
 				017E2C4E2812F29900C82CBF /* MapsManager.swift in Sources */,
@@ -807,6 +837,7 @@
 				01161E9B27F30A49007695CF /* BannerPresenter.swift in Sources */,
 				014E941C2809E72000143B32 /* CartPresenterProtocol.swift in Sources */,
 				01C0F29827EDDC4200380895 /* MenuCellProtocol.swift in Sources */,
+				018EB4932816D46A00C08E3F /* DeliveryViewController+UIViewControllerTransitioningDelegate.swift in Sources */,
 				012D7B18280D67E10068C99D /* CartViewController+UITableViewDataSource.swift in Sources */,
 				01C0F29027EDD8C600380895 /* MenuCellPresenterProtocol.swift in Sources */,
 				014E94192809E4DD00143B32 /* CartCellPresenter.swift in Sources */,
@@ -817,6 +848,7 @@
 				01F6C4B12809A48200EABCE2 /* CartCellPresenterProtocol.swift in Sources */,
 				017FC4D1280E874C006D6A9B /* HomeViewControllerDelegate.swift in Sources */,
 				01A0483A280737E1001CB6B6 /* DatabaseManager.swift in Sources */,
+				018EB48F2816CA9F00C08E3F /* DeliveryTermsPresentationController.swift in Sources */,
 				017E2C5C2812F9BE00C82CBF /* JSONParserProtocol.swift in Sources */,
 				014F1CD927F398B000D7F799 /* PresentationController.swift in Sources */,
 				01C0F28E27EDD89C00380895 /* MenuCellPresenter.swift in Sources */,
