@@ -17,8 +17,25 @@ class DeliveryViewController: UIViewController {
     private let locationManager = CLLocationManager()
     let regionInMeters: Double = 10000
     
+    let pinImageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.contentMode = .scaleAspectFit
+        imageView.image = UIImage(named: "pin")
+        return imageView
+    }()
+    
+    let addressLabel: UILabel = {
+        let label = UILabel()
+        label.numberOfLines = 2
+        label.backgroundColor = .secondarySystemBackground
+        label.layer.cornerRadius = 10
+        return label
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        title = "Доставка"
+        
         setupMapConstraints()
         
         checkLocationServices()
@@ -28,13 +45,29 @@ class DeliveryViewController: UIViewController {
     
     private func setupMapConstraints() {
         view.addSubview(mapView)
+        view.addSubview(pinImageView)
+        view.addSubview(addressLabel)
+        
+        let safeArea = view.safeAreaLayoutGuide
         
         mapView.translatesAutoresizingMaskIntoConstraints = false
-        let safeArea = view.safeAreaLayoutGuide
         mapView.topAnchor.constraint(equalTo: safeArea.topAnchor).isActive = true
         mapView.bottomAnchor.constraint(equalTo: safeArea.bottomAnchor).isActive = true
         mapView.leadingAnchor.constraint(equalTo: safeArea.leadingAnchor).isActive = true
         mapView.trailingAnchor.constraint(equalTo: safeArea.trailingAnchor).isActive = true
+        
+        pinImageView.translatesAutoresizingMaskIntoConstraints = false
+        pinImageView.centerYAnchor.constraint(equalTo: safeArea.centerYAnchor, constant: -20.0).isActive = true
+        pinImageView.centerXAnchor.constraint(equalTo: safeArea.centerXAnchor).isActive = true
+        pinImageView.heightAnchor.constraint(equalToConstant: 40.0).isActive = true
+        pinImageView.widthAnchor.constraint(equalToConstant: 40.0).isActive = true
+        
+        addressLabel.translatesAutoresizingMaskIntoConstraints = false
+        addressLabel.leadingAnchor.constraint(equalTo: safeArea.leadingAnchor, constant: 50).isActive = true
+        addressLabel.trailingAnchor.constraint(equalTo: safeArea.trailingAnchor, constant: -50).isActive = true
+        addressLabel.bottomAnchor.constraint(equalTo: safeArea.bottomAnchor, constant: -70).isActive = true
+        addressLabel.heightAnchor.constraint(equalToConstant: 60).isActive = true
+
     }
     
     func inject(presenter: DeliveryPresenterProtocol) {
@@ -82,7 +115,7 @@ class DeliveryViewController: UIViewController {
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.delegate = self
     }
-
+    
 }
 
 extension DeliveryViewController: DeliveryViewProtocol {
