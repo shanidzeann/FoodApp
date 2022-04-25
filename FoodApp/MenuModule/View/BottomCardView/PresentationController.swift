@@ -35,7 +35,7 @@ class PresentationController: UIPresentationController {
         blurEffectView.alpha = 0
         containerView?.addSubview(blurEffectView)
         presentedViewController.transitionCoordinator?.animate { _ in
-            self.blurEffectView.alpha = 0.7
+            self.blurEffectView.alpha = 0.3
         }
     }
     
