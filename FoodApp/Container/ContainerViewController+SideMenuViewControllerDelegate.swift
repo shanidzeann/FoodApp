@@ -13,10 +13,12 @@ extension ContainerViewController: SideMenuViewControllerDelegate {
         checkChildren()
         switch menuItem {
         case .home:
+            navController?.navigationBar.topItem?.title = ""
             resetToHome()
         case .profile:
             break
         case .delivery:
+            navController?.navigationBar.topItem?.title = "Доставка"
             addDeliveryVC()
         }
     }

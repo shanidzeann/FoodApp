@@ -16,6 +16,7 @@ class DeliveryViewController: UIViewController {
     let mapView = MKMapView()
     private let locationManager = CLLocationManager()
     let regionInMeters: Double = 10000
+    var previousLocation: CLLocation?
     
     let pinImageView: UIImageView = {
         let imageView = UIImageView()
@@ -29,12 +30,14 @@ class DeliveryViewController: UIViewController {
         label.numberOfLines = 2
         label.backgroundColor = .secondarySystemBackground
         label.layer.cornerRadius = 10
+        label.textColor = .black
         return label
     }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "Доставка"
+        
+        mapView.delegate = self
         
         setupMapConstraints()
         
@@ -96,12 +99,17 @@ class DeliveryViewController: UIViewController {
         case .authorizedAlways:
             break
         case .authorizedWhenInUse:
-            mapView.showsUserLocation = true
-            centerViewOnUserLocation()
-            locationManager.startUpdatingLocation()
+            startTrackingUserLocation()
         @unknown default:
             break
         }
+    }
+    
+    private func startTrackingUserLocation() {
+        mapView.showsUserLocation = true
+        centerViewOnUserLocation()
+        locationManager.startUpdatingLocation()
+        previousLocation = getCenterLocation(for: mapView)
     }
     
     private func centerViewOnUserLocation() {
@@ -114,6 +122,13 @@ class DeliveryViewController: UIViewController {
     private func setupLocationManager() {
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.delegate = self
+    }
+    
+    func getCenterLocation(for mapView: MKMapView) -> CLLocation {
+        let latitude = mapView.centerCoordinate.latitude
+        let longitude = mapView.centerCoordinate.longitude
+        
+        return CLLocation(latitude: latitude, longitude: longitude)
     }
     
 }
