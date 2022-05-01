@@ -12,9 +12,7 @@ class ContainerViewController: UIViewController {
     var hasSetFrame = false
     var frame: CGRect!
     var safeNavBarFrame: CGRect!
-    
     var shadowView: UIView?
-    
     var sideMenuState: SideMenuState = .closed
     
     let menuVC = SideMenuViewController()
@@ -33,10 +31,19 @@ class ContainerViewController: UIViewController {
         super.viewDidLayoutSubviews()
         if !hasSetFrame {
             hasSetFrame = true
-            frame = CGRect(x: 0, y: 0, width: view.frame.size.width, height: view.frame.size.height)
+            frame = CGRect(x: 0,
+                           y: 0,
+                           width: view.frame.size.width,
+                           height: view.frame.size.height)
             let navBarFrame = navController?.navigationBar.frame
-            safeNavBarFrame = CGRect(x: 0, y: 0, width: navBarFrame!.width, height: navBarFrame!.height + view.safeAreaInsets.top)
-            menuVC.view.frame = CGRect(x: -frame.width * 0.7, y: frame.minY, width: frame.width * 0.7, height: frame.height)
+            safeNavBarFrame = CGRect(x: 0,
+                                     y: 0,
+                                     width: navBarFrame!.width,
+                                     height: navBarFrame!.height + view.safeAreaInsets.top)
+            menuVC.view.frame = CGRect(x: -frame.width * 0.7,
+                                       y: frame.minY,
+                                       width: frame.width * 0.7,
+                                       height: frame.height)
         }
     }
     

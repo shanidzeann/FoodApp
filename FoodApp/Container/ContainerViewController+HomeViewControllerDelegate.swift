@@ -17,20 +17,28 @@ extension ContainerViewController: HomeViewControllerDelegate {
         
         switch sideMenuState {
         case .closed:
-            UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 0.8, initialSpringVelocity: 0, options: .curveEaseInOut) {
-                self.animateMenu(menuX: 0, vcX: 0.75, vcY: 0.05, vcHeight: 0.9)
-                self.homeVC.bannerViewController.collectionView?.collectionViewLayout.invalidateLayout()
-            } completion: { [weak self] done in
-                if done {
-                    self?.menuAnimationCompletion(isOpened: true)
-                }
-            }
+            openMenu()
         case .opened:
-            UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 0.8, initialSpringVelocity: 0, options: .curveEaseInOut) {
-                self.animateMenu(menuX: -0.7, vcX: 0, vcY: 0, vcHeight: 1)
-            } completion: { [weak self] done in
-                self?.menuAnimationCompletion(isOpened: false)
+            closeMenu()
+        }
+    }
+    
+    private func openMenu() {
+        UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 0.8, initialSpringVelocity: 0, options: .curveEaseInOut) {
+            self.animateMenu(menuX: 0, vcX: 0.75, vcY: 0.05, vcHeight: 0.9)
+            self.homeVC.bannerViewController.collectionView?.collectionViewLayout.invalidateLayout()
+        } completion: { [weak self] done in
+            if done {
+                self?.menuAnimationCompletion(isOpened: true)
             }
+        }
+    }
+    
+    private func closeMenu() {
+        UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 0.8, initialSpringVelocity: 0, options: .curveEaseInOut) {
+            self.animateMenu(menuX: -0.7, vcX: 0, vcY: 0, vcHeight: 1)
+        } completion: { [weak self] done in
+            self?.menuAnimationCompletion(isOpened: false)
         }
     }
     

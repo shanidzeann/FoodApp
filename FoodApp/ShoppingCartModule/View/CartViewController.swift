@@ -46,6 +46,16 @@ class CartViewController: UIViewController {
         presenter.checkCart()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.navigationBar.prefersLargeTitles = true
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        navigationController?.navigationBar.prefersLargeTitles = false
+    }
+    
     private func addSubviews() {
         view.addSubview(tableView)
         view.addSubview(checkoutButton)
@@ -73,7 +83,6 @@ class CartViewController: UIViewController {
 
     private func configureNavBar() {
         title = "Корзина"
-        navigationController?.navigationBar.prefersLargeTitles = true
         navigationController?.navigationBar.topItem?.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
     }
     

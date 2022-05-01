@@ -23,10 +23,8 @@ class SideMenuViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
-        view.addSubview(tableView)
-        tableView.delegate = self
-        tableView.dataSource = self
-        
+        addSubviews()
+        configureTableView()
     }
     
     override func viewDidLayoutSubviews() {
@@ -34,28 +32,14 @@ class SideMenuViewController: UIViewController {
         
         tableView.frame = CGRect(x: 0, y: view.safeAreaInsets.top, width: view.bounds.size.width, height: view.bounds.size.height)
     }
-}
-
-extension SideMenuViewController: UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return presenter.numberOfRowsInSection()
+    
+    private func addSubviews() {
+        view.addSubview(tableView)
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: Constants.TableView.CellIdentifiers.sideMenuCell, for: indexPath)
-        cell.textLabel?.text = presenter.cellText(at: indexPath)
-        cell.textLabel?.textColor = .black
-        cell.imageView?.image = UIImage(systemName: presenter.cellImageName(at: indexPath))
-        cell.imageView?.tintColor = .black
-        return cell
-    }
-}
-
-extension SideMenuViewController: UITableViewDelegate {
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true)
-        let item = presenter.item(for: indexPath)
-        delegate?.didSelect(menuItem: item)
+    private func configureTableView() {
+        tableView.delegate = self
+        tableView.dataSource = self
     }
 }
 

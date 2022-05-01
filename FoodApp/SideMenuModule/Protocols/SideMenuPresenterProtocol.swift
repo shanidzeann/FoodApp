@@ -9,7 +9,5 @@ import Foundation
 
 protocol SideMenuPresenterProtocol {
     func numberOfRowsInSection() -> Int
-    func cellText(at indexPath: IndexPath) -> String
-    func cellImageName(at indexPath: IndexPath) -> String
     func item(for indexPath: IndexPath) -> MenuOptions
 }

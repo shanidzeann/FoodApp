@@ -13,12 +13,12 @@ extension ContainerViewController: SideMenuViewControllerDelegate {
         checkChildren()
         switch menuItem {
         case .home:
-            navController?.navigationBar.topItem?.title = ""
+            changeNavControllerTitle("")
             resetToHome()
         case .profile:
             break
         case .delivery:
-            navController?.navigationBar.topItem?.title = "Доставка"
+            changeNavControllerTitle("Доставка")
             addDeliveryVC()
         }
     }
@@ -40,14 +40,20 @@ extension ContainerViewController: SideMenuViewControllerDelegate {
         let mapsManager = MapsManager()
         let presenter = DeliveryPresenter(view: deliveryVC, mapsManager: mapsManager)
         deliveryVC.inject(presenter: presenter)
+        
         createShadowView()
         if let shadowView = shadowView {
             deliveryVC.view.addSubview(shadowView)
         }
+        
         homeVC.addChild(deliveryVC)
         homeVC.view.addSubview(deliveryVC.view)
         deliveryVC.view.frame = homeVC.view.frame
         deliveryVC.didMove(toParent: homeVC)
+    }
+    
+    private func changeNavControllerTitle(_ title: String) {
+        navController?.navigationBar.topItem?.title = title
     }
     
 }

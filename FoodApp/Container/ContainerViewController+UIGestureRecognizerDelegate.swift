@@ -9,11 +9,6 @@ import UIKit
 
 extension ContainerViewController: UIGestureRecognizerDelegate {
     func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
-        switch sideMenuState {
-        case .opened:
-            return true
-        case .closed:
-            return false
-        }
+        return sideMenuState == .opened
     }
 }

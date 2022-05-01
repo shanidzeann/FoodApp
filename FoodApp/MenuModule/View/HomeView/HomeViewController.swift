@@ -11,29 +11,14 @@ class HomeViewController: UIViewController {
     
     // MARK: - Properties
     
-    enum MenuState {
-        case expanded
-        case collapsed
-        
-        mutating func toggle() {
-            switch self {
-            case .expanded:
-                self = .collapsed
-            case .collapsed:
-                self = .expanded
-            }
-        }
-    }
-    
     var collectionViewPanGestureEnabled = false
     var scrolledToTop = false
     
     var menuViewController: MenuViewController!
     var bannerViewController: BannerViewController!
-    private var visualEffectView: UIVisualEffectView!
-
-    private var state: MenuState = .collapsed
     
+    private var visualEffectView: UIVisualEffectView!
+    private var state: MenuState = .collapsed
     private var runningAnimations = [UIViewPropertyAnimator]()
     private var animationProgressWhenInterrupted: CGFloat = 0
     private var fractionComplete: CGFloat = 0
@@ -56,11 +41,6 @@ class HomeViewController: UIViewController {
         super.viewDidLayoutSubviews()
         bannerViewController.view.frame = CGRect(x: 0, y: view.safeAreaInsets.top, width: view.bounds.width, height: view.bounds.height/5)
         menuViewController.view.frame = CGRect(x: 0, y: view.bounds.height/5 + view.safeAreaInsets.top, width: view.bounds.width, height: view.bounds.height - view.safeAreaInsets.top)
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        navigationController?.navigationBar.prefersLargeTitles = false
     }
     
     // MARK: - Observers
@@ -101,9 +81,8 @@ class HomeViewController: UIViewController {
         bannerViewController = BannerViewController()
         let presenter = BannerPresenter()
         bannerViewController.presenter = presenter
-        addChild(bannerViewController)
-        view.addSubview(bannerViewController.view)
-        bannerViewController.didMove(toParent: self)
+        
+        add(bannerViewController)
     }
     
     private func createMenu() {
@@ -112,9 +91,8 @@ class HomeViewController: UIViewController {
         let networkManager = NetworkManager(jsonParser: jsonParser)
         let presenter = MenuPresenter(networkManager: networkManager)
         menuViewController.presenter = presenter
-        addChild(menuViewController)
-        view.addSubview(menuViewController.view)
-        menuViewController.didMove(toParent: self)
+        
+        add(menuViewController)
     }
     
     private func createVisualEffectView() {
@@ -139,7 +117,6 @@ class HomeViewController: UIViewController {
             action: #selector(showShoppingCart)
         )
         
-        navigationController?.navigationBar.prefersLargeTitles = false
         navigationController?.navigationBar.tintColor = .black
         navigationController?.navigationBar.barTintColor = .systemBackground
         navigationController?.navigationBar.topItem?.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
@@ -176,9 +153,7 @@ class HomeViewController: UIViewController {
         case .began:
             startInteractiveTransition()
         case .changed:
-            let translation = recognizer.translation(in: menuViewController.menuCollectionView)
-            fractionComplete = translation.y / (view.bounds.height/5)
-            fractionComplete = state == .expanded ? fractionComplete : -fractionComplete
+            calculateFractionComplete(recognizer: recognizer)
             updateInteractiveTransition(fractionCompleted: fractionComplete)
         case .ended:
             reverseAnimation(recognizer: recognizer)
@@ -202,6 +177,12 @@ class HomeViewController: UIViewController {
             addFrameAnimator()
             addBlurAnimator()
         }
+    }
+    
+    private func calculateFractionComplete(recognizer: UIPanGestureRecognizer) {
+        let translation = recognizer.translation(in: menuViewController.menuCollectionView)
+        fractionComplete = translation.y / (view.bounds.height/5)
+        fractionComplete = state == .expanded ? fractionComplete : -fractionComplete
     }
     
     func updateInteractiveTransition(fractionCompleted: CGFloat) {
