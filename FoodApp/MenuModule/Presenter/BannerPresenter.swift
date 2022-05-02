@@ -23,5 +23,4 @@ class BannerPresenter: BannerPresenterProtocol {
         return images[indexPath.item]
     }
     
-    
 }

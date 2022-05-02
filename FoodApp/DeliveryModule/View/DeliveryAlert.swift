@@ -43,18 +43,21 @@ class DeliveryAlert {
             self.backgroundView.alpha = 0.2
             self.alertView.alpha = 1
         } completion: { _ in
-            DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
-                UIView.animate(withDuration: 0.5) {
-                    self.backgroundView.alpha = 0
-                    self.alertView.alpha = 0
-                } completion: { _ in
-                    self.alertView.removeFromSuperview()
-                    self.backgroundView.removeFromSuperview()
-                }
-            }
+            self.hideAlert()
         }
     }
     
+    private func hideAlert() {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+            UIView.animate(withDuration: 0.5) {
+                self.backgroundView.alpha = 0
+                self.alertView.alpha = 0
+            } completion: { _ in
+                self.alertView.removeFromSuperview()
+                self.backgroundView.removeFromSuperview()
+            }
+        }
+    }
     
     func createAlert(on targetView: UIView) {
         backgroundView.frame = targetView.bounds
@@ -75,7 +78,8 @@ class DeliveryAlert {
         blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         alertView.addSubview(blurEffectView)
         
-        alertView.addSubview(messageLabel)
         messageLabel.frame = alertView.bounds
+        alertView.addSubview(messageLabel)
     }
+    
 }

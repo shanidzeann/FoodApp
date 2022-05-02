@@ -38,7 +38,7 @@ class Restaurant: NSObject, MKAnnotation {
             let propertiesData = feature.properties,
             let json = try? JSONSerialization.jsonObject(with: propertiesData),
             let properties = json as? [String: Any] else { return nil }
-        
+        #warning("json")
         title = properties["title"] as? String
         locationName = properties["location"] as? String
         discipline = properties["discipline"] as? String

@@ -62,6 +62,7 @@ class DeliveryViewController: UIViewController {
         super.viewDidLoad()
         
         mapView.delegate = self
+        addSubviews()
         setupConstraints()
         checkLocationServices()
         presenter.loadInitialData()
@@ -84,10 +85,7 @@ class DeliveryViewController: UIViewController {
     
     @objc private func didTapCheckAddress() {
         if deliveryIsAvailable() {
-            let deliveryTermsVC = DeliveryTermsViewController()
-            deliveryTermsVC.modalPresentationStyle = .custom
-            deliveryTermsVC.transitioningDelegate = self
-            present(deliveryTermsVC, animated: true, completion: nil)
+            showDeliveryTerms()
         } else {
             showDeliveryIsUnavailableAlert()
         }
@@ -96,6 +94,13 @@ class DeliveryViewController: UIViewController {
     private func deliveryIsAvailable() -> Bool {
         let location = getCenterLocation(for: mapView)
         return deliveryRegion.contains(location.coordinate)
+    }
+    
+    private func showDeliveryTerms() {
+        let deliveryTermsVC = DeliveryTermsViewController()
+        deliveryTermsVC.modalPresentationStyle = .custom
+        deliveryTermsVC.transitioningDelegate = self
+        present(deliveryTermsVC, animated: true, completion: nil)
     }
     
     private func showDeliveryIsUnavailableAlert() {
@@ -156,14 +161,15 @@ class DeliveryViewController: UIViewController {
         return CLLocation(latitude: latitude, longitude: longitude)
     }
     
-    
-    private func setupConstraints() {
+    private func addSubviews() {
         view.addSubview(mapView)
         view.addSubview(pinImageView)
         view.addSubview(addressLabel)
         view.addSubview(userLocationButton)
         view.addSubview(checkAddressButton)
-        
+    }
+    
+    private func setupConstraints() {
         let safeArea = view.safeAreaLayoutGuide
         
         mapView.translatesAutoresizingMaskIntoConstraints = false
@@ -197,10 +203,4 @@ class DeliveryViewController: UIViewController {
         checkAddressButton.heightAnchor.constraint(equalToConstant: 40).isActive = true
     }
     
-}
-
-extension DeliveryViewController: DeliveryViewProtocol {
-    func addAnnotations(restaurants: [Restaurant]) {
-        mapView.addAnnotations(restaurants)
-    }
 }

@@ -32,10 +32,10 @@ class CartPresenter: CartPresenterProtocol {
     func checkCart() {
         if databaseManager.totalPrice == 0 {
             view?.configureCheckoutButton(title: "Корзина пуста", isEnabled: false)
-            view?.showEmptyCart()
+            view?.showCart(isEmpty: true)
         } else {
             view?.configureCheckoutButton(title: "Оформить заказ на \(databaseManager.totalPrice) ₽", isEnabled: true)
-            view?.showCart()
+            view?.showCart(isEmpty: false)
         }
         
     }

@@ -9,7 +9,12 @@ import UIKit
 import MapKit
 
 extension DeliveryViewController: MKMapViewDelegate {
+    
     func mapView(_ mapView: MKMapView, regionDidChangeAnimated animated: Bool) {
+        reverseGeocodeLocation()
+    }
+    
+    private func reverseGeocodeLocation() {
         let center = getCenterLocation(for: mapView)
         let geoCoder = CLGeocoder()
         
@@ -31,11 +36,15 @@ extension DeliveryViewController: MKMapViewDelegate {
                 return
             }
             
-            let streetNumber = placemark.subThoroughfare ?? ""
-            let streetName = placemark.thoroughfare ?? ""
-            
-            self.addressLabel.text = streetNumber + " " + streetName
-            
+            self.setNewAdress(from: placemark)
         }
     }
+    
+    private func setNewAdress(from placemark: CLPlacemark) {
+        let streetNumber = placemark.subThoroughfare ?? ""
+        let streetName = placemark.thoroughfare ?? ""
+        
+        self.addressLabel.text = streetNumber + " " + streetName
+    }
+    
 }

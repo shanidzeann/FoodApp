@@ -31,29 +31,35 @@ extension MenuViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let collectionViewType = CollectionViewType(rawValue: collectionView.tag) else { return UICollectionViewCell() }
-
+        
         switch collectionViewType {
         case .categories:
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Constants.CollectionView.CellIdentifiers.categoryCell, for: indexPath) as! CategoryCollectionViewCell
-            let title = presenter.sectionTitle(for: indexPath.item)
-            cell.configure(with: title)
-            return  cell
+            return createCategoryCell(for: indexPath)
         case .menu:
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Constants.CollectionView.CellIdentifiers.menuCell, for: indexPath) as! MenuCollectionViewCell
-            
-            let dbManager = DatabaseManager.shared
-            if let item = presenter.menuItem(for: indexPath) {
-                let cellPresenter = MenuCellPresenter(view: cell, databaseManager: dbManager)
-                cell.inject(presenter: cellPresenter)
-                cell.configure(with: item)
-                cell.callback = {
-               //     self.animateView(cell.priceButton)
-                    collectionView.reloadData()
-                }
-            }
-            
-            return cell
+            return createMenuCell(for: indexPath)
         }
+    }
+    
+    private func createCategoryCell(for indexPath: IndexPath) -> CategoryCollectionViewCell {
+        let cell = categoriesCollectionView?.dequeueReusableCell(withReuseIdentifier: Constants.CollectionView.CellIdentifiers.categoryCell, for: indexPath) as! CategoryCollectionViewCell
+        let title = presenter.sectionTitle(for: indexPath.item)
+        cell.configure(with: title)
+        return cell
+    }
+    
+    private func createMenuCell(for indexPath: IndexPath) -> MenuCollectionViewCell {
+        let cell = menuCollectionView?.dequeueReusableCell(withReuseIdentifier: Constants.CollectionView.CellIdentifiers.menuCell, for: indexPath) as! MenuCollectionViewCell
+        guard let item = presenter.menuItem(for: indexPath) else { return MenuCollectionViewCell() }
+        
+        let dbManager = DatabaseManager.shared
+        let cellPresenter = MenuCellPresenter(view: cell, databaseManager: dbManager)
+        cell.inject(presenter: cellPresenter)
+        cell.configure(with: item)
+        cell.callback = {
+            self.menuCollectionView?.reloadData()
+        }
+        
+        return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {

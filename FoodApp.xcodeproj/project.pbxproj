@@ -56,6 +56,10 @@
 		018EB4912816CBA200C08E3F /* DeliveryTermsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 018EB4902816CBA200C08E3F /* DeliveryTermsViewController.swift */; };
 		018EB4932816D46A00C08E3F /* DeliveryViewController+UIViewControllerTransitioningDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 018EB4922816D46A00C08E3F /* DeliveryViewController+UIViewControllerTransitioningDelegate.swift */; };
 		018EB4972816E56D00C08E3F /* DeliveryAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 018EB4962816E56D00C08E3F /* DeliveryAlert.swift */; };
+		01975E44281FB3F40035AB31 /* DeliveryViewController+DeliveryViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01975E43281FB3F40035AB31 /* DeliveryViewController+DeliveryViewProtocol.swift */; };
+		01975E46281FB9420035AB31 /* CartViewController+CartViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01975E45281FB9420035AB31 /* CartViewController+CartViewProtocol.swift */; };
+		01975E48281FB95A0035AB31 /* CartViewController+CartDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01975E47281FB95A0035AB31 /* CartViewController+CartDelegate.swift */; };
+		01975E4A281FBAF40035AB31 /* CartTableViewCell+CartCellProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01975E49281FBAF40035AB31 /* CartTableViewCell+CartCellProtocol.swift */; };
 		019ACD3927EF1A6500589642 /* BannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 019ACD3827EF1A6500589642 /* BannerViewController.swift */; };
 		01A048382807242C001CB6B6 /* CartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A048372807242C001CB6B6 /* CartViewController.swift */; };
 		01A0483A280737E1001CB6B6 /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A04839280737E1001CB6B6 /* DatabaseManager.swift */; };
@@ -161,6 +165,10 @@
 		018EB4902816CBA200C08E3F /* DeliveryTermsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeliveryTermsViewController.swift; sourceTree = "<group>"; };
 		018EB4922816D46A00C08E3F /* DeliveryViewController+UIViewControllerTransitioningDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DeliveryViewController+UIViewControllerTransitioningDelegate.swift"; sourceTree = "<group>"; };
 		018EB4962816E56D00C08E3F /* DeliveryAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeliveryAlert.swift; sourceTree = "<group>"; };
+		01975E43281FB3F40035AB31 /* DeliveryViewController+DeliveryViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DeliveryViewController+DeliveryViewProtocol.swift"; sourceTree = "<group>"; };
+		01975E45281FB9420035AB31 /* CartViewController+CartViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CartViewController+CartViewProtocol.swift"; sourceTree = "<group>"; };
+		01975E47281FB95A0035AB31 /* CartViewController+CartDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CartViewController+CartDelegate.swift"; sourceTree = "<group>"; };
+		01975E49281FBAF40035AB31 /* CartTableViewCell+CartCellProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CartTableViewCell+CartCellProtocol.swift"; sourceTree = "<group>"; };
 		019ACD3827EF1A6500589642 /* BannerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerViewController.swift; sourceTree = "<group>"; };
 		01A048372807242C001CB6B6 /* CartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartViewController.swift; sourceTree = "<group>"; };
 		01A04839280737E1001CB6B6 /* DatabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = "<group>"; };
@@ -289,8 +297,11 @@
 			isa = PBXGroup;
 			children = (
 				01A048372807242C001CB6B6 /* CartViewController.swift */,
+				01975E45281FB9420035AB31 /* CartViewController+CartViewProtocol.swift */,
+				01975E47281FB95A0035AB31 /* CartViewController+CartDelegate.swift */,
 				012D7B17280D67E10068C99D /* CartViewController+UITableViewDataSource.swift */,
 				01F6C4AE2809A3ED00EABCE2 /* CartTableViewCell.swift */,
+				01975E49281FBAF40035AB31 /* CartTableViewCell+CartCellProtocol.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -431,6 +442,7 @@
 			isa = PBXGroup;
 			children = (
 				017E2C3A28127E4700C82CBF /* DeliveryViewController.swift */,
+				01975E43281FB3F40035AB31 /* DeliveryViewController+DeliveryViewProtocol.swift */,
 				017E2C512812F61700C82CBF /* DeliveryViewController+CLLocationManagerDelegate.swift */,
 				018EB48C2816B45A00C08E3F /* DeliveryViewController+MKMapViewDelegate.swift */,
 				018EB4922816D46A00C08E3F /* DeliveryViewController+UIViewControllerTransitioningDelegate.swift */,
@@ -837,6 +849,7 @@
 				01A306AE27F10C730098C791 /* MenuViewController+UICollectionViewDataSource.swift in Sources */,
 				01C995AD27F4F26900FE3F1F /* CardViewController+UITableViewDelegate.swift in Sources */,
 				018EB48D2816B45A00C08E3F /* DeliveryViewController+MKMapViewDelegate.swift in Sources */,
+				01975E48281FB95A0035AB31 /* CartViewController+CartDelegate.swift in Sources */,
 				018EB4912816CBA200C08E3F /* DeliveryTermsViewController.swift in Sources */,
 				01C0F28027EDC65000380895 /* CollectionViewType.swift in Sources */,
 				01A048382807242C001CB6B6 /* CartViewController.swift in Sources */,
@@ -866,10 +879,12 @@
 				01D198A2281EBE360096C97F /* UIViewControlle+addChild.swift in Sources */,
 				014E94192809E4DD00143B32 /* CartCellPresenter.swift in Sources */,
 				01C0F29227EDD90500380895 /* MenuHeaderSupplementaryView.swift in Sources */,
+				01975E4A281FBAF40035AB31 /* CartTableViewCell+CartCellProtocol.swift in Sources */,
 				01C995AB27F4F25A00FE3F1F /* CardViewController+UITableViewDataSource.swift in Sources */,
 				017E2C5A2812F8ED00C82CBF /* JSONParser.swift in Sources */,
 				017FC4F9280EFFF3006D6A9B /* CardPresenter.swift in Sources */,
 				01F6C4B12809A48200EABCE2 /* CartCellPresenterProtocol.swift in Sources */,
+				01975E46281FB9420035AB31 /* CartViewController+CartViewProtocol.swift in Sources */,
 				017FC4D1280E874C006D6A9B /* HomeViewControllerDelegate.swift in Sources */,
 				01A0483A280737E1001CB6B6 /* DatabaseManager.swift in Sources */,
 				01D1989E281EB1370096C97F /* SideMenuCellPresenterProtocol.swift in Sources */,
@@ -907,6 +922,7 @@
 				017E2C452812BDE200C82CBF /* DeliveryPresenterProtocol.swift in Sources */,
 				0185009B280D8A8700CDF11C /* ContainerViewController.swift in Sources */,
 				0178A00727FA3B6500698C2F /* ImagineItIsHidden.swift in Sources */,
+				01975E44281FB3F40035AB31 /* DeliveryViewController+DeliveryViewProtocol.swift in Sources */,
 				0171492827EF80720012379E /* HomeViewController.swift in Sources */,
 				01C0F28527EDD20100380895 /* MenuPresenter.swift in Sources */,
 				01B60CC327EE182F0045C827 /* Menu.swift in Sources */,

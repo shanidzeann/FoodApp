@@ -18,6 +18,7 @@ class BannerViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.backgroundColor = .secondarySystemBackground
         createCollectionView()
         setupConstraints()
     }
@@ -25,8 +26,6 @@ class BannerViewController: UIViewController {
     // MARK: - UI
     
     private func createCollectionView() {
-        view.backgroundColor = .secondarySystemBackground
-        
         let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
         layout.sectionInset = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 10)
         layout.scrollDirection = .horizontal

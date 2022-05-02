@@ -11,8 +11,6 @@ class MenuViewController: UIViewController {
     
     // MARK: - Properties
     
-    var callback: (() -> Void)?
-    
     var presenter: MenuPresenterProtocol!
     var menuCollectionView: UICollectionView?
     var categoriesCollectionView: UICollectionView?
@@ -35,10 +33,10 @@ class MenuViewController: UIViewController {
         
         configureCardVC()
         configureView()
-        addSubviews()
         createCategoriesCollectionView()
         createMenuCollectionView()
         addTargets()
+        addSubviews()
     }
     
     override func viewDidLayoutSubviews() {
@@ -56,6 +54,8 @@ class MenuViewController: UIViewController {
     
     private func addSubviews() {
         view.addSubview(moreButton)
+        view.addSubview(menuCollectionView ?? UICollectionView())
+        view.addSubview(categoriesCollectionView ?? UICollectionView())
     }
     
     private func addTargets() {
@@ -81,18 +81,20 @@ class MenuViewController: UIViewController {
     }
     
     private func createCategoriesCollectionView() {
-        let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
-        layout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 10)
-        layout.scrollDirection = .horizontal
-        
-        categoriesCollectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        categoriesCollectionView = UICollectionView(frame: .zero, collectionViewLayout: createFlowLayout())
         categoriesCollectionView?.tag = 0
         categoriesCollectionView?.register(CategoryCollectionViewCell.self, forCellWithReuseIdentifier: Constants.CollectionView.CellIdentifiers.categoryCell)
         categoriesCollectionView?.dataSource = self
         categoriesCollectionView?.delegate = self
         categoriesCollectionView?.backgroundColor = .clear
         categoriesCollectionView?.showsHorizontalScrollIndicator = false
-        view.addSubview(categoriesCollectionView ?? UICollectionView())
+    }
+    
+    private func createFlowLayout() -> UICollectionViewFlowLayout {
+        let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
+        layout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 10)
+        layout.scrollDirection = .horizontal
+        return layout
     }
     
     private func createMenuCollectionView() {
@@ -106,8 +108,6 @@ class MenuViewController: UIViewController {
         menuCollectionView?.showsVerticalScrollIndicator = false
         menuCollectionView?.delaysContentTouches = true
         menuCollectionView?.canCancelContentTouches = true
-        view.addSubview(menuCollectionView ?? UICollectionView())
-        
         menuCollectionView?.translatesAutoresizingMaskIntoConstraints = false
     }
     

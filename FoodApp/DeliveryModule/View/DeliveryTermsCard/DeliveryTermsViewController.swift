@@ -24,6 +24,7 @@ class DeliveryTermsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        addSubviews()
         setupConstraints()
         setGestureRecognizer()
         configureViews()
@@ -65,11 +66,13 @@ class DeliveryTermsViewController: UIViewController {
         }
     }
     
-    private func setupConstraints() {
+    private func addSubviews() {
         view.addSubview(label)
         view.addSubview(panGestureView)
         view.addSubview(slideIdicator)
-        
+    }
+    
+    private func setupConstraints() {
         panGestureView.translatesAutoresizingMaskIntoConstraints = false
         panGestureView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
         panGestureView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true

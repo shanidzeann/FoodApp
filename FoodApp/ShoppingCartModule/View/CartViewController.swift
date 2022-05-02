@@ -12,21 +12,22 @@ class CartViewController: UIViewController {
     
     var presenter: CartPresenterProtocol!
     
-    private let emptyCartImageView: UIImageView = {
+    let emptyCartImageView: UIImageView = {
        let imageView = UIImageView()
         imageView.image = UIImage(named: "cart_empty.png")
         return imageView
     }()
     
-    private let tableView: UITableView = {
+    let tableView: UITableView = {
         let tableView = UITableView(frame: .zero)
         tableView.backgroundColor = .systemBackground
         tableView.register(CartTableViewCell.self, forCellReuseIdentifier: Constants.TableView.CellIdentifiers.cartCell)
         tableView.separatorStyle = .singleLine
+        tableView.showsVerticalScrollIndicator = false
         return tableView
     }()
     
-    private let checkoutButton: UIButton = {
+    let checkoutButton: UIButton = {
         let button = UIButton()
         button.backgroundColor = .systemRed
         button.tintColor = .white
@@ -77,7 +78,6 @@ class CartViewController: UIViewController {
         emptyCartImageView.snp.makeConstraints { make in
             make.left.right.equalToSuperview()
             make.center.equalToSuperview()
-            
         }
     }
 
@@ -92,28 +92,4 @@ class CartViewController: UIViewController {
         tableView.allowsSelection = false
     }
 
-}
-
-extension CartViewController: CartViewProtocol {
-    func configureCheckoutButton(title: String, isEnabled: Bool) {
-        checkoutButton.setTitle(title, for: .normal)
-        checkoutButton.isEnabled = isEnabled
-    }
-    
-    func showEmptyCart() {
-        tableView.alpha = 0
-        emptyCartImageView.alpha = 1
-    }
-    
-    func showCart() {
-        tableView.alpha = 1
-        emptyCartImageView.alpha = 0
-    }
-}
-
-extension CartViewController: CartDelegate {
-    func reloadData() {
-        tableView.reloadData()
-        presenter.checkCart()
-    }
 }

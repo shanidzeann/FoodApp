@@ -25,7 +25,8 @@ class BannerCollectionViewCell: UICollectionViewCell {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        createUI()
+        congifureView()
+        addSubviews()
         setupConstraints()
     }
     
@@ -48,7 +49,7 @@ class BannerCollectionViewCell: UICollectionViewCell {
         bannerImageView.image = UIImage(named: image)
     }
     
-    private func createUI() {
+    private func congifureView() {
         clipsToBounds = true
         layer.masksToBounds = false
         layer.cornerRadius = 10
@@ -56,7 +57,9 @@ class BannerCollectionViewCell: UICollectionViewCell {
         layer.shadowColor = UIColor.black.cgColor
         layer.shadowOpacity = 0.1
         layer.shadowOffset = CGSize(width: 0, height: 2)
-        
+    }
+    
+    private func addSubviews() {
         contentView.addSubview(bannerImageView)
     }
     

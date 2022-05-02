@@ -34,7 +34,6 @@ class MenuCollectionViewCell: UICollectionViewCell {
         label.adjustsFontSizeToFitWidth = true
         label.minimumScaleFactor = 0.5
         label.numberOfLines = 2
-        label.text = "Food"
         return label
     }()
     
@@ -43,7 +42,6 @@ class MenuCollectionViewCell: UICollectionViewCell {
         label.textColor = .secondaryLabel
         label.font = .systemFont(ofSize: 12)
         label.numberOfLines = 0
-        label.text = "nyam"
         return label
     }()
     
@@ -53,7 +51,6 @@ class MenuCollectionViewCell: UICollectionViewCell {
         button.clipsToBounds = true
         button.configuration?.baseForegroundColor = .label
         button.layer.cornerRadius = 5
-        button.setTitle("374 р", for: .normal)
         return button
     }()
     
@@ -62,7 +59,8 @@ class MenuCollectionViewCell: UICollectionViewCell {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        createUI()
+        addSubviews()
+        setupConstraints()
         configureView()
         addTargets()
     }
@@ -123,13 +121,11 @@ class MenuCollectionViewCell: UICollectionViewCell {
         layer.shadowOffset = CGSize(width: 0, height: 2)
     }
     
-    private func createUI() {
+    private func addSubviews() {
         contentView.addSubview(menuImageView)
         contentView.addSubview(titleLabel)
         contentView.addSubview(desctiptionLabel)
         contentView.addSubview(priceButton)
-        
-        setupConstraints()
     }
     
     private func setupConstraints() {
@@ -169,6 +165,7 @@ class MenuCollectionViewCell: UICollectionViewCell {
 
 // MARK: -  MovieCellProtocol
 extension MenuCollectionViewCell: MenuCellProtocol {
+    #warning("item?")
     func setData(title: String, description: String, price: String, imageURL: URL?, subtitle: String?) {
         titleLabel.text = title
         desctiptionLabel.text = description
@@ -186,4 +183,5 @@ extension MenuCollectionViewCell: MenuCellProtocol {
             }
         }
     }
+    
 }

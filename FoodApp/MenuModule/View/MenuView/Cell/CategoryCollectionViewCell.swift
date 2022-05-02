@@ -16,7 +16,6 @@ class CategoryCollectionViewCell: UICollectionViewCell {
         label.textColor = .label
         label.font = .systemFont(ofSize: 17)
         label.numberOfLines = 1
-        label.text = "Fuukdhfkdhfksdd"
         return label
     }()
     
