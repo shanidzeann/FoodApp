@@ -10,11 +10,15 @@ import SnapKit
 
 class CardViewController: UIViewController {
     
+    // MARK: - Properties
+    
     var presenter: CardPresenterProtocol!
     
     var hasSetPointOrigin = false
     var pointOrigin: CGPoint?
     weak var delegate: CardViewControllerDelegate?
+    
+    // MARK: - UI
     
     private let slideIdicator = UIView()
     private let panGestureView = UIView()
@@ -25,6 +29,8 @@ class CardViewController: UIViewController {
         tableView.separatorStyle = .none
         return tableView
     }()
+    
+    // MARK: - VC Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,6 +50,8 @@ class CardViewController: UIViewController {
         slideIdicator.layer.cornerRadius = 2.5
     }
     
+    // MARK: - Private
+    
     private func addSubviews() {
         view.addSubview(panGestureView)
         view.addSubview(slideIdicator)
@@ -60,7 +68,7 @@ class CardViewController: UIViewController {
         tableView.dataSource = self
     }
     
-    func setupConstraints() {
+    private func setupConstraints() {
         panGestureView.snp.makeConstraints { make in
             make.left.right.top.equalToSuperview()
             make.height.equalTo(50)
@@ -78,6 +86,8 @@ class CardViewController: UIViewController {
             make.bottom.equalToSuperview()
         }
     }
+    
+    // MARK: - GestureRecognizer
     
     private func setGestureRecognizer() {
         let panGesture = UIPanGestureRecognizer(target: self, action: #selector(panGestureRecognizerAction))

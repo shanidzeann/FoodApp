@@ -12,8 +12,6 @@ class DeliveryPresenter: DeliveryPresenterProtocol {
     weak var view: DeliveryViewProtocol?
     var mapsManager: MapsManagerProtocol!
     
-    // MARK: - Init
-    
     required init(view: DeliveryViewProtocol, mapsManager: MapsManagerProtocol) {
         self.view = view
         self.mapsManager = mapsManager

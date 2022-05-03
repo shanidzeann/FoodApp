@@ -24,7 +24,7 @@ class MenuPresenter: MenuPresenterProtocol {
         getSectionTitles()
     }
     
-    // MARK: - Helper Methods
+    // MARK: - Methods
     
     func getMenu() {
         networkManager.downloadMenu { results in

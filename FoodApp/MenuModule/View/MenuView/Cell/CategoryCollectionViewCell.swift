@@ -40,7 +40,7 @@ class CategoryCollectionViewCell: UICollectionViewCell {
         layer.cornerRadius = contentView.frame.height/2
     }
     
-    // MARK: - Helper Methods
+    // MARK: - Methods
     
     func configure(with title: String) {
         titleLabel.text = title

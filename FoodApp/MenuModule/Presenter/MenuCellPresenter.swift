@@ -9,6 +9,8 @@ import Foundation
 
 class MenuCellPresenter: MenuCellPresenterProtocol {
     
+    // MARK: - Properties
+    
     weak var view: MenuCellProtocol?
     var menuItem: MenuItem?
     var databaseManager: DatabaseManagerProtocol!
@@ -29,10 +31,14 @@ class MenuCellPresenter: MenuCellPresenterProtocol {
         return menuItem?.id
     }
     
+    // MARK: - Init
+    
     required init(view: MenuCellProtocol, databaseManager: DatabaseManager) {
         self.view = view
         self.databaseManager = databaseManager
     }
+    
+    // MARK: - Methods
     
     func configure(with item: MenuItem) {
         menuItem = item

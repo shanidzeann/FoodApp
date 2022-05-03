@@ -10,7 +10,11 @@ import SnapKit
 
 class CartViewController: UIViewController {
     
+    // MARK: - Properties
+    
     var presenter: CartPresenterProtocol!
+    
+    // MARK: - UI
     
     let emptyCartImageView: UIImageView = {
        let imageView = UIImageView()
@@ -35,6 +39,8 @@ class CartViewController: UIViewController {
         button.setTitleColor(.lightGray, for: .disabled)
         return button
     }()
+    
+    // MARK: - VC Lifecycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -56,6 +62,8 @@ class CartViewController: UIViewController {
         super.viewWillDisappear(animated)
         navigationController?.navigationBar.prefersLargeTitles = false
     }
+    
+    // MARK: - Helper Methods
     
     private func addSubviews() {
         view.addSubview(tableView)

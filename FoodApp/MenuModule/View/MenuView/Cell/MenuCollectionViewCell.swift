@@ -78,7 +78,7 @@ class MenuCollectionViewCell: UICollectionViewCell {
         ).cgPath
     }
     
-    // MARK: - Helper Methods
+    // MARK: - Methods
     
     func inject(presenter: MenuCellPresenterProtocol) {
         self.presenter = presenter

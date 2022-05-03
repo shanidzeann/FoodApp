@@ -11,16 +11,21 @@ import CoreLocation
 
 class DeliveryViewController: UIViewController {
     
+    // MARK: - Properties
+    
     private var presenter: DeliveryPresenterProtocol!
     
-    let mapView = MKMapView()
     private let locationManager = CLLocationManager()
     let regionInMeters: Double = 10000
     var previousLocation: CLLocation?
-    lazy var deliveryAlert = DeliveryAlert()
     
     lazy var deliveryRegionCenter = CLLocationCoordinate2D(latitude: 55.751999, longitude: 37.617734)
     lazy var deliveryRegion = CLCircularRegion(center: deliveryRegionCenter, radius: 20000, identifier: "delivery")
+    
+    // MARK: - UI
+    
+    let mapView = MKMapView()
+    lazy var deliveryAlert = DeliveryAlert()
     
     let pinImageView: UIImageView = {
         let imageView = UIImageView()
@@ -58,6 +63,8 @@ class DeliveryViewController: UIViewController {
         return button
     }()
     
+    // MARK: - VC Lifecycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -69,9 +76,13 @@ class DeliveryViewController: UIViewController {
         addTargets()
     }
     
+    // MARK: - Injection
+    
     func inject(presenter: DeliveryPresenterProtocol) {
         self.presenter = presenter
     }
+    
+    // MARK: - Targets and selectors
     
     private func addTargets() {
         userLocationButton.addTarget(self, action: #selector(showUserLocation), for: .touchUpInside)
@@ -105,6 +116,15 @@ class DeliveryViewController: UIViewController {
     
     private func showDeliveryIsUnavailableAlert() {
         deliveryAlert.showAlert(on: self)
+    }
+    
+    // MARK: - Location
+    
+    func getCenterLocation(for mapView: MKMapView) -> CLLocation {
+        let latitude = mapView.centerCoordinate.latitude
+        let longitude = mapView.centerCoordinate.longitude
+        
+        return CLLocation(latitude: latitude, longitude: longitude)
     }
     
     private func checkLocationServices() {
@@ -154,12 +174,7 @@ class DeliveryViewController: UIViewController {
         }
     }
     
-    func getCenterLocation(for mapView: MKMapView) -> CLLocation {
-        let latitude = mapView.centerCoordinate.latitude
-        let longitude = mapView.centerCoordinate.longitude
-        
-        return CLLocation(latitude: latitude, longitude: longitude)
-    }
+    // MARK: - Layout
     
     private func addSubviews() {
         view.addSubview(mapView)

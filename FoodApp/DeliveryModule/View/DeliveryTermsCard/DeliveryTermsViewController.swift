@@ -9,8 +9,12 @@ import UIKit
 
 class DeliveryTermsViewController: UIViewController {
     
+    // MARK: - Properties
+    
     var hasSetPointOrigin = false
     var pointOrigin: CGPoint?
+    
+    // MARK: - UI
     
     private let slideIdicator = UIView()
     private let panGestureView = UIView()
@@ -20,6 +24,8 @@ class DeliveryTermsViewController: UIViewController {
         label.text = "Тут будут условия доставки"
         return label
     }()
+    
+    // MARK: - VC Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,6 +44,8 @@ class DeliveryTermsViewController: UIViewController {
         slideIdicator.layer.cornerRadius = 2.5
     }
     
+    // MARK: - Private
+    
     private func configureViews() {
         slideIdicator.backgroundColor = UIColor.darkGray
         view.backgroundColor = .systemBackground
@@ -48,7 +56,7 @@ class DeliveryTermsViewController: UIViewController {
         panGestureView.addGestureRecognizer(panGesture)
     }
     
-    @objc func panGestureRecognizerAction(sender: UIPanGestureRecognizer) {
+    @objc private func panGestureRecognizerAction(sender: UIPanGestureRecognizer) {
         let translation = sender.translation(in: view)
         
         guard translation.y >= 0 else { return }
