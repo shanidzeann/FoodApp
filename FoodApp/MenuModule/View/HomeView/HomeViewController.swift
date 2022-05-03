@@ -27,6 +27,13 @@ class HomeViewController: UIViewController {
     
     weak var delegate: HomeViewControllerDelegate?
     
+    lazy var cartButton = UIBarButtonItem(
+        image: UIImage(systemName: "cart"),
+        style: .plain,
+        target: self,
+        action: #selector(showShoppingCart)
+    )
+    
     // MARK: - VC Lifecycle
     
     override func viewDidLoad() {
@@ -110,12 +117,7 @@ class HomeViewController: UIViewController {
             action: #selector(didTapSideMenu)
         )
         
-        navigationItem.rightBarButtonItem = UIBarButtonItem(
-            image: UIImage(systemName: "cart"),
-            style: .plain,
-            target: self,
-            action: #selector(showShoppingCart)
-        )
+        navigationItem.rightBarButtonItem = cartButton
         
         navigationController?.navigationBar.tintColor = .black
         navigationController?.navigationBar.barTintColor = .systemBackground

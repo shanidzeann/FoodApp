@@ -9,6 +9,8 @@ import UIKit
 
 class ContainerViewController: UIViewController {
     
+    // MARK: -  Properties
+    
     var hasSetFrame = false
     var frame: CGRect!
     var safeNavBarFrame: CGRect!
@@ -18,6 +20,8 @@ class ContainerViewController: UIViewController {
     let menuVC = SideMenuViewController()
     let homeVC = HomeViewController()
     var navController: UINavigationController?
+    
+    // MARK: - VC Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,6 +51,8 @@ class ContainerViewController: UIViewController {
         }
     }
     
+    // MARK: - Private
+    
     private func addChilds() {
         addMenuVC()
         addHomeVC()
@@ -56,17 +62,13 @@ class ContainerViewController: UIViewController {
         let presenter = SideMenuPresenter()
         menuVC.presenter = presenter
         menuVC.delegate = self
-        addChild(menuVC)
-        view.addSubview(menuVC.view)
-        menuVC.didMove(toParent: self)
+        add(menuVC)
     }
     
     private func addHomeVC() {
         homeVC.delegate = self
         let navController = UINavigationController(rootViewController: homeVC)
-        addChild(navController)
-        view.addSubview(navController.view)
-        navController.didMove(toParent: self)
+        add(navController)
         self.navController = navController
     }
     
@@ -76,20 +78,9 @@ class ContainerViewController: UIViewController {
         homeVC.view.addGestureRecognizer(tap)
     }
     
-    @objc func handleTap(_ gestureRecognizer: UITapGestureRecognizer) {
+    @objc private func handleTap(_ gestureRecognizer: UITapGestureRecognizer) {
         guard gestureRecognizer.view != nil else { return }
         toggleMenu()
-    }
-    
-    func createShadowView() {
-        shadowView = UIView(frame: safeNavBarFrame)
-        guard let shadowView = shadowView else { return }
-        shadowView.backgroundColor = .secondarySystemBackground
-        shadowView.layer.masksToBounds = false
-        shadowView.layer.shadowColor = UIColor.lightGray.cgColor
-        shadowView.layer.shadowOpacity = 0.8
-        shadowView.layer.shadowOffset = CGSize(width: 0, height: 2.0)
-        shadowView.layer.shadowRadius = 2
     }
     
 }

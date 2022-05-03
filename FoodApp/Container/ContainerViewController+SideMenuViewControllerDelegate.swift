@@ -11,13 +11,19 @@ extension ContainerViewController: SideMenuViewControllerDelegate {
     func didSelect(menuItem: MenuOptions) {
         toggleMenu()
         checkChildren()
+        showSelected(menuItem)
+    }
+    
+    private func showSelected(_ menuItem: MenuOptions) {
         switch menuItem {
         case .home:
             changeNavControllerTitle("")
             resetToHome()
         case .profile:
-            break
+            hideCartButton(true)
+            addProfileVC()
         case .delivery:
+            hideCartButton(true)
             changeNavControllerTitle("Доставка")
             addDeliveryVC()
         }
@@ -25,7 +31,7 @@ extension ContainerViewController: SideMenuViewControllerDelegate {
     
     func resetToHome() {
         navController?.navigationBar.barTintColor = .systemBackground
-        checkChildren()
+        hideCartButton(false)
     }
     
     func checkChildren() {
@@ -46,10 +52,32 @@ extension ContainerViewController: SideMenuViewControllerDelegate {
             deliveryVC.view.addSubview(shadowView)
         }
         
-        homeVC.addChild(deliveryVC)
-        homeVC.view.addSubview(deliveryVC.view)
+        homeVC.add(deliveryVC)
         deliveryVC.view.frame = homeVC.view.frame
-        deliveryVC.didMove(toParent: homeVC)
+    }
+    
+    func addProfileVC() {
+        let profileVC = ProfileViewController()
+        let presenter = ProfilePresenter(view: profileVC)
+        profileVC.inject(presenter)
+        
+        homeVC.add(profileVC)
+        profileVC.view.frame = homeVC.view.frame
+    }
+    
+    private func createShadowView() {
+        shadowView = UIView(frame: safeNavBarFrame)
+        guard let shadowView = shadowView else { return }
+        shadowView.backgroundColor = .secondarySystemBackground
+        shadowView.layer.masksToBounds = false
+        shadowView.layer.shadowColor = UIColor.lightGray.cgColor
+        shadowView.layer.shadowOpacity = 0.8
+        shadowView.layer.shadowOffset = CGSize(width: 0, height: 2.0)
+        shadowView.layer.shadowRadius = 2
+    }
+    
+    private func hideCartButton(_ isHidden: Bool) {
+        navController?.navigationBar.topItem?.rightBarButtonItem = isHidden ? nil : homeVC.cartButton
     }
     
     private func changeNavControllerTitle(_ title: String) {
