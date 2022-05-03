@@ -96,7 +96,7 @@ class CartViewController: UIViewController {
     
     private func configureTableView() {
         tableView.dataSource = self
-        tableView.rowHeight = view.frame.height/5
+        tableView.rowHeight = view.frame.height/6
         tableView.allowsSelection = false
     }
 

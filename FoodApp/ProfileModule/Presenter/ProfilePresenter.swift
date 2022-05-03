@@ -7,14 +7,6 @@
 
 import Foundation
 
-protocol ProfileViewProtocol: AnyObject {
-    
-}
-
-protocol ProfilePresenterProtocol {
-    
-}
-
 class ProfilePresenter: ProfilePresenterProtocol {
     
     weak var view: ProfileViewProtocol?

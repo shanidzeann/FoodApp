@@ -20,6 +20,7 @@ extension ContainerViewController: SideMenuViewControllerDelegate {
             changeNavControllerTitle("")
             resetToHome()
         case .profile:
+            changeNavControllerTitle("")
             hideCartButton(true)
             addProfileVC()
         case .delivery:
