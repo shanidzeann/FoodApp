@@ -12,9 +12,9 @@ extension HomeViewController: UIGestureRecognizerDelegate {
     func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
         guard let collectionView = gestureRecognizer.view as? UICollectionView,
               let collectionViewType = CollectionViewType(rawValue: collectionView.tag) else { return true }
-        
+
         let recognizer = collectionView.panGestureRecognizer
-        
+
         switch collectionViewType {
         case .categories:
             return abs((recognizer.velocity(in: recognizer.view)).y) > abs((recognizer.velocity(in: recognizer.view)).x)
@@ -32,4 +32,10 @@ extension HomeViewController: UIGestureRecognizerDelegate {
         }
         return true
     }
+    
+    #warning("another solution?")
+    
+//    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
+//        return true
+//    }
 }
