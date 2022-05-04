@@ -104,6 +104,7 @@
 		01D1989E281EB1370096C97F /* SideMenuCellPresenterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01D1989D281EB1370096C97F /* SideMenuCellPresenterProtocol.swift */; };
 		01D198A0281EB23A0096C97F /* MenuState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01D1989F281EB23A0096C97F /* MenuState.swift */; };
 		01D198A2281EBE360096C97F /* UIViewControlle+addChild.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01D198A1281EBE360096C97F /* UIViewControlle+addChild.swift */; };
+		01D3CFA0282286A40020D6F9 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 01D3CF9F282286A40020D6F9 /* GoogleService-Info.plist */; };
 		01F6C4AF2809A3ED00EABCE2 /* CartTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01F6C4AE2809A3ED00EABCE2 /* CartTableViewCell.swift */; };
 		01F6C4B12809A48200EABCE2 /* CartCellPresenterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01F6C4B02809A48200EABCE2 /* CartCellPresenterProtocol.swift */; };
 		01F6C4B32809A4D100EABCE2 /* CartCellProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01F6C4B22809A4D100EABCE2 /* CartCellProtocol.swift */; };
@@ -221,6 +222,7 @@
 		01D1989D281EB1370096C97F /* SideMenuCellPresenterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuCellPresenterProtocol.swift; sourceTree = "<group>"; };
 		01D1989F281EB23A0096C97F /* MenuState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuState.swift; sourceTree = "<group>"; };
 		01D198A1281EBE360096C97F /* UIViewControlle+addChild.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewControlle+addChild.swift"; sourceTree = "<group>"; };
+		01D3CF9F282286A40020D6F9 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		01F6C4AE2809A3ED00EABCE2 /* CartTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartTableViewCell.swift; sourceTree = "<group>"; };
 		01F6C4B02809A48200EABCE2 /* CartCellPresenterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartCellPresenterProtocol.swift; sourceTree = "<group>"; };
 		01F6C4B22809A4D100EABCE2 /* CartCellProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartCellProtocol.swift; sourceTree = "<group>"; };
@@ -636,6 +638,7 @@
 				01AFD60F27EDBF600081BA4C /* LaunchScreen.storyboard */,
 				01C0F27D27EDC58E00380895 /* Constants.swift */,
 				0178A00627FA3B6500698C2F /* ImagineItIsHidden.swift */,
+				01D3CF9F282286A40020D6F9 /* GoogleService-Info.plist */,
 				01AFD61227EDBF600081BA4C /* Info.plist */,
 			);
 			path = FoodApp;
@@ -827,6 +830,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				01AFD61127EDBF600081BA4C /* LaunchScreen.storyboard in Resources */,
+				01D3CFA0282286A40020D6F9 /* GoogleService-Info.plist in Resources */,
 				017E2C4A2812E5D200C82CBF /* restaurants.geojson in Resources */,
 				01AFD60E27EDBF600081BA4C /* Assets.xcassets in Resources */,
 			);

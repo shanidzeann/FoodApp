@@ -10,5 +10,8 @@ target 'FoodApp' do
   pod 'SnapKit'
   pod 'Kingfisher'
   pod 'SQLite.swift', '~> 0.13.3'
+  
+  pod 'Firebase/Auth'
+  pod 'Firebase/Database'
 
 end
