@@ -1,5 +1,5 @@
 //
-//  ProfileViewController.swift
+//  LoginViewController.swift
 //  FoodApp
 //
 //  Created by Anna Shanidze on 03.05.2022.
@@ -8,11 +8,11 @@
 import UIKit
 import SnapKit
 
-class ProfileViewController: UIViewController {
+class LoginViewController: UIViewController {
     
     // MARK: - Properties
     
-    private var presenter: ProfilePresenterProtocol!
+    private var presenter: LoginPresenterProtocol!
     
     // MARK: - UI
     
@@ -75,7 +75,7 @@ class ProfileViewController: UIViewController {
     
     // MARK: - Injection
     
-    func inject(_ presenter: ProfilePresenterProtocol) {
+    func inject(_ presenter: LoginPresenterProtocol) {
         self.presenter = presenter
     }
     

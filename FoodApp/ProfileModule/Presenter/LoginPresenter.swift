@@ -7,11 +7,11 @@
 
 import Foundation
 
-class ProfilePresenter: ProfilePresenterProtocol {
+class LoginPresenter: LoginPresenterProtocol {
     
-    weak var view: ProfileViewProtocol?
+    weak var view: LoginViewProtocol?
     
-    init(view: ProfileViewProtocol) {
+    init(view: LoginViewProtocol) {
         self.view = view
     }
 }

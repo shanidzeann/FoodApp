@@ -22,7 +22,7 @@ extension ContainerViewController: SideMenuViewControllerDelegate {
         case .profile:
             changeNavControllerTitle("")
             hideCartButton(true)
-            addProfileVC()
+            addLoginVC()
         case .delivery:
             hideCartButton(true)
             changeNavControllerTitle("Доставка")
@@ -57,13 +57,13 @@ extension ContainerViewController: SideMenuViewControllerDelegate {
         deliveryVC.view.frame = homeVC.view.frame
     }
     
-    func addProfileVC() {
-        let profileVC = ProfileViewController()
-        let presenter = ProfilePresenter(view: profileVC)
-        profileVC.inject(presenter)
+    func addLoginVC() {
+        let loginVC = LoginViewController()
+        let presenter = LoginPresenter(view: loginVC)
+        loginVC.inject(presenter)
         
-        homeVC.add(profileVC)
-        profileVC.view.frame = homeVC.view.frame
+        homeVC.add(loginVC)
+        loginVC.view.frame = homeVC.view.frame
     }
     
     private func createShadowView() {

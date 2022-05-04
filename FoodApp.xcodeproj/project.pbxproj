@@ -7,12 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		010C5DE428216F680005AA5D /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 010C5DE328216F680005AA5D /* ProfileViewController.swift */; };
-		010C5DE628216F910005AA5D /* ProfilePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 010C5DE528216F910005AA5D /* ProfilePresenter.swift */; };
-		010C5DE82821915B0005AA5D /* ProfileViewController+ProfileViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 010C5DE72821915B0005AA5D /* ProfileViewController+ProfileViewProtocol.swift */; };
-		010C5DEA2821917E0005AA5D /* ProfilePresenterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 010C5DE92821917E0005AA5D /* ProfilePresenterProtocol.swift */; };
-		010C5DEC2821918F0005AA5D /* ProfileViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 010C5DEB2821918F0005AA5D /* ProfileViewProtocol.swift */; };
-		010C5DF1282198C80005AA5D /* ProfileViewController+UITextFieldDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 010C5DF0282198C80005AA5D /* ProfileViewController+UITextFieldDelegate.swift */; };
+		010C5DE428216F680005AA5D /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 010C5DE328216F680005AA5D /* LoginViewController.swift */; };
+		010C5DE628216F910005AA5D /* LoginPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 010C5DE528216F910005AA5D /* LoginPresenter.swift */; };
+		010C5DE82821915B0005AA5D /* LoginViewController+LoginViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 010C5DE72821915B0005AA5D /* LoginViewController+LoginViewProtocol.swift */; };
+		010C5DEA2821917E0005AA5D /* LoginPresenterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 010C5DE92821917E0005AA5D /* LoginPresenterProtocol.swift */; };
+		010C5DEC2821918F0005AA5D /* LoginViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 010C5DEB2821918F0005AA5D /* LoginViewProtocol.swift */; };
+		010C5DF1282198C80005AA5D /* LoginViewController+UITextFieldDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 010C5DF0282198C80005AA5D /* LoginViewController+UITextFieldDelegate.swift */; };
 		0114B2FF27F1109000D54393 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0114B2FE27F1109000D54393 /* MenuViewController.swift */; };
 		0114B30427F112C500D54393 /* CategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0114B30327F112C500D54393 /* CategoryCollectionViewCell.swift */; };
 		01161E9B27F30A49007695CF /* BannerPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01161E9A27F30A49007695CF /* BannerPresenter.swift */; };
@@ -122,12 +122,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		010C5DE328216F680005AA5D /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
-		010C5DE528216F910005AA5D /* ProfilePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePresenter.swift; sourceTree = "<group>"; };
-		010C5DE72821915B0005AA5D /* ProfileViewController+ProfileViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ProfileViewController+ProfileViewProtocol.swift"; sourceTree = "<group>"; };
-		010C5DE92821917E0005AA5D /* ProfilePresenterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePresenterProtocol.swift; sourceTree = "<group>"; };
-		010C5DEB2821918F0005AA5D /* ProfileViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewProtocol.swift; sourceTree = "<group>"; };
-		010C5DF0282198C80005AA5D /* ProfileViewController+UITextFieldDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ProfileViewController+UITextFieldDelegate.swift"; sourceTree = "<group>"; };
+		010C5DE328216F680005AA5D /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		010C5DE528216F910005AA5D /* LoginPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPresenter.swift; sourceTree = "<group>"; };
+		010C5DE72821915B0005AA5D /* LoginViewController+LoginViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LoginViewController+LoginViewProtocol.swift"; sourceTree = "<group>"; };
+		010C5DE92821917E0005AA5D /* LoginPresenterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPresenterProtocol.swift; sourceTree = "<group>"; };
+		010C5DEB2821918F0005AA5D /* LoginViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewProtocol.swift; sourceTree = "<group>"; };
+		010C5DF0282198C80005AA5D /* LoginViewController+UITextFieldDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LoginViewController+UITextFieldDelegate.swift"; sourceTree = "<group>"; };
 		0114B2FE27F1109000D54393 /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		0114B30327F112C500D54393 /* CategoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCollectionViewCell.swift; sourceTree = "<group>"; };
 		01161E9A27F30A49007695CF /* BannerPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerPresenter.swift; sourceTree = "<group>"; };
@@ -263,7 +263,7 @@
 		010C5DED282191A30005AA5D /* Presenter */ = {
 			isa = PBXGroup;
 			children = (
-				010C5DE528216F910005AA5D /* ProfilePresenter.swift */,
+				010C5DE528216F910005AA5D /* LoginPresenter.swift */,
 			);
 			path = Presenter;
 			sourceTree = "<group>";
@@ -271,9 +271,9 @@
 		010C5DEE282191AB0005AA5D /* View */ = {
 			isa = PBXGroup;
 			children = (
-				010C5DE328216F680005AA5D /* ProfileViewController.swift */,
-				010C5DE72821915B0005AA5D /* ProfileViewController+ProfileViewProtocol.swift */,
-				010C5DF0282198C80005AA5D /* ProfileViewController+UITextFieldDelegate.swift */,
+				010C5DE328216F680005AA5D /* LoginViewController.swift */,
+				010C5DE72821915B0005AA5D /* LoginViewController+LoginViewProtocol.swift */,
+				010C5DF0282198C80005AA5D /* LoginViewController+UITextFieldDelegate.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -281,8 +281,8 @@
 		010C5DEF282191BC0005AA5D /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
-				010C5DE92821917E0005AA5D /* ProfilePresenterProtocol.swift */,
-				010C5DEB2821918F0005AA5D /* ProfileViewProtocol.swift */,
+				010C5DE92821917E0005AA5D /* LoginPresenterProtocol.swift */,
+				010C5DEB2821918F0005AA5D /* LoginViewProtocol.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -895,8 +895,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				014AE37F280DE8C9008D9A06 /* SideMenuPresenterProtocol.swift in Sources */,
-				010C5DEA2821917E0005AA5D /* ProfilePresenterProtocol.swift in Sources */,
-				010C5DEC2821918F0005AA5D /* ProfileViewProtocol.swift in Sources */,
+				010C5DEA2821917E0005AA5D /* LoginPresenterProtocol.swift in Sources */,
+				010C5DEC2821918F0005AA5D /* LoginViewProtocol.swift in Sources */,
 				01161EA327F36464007695CF /* UICollectionViewExtensions.swift in Sources */,
 				01A0483C28082390001CB6B6 /* CartPresenter.swift in Sources */,
 				014F1CDB27F3998A00D7F799 /* MenuViewController+UIViewControllerTransitioningDelegate.swift in Sources */,
@@ -934,12 +934,12 @@
 				01C0F29027EDD8C600380895 /* MenuCellPresenterProtocol.swift in Sources */,
 				01D198A2281EBE360096C97F /* UIViewControlle+addChild.swift in Sources */,
 				014E94192809E4DD00143B32 /* CartCellPresenter.swift in Sources */,
-				010C5DE628216F910005AA5D /* ProfilePresenter.swift in Sources */,
+				010C5DE628216F910005AA5D /* LoginPresenter.swift in Sources */,
 				01C0F29227EDD90500380895 /* MenuHeaderSupplementaryView.swift in Sources */,
 				01975E4A281FBAF40035AB31 /* CartTableViewCell+CartCellProtocol.swift in Sources */,
 				01C995AB27F4F25A00FE3F1F /* CardViewController+UITableViewDataSource.swift in Sources */,
 				017E2C5A2812F8ED00C82CBF /* JSONParser.swift in Sources */,
-				010C5DE428216F680005AA5D /* ProfileViewController.swift in Sources */,
+				010C5DE428216F680005AA5D /* LoginViewController.swift in Sources */,
 				017FC4F9280EFFF3006D6A9B /* CardPresenter.swift in Sources */,
 				01F6C4B12809A48200EABCE2 /* CartCellPresenterProtocol.swift in Sources */,
 				01975E46281FB9420035AB31 /* CartViewController+CartViewProtocol.swift in Sources */,
@@ -950,7 +950,7 @@
 				017E2C5C2812F9BE00C82CBF /* JSONParserProtocol.swift in Sources */,
 				014F1CD927F398B000D7F799 /* PresentationController.swift in Sources */,
 				01C0F28E27EDD89C00380895 /* MenuCellPresenter.swift in Sources */,
-				010C5DE82821915B0005AA5D /* ProfileViewController+ProfileViewProtocol.swift in Sources */,
+				010C5DE82821915B0005AA5D /* LoginViewController+LoginViewProtocol.swift in Sources */,
 				014AE381280DE972008D9A06 /* MenuOptions.swift in Sources */,
 				017E2C502812F5B300C82CBF /* MapsManagerProtocol.swift in Sources */,
 				017E2C582812F7AE00C82CBF /* ContainerViewController+UIGestureRecognizerDelegate.swift in Sources */,
@@ -973,7 +973,7 @@
 				014E941E2809E99900143B32 /* DatabaseManagerProtocol.swift in Sources */,
 				01161E9D27F30A69007695CF /* BannerPresenterProtocol.swift in Sources */,
 				01C0F27E27EDC58E00380895 /* Constants.swift in Sources */,
-				010C5DF1282198C80005AA5D /* ProfileViewController+UITextFieldDelegate.swift in Sources */,
+				010C5DF1282198C80005AA5D /* LoginViewController+UITextFieldDelegate.swift in Sources */,
 				017E2C3B28127E4700C82CBF /* DeliveryViewController.swift in Sources */,
 				018EB4972816E56D00C08E3F /* DeliveryAlert.swift in Sources */,
 				01161EA127F314DE007695CF /* MenuViewController+UICollectionViewDelegateFlowLayout.swift in Sources */,
