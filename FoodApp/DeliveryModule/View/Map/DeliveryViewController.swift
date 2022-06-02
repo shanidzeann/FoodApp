@@ -188,10 +188,10 @@ class DeliveryViewController: UIViewController {
         let safeArea = view.safeAreaLayoutGuide
         
         mapView.translatesAutoresizingMaskIntoConstraints = false
-        mapView.topAnchor.constraint(equalTo: safeArea.topAnchor).isActive = true
-        mapView.bottomAnchor.constraint(equalTo: safeArea.bottomAnchor).isActive = true
-        mapView.leadingAnchor.constraint(equalTo: safeArea.leadingAnchor).isActive = true
-        mapView.trailingAnchor.constraint(equalTo: safeArea.trailingAnchor).isActive = true
+        mapView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+        mapView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+        mapView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+        mapView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
         
         pinImageView.translatesAutoresizingMaskIntoConstraints = false
         pinImageView.centerYAnchor.constraint(equalTo: safeArea.centerYAnchor, constant: -20.0).isActive = true
