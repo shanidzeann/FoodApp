@@ -23,6 +23,9 @@
 		012D7B1C280D69AF0068C99D /* CartDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 012D7B1B280D69AF0068C99D /* CartDelegate.swift */; };
 		01456F4527F46106002AF950 /* CardViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01456F4427F46106002AF950 /* CardViewControllerDelegate.swift */; };
 		01456F4727F461FF002AF950 /* MenuViewController+CardViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01456F4627F461FF002AF950 /* MenuViewController+CardViewControllerDelegate.swift */; };
+		0145C4CF284906580020D2FE /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0145C4CE284906580020D2FE /* SignUpViewController.swift */; };
+		0145C4D1284907A80020D2FE /* SignUpPresenterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0145C4D0284907A80020D2FE /* SignUpPresenterProtocol.swift */; };
+		0145C4D32849164A0020D2FE /* UITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0145C4D22849164A0020D2FE /* UITextField.swift */; };
 		014AE37D280DC0D0008D9A06 /* SideMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 014AE37C280DC0D0008D9A06 /* SideMenuViewController.swift */; };
 		014AE37F280DE8C9008D9A06 /* SideMenuPresenterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 014AE37E280DE8C9008D9A06 /* SideMenuPresenterProtocol.swift */; };
 		014AE381280DE972008D9A06 /* MenuOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 014AE380280DE972008D9A06 /* MenuOptions.swift */; };
@@ -34,6 +37,8 @@
 		014F1CD927F398B000D7F799 /* PresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 014F1CD827F398B000D7F799 /* PresentationController.swift */; };
 		014F1CDB27F3998A00D7F799 /* MenuViewController+UIViewControllerTransitioningDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 014F1CDA27F3998A00D7F799 /* MenuViewController+UIViewControllerTransitioningDelegate.swift */; };
 		014F1CDD27F39A0B00D7F799 /* CardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 014F1CDC27F39A0B00D7F799 /* CardViewController.swift */; };
+		016BB263284A370400B55020 /* RegisterError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 016BB262284A370400B55020 /* RegisterError.swift */; };
+		016BB265284A377300B55020 /* SignUpViewController+UITextFieldDelegate .swift in Sources */ = {isa = PBXBuildFile; fileRef = 016BB264284A377300B55020 /* SignUpViewController+UITextFieldDelegate .swift */; };
 		0171492827EF80720012379E /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0171492727EF80720012379E /* HomeViewController.swift */; };
 		0178A00727FA3B6500698C2F /* ImagineItIsHidden.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0178A00627FA3B6500698C2F /* ImagineItIsHidden.swift */; };
 		017E2C3B28127E4700C82CBF /* DeliveryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 017E2C3A28127E4700C82CBF /* DeliveryViewController.swift */; };
@@ -107,6 +112,8 @@
 		01D198A0281EB23A0096C97F /* MenuState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01D1989F281EB23A0096C97F /* MenuState.swift */; };
 		01D198A2281EBE360096C97F /* UIViewControlle+addChild.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01D198A1281EBE360096C97F /* UIViewControlle+addChild.swift */; };
 		01D3CFA0282286A40020D6F9 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 01D3CF9F282286A40020D6F9 /* GoogleService-Info.plist */; };
+		01E7B3DF284F5512001567FC /* SignUpPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E7B3DE284F5512001567FC /* SignUpPresenter.swift */; };
+		01E7B3E1284F5572001567FC /* SignUpViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E7B3E0284F5572001567FC /* SignUpViewProtocol.swift */; };
 		01F6C4AF2809A3ED00EABCE2 /* CartTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01F6C4AE2809A3ED00EABCE2 /* CartTableViewCell.swift */; };
 		01F6C4B12809A48200EABCE2 /* CartCellPresenterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01F6C4B02809A48200EABCE2 /* CartCellPresenterProtocol.swift */; };
 		01F6C4B32809A4D100EABCE2 /* CartCellProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01F6C4B22809A4D100EABCE2 /* CartCellProtocol.swift */; };
@@ -140,6 +147,9 @@
 		012D7B1B280D69AF0068C99D /* CartDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartDelegate.swift; sourceTree = "<group>"; };
 		01456F4427F46106002AF950 /* CardViewControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardViewControllerDelegate.swift; sourceTree = "<group>"; };
 		01456F4627F461FF002AF950 /* MenuViewController+CardViewControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MenuViewController+CardViewControllerDelegate.swift"; sourceTree = "<group>"; };
+		0145C4CE284906580020D2FE /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		0145C4D0284907A80020D2FE /* SignUpPresenterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpPresenterProtocol.swift; sourceTree = "<group>"; };
+		0145C4D22849164A0020D2FE /* UITextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextField.swift; sourceTree = "<group>"; };
 		014AE37C280DC0D0008D9A06 /* SideMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuViewController.swift; sourceTree = "<group>"; };
 		014AE37E280DE8C9008D9A06 /* SideMenuPresenterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuPresenterProtocol.swift; sourceTree = "<group>"; };
 		014AE380280DE972008D9A06 /* MenuOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuOptions.swift; sourceTree = "<group>"; };
@@ -151,6 +161,8 @@
 		014F1CD827F398B000D7F799 /* PresentationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentationController.swift; sourceTree = "<group>"; };
 		014F1CDA27F3998A00D7F799 /* MenuViewController+UIViewControllerTransitioningDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MenuViewController+UIViewControllerTransitioningDelegate.swift"; sourceTree = "<group>"; };
 		014F1CDC27F39A0B00D7F799 /* CardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardViewController.swift; sourceTree = "<group>"; };
+		016BB262284A370400B55020 /* RegisterError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterError.swift; sourceTree = "<group>"; };
+		016BB264284A377300B55020 /* SignUpViewController+UITextFieldDelegate .swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SignUpViewController+UITextFieldDelegate .swift"; sourceTree = "<group>"; };
 		0171492727EF80720012379E /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		0178A00627FA3B6500698C2F /* ImagineItIsHidden.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagineItIsHidden.swift; sourceTree = "<group>"; };
 		017E2C3A28127E4700C82CBF /* DeliveryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeliveryViewController.swift; sourceTree = "<group>"; };
@@ -227,6 +239,8 @@
 		01D1989F281EB23A0096C97F /* MenuState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuState.swift; sourceTree = "<group>"; };
 		01D198A1281EBE360096C97F /* UIViewControlle+addChild.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewControlle+addChild.swift"; sourceTree = "<group>"; };
 		01D3CF9F282286A40020D6F9 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		01E7B3DE284F5512001567FC /* SignUpPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpPresenter.swift; sourceTree = "<group>"; };
+		01E7B3E0284F5572001567FC /* SignUpViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewProtocol.swift; sourceTree = "<group>"; };
 		01F6C4AE2809A3ED00EABCE2 /* CartTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartTableViewCell.swift; sourceTree = "<group>"; };
 		01F6C4B02809A48200EABCE2 /* CartCellPresenterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartCellPresenterProtocol.swift; sourceTree = "<group>"; };
 		01F6C4B22809A4D100EABCE2 /* CartCellProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartCellProtocol.swift; sourceTree = "<group>"; };
@@ -254,14 +268,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		010C5DE228216F4A0005AA5D /* ProfileModule */ = {
+		010C5DE228216F4A0005AA5D /* LoginModule */ = {
 			isa = PBXGroup;
 			children = (
 				010C5DEE282191AB0005AA5D /* View */,
 				010C5DED282191A30005AA5D /* Presenter */,
 				010C5DEF282191BC0005AA5D /* Protocols */,
 			);
-			path = ProfileModule;
+			path = LoginModule;
 			sourceTree = "<group>";
 		};
 		010C5DED282191A30005AA5D /* Presenter */ = {
@@ -308,6 +322,50 @@
 				01C0F28F27EDD8C600380895 /* MenuCellPresenterProtocol.swift */,
 			);
 			path = Cell;
+			sourceTree = "<group>";
+		};
+		0145C4C9284905FE0020D2FE /* SignUpModule */ = {
+			isa = PBXGroup;
+			children = (
+				0145C4CD2849063A0020D2FE /* Model */,
+				0145C4CC284906360020D2FE /* View */,
+				0145C4CB2849062F0020D2FE /* Presenter */,
+				0145C4CA284906290020D2FE /* Protocols */,
+			);
+			path = SignUpModule;
+			sourceTree = "<group>";
+		};
+		0145C4CA284906290020D2FE /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				01E7B3E0284F5572001567FC /* SignUpViewProtocol.swift */,
+				0145C4D0284907A80020D2FE /* SignUpPresenterProtocol.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		0145C4CB2849062F0020D2FE /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				01E7B3DE284F5512001567FC /* SignUpPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		0145C4CC284906360020D2FE /* View */ = {
+			isa = PBXGroup;
+			children = (
+				0145C4CE284906580020D2FE /* SignUpViewController.swift */,
+				016BB264284A377300B55020 /* SignUpViewController+UITextFieldDelegate .swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		0145C4CD2849063A0020D2FE /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		014AE382280DEC10008D9A06 /* Model */ = {
@@ -577,6 +635,7 @@
 				01A306B627F10DB00098C791 /* UIViewExtensions.swift */,
 				01161EA227F36464007695CF /* UICollectionViewExtensions.swift */,
 				01D198A1281EBE360096C97F /* UIViewControlle+addChild.swift */,
+				0145C4D22849164A0020D2FE /* UITextField.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -633,7 +692,8 @@
 				017FC4FF280F0E25006D6A9B /* Container */,
 				0185009C280D8A8C00CDF11C /* SideMenuModule */,
 				01C0F27C27EDC2AE00380895 /* MenuModule */,
-				010C5DE228216F4A0005AA5D /* ProfileModule */,
+				010C5DE228216F4A0005AA5D /* LoginModule */,
+				0145C4C9284905FE0020D2FE /* SignUpModule */,
 				017E2C3C28127E4B00C82CBF /* DeliveryModule */,
 				01A04836280723C0001CB6B6 /* ShoppingCartModule */,
 				01C0F29927EDEE6400380895 /* Managers */,
@@ -641,6 +701,7 @@
 				01AFD60D27EDBF600081BA4C /* Assets.xcassets */,
 				01AFD60F27EDBF600081BA4C /* LaunchScreen.storyboard */,
 				01C0F27D27EDC58E00380895 /* Constants.swift */,
+				016BB262284A370400B55020 /* RegisterError.swift */,
 				0178A00627FA3B6500698C2F /* ImagineItIsHidden.swift */,
 				01D3CF9F282286A40020D6F9 /* GoogleService-Info.plist */,
 				01AFD61227EDBF600081BA4C /* Info.plist */,
@@ -906,6 +967,8 @@
 				01161EA327F36464007695CF /* UICollectionViewExtensions.swift in Sources */,
 				01A0483C28082390001CB6B6 /* CartPresenter.swift in Sources */,
 				014F1CDB27F3998A00D7F799 /* MenuViewController+UIViewControllerTransitioningDelegate.swift in Sources */,
+				01E7B3E1284F5572001567FC /* SignUpViewProtocol.swift in Sources */,
+				01E7B3DF284F5512001567FC /* SignUpPresenter.swift in Sources */,
 				01A306A827F10BB10098C791 /* BannerViewController+UICollectionViewDataSource.swift in Sources */,
 				0114B2FF27F1109000D54393 /* MenuViewController.swift in Sources */,
 				01A306AE27F10C730098C791 /* MenuViewController+UICollectionViewDataSource.swift in Sources */,
@@ -923,6 +986,7 @@
 				01A04840280854D7001CB6B6 /* CartItem.swift in Sources */,
 				014AE387280DEC46008D9A06 /* SideMenuPresenter.swift in Sources */,
 				017FC4F5280E936A006D6A9B /* SideMenuState.swift in Sources */,
+				016BB263284A370400B55020 /* RegisterError.swift in Sources */,
 				017E2C562812F78900C82CBF /* ContainerViewController+SideMenuViewControllerDelegate.swift in Sources */,
 				01C0F28C27EDD87900380895 /* MenuCollectionViewCell.swift in Sources */,
 				018F28AE2822ACA000191F25 /* AuthManager.swift in Sources */,
@@ -936,8 +1000,10 @@
 				01AFD60527EDBF5D0081BA4C /* AppDelegate.swift in Sources */,
 				01161E9B27F30A49007695CF /* BannerPresenter.swift in Sources */,
 				014E941C2809E72000143B32 /* CartPresenterProtocol.swift in Sources */,
+				0145C4CF284906580020D2FE /* SignUpViewController.swift in Sources */,
 				01C0F29827EDDC4200380895 /* MenuCellProtocol.swift in Sources */,
 				018EB4932816D46A00C08E3F /* DeliveryViewController+UIViewControllerTransitioningDelegate.swift in Sources */,
+				016BB265284A377300B55020 /* SignUpViewController+UITextFieldDelegate .swift in Sources */,
 				012D7B18280D67E10068C99D /* CartViewController+UITableViewDataSource.swift in Sources */,
 				01C0F29027EDD8C600380895 /* MenuCellPresenterProtocol.swift in Sources */,
 				01D198A2281EBE360096C97F /* UIViewControlle+addChild.swift in Sources */,
@@ -950,6 +1016,7 @@
 				010C5DE428216F680005AA5D /* LoginViewController.swift in Sources */,
 				017FC4F9280EFFF3006D6A9B /* CardPresenter.swift in Sources */,
 				01F6C4B12809A48200EABCE2 /* CartCellPresenterProtocol.swift in Sources */,
+				0145C4D32849164A0020D2FE /* UITextField.swift in Sources */,
 				01975E46281FB9420035AB31 /* CartViewController+CartViewProtocol.swift in Sources */,
 				017FC4D1280E874C006D6A9B /* HomeViewControllerDelegate.swift in Sources */,
 				01A0483A280737E1001CB6B6 /* DatabaseManager.swift in Sources */,
@@ -963,6 +1030,7 @@
 				017E2C502812F5B300C82CBF /* MapsManagerProtocol.swift in Sources */,
 				017E2C582812F7AE00C82CBF /* ContainerViewController+UIGestureRecognizerDelegate.swift in Sources */,
 				014AE37D280DC0D0008D9A06 /* SideMenuViewController.swift in Sources */,
+				0145C4D1284907A80020D2FE /* SignUpPresenterProtocol.swift in Sources */,
 				017E2C4C2812F13400C82CBF /* DeliveryViewProtocol.swift in Sources */,
 				017FC4FE280F0662006D6A9B /* CardPresenterProtocol.swift in Sources */,
 				01D1989A281EAFFE0096C97F /* SideMenuViewController+UITableViewDelegate.swift in Sources */,

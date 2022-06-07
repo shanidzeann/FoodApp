@@ -100,13 +100,13 @@ class LoginViewController: UIViewController {
         emailTextField.snp.makeConstraints { make in
             make.top.equalTo(userImageView.snp.bottom).offset(10)
             make.left.right.equalTo(view.safeAreaLayoutGuide).inset(20)
-            make.height.equalTo(30)
+            make.height.equalTo(40)
         }
         
         passwordTextField.snp.makeConstraints { make in
             make.top.equalTo(emailTextField.snp.bottom).offset(10)
             make.left.right.equalTo(view.safeAreaLayoutGuide).inset(20)
-            make.height.equalTo(30)
+            make.height.equalTo(40)
         }
         
         logInButton.snp.makeConstraints { make in
@@ -158,7 +158,7 @@ class LoginViewController: UIViewController {
     }
     
     @objc private func didTapSignUp() {
-        print("didTapSignUp")
+        present(SignUpViewController(), animated: true)
     }
     
 }
