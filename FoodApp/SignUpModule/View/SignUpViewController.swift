@@ -199,9 +199,18 @@ class SignUpViewController: UIViewController, SignUpViewProtocol {
             if error != nil {
                 self.showError(error!)
             } else {
-                self.dismiss(animated: true)
+                self.dismiss()
             }
         }
+    }
+    
+    private func dismiss() {
+        let alert = UIAlertController(title: "Вы были успешно зарегистрированы", message: "Для входа в личный кабинет введите свои данные на странице авторизации.", preferredStyle: .alert)
+        let cancelAction = UIAlertAction(title: "Ок", style: .cancel) { _ in
+            self.dismiss(animated: true)
+        }
+        alert.addAction(cancelAction)
+        present(alert, animated: true)
     }
     
     @objc private func cancelAction() {
