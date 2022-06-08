@@ -193,9 +193,9 @@ class SignUpViewController: UIViewController, SignUpViewProtocol {
         let email = emailTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
         let password = passwordTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
         let dateOfBirth = dateOfBirthTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
-        let user = FirebaseUser(name: name, email: email, phone: phone, password: password, dateOfBirth: dateOfBirth)
+        let user = FirebaseUser(name: name, email: email, phone: phone, dateOfBirth: dateOfBirth, password: password)
         
-        presenter.signUp(with: user) { error in
+        presenter.register(user) { error in
             if error != nil {
                 self.showError(error!)
             } else {

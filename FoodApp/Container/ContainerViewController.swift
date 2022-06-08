@@ -29,6 +29,8 @@ class ContainerViewController: UIViewController {
         
         addChilds()
         addGestureRecognizers()
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(showProfile), name: NSNotification.Name("showProfile"), object: nil)
     }
     
     override func viewDidLayoutSubviews() {
@@ -81,6 +83,20 @@ class ContainerViewController: UIViewController {
     @objc private func handleTap(_ gestureRecognizer: UITapGestureRecognizer) {
         guard gestureRecognizer.view != nil else { return }
         toggleMenu()
+    }
+    
+    @objc private func showProfile() {
+        let profileVC = ProfileViewController()
+        let presenter = ProfilePresenter(view: profileVC, authManager: AuthManager())
+        profileVC.inject(presenter)
+        
+        homeVC.add(profileVC)
+        profileVC.view.frame = CGRect(x: homeVC.view.frame.maxX, y: homeVC.view.frame.minY, width: homeVC.view.frame.width, height: homeVC.view.frame.height)
+        UIView.animate(withDuration: 0.3, delay: 0, options: .curveEaseInOut) {
+            profileVC.view.frame = self.homeVC.view.frame
+        } completion: { done in
+            self.checkChildren()
+        }
     }
     
 }

@@ -32,8 +32,8 @@ class SignUpPresenter: SignUpPresenterProtocol {
         }
     }
     
-    private func isEmpty(_ text: String) -> Bool {
-        return text.trimmingCharacters(in: .whitespacesAndNewlines) == ""
+    private func isEmpty(_ text: String?) -> Bool {
+        return text?.trimmingCharacters(in: .whitespacesAndNewlines) == ""
     }
     
     private func isPasswordValid(_ password: String) -> Bool {
@@ -42,10 +42,10 @@ class SignUpPresenter: SignUpPresenterProtocol {
         return passwordTest.evaluate(with: cleanedPassword)
     }
     
-    func signUp(with user: FirebaseUser, completion: @escaping (String?) -> Void) {
+    func register(_ user: FirebaseUser, completion: @escaping (String?) -> Void) {
         do {
             try validateFields(with: user)
-            authManager.createUser(user) { error in
+            authManager.create(user) { error in
                 completion(error)
             }
         } catch RegisterError.invalidPassword {

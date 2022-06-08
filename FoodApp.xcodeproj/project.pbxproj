@@ -70,6 +70,10 @@
 		018F28AE2822ACA000191F25 /* AuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 018F28AD2822ACA000191F25 /* AuthManager.swift */; };
 		018F28B02822ACAF00191F25 /* AuthManagerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 018F28AF2822ACAF00191F25 /* AuthManagerProtocol.swift */; };
 		018F87A72850A0CA00C6EA2B /* FirebaseUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 018F87A62850A0CA00C6EA2B /* FirebaseUser.swift */; };
+		018F87AE2850AD4E00C6EA2B /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 018F87AD2850AD4E00C6EA2B /* ProfileViewController.swift */; };
+		018F87B02850AD6600C6EA2B /* ProfilePresenterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 018F87AF2850AD6600C6EA2B /* ProfilePresenterProtocol.swift */; };
+		018F87B22850D67100C6EA2B /* ProfilePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 018F87B12850D67100C6EA2B /* ProfilePresenter.swift */; };
+		018F87B42850D6A900C6EA2B /* ProfileViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 018F87B32850D6A900C6EA2B /* ProfileViewProtocol.swift */; };
 		01975E44281FB3F40035AB31 /* DeliveryViewController+DeliveryViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01975E43281FB3F40035AB31 /* DeliveryViewController+DeliveryViewProtocol.swift */; };
 		01975E46281FB9420035AB31 /* CartViewController+CartViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01975E45281FB9420035AB31 /* CartViewController+CartViewProtocol.swift */; };
 		01975E48281FB95A0035AB31 /* CartViewController+CartDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01975E47281FB95A0035AB31 /* CartViewController+CartDelegate.swift */; };
@@ -196,6 +200,10 @@
 		018F28AD2822ACA000191F25 /* AuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthManager.swift; sourceTree = "<group>"; };
 		018F28AF2822ACAF00191F25 /* AuthManagerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthManagerProtocol.swift; sourceTree = "<group>"; };
 		018F87A62850A0CA00C6EA2B /* FirebaseUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseUser.swift; sourceTree = "<group>"; };
+		018F87AD2850AD4E00C6EA2B /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		018F87AF2850AD6600C6EA2B /* ProfilePresenterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePresenterProtocol.swift; sourceTree = "<group>"; };
+		018F87B12850D67100C6EA2B /* ProfilePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePresenter.swift; sourceTree = "<group>"; };
+		018F87B32850D6A900C6EA2B /* ProfileViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewProtocol.swift; sourceTree = "<group>"; };
 		01975E43281FB3F40035AB31 /* DeliveryViewController+DeliveryViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DeliveryViewController+DeliveryViewProtocol.swift"; sourceTree = "<group>"; };
 		01975E45281FB9420035AB31 /* CartViewController+CartViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CartViewController+CartViewProtocol.swift"; sourceTree = "<group>"; };
 		01975E47281FB95A0035AB31 /* CartViewController+CartDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CartViewController+CartDelegate.swift"; sourceTree = "<group>"; };
@@ -575,6 +583,49 @@
 			path = DeliveryTermsCard;
 			sourceTree = "<group>";
 		};
+		018F87A82850ACCA00C6EA2B /* ProfileModule */ = {
+			isa = PBXGroup;
+			children = (
+				018F87AC2850AD1100C6EA2B /* Model */,
+				018F87AB2850AD0E00C6EA2B /* View */,
+				018F87AA2850AD0600C6EA2B /* Presenter */,
+				018F87A92850ACFD00C6EA2B /* Protocols */,
+			);
+			path = ProfileModule;
+			sourceTree = "<group>";
+		};
+		018F87A92850ACFD00C6EA2B /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				018F87AF2850AD6600C6EA2B /* ProfilePresenterProtocol.swift */,
+				018F87B32850D6A900C6EA2B /* ProfileViewProtocol.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		018F87AA2850AD0600C6EA2B /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				018F87B12850D67100C6EA2B /* ProfilePresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		018F87AB2850AD0E00C6EA2B /* View */ = {
+			isa = PBXGroup;
+			children = (
+				018F87AD2850AD4E00C6EA2B /* ProfileViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		018F87AC2850AD1100C6EA2B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		01A04836280723C0001CB6B6 /* ShoppingCartModule */ = {
 			isa = PBXGroup;
 			children = (
@@ -695,6 +746,7 @@
 				017FC4FF280F0E25006D6A9B /* Container */,
 				0185009C280D8A8C00CDF11C /* SideMenuModule */,
 				01C0F27C27EDC2AE00380895 /* MenuModule */,
+				018F87A82850ACCA00C6EA2B /* ProfileModule */,
 				010C5DE228216F4A0005AA5D /* LoginModule */,
 				0145C4C9284905FE0020D2FE /* SignUpModule */,
 				017E2C3C28127E4B00C82CBF /* DeliveryModule */,
@@ -967,6 +1019,7 @@
 				014AE37F280DE8C9008D9A06 /* SideMenuPresenterProtocol.swift in Sources */,
 				010C5DEA2821917E0005AA5D /* LoginPresenterProtocol.swift in Sources */,
 				010C5DEC2821918F0005AA5D /* LoginViewProtocol.swift in Sources */,
+				018F87B42850D6A900C6EA2B /* ProfileViewProtocol.swift in Sources */,
 				01161EA327F36464007695CF /* UICollectionViewExtensions.swift in Sources */,
 				01A0483C28082390001CB6B6 /* CartPresenter.swift in Sources */,
 				014F1CDB27F3998A00D7F799 /* MenuViewController+UIViewControllerTransitioningDelegate.swift in Sources */,
@@ -996,6 +1049,7 @@
 				017E2C542812F74D00C82CBF /* ContainerViewController+HomeViewControllerDelegate.swift in Sources */,
 				01456F4727F461FF002AF950 /* MenuViewController+CardViewControllerDelegate.swift in Sources */,
 				017E2C3F2812BDAC00C82CBF /* Restaurant.swift in Sources */,
+				018F87AE2850AD4E00C6EA2B /* ProfileViewController.swift in Sources */,
 				014F1CDD27F39A0B00D7F799 /* CardViewController.swift in Sources */,
 				018F28B02822ACAF00191F25 /* AuthManagerProtocol.swift in Sources */,
 				01A306AA27F10BED0098C791 /* BannerViewController+UICollectionViewDelegateFlowLayout.swift in Sources */,
@@ -1013,6 +1067,7 @@
 				014E94192809E4DD00143B32 /* CartCellPresenter.swift in Sources */,
 				010C5DE628216F910005AA5D /* LoginPresenter.swift in Sources */,
 				01C0F29227EDD90500380895 /* MenuHeaderSupplementaryView.swift in Sources */,
+				018F87B22850D67100C6EA2B /* ProfilePresenter.swift in Sources */,
 				01975E4A281FBAF40035AB31 /* CartTableViewCell+CartCellProtocol.swift in Sources */,
 				01C995AB27F4F25A00FE3F1F /* CardViewController+UITableViewDataSource.swift in Sources */,
 				017E2C5A2812F8ED00C82CBF /* JSONParser.swift in Sources */,
@@ -1055,6 +1110,7 @@
 				01C0F27E27EDC58E00380895 /* Constants.swift in Sources */,
 				010C5DF1282198C80005AA5D /* LoginViewController+UITextFieldDelegate.swift in Sources */,
 				017E2C3B28127E4700C82CBF /* DeliveryViewController.swift in Sources */,
+				018F87B02850AD6600C6EA2B /* ProfilePresenterProtocol.swift in Sources */,
 				018EB4972816E56D00C08E3F /* DeliveryAlert.swift in Sources */,
 				01161EA127F314DE007695CF /* MenuViewController+UICollectionViewDelegateFlowLayout.swift in Sources */,
 				01456F4527F46106002AF950 /* CardViewControllerDelegate.swift in Sources */,

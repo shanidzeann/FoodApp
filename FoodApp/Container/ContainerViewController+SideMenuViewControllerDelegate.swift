@@ -59,7 +59,7 @@ extension ContainerViewController: SideMenuViewControllerDelegate {
     
     func addLoginVC() {
         let loginVC = LoginViewController()
-        let presenter = LoginPresenter(view: loginVC)
+        let presenter = LoginPresenter(view: loginVC, authManager: AuthManager())
         loginVC.inject(presenter)
         
         homeVC.add(loginVC)

@@ -8,9 +8,22 @@
 import Foundation
 
 struct FirebaseUser {
-    let name: String
+    let name: String?
     let email: String
-    let phone: String
+    let phone: String?
+    let dateOfBirth: String?
     let password: String
-    let dateOfBirth: String
+    
+    init(name: String? = nil,
+         email: String,
+         phone: String? = nil,
+         dateOfBirth: String? = nil,
+         password: String
+    ) {
+        self.name = name
+        self.email = email
+        self.phone = phone
+        self.dateOfBirth = dateOfBirth
+        self.password = password
+    }
 }

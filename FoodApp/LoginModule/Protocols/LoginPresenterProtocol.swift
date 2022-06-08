@@ -8,5 +8,5 @@
 import Foundation
 
 protocol LoginPresenterProtocol {
-    
+    func authorize(_ user: FirebaseUser, completion: @escaping (String?) -> Void)
 }

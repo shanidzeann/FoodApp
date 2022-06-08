@@ -8,6 +8,6 @@
 import Foundation
 
 protocol SignUpPresenterProtocol {
-    func signUp(with user: FirebaseUser, completion: @escaping (String?) -> Void)
+    func register(_ user: FirebaseUser, completion: @escaping (String?) -> Void)
     func stringFrom(_ date: Date) -> String
 }

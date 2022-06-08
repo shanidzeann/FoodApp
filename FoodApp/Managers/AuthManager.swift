@@ -11,7 +11,7 @@ import FirebaseAuth
 
 class AuthManager: AuthManagerProtocol {
     
-    func createUser(_ user: FirebaseUser, completion: @escaping (String?) -> Void) {
+    func create(_ user: FirebaseUser, completion: @escaping (String?) -> Void) {
         Auth.auth().createUser(withEmail: user.email, password: user.password) { (result, error) in
             if error != nil {
                 completion(error?.localizedDescription)
@@ -20,9 +20,9 @@ class AuthManager: AuthManagerProtocol {
                 let db = Firestore.firestore()
                 
                 let data: [String: Any] = [
-                    "name": user.name,
-                    "phone": user.phone,
-                    "dateOfBirth": user.dateOfBirth,
+                    "name": user.name!,
+                    "phone": user.phone!,
+                    "dateOfBirth": user.dateOfBirth!,
                     "uid": result!.user.uid
                 ]
                 
@@ -32,10 +32,17 @@ class AuthManager: AuthManagerProtocol {
                     }
                 }
                 
-                //self.transitionToHome()
                 completion(nil)
             }
             
         }
     }
+    
+    
+    func authorize(_ user: FirebaseUser, completion: @escaping (String?) -> Void) {
+        Auth.auth().signIn(withEmail: user.email, password: user.password) { (result, error) in
+            completion(error?.localizedDescription)
+        }
+    }
+    
 }

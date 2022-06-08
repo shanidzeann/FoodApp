@@ -8,5 +8,6 @@
 import Foundation
 
 protocol AuthManagerProtocol {
-    func createUser(_ user: FirebaseUser, completion: @escaping (String?) -> Void)
+    func create(_ user: FirebaseUser, completion: @escaping (String?) -> Void)
+    func authorize(_ user: FirebaseUser, completion: @escaping (String?) -> Void)
 }
