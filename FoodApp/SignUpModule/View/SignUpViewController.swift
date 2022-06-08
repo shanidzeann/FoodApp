@@ -7,15 +7,7 @@
 
 import UIKit
 
-struct FirebaseUser {
-    let name: String
-    let email: String
-    let phone: String
-    let password: String
-    let dateOfBirth: String
-}
-
-class SignUpViewController: UIViewController {
+class SignUpViewController: UIViewController, SignUpViewProtocol {
     
     // MARK: - Properties
     
@@ -196,16 +188,6 @@ class SignUpViewController: UIViewController {
     }
     
     @objc private func didTapSignUp() {
-        do {
-            try validateFields()
-        } catch RegisterError.invalidPassword {
-            showError(RegisterError.invalidPassword.localizedDescription)
-        } catch RegisterError.emptyFields {
-            showError(RegisterError.emptyFields.localizedDescription)
-        } catch {
-            showError(error.localizedDescription)
-        }
-        
         let name = nameTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
         let phone = phoneTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
         let email = emailTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
@@ -213,10 +195,13 @@ class SignUpViewController: UIViewController {
         let dateOfBirth = dateOfBirthTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
         let user = FirebaseUser(name: name, email: email, phone: phone, password: password, dateOfBirth: dateOfBirth)
         
-        authManager.createUser(user) { error in
-            <#code#>
+        presenter.signUp(with: user) { error in
+            if error != nil {
+                self.showError(error!)
+            } else {
+                self.dismiss(animated: true)
+            }
         }
-        
     }
     
     @objc private func cancelAction() {
@@ -225,38 +210,10 @@ class SignUpViewController: UIViewController {
     
     @objc private func doneAction() {
         if let datePickerView = dateOfBirthTextField.inputView as? UIDatePicker {
-            let dateFormatter = DateFormatter()
-            dateFormatter.dateFormat = "yyyy/MM/dd"
-            let dateString = dateFormatter.string(from: datePickerView.date)
-            dateOfBirthTextField.text = dateString
-            
+            dateOfBirthTextField.text = presenter.stringFrom(datePickerView.date)
             passwordTextField.becomeFirstResponder()
         }
     }
-    
-//    func validateFields() throws {
-//        if isEmpty(nameTextField) ||
-//            isEmpty(phoneTextField) ||
-//            isEmpty(emailTextField) ||
-//            isEmpty(dateOfBirthTextField) ||
-//            isEmpty(passwordTextField) {
-//            throw RegisterError.emptyFields
-//        }
-//        
-//        if !isPasswordValid() {
-//            throw RegisterError.invalidPassword
-//        }
-//    }
-//    
-//    private func isEmpty(_ textField: UITextField) -> Bool {
-//        return textField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == ""
-//    }
-//    
-//    private func isPasswordValid() -> Bool {
-//        let cleanedPassword = passwordTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
-//        let passwordTest = NSPredicate(format: "SELF MATCHES %@", "^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9]).{8,}$")
-//        return passwordTest.evaluate(with: cleanedPassword)
-//    }
     
     func showError(_ message: String) {
         errorLabel.text = message

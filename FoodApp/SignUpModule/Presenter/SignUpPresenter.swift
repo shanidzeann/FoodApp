@@ -18,7 +18,7 @@ class SignUpPresenter: SignUpPresenterProtocol {
     }
     
     
-    func validateFields(user: FirebaseUser) throws {
+    func validateFields(with user: FirebaseUser) throws {
         if isEmpty(user.name) ||
             isEmpty(user.phone) ||
             isEmpty(user.email) ||
@@ -42,47 +42,24 @@ class SignUpPresenter: SignUpPresenterProtocol {
         return passwordTest.evaluate(with: cleanedPassword)
     }
     
-    func signUp() {
-        
+    func signUp(with user: FirebaseUser, completion: @escaping (String?) -> Void) {
+        do {
+            try validateFields(with: user)
+            authManager.createUser(user) { error in
+                completion(error)
+            }
+        } catch RegisterError.invalidPassword {
+            completion(RegisterError.invalidPassword.localizedDescription)
+        } catch RegisterError.emptyFields {
+            completion(RegisterError.emptyFields.localizedDescription)
+        } catch {
+            completion(error.localizedDescription)
+        }
     }
     
+    func stringFrom(_ date: Date) -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy/MM/dd"
+        return dateFormatter.string(from: date)
+    }
 }
-//
-//@objc private func didTapSignUp() {
-//    do {
-//        try validateFields()
-//    } catch RegisterError.invalidPassword {
-//        showError(RegisterError.invalidPassword.localizedDescription)
-//    } catch RegisterError.emptyFields {
-//        showError(RegisterError.emptyFields.localizedDescription)
-//    } catch {
-//        showError(error.localizedDescription)
-//    }
-//
-//    let name = nameTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
-//    let phone = phoneTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
-//    let email = emailTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
-//    let password = passwordTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
-//    let dateOfBirth = dateOfBirthTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
-//    let user = FirebaseUser(name: name, email: email, phone: phone, password: password, dateOfBirth: dateOfBirth)
-//
-//    authManager.createUser(user) { error in
-//        <#code#>
-//    }
-//
-//}
-//
-//@objc private func cancelAction() {
-//    dateOfBirthTextField.resignFirstResponder()
-//}
-//
-//@objc private func doneAction() {
-//    if let datePickerView = dateOfBirthTextField.inputView as? UIDatePicker {
-//        let dateFormatter = DateFormatter()
-//        dateFormatter.dateFormat = "yyyy/MM/dd"
-//        let dateString = dateFormatter.string(from: datePickerView.date)
-//        dateOfBirthTextField.text = dateString
-//
-//        passwordTextField.becomeFirstResponder()
-//    }
-//}

@@ -69,6 +69,7 @@
 		018EB4972816E56D00C08E3F /* DeliveryAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 018EB4962816E56D00C08E3F /* DeliveryAlert.swift */; };
 		018F28AE2822ACA000191F25 /* AuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 018F28AD2822ACA000191F25 /* AuthManager.swift */; };
 		018F28B02822ACAF00191F25 /* AuthManagerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 018F28AF2822ACAF00191F25 /* AuthManagerProtocol.swift */; };
+		018F87A72850A0CA00C6EA2B /* FirebaseUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 018F87A62850A0CA00C6EA2B /* FirebaseUser.swift */; };
 		01975E44281FB3F40035AB31 /* DeliveryViewController+DeliveryViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01975E43281FB3F40035AB31 /* DeliveryViewController+DeliveryViewProtocol.swift */; };
 		01975E46281FB9420035AB31 /* CartViewController+CartViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01975E45281FB9420035AB31 /* CartViewController+CartViewProtocol.swift */; };
 		01975E48281FB95A0035AB31 /* CartViewController+CartDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01975E47281FB95A0035AB31 /* CartViewController+CartDelegate.swift */; };
@@ -194,6 +195,7 @@
 		018EB4962816E56D00C08E3F /* DeliveryAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeliveryAlert.swift; sourceTree = "<group>"; };
 		018F28AD2822ACA000191F25 /* AuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthManager.swift; sourceTree = "<group>"; };
 		018F28AF2822ACAF00191F25 /* AuthManagerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthManagerProtocol.swift; sourceTree = "<group>"; };
+		018F87A62850A0CA00C6EA2B /* FirebaseUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseUser.swift; sourceTree = "<group>"; };
 		01975E43281FB3F40035AB31 /* DeliveryViewController+DeliveryViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DeliveryViewController+DeliveryViewProtocol.swift"; sourceTree = "<group>"; };
 		01975E45281FB9420035AB31 /* CartViewController+CartViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CartViewController+CartViewProtocol.swift"; sourceTree = "<group>"; };
 		01975E47281FB95A0035AB31 /* CartViewController+CartDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CartViewController+CartDelegate.swift"; sourceTree = "<group>"; };
@@ -364,6 +366,7 @@
 		0145C4CD2849063A0020D2FE /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				018F87A62850A0CA00C6EA2B /* FirebaseUser.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1041,6 +1044,7 @@
 				01A306A627F10B530098C791 /* HomeViewController+UIGestureRecognizerDelegate.swift in Sources */,
 				01A0483E2808240A001CB6B6 /* CartViewProtocol.swift in Sources */,
 				01B60CC727EE19830045C827 /* NetworkManagerProtocol.swift in Sources */,
+				018F87A72850A0CA00C6EA2B /* FirebaseUser.swift in Sources */,
 				017E2C422812BDCD00C82CBF /* DeliveryPresenter.swift in Sources */,
 				01B60CC527EE195E0045C827 /* NetworkManager.swift in Sources */,
 				01AFD60727EDBF5D0081BA4C /* SceneDelegate.swift in Sources */,

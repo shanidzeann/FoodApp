@@ -158,7 +158,10 @@ class LoginViewController: UIViewController {
     }
     
     @objc private func didTapSignUp() {
-        present(SignUpViewController(), animated: true)
+        let signUpVC = SignUpViewController()
+        let signUpPresenter = SignUpPresenter(view: signUpVC, authManager: AuthManager())
+        signUpVC.inject(signUpPresenter)
+        present(signUpVC, animated: true)
     }
     
 }

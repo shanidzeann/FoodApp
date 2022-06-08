@@ -11,29 +11,31 @@ import FirebaseAuth
 
 class AuthManager: AuthManagerProtocol {
     
-    func createUser(_ user: FirebaseUser, completion: (String?) -> Void) {
+    func createUser(_ user: FirebaseUser, completion: @escaping (String?) -> Void) {
         Auth.auth().createUser(withEmail: user.email, password: user.password) { (result, error) in
             if error != nil {
-                completion("Error creating user")
+                completion(error?.localizedDescription)
             }
             else {
                 let db = Firestore.firestore()
                 
-                db.collection("users").addDocument(data: ["firstname":firstName, "lastname":lastName, "uid": result!.user.uid ]) { (error) in
-                    
+                let data: [String: Any] = [
+                    "name": user.name,
+                    "phone": user.phone,
+                    "dateOfBirth": user.dateOfBirth,
+                    "uid": result!.user.uid
+                ]
+                
+                db.collection("users").addDocument(data: data) { (error) in
                     if error != nil {
-             //           self.showError("Error saving user data")
+                        completion(error?.localizedDescription)
                     }
                 }
                 
-                
-             //   self.transitionToHome()
+                //self.transitionToHome()
+                completion(nil)
             }
             
         }
     }
-    
-    
-    
-    
 }
