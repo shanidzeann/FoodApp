@@ -31,6 +31,7 @@ class ContainerViewController: UIViewController {
         addGestureRecognizers()
         
         NotificationCenter.default.addObserver(self, selector: #selector(showProfile), name: NSNotification.Name("showProfile"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(signOut), name: NSNotification.Name("signOut"), object: nil)
     }
     
     override func viewDidLayoutSubviews() {
@@ -85,18 +86,19 @@ class ContainerViewController: UIViewController {
         toggleMenu()
     }
     
-    @objc private func showProfile() {
+    @objc func showProfile() {
+        show(profileVC(), style: .slide)
+    }
+    
+    @objc func signOut() {
+        show(loginVC(), style: .slide)
+    }
+    
+    func profileVC() -> ProfileViewController {
         let profileVC = ProfileViewController()
         let presenter = ProfilePresenter(view: profileVC, authManager: AuthManager())
         profileVC.inject(presenter)
-        
-        homeVC.add(profileVC)
-        profileVC.view.frame = CGRect(x: homeVC.view.frame.maxX, y: homeVC.view.frame.minY, width: homeVC.view.frame.width, height: homeVC.view.frame.height)
-        UIView.animate(withDuration: 0.3, delay: 0, options: .curveEaseInOut) {
-            profileVC.view.frame = self.homeVC.view.frame
-        } completion: { done in
-            self.checkChildren()
-        }
+        return profileVC
     }
     
 }

@@ -8,5 +8,5 @@
 import Foundation
 
 protocol ProfileViewProtocol: AnyObject {
-    
+    func setUserData(_ user: FirebaseUser)
 }

@@ -8,5 +8,6 @@
 import Foundation
 
 protocol ProfilePresenterProtocol {
-    
+    func numberOfRows() -> Int
+    func itemForRow(at indexPath: IndexPath) -> ProfileMenu?
 }

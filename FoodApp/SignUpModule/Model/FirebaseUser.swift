@@ -12,13 +12,13 @@ struct FirebaseUser {
     let email: String
     let phone: String?
     let dateOfBirth: String?
-    let password: String
+    let password: String?
     
     init(name: String? = nil,
          email: String,
          phone: String? = nil,
          dateOfBirth: String? = nil,
-         password: String
+         password: String? = nil
     ) {
         self.name = name
         self.email = email

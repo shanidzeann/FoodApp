@@ -12,6 +12,7 @@ extension LoginViewController: UITextFieldDelegate {
         if textField == emailTextField {
             passwordTextField.becomeFirstResponder()
         } else {
+            didTapLogIn()
             textField.resignFirstResponder()
         }
         

@@ -6,6 +6,12 @@
 //
 
 import UIKit
+import FirebaseAuth
+
+enum VCPresentationStyle {
+    case replace
+    case slide
+}
 
 extension ContainerViewController: SideMenuViewControllerDelegate {
     func didSelect(menuItem: MenuOptions) {
@@ -22,7 +28,12 @@ extension ContainerViewController: SideMenuViewControllerDelegate {
         case .profile:
             changeNavControllerTitle("")
             hideCartButton(true)
-            addLoginVC()
+            if Auth.auth().currentUser == nil {
+                show(loginVC(), style: .replace)
+            } else {
+                show(profileVC(), style: .replace)
+            }
+            
         case .delivery:
             hideCartButton(true)
             changeNavControllerTitle("Доставка")
@@ -57,13 +68,27 @@ extension ContainerViewController: SideMenuViewControllerDelegate {
         deliveryVC.view.frame = homeVC.view.frame
     }
     
-    func addLoginVC() {
+    func loginVC() -> LoginViewController {
         let loginVC = LoginViewController()
         let presenter = LoginPresenter(view: loginVC, authManager: AuthManager())
         loginVC.inject(presenter)
-        
-        homeVC.add(loginVC)
-        loginVC.view.frame = homeVC.view.frame
+        return loginVC
+    }
+    
+    func show(_ vc: UIViewController, style: VCPresentationStyle) {
+        switch style {
+        case .replace:
+            homeVC.add(vc)
+            vc.view.frame = homeVC.view.frame
+        case .slide:
+            homeVC.add(vc)
+            vc.view.frame = CGRect(x: homeVC.view.frame.maxX, y: homeVC.view.frame.minY, width: homeVC.view.frame.width, height: homeVC.view.frame.height)
+            UIView.animate(withDuration: 0.3, delay: 0, options: .curveEaseInOut) {
+                vc.view.frame = self.homeVC.view.frame
+            } completion: { done in
+                self.checkChildren()
+            }
+        }
     }
     
     private func createShadowView() {

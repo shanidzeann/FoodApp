@@ -27,7 +27,7 @@ class SignUpPresenter: SignUpPresenterProtocol {
             throw RegisterError.emptyFields
         }
         
-        if !isPasswordValid(user.password) {
+        if !isPasswordValid(user.password!) {
             throw RegisterError.invalidPassword
         }
     }

@@ -165,7 +165,7 @@ class LoginViewController: UIViewController {
         signUpButton.addTarget(self, action: #selector(didTapSignUp), for: .touchUpInside)
     }
     
-    @objc private func didTapLogIn() {
+    @objc func didTapLogIn() {
         let email = emailTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
         let password = passwordTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
         let user = FirebaseUser(email: email, password: password)

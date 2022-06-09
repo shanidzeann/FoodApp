@@ -74,6 +74,9 @@
 		018F87B02850AD6600C6EA2B /* ProfilePresenterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 018F87AF2850AD6600C6EA2B /* ProfilePresenterProtocol.swift */; };
 		018F87B22850D67100C6EA2B /* ProfilePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 018F87B12850D67100C6EA2B /* ProfilePresenter.swift */; };
 		018F87B42850D6A900C6EA2B /* ProfileViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 018F87B32850D6A900C6EA2B /* ProfileViewProtocol.swift */; };
+		018F87B62850E52100C6EA2B /* ProfileViewController+UITableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 018F87B52850E52100C6EA2B /* ProfileViewController+UITableViewDataSource.swift */; };
+		018F87B82850E53D00C6EA2B /* ProfileViewController+UITableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 018F87B72850E53D00C6EA2B /* ProfileViewController+UITableViewDelegate.swift */; };
+		01911876285262C9001A3B81 /* ProfileViewController+ProfileViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01911875285262C9001A3B81 /* ProfileViewController+ProfileViewProtocol.swift */; };
 		01975E44281FB3F40035AB31 /* DeliveryViewController+DeliveryViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01975E43281FB3F40035AB31 /* DeliveryViewController+DeliveryViewProtocol.swift */; };
 		01975E46281FB9420035AB31 /* CartViewController+CartViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01975E45281FB9420035AB31 /* CartViewController+CartViewProtocol.swift */; };
 		01975E48281FB95A0035AB31 /* CartViewController+CartDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01975E47281FB95A0035AB31 /* CartViewController+CartDelegate.swift */; };
@@ -119,6 +122,7 @@
 		01D3CFA0282286A40020D6F9 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 01D3CF9F282286A40020D6F9 /* GoogleService-Info.plist */; };
 		01E7B3DF284F5512001567FC /* SignUpPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E7B3DE284F5512001567FC /* SignUpPresenter.swift */; };
 		01E7B3E1284F5572001567FC /* SignUpViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E7B3E0284F5572001567FC /* SignUpViewProtocol.swift */; };
+		01E97A712851196B00D6FD30 /* ProfileMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E97A702851196B00D6FD30 /* ProfileMenu.swift */; };
 		01F6C4AF2809A3ED00EABCE2 /* CartTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01F6C4AE2809A3ED00EABCE2 /* CartTableViewCell.swift */; };
 		01F6C4B12809A48200EABCE2 /* CartCellPresenterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01F6C4B02809A48200EABCE2 /* CartCellPresenterProtocol.swift */; };
 		01F6C4B32809A4D100EABCE2 /* CartCellProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01F6C4B22809A4D100EABCE2 /* CartCellProtocol.swift */; };
@@ -204,6 +208,9 @@
 		018F87AF2850AD6600C6EA2B /* ProfilePresenterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePresenterProtocol.swift; sourceTree = "<group>"; };
 		018F87B12850D67100C6EA2B /* ProfilePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePresenter.swift; sourceTree = "<group>"; };
 		018F87B32850D6A900C6EA2B /* ProfileViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewProtocol.swift; sourceTree = "<group>"; };
+		018F87B52850E52100C6EA2B /* ProfileViewController+UITableViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ProfileViewController+UITableViewDataSource.swift"; sourceTree = "<group>"; };
+		018F87B72850E53D00C6EA2B /* ProfileViewController+UITableViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ProfileViewController+UITableViewDelegate.swift"; sourceTree = "<group>"; };
+		01911875285262C9001A3B81 /* ProfileViewController+ProfileViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ProfileViewController+ProfileViewProtocol.swift"; sourceTree = "<group>"; };
 		01975E43281FB3F40035AB31 /* DeliveryViewController+DeliveryViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DeliveryViewController+DeliveryViewProtocol.swift"; sourceTree = "<group>"; };
 		01975E45281FB9420035AB31 /* CartViewController+CartViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CartViewController+CartViewProtocol.swift"; sourceTree = "<group>"; };
 		01975E47281FB95A0035AB31 /* CartViewController+CartDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CartViewController+CartDelegate.swift"; sourceTree = "<group>"; };
@@ -251,6 +258,7 @@
 		01D3CF9F282286A40020D6F9 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		01E7B3DE284F5512001567FC /* SignUpPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpPresenter.swift; sourceTree = "<group>"; };
 		01E7B3E0284F5572001567FC /* SignUpViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewProtocol.swift; sourceTree = "<group>"; };
+		01E97A702851196B00D6FD30 /* ProfileMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileMenu.swift; sourceTree = "<group>"; };
 		01F6C4AE2809A3ED00EABCE2 /* CartTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartTableViewCell.swift; sourceTree = "<group>"; };
 		01F6C4B02809A48200EABCE2 /* CartCellPresenterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartCellPresenterProtocol.swift; sourceTree = "<group>"; };
 		01F6C4B22809A4D100EABCE2 /* CartCellProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartCellProtocol.swift; sourceTree = "<group>"; };
@@ -597,8 +605,8 @@
 		018F87A92850ACFD00C6EA2B /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
-				018F87AF2850AD6600C6EA2B /* ProfilePresenterProtocol.swift */,
 				018F87B32850D6A900C6EA2B /* ProfileViewProtocol.swift */,
+				018F87AF2850AD6600C6EA2B /* ProfilePresenterProtocol.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -615,6 +623,9 @@
 			isa = PBXGroup;
 			children = (
 				018F87AD2850AD4E00C6EA2B /* ProfileViewController.swift */,
+				01911875285262C9001A3B81 /* ProfileViewController+ProfileViewProtocol.swift */,
+				018F87B52850E52100C6EA2B /* ProfileViewController+UITableViewDataSource.swift */,
+				018F87B72850E53D00C6EA2B /* ProfileViewController+UITableViewDelegate.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -622,6 +633,7 @@
 		018F87AC2850AD1100C6EA2B /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				01E97A702851196B00D6FD30 /* ProfileMenu.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1018,6 +1030,7 @@
 			files = (
 				014AE37F280DE8C9008D9A06 /* SideMenuPresenterProtocol.swift in Sources */,
 				010C5DEA2821917E0005AA5D /* LoginPresenterProtocol.swift in Sources */,
+				01E97A712851196B00D6FD30 /* ProfileMenu.swift in Sources */,
 				010C5DEC2821918F0005AA5D /* LoginViewProtocol.swift in Sources */,
 				018F87B42850D6A900C6EA2B /* ProfileViewProtocol.swift in Sources */,
 				01161EA327F36464007695CF /* UICollectionViewExtensions.swift in Sources */,
@@ -1043,6 +1056,7 @@
 				014AE387280DEC46008D9A06 /* SideMenuPresenter.swift in Sources */,
 				017FC4F5280E936A006D6A9B /* SideMenuState.swift in Sources */,
 				016BB263284A370400B55020 /* RegisterError.swift in Sources */,
+				018F87B62850E52100C6EA2B /* ProfileViewController+UITableViewDataSource.swift in Sources */,
 				017E2C562812F78900C82CBF /* ContainerViewController+SideMenuViewControllerDelegate.swift in Sources */,
 				01C0F28C27EDD87900380895 /* MenuCollectionViewCell.swift in Sources */,
 				018F28AE2822ACA000191F25 /* AuthManager.swift in Sources */,
@@ -1059,6 +1073,7 @@
 				014E941C2809E72000143B32 /* CartPresenterProtocol.swift in Sources */,
 				0145C4CF284906580020D2FE /* SignUpViewController.swift in Sources */,
 				01C0F29827EDDC4200380895 /* MenuCellProtocol.swift in Sources */,
+				01911876285262C9001A3B81 /* ProfileViewController+ProfileViewProtocol.swift in Sources */,
 				018EB4932816D46A00C08E3F /* DeliveryViewController+UIViewControllerTransitioningDelegate.swift in Sources */,
 				016BB265284A377300B55020 /* SignUpViewController+UITextFieldDelegate .swift in Sources */,
 				012D7B18280D67E10068C99D /* CartViewController+UITableViewDataSource.swift in Sources */,
@@ -1102,6 +1117,7 @@
 				018F87A72850A0CA00C6EA2B /* FirebaseUser.swift in Sources */,
 				017E2C422812BDCD00C82CBF /* DeliveryPresenter.swift in Sources */,
 				01B60CC527EE195E0045C827 /* NetworkManager.swift in Sources */,
+				018F87B82850E53D00C6EA2B /* ProfileViewController+UITableViewDelegate.swift in Sources */,
 				01AFD60727EDBF5D0081BA4C /* SceneDelegate.swift in Sources */,
 				01D19898281EAFD60096C97F /* SideMenuViewController+UITableViewDataSource.swift in Sources */,
 				017E2C522812F61700C82CBF /* DeliveryViewController+CLLocationManagerDelegate.swift in Sources */,

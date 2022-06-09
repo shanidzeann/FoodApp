@@ -23,6 +23,7 @@ enum Constants {
     
     enum TableView {
         enum CellIdentifiers {
+            static let cell = "cell"
             static let cartCell = "cartCell"
             static let cardCell = "cardCell"
             static let sideMenuCell = "sideMenuCell"
