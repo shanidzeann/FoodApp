@@ -150,14 +150,14 @@ class LoginViewController: UIViewController {
         passwordTextField.delegate = self
     }
     
-    // MARK: - Buttons
-    
     private func configureButton(_ button: UIButton) {
         button.layer.borderColor = UIColor.gray.cgColor
         button.layer.borderWidth = 0.5
         button.layer.cornerRadius = 7
         button.tintColor = .gray
     }
+    
+    // MARK: - Actions
     
     private func addTargets() {
         logInButton.addTarget(self, action: #selector(didTapLogIn), for: .touchUpInside)
@@ -189,6 +189,8 @@ class LoginViewController: UIViewController {
         signUpVC.inject(signUpPresenter)
         present(signUpVC, animated: true)
     }
+    
+    // MARK: - Errors
     
     func showError(_ message: String) {
         errorLabel.text = message

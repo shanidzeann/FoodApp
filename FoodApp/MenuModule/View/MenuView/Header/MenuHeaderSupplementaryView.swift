@@ -31,7 +31,7 @@ class MenuHeaderSupplementaryView: UICollectionReusableView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    // MARK: - Methods
+    // MARK: - UI
     
     func configure(with title: String) {
         label.text = title

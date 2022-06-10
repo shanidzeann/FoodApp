@@ -19,7 +19,7 @@ class MenuCollectionViewCell: UICollectionViewCell {
     
     // MARK: - UI
     
-    private let menuImageView: UIImageView = {
+    let menuImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.clipsToBounds = true
         imageView.layer.cornerRadius = 10
@@ -27,7 +27,7 @@ class MenuCollectionViewCell: UICollectionViewCell {
         return imageView
     }()
     
-    private let titleLabel: UILabel = {
+    let titleLabel: UILabel = {
         let label = UILabel()
         label.textColor = .label
         label.font = .boldSystemFont(ofSize: 15)
@@ -37,7 +37,7 @@ class MenuCollectionViewCell: UICollectionViewCell {
         return label
     }()
     
-    private let desctiptionLabel: UILabel = {
+    let desctiptionLabel: UILabel = {
         let label = UILabel()
         label.textColor = .secondaryLabel
         label.font = .systemFont(ofSize: 12)
@@ -78,7 +78,7 @@ class MenuCollectionViewCell: UICollectionViewCell {
         ).cgPath
     }
     
-    // MARK: - Methods
+    // MARK: - Injections
     
     func inject(presenter: MenuCellPresenterProtocol) {
         self.presenter = presenter
@@ -88,6 +88,8 @@ class MenuCollectionViewCell: UICollectionViewCell {
         presenter.configure(with: item)
     }
     
+    // MARK: - Actions
+    
     private func addTargets() {
         priceButton.addTarget(self, action: #selector(didTapBuy(sender:)), for: .touchUpInside)
     }
@@ -96,6 +98,8 @@ class MenuCollectionViewCell: UICollectionViewCell {
         presenter.addToCart()
         animateView(sender)
     }
+    
+    // MARK: - UI
 
     private func animateView(_ viewToAnimate: UIView) {
         UIView.animate(withDuration: 0.15, delay: 0, usingSpringWithDamping: 0.2, initialSpringVelocity: 0.5, options: .curveEaseIn) {
@@ -158,30 +162,6 @@ class MenuCollectionViewCell: UICollectionViewCell {
         menuImageView.kf.cancelDownloadTask()
         menuImageView.kf.setImage(with: URL(string: ""))
         menuImageView.image = nil
-    }
-    
-}
-
-
-// MARK: -  MovieCellProtocol
-extension MenuCollectionViewCell: MenuCellProtocol {
-    #warning("item?")
-    func setData(title: String, description: String, price: String, imageURL: URL?, subtitle: String?) {
-        titleLabel.text = title
-        desctiptionLabel.text = description
-        priceButton.setTitle(price, for: .normal)
-        priceButton.configuration?.subtitle = subtitle
-        priceButton.configuration?.attributedSubtitle?.font = .systemFont(ofSize: 8)
-        
-        menuImageView.kf.setImage(with: imageURL) { result in
-            switch result {
-            case .success(_):
-                break
-            case .failure(_):
-                self.menuImageView.image = UIImage(systemName: "fork.knife.circle")
-                self.menuImageView.tintColor = .black
-            }
-        }
     }
     
 }

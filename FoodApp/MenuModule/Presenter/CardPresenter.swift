@@ -10,8 +10,7 @@ import Foundation
 class CardPresenter: CardPresenterProtocol {
     
     var sections = [(title: String, itemsCount: Int)]()
-
-    // MARK: - Init
+    
 
     required init(sections: [(title: String, itemsCount: Int)]) {
         self.sections = sections

@@ -14,7 +14,6 @@ extension ContainerViewController: HomeViewControllerDelegate {
     
     func toggleMenu() {
         NotificationCenter.default.post(name: NSNotification.Name("animateTransitionBeforeSideMenu"), object: nil)
-        
         switch sideMenuState {
         case .closed:
             openMenu()

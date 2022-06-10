@@ -34,7 +34,7 @@ class BannerCollectionViewCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    // MARK: - Helper Methods
+    // MARK: - UI
     
     override func layoutSubviews() {
         super.layoutSubviews()

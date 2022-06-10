@@ -76,8 +76,10 @@ class SignUpViewController: UIViewController, SignUpViewProtocol {
     }()
     
     private let signUpButton: UIButton = {
-        let button = UIButton(configuration: .plain(), primaryAction: nil)
+        let button = UIButton(configuration: .filled(), primaryAction: nil)
+        button.configuration?.baseBackgroundColor = .systemGreen
         button.setTitle("Sign Up", for: .normal)
+        button.tintColor = .white
         return button
     }()
     
@@ -174,14 +176,14 @@ class SignUpViewController: UIViewController, SignUpViewProtocol {
         passwordTextField.delegate = self
     }
     
-    // MARK: - Buttons
-    
     private func configureButton(_ button: UIButton) {
         button.layer.borderColor = UIColor.gray.cgColor
         button.layer.borderWidth = 0.5
         button.layer.cornerRadius = 7
         button.tintColor = .gray
     }
+    
+    // MARK: - Actions
     
     private func addTargets() {
         signUpButton.addTarget(self, action: #selector(didTapSignUp), for: .touchUpInside)
@@ -223,6 +225,8 @@ class SignUpViewController: UIViewController, SignUpViewProtocol {
             passwordTextField.becomeFirstResponder()
         }
     }
+    
+    // MARK: - Errors
     
     func showError(_ message: String) {
         errorLabel.text = message

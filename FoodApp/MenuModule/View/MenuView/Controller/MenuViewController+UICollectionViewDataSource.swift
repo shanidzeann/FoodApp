@@ -40,6 +40,19 @@ extension MenuViewController: UICollectionViewDataSource {
         }
     }
     
+    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        guard let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: Constants.CollectionView.Headers.menuHeader, for: indexPath) as? MenuHeaderSupplementaryView else {
+            return UICollectionReusableView()
+        }
+        
+        let title = presenter.sectionTitle(for: indexPath.section)
+        headerView.configure(with: title)
+        
+        return headerView
+    }
+    
+    // MARK: - Hepler Methods
+    
     private func createCategoryCell(for indexPath: IndexPath) -> CategoryCollectionViewCell {
         let cell = categoriesCollectionView?.dequeueReusableCell(withReuseIdentifier: Constants.CollectionView.CellIdentifiers.categoryCell, for: indexPath) as! CategoryCollectionViewCell
         let title = presenter.sectionTitle(for: indexPath.item)
@@ -62,14 +75,4 @@ extension MenuViewController: UICollectionViewDataSource {
         return cell
     }
     
-    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-        guard let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: Constants.CollectionView.Headers.menuHeader, for: indexPath) as? MenuHeaderSupplementaryView else {
-            return UICollectionReusableView()
-        }
-        
-        let title = presenter.sectionTitle(for: indexPath.section)
-        headerView.configure(with: title)
-        
-        return headerView
-    }
 }

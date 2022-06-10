@@ -9,8 +9,12 @@ import UIKit
 
 class SideMenuViewController: UIViewController {
     
+    // MARK: - Properties
+    
     var presenter: SideMenuPresenterProtocol!
     weak var delegate: SideMenuViewControllerDelegate?
+    
+    // MARK: - UI
     
     private let tableView: UITableView = {
         let tableView = UITableView()
@@ -19,6 +23,8 @@ class SideMenuViewController: UIViewController {
         tableView.isScrollEnabled = false
         return tableView
     }()
+    
+    // MARK: - VC Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,6 +38,8 @@ class SideMenuViewController: UIViewController {
         
         tableView.frame = CGRect(x: 0, y: view.safeAreaInsets.top, width: view.bounds.size.width, height: view.bounds.size.height)
     }
+    
+    // MARK: - Private
     
     private func addSubviews() {
         view.addSubview(tableView)
