@@ -16,7 +16,7 @@ extension CartViewController: UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: Constants.TableView.CellIdentifiers.cartCell, for: indexPath) as! CartTableViewCell
         
         if let item = presenter.cartItem(for: indexPath) {
-            let databaseManager = DatabaseManager.shared
+            let databaseManager = LocalDatabaseManager.shared
             let cellPresenter = CartCellPresenter(view: cell, databaseManager: databaseManager, item: item)
             cell.inject(presenter: cellPresenter, delegate: self)
         }

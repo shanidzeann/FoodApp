@@ -11,9 +11,9 @@ class CartCellPresenter: CartCellPresenterProtocol {
     
     weak var view: CartCellProtocol?
     var cartItem: CartItem?
-    var databaseManager: DatabaseManagerProtocol!
+    var databaseManager: LocalDatabaseManagerProtocol!
     
-    required init(view: CartCellProtocol, databaseManager: DatabaseManager, item: CartItem) {
+    required init(view: CartCellProtocol, databaseManager: LocalDatabaseManager, item: CartItem) {
         self.view = view
         self.databaseManager = databaseManager
         self.cartItem = item

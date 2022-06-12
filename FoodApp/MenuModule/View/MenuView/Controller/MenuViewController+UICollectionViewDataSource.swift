@@ -64,7 +64,7 @@ extension MenuViewController: UICollectionViewDataSource {
         let cell = menuCollectionView?.dequeueReusableCell(withReuseIdentifier: Constants.CollectionView.CellIdentifiers.menuCell, for: indexPath) as! MenuCollectionViewCell
         guard let item = presenter.menuItem(for: indexPath) else { return MenuCollectionViewCell() }
         
-        let dbManager = DatabaseManager.shared
+        let dbManager = LocalDatabaseManager.shared
         let cellPresenter = MenuCellPresenter(view: cell, databaseManager: dbManager)
         cell.inject(presenter: cellPresenter)
         cell.configure(with: item)

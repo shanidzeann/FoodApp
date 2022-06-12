@@ -13,7 +13,7 @@ class MenuCellPresenter: MenuCellPresenterProtocol {
     
     weak var view: MenuCellProtocol?
     var menuItem: MenuItem?
-    var databaseManager: DatabaseManagerProtocol!
+    var databaseManager: LocalDatabaseManagerProtocol!
     
     var title: String? {
         return menuItem?.title
@@ -33,7 +33,7 @@ class MenuCellPresenter: MenuCellPresenterProtocol {
     
     // MARK: - Init
     
-    required init(view: MenuCellProtocol, databaseManager: DatabaseManager) {
+    required init(view: MenuCellProtocol, databaseManager: LocalDatabaseManager) {
         self.view = view
         self.databaseManager = databaseManager
     }

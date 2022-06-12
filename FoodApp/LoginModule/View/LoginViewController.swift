@@ -185,7 +185,7 @@ class LoginViewController: UIViewController {
     
     @objc private func didTapSignUp() {
         let signUpVC = SignUpViewController()
-        let signUpPresenter = SignUpPresenter(view: signUpVC, authManager: AuthManager())
+        let signUpPresenter = SignUpPresenter(view: signUpVC, authManager: AuthManager(databaseManager: FirestoreManager()))
         signUpVC.inject(signUpPresenter)
         present(signUpVC, animated: true)
     }

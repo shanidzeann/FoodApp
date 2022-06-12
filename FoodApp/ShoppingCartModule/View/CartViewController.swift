@@ -51,6 +51,7 @@ class CartViewController: UIViewController {
         setupConstraints()
         configureTableView()
         presenter.checkCart()
+        addTargets()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -63,7 +64,7 @@ class CartViewController: UIViewController {
         navigationController?.navigationBar.prefersLargeTitles = false
     }
     
-    // MARK: - Helper Methods
+    // MARK: - UI
     
     private func addSubviews() {
         view.addSubview(tableView)
@@ -98,6 +99,19 @@ class CartViewController: UIViewController {
         tableView.dataSource = self
         tableView.rowHeight = view.frame.height/6
         tableView.allowsSelection = false
+    }
+    
+    // MARK: - Actions
+    
+    private func addTargets() {
+        checkoutButton.addTarget(self, action: #selector(checkout), for: .touchUpInside)
+    }
+    
+    // MARK: - Order Creation
+    
+    @objc private func checkout() {
+        print("checkout")
+        presenter.checkout()
     }
 
 }

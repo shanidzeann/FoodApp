@@ -10,16 +10,16 @@ import Foundation
 class ProfilePresenter: ProfilePresenterProtocol {
     
     weak var view: ProfileViewProtocol?
-    private var authManager: AuthManagerProtocol!
+    private var databaseManager: FirestoreManagerProtocol!
     
-    init(view: ProfileViewProtocol, authManager: AuthManagerProtocol) {
+    init(view: ProfileViewProtocol, databaseManager: FirestoreManagerProtocol) {
         self.view = view
-        self.authManager = authManager
+        self.databaseManager = databaseManager
         getUserData()
     }
     
     func getUserData() {
-        authManager.getUserData { result in
+        databaseManager.getUserData { result in
             switch result {
             case .success(let user):
                 self.view?.setUserData(user)

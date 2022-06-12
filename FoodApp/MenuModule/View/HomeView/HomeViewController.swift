@@ -130,8 +130,8 @@ class HomeViewController: UIViewController {
     
     @objc private func showShoppingCart() {
         let cartVC = CartViewController()
-        let databaseManager = DatabaseManager.shared
-        let cartPresenter = CartPresenter(view: cartVC, databaseManager: databaseManager)
+        let databaseManager = LocalDatabaseManager.shared
+        let cartPresenter = CartPresenter(view: cartVC, localDatabaseManager: databaseManager, firestoreManager: FirestoreManager())
         cartVC.presenter = cartPresenter
         
         navigationController?.pushViewController(cartVC, animated: true)

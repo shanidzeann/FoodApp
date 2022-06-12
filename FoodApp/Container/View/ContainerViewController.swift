@@ -112,7 +112,7 @@ class ContainerViewController: UIViewController {
     
     func profileVC() -> ProfileViewController {
         let profileVC = ProfileViewController()
-        let presenter = ProfilePresenter(view: profileVC, authManager: AuthManager())
+        let presenter = ProfilePresenter(view: profileVC, databaseManager: FirestoreManager())
         profileVC.inject(presenter)
         return profileVC
     }
@@ -126,7 +126,7 @@ class ContainerViewController: UIViewController {
     
     func loginVC() -> LoginViewController {
         let loginVC = LoginViewController()
-        let presenter = LoginPresenter(view: loginVC, authManager: AuthManager())
+        let presenter = LoginPresenter(view: loginVC, authManager: AuthManager(databaseManager: FirestoreManager()))
         loginVC.inject(presenter)
         return loginVC
     }

@@ -33,7 +33,7 @@
 		014AE389280DEC7A008D9A06 /* SideMenuViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 014AE388280DEC7A008D9A06 /* SideMenuViewControllerDelegate.swift */; };
 		014E94192809E4DD00143B32 /* CartCellPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 014E94182809E4DD00143B32 /* CartCellPresenter.swift */; };
 		014E941C2809E72000143B32 /* CartPresenterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 014E941B2809E72000143B32 /* CartPresenterProtocol.swift */; };
-		014E941E2809E99900143B32 /* DatabaseManagerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 014E941D2809E99900143B32 /* DatabaseManagerProtocol.swift */; };
+		014E941E2809E99900143B32 /* LocalDatabaseManagerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 014E941D2809E99900143B32 /* LocalDatabaseManagerProtocol.swift */; };
 		014F1CD927F398B000D7F799 /* PresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 014F1CD827F398B000D7F799 /* PresentationController.swift */; };
 		014F1CDB27F3998A00D7F799 /* MenuViewController+UIViewControllerTransitioningDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 014F1CDA27F3998A00D7F799 /* MenuViewController+UIViewControllerTransitioningDelegate.swift */; };
 		014F1CDD27F39A0B00D7F799 /* CardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 014F1CDC27F39A0B00D7F799 /* CardViewController.swift */; };
@@ -83,7 +83,7 @@
 		01975E4A281FBAF40035AB31 /* CartTableViewCell+CartCellProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01975E49281FBAF40035AB31 /* CartTableViewCell+CartCellProtocol.swift */; };
 		019ACD3927EF1A6500589642 /* BannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 019ACD3827EF1A6500589642 /* BannerViewController.swift */; };
 		01A048382807242C001CB6B6 /* CartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A048372807242C001CB6B6 /* CartViewController.swift */; };
-		01A0483A280737E1001CB6B6 /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A04839280737E1001CB6B6 /* DatabaseManager.swift */; };
+		01A0483A280737E1001CB6B6 /* LocalDatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A04839280737E1001CB6B6 /* LocalDatabaseManager.swift */; };
 		01A0483C28082390001CB6B6 /* CartPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A0483B28082390001CB6B6 /* CartPresenter.swift */; };
 		01A0483E2808240A001CB6B6 /* CartViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A0483D2808240A001CB6B6 /* CartViewProtocol.swift */; };
 		01A04840280854D7001CB6B6 /* CartItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A0483F280854D7001CB6B6 /* CartItem.swift */; };
@@ -117,6 +117,8 @@
 		01C595312855ED010058B446 /* OrderHistoryPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01C595302855ED010058B446 /* OrderHistoryPresenter.swift */; };
 		01C595332855ED230058B446 /* OrderHistoryPresenterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01C595322855ED230058B446 /* OrderHistoryPresenterProtocol.swift */; };
 		01C595352855ED3E0058B446 /* OrderHistoryViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01C595342855ED3E0058B446 /* OrderHistoryViewProtocol.swift */; };
+		01C595372856083A0058B446 /* FirestoreManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01C595362856083A0058B446 /* FirestoreManager.swift */; };
+		01C595392856085B0058B446 /* FirestoreManagerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01C595382856085B0058B446 /* FirestoreManagerProtocol.swift */; };
 		01C995AB27F4F25A00FE3F1F /* CardViewController+UITableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01C995AA27F4F25A00FE3F1F /* CardViewController+UITableViewDataSource.swift */; };
 		01C995AD27F4F26900FE3F1F /* CardViewController+UITableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01C995AC27F4F26900FE3F1F /* CardViewController+UITableViewDelegate.swift */; };
 		01D19898281EAFD60096C97F /* SideMenuViewController+UITableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01D19897281EAFD60096C97F /* SideMenuViewController+UITableViewDataSource.swift */; };
@@ -172,7 +174,7 @@
 		014AE388280DEC7A008D9A06 /* SideMenuViewControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuViewControllerDelegate.swift; sourceTree = "<group>"; };
 		014E94182809E4DD00143B32 /* CartCellPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartCellPresenter.swift; sourceTree = "<group>"; };
 		014E941B2809E72000143B32 /* CartPresenterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartPresenterProtocol.swift; sourceTree = "<group>"; };
-		014E941D2809E99900143B32 /* DatabaseManagerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseManagerProtocol.swift; sourceTree = "<group>"; };
+		014E941D2809E99900143B32 /* LocalDatabaseManagerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalDatabaseManagerProtocol.swift; sourceTree = "<group>"; };
 		014F1CD827F398B000D7F799 /* PresentationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentationController.swift; sourceTree = "<group>"; };
 		014F1CDA27F3998A00D7F799 /* MenuViewController+UIViewControllerTransitioningDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MenuViewController+UIViewControllerTransitioningDelegate.swift"; sourceTree = "<group>"; };
 		014F1CDC27F39A0B00D7F799 /* CardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardViewController.swift; sourceTree = "<group>"; };
@@ -223,7 +225,7 @@
 		01975E49281FBAF40035AB31 /* CartTableViewCell+CartCellProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CartTableViewCell+CartCellProtocol.swift"; sourceTree = "<group>"; };
 		019ACD3827EF1A6500589642 /* BannerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerViewController.swift; sourceTree = "<group>"; };
 		01A048372807242C001CB6B6 /* CartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartViewController.swift; sourceTree = "<group>"; };
-		01A04839280737E1001CB6B6 /* DatabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = "<group>"; };
+		01A04839280737E1001CB6B6 /* LocalDatabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalDatabaseManager.swift; sourceTree = "<group>"; };
 		01A0483B28082390001CB6B6 /* CartPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartPresenter.swift; sourceTree = "<group>"; };
 		01A0483D2808240A001CB6B6 /* CartViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartViewProtocol.swift; sourceTree = "<group>"; };
 		01A0483F280854D7001CB6B6 /* CartItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartItem.swift; sourceTree = "<group>"; };
@@ -259,6 +261,8 @@
 		01C595302855ED010058B446 /* OrderHistoryPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderHistoryPresenter.swift; sourceTree = "<group>"; };
 		01C595322855ED230058B446 /* OrderHistoryPresenterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderHistoryPresenterProtocol.swift; sourceTree = "<group>"; };
 		01C595342855ED3E0058B446 /* OrderHistoryViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderHistoryViewProtocol.swift; sourceTree = "<group>"; };
+		01C595362856083A0058B446 /* FirestoreManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreManager.swift; sourceTree = "<group>"; };
+		01C595382856085B0058B446 /* FirestoreManagerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreManagerProtocol.swift; sourceTree = "<group>"; };
 		01C995AA27F4F25A00FE3F1F /* CardViewController+UITableViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CardViewController+UITableViewDataSource.swift"; sourceTree = "<group>"; };
 		01C995AC27F4F26900FE3F1F /* CardViewController+UITableViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CardViewController+UITableViewDelegate.swift"; sourceTree = "<group>"; };
 		01D19897281EAFD60096C97F /* SideMenuViewController+UITableViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SideMenuViewController+UITableViewDataSource.swift"; sourceTree = "<group>"; };
@@ -847,10 +851,11 @@
 			isa = PBXGroup;
 			children = (
 				01B60CC427EE195E0045C827 /* NetworkManager.swift */,
-				01A04839280737E1001CB6B6 /* DatabaseManager.swift */,
+				01A04839280737E1001CB6B6 /* LocalDatabaseManager.swift */,
 				017E2C4D2812F29900C82CBF /* MapsManager.swift */,
 				017E2C592812F8ED00C82CBF /* JSONParser.swift */,
 				018F28AD2822ACA000191F25 /* AuthManager.swift */,
+				01C595362856083A0058B446 /* FirestoreManager.swift */,
 				01C59522285359B50058B446 /* Protocols */,
 			);
 			path = Managers;
@@ -860,10 +865,11 @@
 			isa = PBXGroup;
 			children = (
 				01B60CC627EE19830045C827 /* NetworkManagerProtocol.swift */,
-				014E941D2809E99900143B32 /* DatabaseManagerProtocol.swift */,
+				014E941D2809E99900143B32 /* LocalDatabaseManagerProtocol.swift */,
 				017E2C4F2812F5B300C82CBF /* MapsManagerProtocol.swift */,
 				017E2C5B2812F9BE00C82CBF /* JSONParserProtocol.swift */,
 				018F28AF2822ACAF00191F25 /* AuthManagerProtocol.swift */,
+				01C595382856085B0058B446 /* FirestoreManagerProtocol.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -1133,6 +1139,7 @@
 				018F87B62850E52100C6EA2B /* ProfileViewController+UITableViewDataSource.swift in Sources */,
 				017E2C562812F78900C82CBF /* ContainerViewController+SideMenuViewControllerDelegate.swift in Sources */,
 				01C0F28C27EDD87900380895 /* MenuCollectionViewCell.swift in Sources */,
+				01C595372856083A0058B446 /* FirestoreManager.swift in Sources */,
 				018F28AE2822ACA000191F25 /* AuthManager.swift in Sources */,
 				017E2C542812F74D00C82CBF /* ContainerViewController+HomeViewControllerDelegate.swift in Sources */,
 				01456F4727F461FF002AF950 /* MenuViewController+CardViewControllerDelegate.swift in Sources */,
@@ -1168,7 +1175,7 @@
 				01975E46281FB9420035AB31 /* CartViewController+CartViewProtocol.swift in Sources */,
 				01C595312855ED010058B446 /* OrderHistoryPresenter.swift in Sources */,
 				017FC4D1280E874C006D6A9B /* HomeViewControllerDelegate.swift in Sources */,
-				01A0483A280737E1001CB6B6 /* DatabaseManager.swift in Sources */,
+				01A0483A280737E1001CB6B6 /* LocalDatabaseManager.swift in Sources */,
 				01D1989E281EB1370096C97F /* SideMenuCellPresenterProtocol.swift in Sources */,
 				01C5952628535C500058B446 /* VCPresentationStyle.swift in Sources */,
 				018EB48F2816CA9F00C08E3F /* DeliveryTermsPresentationController.swift in Sources */,
@@ -1179,6 +1186,7 @@
 				014AE381280DE972008D9A06 /* MenuOptions.swift in Sources */,
 				017E2C502812F5B300C82CBF /* MapsManagerProtocol.swift in Sources */,
 				017E2C582812F7AE00C82CBF /* ContainerViewController+UIGestureRecognizerDelegate.swift in Sources */,
+				01C595392856085B0058B446 /* FirestoreManagerProtocol.swift in Sources */,
 				014AE37D280DC0D0008D9A06 /* SideMenuViewController.swift in Sources */,
 				0145C4D1284907A80020D2FE /* SignUpPresenterProtocol.swift in Sources */,
 				017E2C4C2812F13400C82CBF /* DeliveryViewProtocol.swift in Sources */,
@@ -1199,7 +1207,7 @@
 				01AFD60727EDBF5D0081BA4C /* SceneDelegate.swift in Sources */,
 				01D19898281EAFD60096C97F /* SideMenuViewController+UITableViewDataSource.swift in Sources */,
 				017E2C522812F61700C82CBF /* DeliveryViewController+CLLocationManagerDelegate.swift in Sources */,
-				014E941E2809E99900143B32 /* DatabaseManagerProtocol.swift in Sources */,
+				014E941E2809E99900143B32 /* LocalDatabaseManagerProtocol.swift in Sources */,
 				01161E9D27F30A69007695CF /* BannerPresenterProtocol.swift in Sources */,
 				01C0F27E27EDC58E00380895 /* Constants.swift in Sources */,
 				010C5DF1282198C80005AA5D /* LoginViewController+UITextFieldDelegate.swift in Sources */,

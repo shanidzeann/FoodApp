@@ -1,5 +1,5 @@
 //
-//  DatabaseManager.swift
+//  LocalDatabaseManager.swift
 //  FoodApp
 //
 //  Created by Anna Shanidze on 13.04.2022.
@@ -8,9 +8,9 @@
 import Foundation
 import SQLite
 
-class DatabaseManager: DatabaseManagerProtocol {
+class LocalDatabaseManager: LocalDatabaseManagerProtocol {
     
-    static let shared = DatabaseManager()
+    static let shared = LocalDatabaseManager()
     
     var db: Connection?
     var dishes = Table("dishes")

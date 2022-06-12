@@ -12,32 +12,40 @@ class CartPresenter: CartPresenterProtocol {
     // MARK: - Properties
     
     weak var view: CartViewProtocol?
-    var databaseManager: DatabaseManagerProtocol!
+    var localDatabaseManager: LocalDatabaseManagerProtocol!
+    var firestoreManager: FirestoreManagerProtocol!
     
     // MARK: - Init
     
-    required init(view: CartViewProtocol, databaseManager: DatabaseManagerProtocol) {
+    required init(view: CartViewProtocol,
+                  localDatabaseManager: LocalDatabaseManagerProtocol,
+                  firestoreManager: FirestoreManagerProtocol) {
         self.view = view
-        self.databaseManager = databaseManager
+        self.localDatabaseManager = localDatabaseManager
+        self.firestoreManager = firestoreManager
     }
     
     func numberOfRowsInSection(_ section: Int) -> Int {
-        return databaseManager.items?.count ?? 0
+        return localDatabaseManager.items?.count ?? 0
     }
     
     func cartItem(for indexPath: IndexPath) -> CartItem? {
-        return databaseManager.items?[indexPath.row]
+        return localDatabaseManager.items?[indexPath.row]
     }
     
     func checkCart() {
-        if databaseManager.totalPrice == 0 {
+        if localDatabaseManager.totalPrice == 0 {
             view?.configureCheckoutButton(title: "Корзина пуста", isEnabled: false)
             view?.showCart(isEmpty: true)
         } else {
-            view?.configureCheckoutButton(title: "Оформить заказ на \(databaseManager.totalPrice) ₽", isEnabled: true)
+            view?.configureCheckoutButton(title: "Оформить заказ на \(localDatabaseManager.totalPrice) ₽", isEnabled: true)
             view?.showCart(isEmpty: false)
         }
         
+    }
+    
+    func checkout() {
+        firestoreManager.createOrder(with: localDatabaseManager.items!)
     }
 
 }
