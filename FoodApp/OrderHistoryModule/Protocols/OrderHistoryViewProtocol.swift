@@ -8,5 +8,5 @@
 import Foundation
 
 protocol OrderHistoryViewProtocol: AnyObject {
-    
+    func show(_ orders: [Order])
 }

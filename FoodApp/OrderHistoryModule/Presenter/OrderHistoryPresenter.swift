@@ -10,9 +10,28 @@ import Foundation
 class OrderHistoryPresenter: OrderHistoryPresenterProtocol {
     
     weak var view: OrderHistoryViewProtocol?
+    private var firestoreManager: FirestoreManagerProtocol!
+    private var orders: [Order]?
     
-    init(view: OrderHistoryViewProtocol) {
+    init(view: OrderHistoryViewProtocol, firestoreManager: FirestoreManagerProtocol) {
         self.view = view
+        self.firestoreManager = firestoreManager
+    }
+    
+    func getUserOrders() {
+        firestoreManager.getUserOrders { result in
+            switch result {
+            case .success(let orders):
+                self.orders = orders
+                self.view?.show(orders)
+            case .failure(let error):
+                print(error)
+            }
+        }
+    }
+    
+    func numberOfRows() -> Int {
+        return orders?.count ?? 0
     }
     
     

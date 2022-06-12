@@ -13,4 +13,5 @@ protocol FirestoreManagerProtocol {
     func getUserData(completion: @escaping (Result<FirebaseUser, Error>) -> Void)
     func currentUser() -> User?
     func createOrder(with menuItems: [CartItem])
+    func getUserOrders(completion: @escaping (Result<[Order], Error>) -> Void)
 }

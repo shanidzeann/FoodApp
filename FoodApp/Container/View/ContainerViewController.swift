@@ -119,7 +119,7 @@ class ContainerViewController: UIViewController {
     
     func orderHistoryVC() -> OrderHistoryViewController {
         let orderHistoryVC = OrderHistoryViewController()
-        let presenter = OrderHistoryPresenter(view: orderHistoryVC)
+        let presenter = OrderHistoryPresenter(view: orderHistoryVC, firestoreManager: FirestoreManager())
         orderHistoryVC.inject(presenter)
         return orderHistoryVC
     }

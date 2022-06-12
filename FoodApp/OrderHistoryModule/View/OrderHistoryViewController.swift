@@ -13,12 +13,17 @@ class OrderHistoryViewController: UIViewController, OrderHistoryViewProtocol {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
         view.backgroundColor = .systemBackground
+        
+        presenter.getUserOrders()
     }
     
     func inject(_ presenter: OrderHistoryPresenterProtocol) {
         self.presenter = presenter
+    }
+    
+    func show(_ orders: [Order]) {
+        
     }
     
 }

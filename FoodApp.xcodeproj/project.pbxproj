@@ -119,6 +119,7 @@
 		01C595352855ED3E0058B446 /* OrderHistoryViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01C595342855ED3E0058B446 /* OrderHistoryViewProtocol.swift */; };
 		01C595372856083A0058B446 /* FirestoreManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01C595362856083A0058B446 /* FirestoreManager.swift */; };
 		01C595392856085B0058B446 /* FirestoreManagerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01C595382856085B0058B446 /* FirestoreManagerProtocol.swift */; };
+		01C5953B285666DE0058B446 /* Order.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01C5953A285666DE0058B446 /* Order.swift */; };
 		01C995AB27F4F25A00FE3F1F /* CardViewController+UITableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01C995AA27F4F25A00FE3F1F /* CardViewController+UITableViewDataSource.swift */; };
 		01C995AD27F4F26900FE3F1F /* CardViewController+UITableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01C995AC27F4F26900FE3F1F /* CardViewController+UITableViewDelegate.swift */; };
 		01D19898281EAFD60096C97F /* SideMenuViewController+UITableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01D19897281EAFD60096C97F /* SideMenuViewController+UITableViewDataSource.swift */; };
@@ -263,6 +264,7 @@
 		01C595342855ED3E0058B446 /* OrderHistoryViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderHistoryViewProtocol.swift; sourceTree = "<group>"; };
 		01C595362856083A0058B446 /* FirestoreManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreManager.swift; sourceTree = "<group>"; };
 		01C595382856085B0058B446 /* FirestoreManagerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreManagerProtocol.swift; sourceTree = "<group>"; };
+		01C5953A285666DE0058B446 /* Order.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Order.swift; sourceTree = "<group>"; };
 		01C995AA27F4F25A00FE3F1F /* CardViewController+UITableViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CardViewController+UITableViewDataSource.swift"; sourceTree = "<group>"; };
 		01C995AC27F4F26900FE3F1F /* CardViewController+UITableViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CardViewController+UITableViewDelegate.swift"; sourceTree = "<group>"; };
 		01D19897281EAFD60096C97F /* SideMenuViewController+UITableViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SideMenuViewController+UITableViewDataSource.swift"; sourceTree = "<group>"; };
@@ -932,6 +934,7 @@
 		01C5952D2855ECC30058B446 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				01C5953A285666DE0058B446 /* Order.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1188,6 +1191,7 @@
 				017E2C582812F7AE00C82CBF /* ContainerViewController+UIGestureRecognizerDelegate.swift in Sources */,
 				01C595392856085B0058B446 /* FirestoreManagerProtocol.swift in Sources */,
 				014AE37D280DC0D0008D9A06 /* SideMenuViewController.swift in Sources */,
+				01C5953B285666DE0058B446 /* Order.swift in Sources */,
 				0145C4D1284907A80020D2FE /* SignUpPresenterProtocol.swift in Sources */,
 				017E2C4C2812F13400C82CBF /* DeliveryViewProtocol.swift in Sources */,
 				017FC4FE280F0662006D6A9B /* CardPresenterProtocol.swift in Sources */,
