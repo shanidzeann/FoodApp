@@ -76,6 +76,7 @@ class ContainerViewController: UIViewController {
     private func addObservers() {
         NotificationCenter.default.addObserver(self, selector: #selector(showProfile), name: NSNotification.Name("showProfile"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(signOut), name: NSNotification.Name("signOut"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(showOrders), name: NSNotification.Name("showOrders"), object: nil)
     }
     
     @objc private func showProfile() {
@@ -84,6 +85,10 @@ class ContainerViewController: UIViewController {
     
     @objc private func signOut() {
         show(loginVC(), style: .slide)
+    }
+    
+    @objc private func showOrders() {
+        navController?.pushViewController(orderHistoryVC(), animated: true)
     }
     
     private func setFrames() {
@@ -110,6 +115,13 @@ class ContainerViewController: UIViewController {
         let presenter = ProfilePresenter(view: profileVC, authManager: AuthManager())
         profileVC.inject(presenter)
         return profileVC
+    }
+    
+    func orderHistoryVC() -> OrderHistoryViewController {
+        let orderHistoryVC = OrderHistoryViewController()
+        let presenter = OrderHistoryPresenter(view: orderHistoryVC)
+        orderHistoryVC.inject(presenter)
+        return orderHistoryVC
     }
     
     func loginVC() -> LoginViewController {

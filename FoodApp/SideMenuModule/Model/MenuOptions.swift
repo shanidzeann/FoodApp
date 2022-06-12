@@ -8,9 +8,9 @@
 import Foundation
 
 enum MenuOptions: String, CaseIterable {
-    case home = "Menu"
-    case profile = "Profile"
-    case delivery = "Delivery"
+    case home = "Меню"
+    case profile = "Профиль"
+    case delivery = "Доставка"
     
     var imageName: String {
         switch self {

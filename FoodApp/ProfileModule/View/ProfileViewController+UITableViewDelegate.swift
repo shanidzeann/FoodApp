@@ -16,7 +16,7 @@ extension ProfileViewController: UITableViewDelegate {
         
         switch selected {
         case .orders:
-            print("orders")
+            NotificationCenter.default.post(name: NSNotification.Name("showOrders"), object: nil)
         case .exit:
             signOut()
         }

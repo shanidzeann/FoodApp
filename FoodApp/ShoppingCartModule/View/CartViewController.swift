@@ -18,7 +18,7 @@ class CartViewController: UIViewController {
     
     let emptyCartImageView: UIImageView = {
        let imageView = UIImageView()
-        imageView.image = UIImage(named: "cart_empty.png")
+        imageView.image = UIImage(named: "empty_cart.png")
         return imageView
     }()
     
