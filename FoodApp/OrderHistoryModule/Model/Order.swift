@@ -11,4 +11,6 @@ struct Order {
     let menuItems: [CartItem]
     let userID: String
     let address: String
+    let date: Date
+    let totalPrice: Int
 }

@@ -45,7 +45,7 @@ class CartPresenter: CartPresenterProtocol {
     }
     
     func checkout() {
-        firestoreManager.createOrder(with: localDatabaseManager.items!)
+        firestoreManager.createOrder(with: localDatabaseManager.items!, totalPrice: localDatabaseManager.totalPrice)
     }
 
 }

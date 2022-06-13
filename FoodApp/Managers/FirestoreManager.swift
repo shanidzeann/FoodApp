@@ -68,10 +68,12 @@ class FirestoreManager: FirestoreManagerProtocol {
     
     // MARK: - Orders
     
-    func createOrder(with menuItems: [CartItem]) {
+    func createOrder(with menuItems: [CartItem], totalPrice: Int) {
         let data: [String: Any] = [
             "userID": currentUser()?.uid as Any,
-            "address": ""
+            "address": "",
+            "date": Date(),
+            "totalPrice": totalPrice
         ]
         let docRef = db.collection("orders").document()
         docRef.setData(data)
@@ -107,7 +109,9 @@ class FirestoreManager: FirestoreManagerProtocol {
                         case .success(let items):
                             let order = Order(menuItems: items,
                                               userID: data["userID"] as! String,
-                                              address: data["address"] as! String)
+                                              address: data["address"] as! String,
+                                              date: (data["date"] as! Timestamp).dateValue(),
+                                              totalPrice: data["totalPrice"] as! Int)
                             orders.append(order)
                             dispatchGroup.leave()
                         case .failure(let error):
