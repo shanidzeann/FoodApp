@@ -20,7 +20,7 @@ class ProfileViewController: UIViewController {
     private let userImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.image = UIImage(systemName: "person.fill")
-        imageView.tintColor = .black
+        imageView.tintColor = .systemGray
         return imageView
     }()
     
@@ -44,7 +44,7 @@ class ProfileViewController: UIViewController {
     
     lazy var menuTableView: UITableView = {
         let tableView = UITableView()
-        tableView.backgroundColor = .systemBackground
+        tableView.backgroundColor = .clear
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: Constants.TableView.CellIdentifiers.cell)
         tableView.delegate = self
         tableView.dataSource = self

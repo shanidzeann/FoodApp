@@ -30,9 +30,12 @@ class OrderHistoryPresenter: OrderHistoryPresenterProtocol {
         }
     }
     
-    func numberOfRows() -> Int {
+    func numberOfItems() -> Int {
         return orders?.count ?? 0
     }
     
+    func order(for indexPath: IndexPath) -> Order? {
+        return orders?[indexPath.item]
+    }
     
 }

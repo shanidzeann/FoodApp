@@ -77,9 +77,14 @@
 		018F87B62850E52100C6EA2B /* ProfileViewController+UITableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 018F87B52850E52100C6EA2B /* ProfileViewController+UITableViewDataSource.swift */; };
 		018F87B82850E53D00C6EA2B /* ProfileViewController+UITableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 018F87B72850E53D00C6EA2B /* ProfileViewController+UITableViewDelegate.swift */; };
 		01911876285262C9001A3B81 /* ProfileViewController+ProfileViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01911875285262C9001A3B81 /* ProfileViewController+ProfileViewProtocol.swift */; };
-		01923D282856FDFA00F7E4C8 /* OrdersCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01923D272856FDFA00F7E4C8 /* OrdersCollectionViewCell.swift */; };
-		01923D2A285702BB00F7E4C8 /* OrdersCellPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01923D29285702BB00F7E4C8 /* OrdersCellPresenter.swift */; };
-		01923D2C285702D600F7E4C8 /* OrdersCellPresenterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01923D2B285702D600F7E4C8 /* OrdersCellPresenterProtocol.swift */; };
+		01923D282856FDFA00F7E4C8 /* OrderCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01923D272856FDFA00F7E4C8 /* OrderCollectionViewCell.swift */; };
+		01923D2A285702BB00F7E4C8 /* OrderCellPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01923D29285702BB00F7E4C8 /* OrderCellPresenter.swift */; };
+		01923D2C285702D600F7E4C8 /* OrderCellPresenterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01923D2B285702D600F7E4C8 /* OrderCellPresenterProtocol.swift */; };
+		01923D2E2857054800F7E4C8 /* OrderCellProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01923D2D2857054800F7E4C8 /* OrderCellProtocol.swift */; };
+		01923D3028573CF200F7E4C8 /* OrderHistoryViewController+UICollectionViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01923D2F28573CF200F7E4C8 /* OrderHistoryViewController+UICollectionViewDataSource.swift */; };
+		01923D3228573D1300F7E4C8 /* OrderHistoryViewController+UICollectionViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01923D3128573D1300F7E4C8 /* OrderHistoryViewController+UICollectionViewDelegate.swift */; };
+		01923D3428573D3E00F7E4C8 /* OrderHistoryViewController+UICollectionViewDelegateFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01923D3328573D3E00F7E4C8 /* OrderHistoryViewController+UICollectionViewDelegateFlowLayout.swift */; };
+		01923D3628573EC000F7E4C8 /* OrderCollectionViewCell+OrderCellProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01923D3528573EC000F7E4C8 /* OrderCollectionViewCell+OrderCellProtocol.swift */; };
 		01975E44281FB3F40035AB31 /* DeliveryViewController+DeliveryViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01975E43281FB3F40035AB31 /* DeliveryViewController+DeliveryViewProtocol.swift */; };
 		01975E46281FB9420035AB31 /* CartViewController+CartViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01975E45281FB9420035AB31 /* CartViewController+CartViewProtocol.swift */; };
 		01975E48281FB95A0035AB31 /* CartViewController+CartDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01975E47281FB95A0035AB31 /* CartViewController+CartDelegate.swift */; };
@@ -223,9 +228,14 @@
 		018F87B52850E52100C6EA2B /* ProfileViewController+UITableViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ProfileViewController+UITableViewDataSource.swift"; sourceTree = "<group>"; };
 		018F87B72850E53D00C6EA2B /* ProfileViewController+UITableViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ProfileViewController+UITableViewDelegate.swift"; sourceTree = "<group>"; };
 		01911875285262C9001A3B81 /* ProfileViewController+ProfileViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ProfileViewController+ProfileViewProtocol.swift"; sourceTree = "<group>"; };
-		01923D272856FDFA00F7E4C8 /* OrdersCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrdersCollectionViewCell.swift; sourceTree = "<group>"; };
-		01923D29285702BB00F7E4C8 /* OrdersCellPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrdersCellPresenter.swift; sourceTree = "<group>"; };
-		01923D2B285702D600F7E4C8 /* OrdersCellPresenterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrdersCellPresenterProtocol.swift; sourceTree = "<group>"; };
+		01923D272856FDFA00F7E4C8 /* OrderCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderCollectionViewCell.swift; sourceTree = "<group>"; };
+		01923D29285702BB00F7E4C8 /* OrderCellPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderCellPresenter.swift; sourceTree = "<group>"; };
+		01923D2B285702D600F7E4C8 /* OrderCellPresenterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderCellPresenterProtocol.swift; sourceTree = "<group>"; };
+		01923D2D2857054800F7E4C8 /* OrderCellProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderCellProtocol.swift; sourceTree = "<group>"; };
+		01923D2F28573CF200F7E4C8 /* OrderHistoryViewController+UICollectionViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "OrderHistoryViewController+UICollectionViewDataSource.swift"; sourceTree = "<group>"; };
+		01923D3128573D1300F7E4C8 /* OrderHistoryViewController+UICollectionViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "OrderHistoryViewController+UICollectionViewDelegate.swift"; sourceTree = "<group>"; };
+		01923D3328573D3E00F7E4C8 /* OrderHistoryViewController+UICollectionViewDelegateFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "OrderHistoryViewController+UICollectionViewDelegateFlowLayout.swift"; sourceTree = "<group>"; };
+		01923D3528573EC000F7E4C8 /* OrderCollectionViewCell+OrderCellProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "OrderCollectionViewCell+OrderCellProtocol.swift"; sourceTree = "<group>"; };
 		01975E43281FB3F40035AB31 /* DeliveryViewController+DeliveryViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DeliveryViewController+DeliveryViewProtocol.swift"; sourceTree = "<group>"; };
 		01975E45281FB9420035AB31 /* CartViewController+CartViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CartViewController+CartViewProtocol.swift"; sourceTree = "<group>"; };
 		01975E47281FB95A0035AB31 /* CartViewController+CartDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CartViewController+CartDelegate.swift"; sourceTree = "<group>"; };
@@ -917,7 +927,8 @@
 			children = (
 				01C595342855ED3E0058B446 /* OrderHistoryViewProtocol.swift */,
 				01C595322855ED230058B446 /* OrderHistoryPresenterProtocol.swift */,
-				01923D2B285702D600F7E4C8 /* OrdersCellPresenterProtocol.swift */,
+				01923D2D2857054800F7E4C8 /* OrderCellProtocol.swift */,
+				01923D2B285702D600F7E4C8 /* OrderCellPresenterProtocol.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -926,7 +937,7 @@
 			isa = PBXGroup;
 			children = (
 				01C595302855ED010058B446 /* OrderHistoryPresenter.swift */,
-				01923D29285702BB00F7E4C8 /* OrdersCellPresenter.swift */,
+				01923D29285702BB00F7E4C8 /* OrderCellPresenter.swift */,
 			);
 			path = Presenter;
 			sourceTree = "<group>";
@@ -935,7 +946,11 @@
 			isa = PBXGroup;
 			children = (
 				01C5952E2855ECF10058B446 /* OrderHistoryViewController.swift */,
-				01923D272856FDFA00F7E4C8 /* OrdersCollectionViewCell.swift */,
+				01923D2F28573CF200F7E4C8 /* OrderHistoryViewController+UICollectionViewDataSource.swift */,
+				01923D3128573D1300F7E4C8 /* OrderHistoryViewController+UICollectionViewDelegate.swift */,
+				01923D3328573D3E00F7E4C8 /* OrderHistoryViewController+UICollectionViewDelegateFlowLayout.swift */,
+				01923D272856FDFA00F7E4C8 /* OrderCollectionViewCell.swift */,
+				01923D3528573EC000F7E4C8 /* OrderCollectionViewCell+OrderCellProtocol.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1121,7 +1136,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				014AE37F280DE8C9008D9A06 /* SideMenuPresenterProtocol.swift in Sources */,
-				01923D2C285702D600F7E4C8 /* OrdersCellPresenterProtocol.swift in Sources */,
+				01923D2C285702D600F7E4C8 /* OrderCellPresenterProtocol.swift in Sources */,
 				010C5DEA2821917E0005AA5D /* LoginPresenterProtocol.swift in Sources */,
 				01E97A712851196B00D6FD30 /* ProfileMenu.swift in Sources */,
 				010C5DEC2821918F0005AA5D /* LoginViewProtocol.swift in Sources */,
@@ -1138,13 +1153,14 @@
 				018EB48D2816B45A00C08E3F /* DeliveryViewController+MKMapViewDelegate.swift in Sources */,
 				01975E48281FB95A0035AB31 /* CartViewController+CartDelegate.swift in Sources */,
 				018EB4912816CBA200C08E3F /* DeliveryTermsViewController.swift in Sources */,
-				01923D282856FDFA00F7E4C8 /* OrdersCollectionViewCell.swift in Sources */,
+				01923D282856FDFA00F7E4C8 /* OrderCollectionViewCell.swift in Sources */,
 				01C0F28027EDC65000380895 /* CollectionViewType.swift in Sources */,
 				01A048382807242C001CB6B6 /* CartViewController.swift in Sources */,
 				01D198A0281EB23A0096C97F /* MenuState.swift in Sources */,
 				01D1989C281EB0E70096C97F /* SideMenuCellPresenter.swift in Sources */,
 				017E2C4E2812F29900C82CBF /* MapsManager.swift in Sources */,
 				01A306B027F10CB10098C791 /* MenuViewController+UICollectionViewDelegate.swift in Sources */,
+				01923D3428573D3E00F7E4C8 /* OrderHistoryViewController+UICollectionViewDelegateFlowLayout.swift in Sources */,
 				012D7B1C280D69AF0068C99D /* CartDelegate.swift in Sources */,
 				01A04840280854D7001CB6B6 /* CartItem.swift in Sources */,
 				014AE387280DEC46008D9A06 /* SideMenuPresenter.swift in Sources */,
@@ -1168,11 +1184,12 @@
 				014E941C2809E72000143B32 /* CartPresenterProtocol.swift in Sources */,
 				0145C4CF284906580020D2FE /* SignUpViewController.swift in Sources */,
 				01C0F29827EDDC4200380895 /* MenuCellProtocol.swift in Sources */,
+				01923D2E2857054800F7E4C8 /* OrderCellProtocol.swift in Sources */,
 				01911876285262C9001A3B81 /* ProfileViewController+ProfileViewProtocol.swift in Sources */,
 				018EB4932816D46A00C08E3F /* DeliveryViewController+UIViewControllerTransitioningDelegate.swift in Sources */,
 				016BB265284A377300B55020 /* SignUpViewController+UITextFieldDelegate .swift in Sources */,
 				012D7B18280D67E10068C99D /* CartViewController+UITableViewDataSource.swift in Sources */,
-				01923D2A285702BB00F7E4C8 /* OrdersCellPresenter.swift in Sources */,
+				01923D2A285702BB00F7E4C8 /* OrderCellPresenter.swift in Sources */,
 				01C0F29027EDD8C600380895 /* MenuCellPresenterProtocol.swift in Sources */,
 				01C595332855ED230058B446 /* OrderHistoryPresenterProtocol.swift in Sources */,
 				01D198A2281EBE360096C97F /* UIViewControlle+addChild.swift in Sources */,
@@ -1195,6 +1212,7 @@
 				01C5952628535C500058B446 /* VCPresentationStyle.swift in Sources */,
 				018EB48F2816CA9F00C08E3F /* DeliveryTermsPresentationController.swift in Sources */,
 				017E2C5C2812F9BE00C82CBF /* JSONParserProtocol.swift in Sources */,
+				01923D3228573D1300F7E4C8 /* OrderHistoryViewController+UICollectionViewDelegate.swift in Sources */,
 				014F1CD927F398B000D7F799 /* PresentationController.swift in Sources */,
 				01C0F28E27EDD89C00380895 /* MenuCellPresenter.swift in Sources */,
 				010C5DE82821915B0005AA5D /* LoginViewController+LoginViewProtocol.swift in Sources */,
@@ -1219,6 +1237,7 @@
 				018F87A72850A0CA00C6EA2B /* FirebaseUser.swift in Sources */,
 				017E2C422812BDCD00C82CBF /* DeliveryPresenter.swift in Sources */,
 				01B60CC527EE195E0045C827 /* NetworkManager.swift in Sources */,
+				01923D3628573EC000F7E4C8 /* OrderCollectionViewCell+OrderCellProtocol.swift in Sources */,
 				018F87B82850E53D00C6EA2B /* ProfileViewController+UITableViewDelegate.swift in Sources */,
 				01AFD60727EDBF5D0081BA4C /* SceneDelegate.swift in Sources */,
 				01D19898281EAFD60096C97F /* SideMenuViewController+UITableViewDataSource.swift in Sources */,
@@ -1238,6 +1257,7 @@
 				0178A00727FA3B6500698C2F /* ImagineItIsHidden.swift in Sources */,
 				01C595352855ED3E0058B446 /* OrderHistoryViewProtocol.swift in Sources */,
 				01975E44281FB3F40035AB31 /* DeliveryViewController+DeliveryViewProtocol.swift in Sources */,
+				01923D3028573CF200F7E4C8 /* OrderHistoryViewController+UICollectionViewDataSource.swift in Sources */,
 				01C5952828536CFE0058B446 /* MenuCollectionViewCell+MenuCellProtocol.swift in Sources */,
 				0171492827EF80720012379E /* HomeViewController.swift in Sources */,
 				01C0F28527EDD20100380895 /* MenuPresenter.swift in Sources */,

@@ -9,4 +9,6 @@ import Foundation
 
 protocol OrderHistoryPresenterProtocol {
     func getUserOrders()
+    func numberOfItems() -> Int
+    func order(for indexPath: IndexPath) -> Order?
 }

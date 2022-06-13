@@ -110,8 +110,16 @@ class CartViewController: UIViewController {
     // MARK: - Order Creation
     
     @objc private func checkout() {
-        print("checkout")
-        presenter.checkout()
+        presenter.checkout { message in
+            show(message)
+        }
+    }
+    
+    private func show(_ message: String) {
+        let alert = UIAlertController(title: message, message: nil, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Ок", style: .cancel))
+        
+        present(alert, animated: true)
     }
 
 }

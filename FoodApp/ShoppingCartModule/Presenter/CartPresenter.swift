@@ -44,8 +44,13 @@ class CartPresenter: CartPresenterProtocol {
         
     }
     
-    func checkout() {
-        firestoreManager.createOrder(with: localDatabaseManager.items!, totalPrice: localDatabaseManager.totalPrice)
+    func checkout(completion: (String) -> Void) {
+        if firestoreManager.currentUser() != nil {
+            firestoreManager.createOrder(with: localDatabaseManager.items!, totalPrice: localDatabaseManager.totalPrice)
+            completion("Заказ оформлен успешно")
+        } else {
+            completion("Авторизуйтесь перед оформлением заказа")
+        }
     }
 
 }

@@ -13,6 +13,7 @@ enum Constants {
             static let menuCell = "menuCell"
             static let bannerCell = "bannerCell"
             static let categoryCell = "categoryCell"
+            static let orderCell = "orderCell"
         }
         
         enum Headers {

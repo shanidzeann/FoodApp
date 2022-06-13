@@ -15,6 +15,7 @@ extension ProfileViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: Constants.TableView.CellIdentifiers.cell, for: indexPath)
         
+        cell.backgroundColor = .clear
         cell.imageView?.tintColor = .black
         if let item = presenter.itemForRow(at: indexPath) {
             cell.imageView?.image = UIImage(systemName: item.image)
