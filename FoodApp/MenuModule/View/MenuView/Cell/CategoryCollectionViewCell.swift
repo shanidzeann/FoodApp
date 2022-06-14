@@ -35,12 +35,12 @@ class CategoryCollectionViewCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
+    // MARK: - UI
+    
     override func layoutSubviews() {
         super.layoutSubviews()
         layer.cornerRadius = contentView.frame.height/2
     }
-    
-    // MARK: - UI
     
     func configure(with title: String) {
         titleLabel.text = title

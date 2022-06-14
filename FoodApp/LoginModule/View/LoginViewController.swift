@@ -170,9 +170,9 @@ class LoginViewController: UIViewController {
         let password = passwordTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
         let user = FirebaseUser(email: email, password: password)
         
-        presenter.authorize(user) { error in
+        presenter.authorize(user) { [weak self] error in
             if error != nil {
-                self.showError(error!)
+                self?.showError(error!)
             } else {
                 NotificationCenter.default.post(name: NSNotification.Name("showProfile"), object: nil)
             }
@@ -185,7 +185,9 @@ class LoginViewController: UIViewController {
     
     @objc private func didTapSignUp() {
         let signUpVC = SignUpViewController()
-        let signUpPresenter = SignUpPresenter(view: signUpVC, authManager: AuthManager(databaseManager: FirestoreManager()))
+        let dbManager = FirestoreManager()
+        let authManager = AuthManager(databaseManager: dbManager)
+        let signUpPresenter = SignUpPresenter(view: signUpVC, authManager: authManager)
         signUpVC.inject(signUpPresenter)
         present(signUpVC, animated: true)
     }

@@ -32,20 +32,6 @@ class MenuPresenter: MenuPresenterProtocol {
         }
     }
     
-    func numberOfItemsInSection(_ section: Int) -> Int {
-        guard let menu = menu else {
-            return 0
-        }
-        
-        switch menu[section] {
-        case .success(let result):
-            return result.menu.menuItems.count
-        case .failure(let error):
-            print(error)
-            return 0
-        }
-    }
-    
     func numberOfSections() -> Int {
         return menu?.count ?? 0
     }
@@ -62,6 +48,20 @@ class MenuPresenter: MenuPresenterProtocol {
         }
     }
     
+    func numberOfItemsInSection(_ section: Int) -> Int {
+        guard let menu = menu else {
+            return 0
+        }
+        
+        switch menu[section] {
+        case .success(let result):
+            return result.menu.menuItems.count
+        case .failure(let error):
+            print(error)
+            return 0
+        }
+    }
+    
     private func getSectionTitles() {
         let categories = categoriesData()
         for category in categories {
@@ -73,7 +73,7 @@ class MenuPresenter: MenuPresenterProtocol {
         }
     }
     
-    private func categoriesData() ->[(url: String, itemsCount: Int)] {
+    private func categoriesData() -> [(url: String, itemsCount: Int)] {
         var categoriesData = [(url: String, itemsCount: Int)]()
         guard let menu = menu else { return [] }
         for category in menu {

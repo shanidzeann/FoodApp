@@ -98,12 +98,12 @@ class CardViewController: UIViewController {
         let translation = sender.translation(in: view)
         
         guard translation.y >= 0 else { return }
-        view.frame.origin = CGPoint(x: 0, y: self.pointOrigin!.y + translation.y)
+        view.frame.origin = CGPoint(x: 0, y: pointOrigin!.y + translation.y)
         
         if sender.state == .ended {
             let velocity = sender.velocity(in: view)
             if velocity.y >= 1300 {
-                self.dismiss(animated: true, completion: nil)
+                dismiss(animated: true, completion: nil)
             } else {
                 UIView.animate(withDuration: 0.3) {
                     self.view.frame.origin = self.pointOrigin ?? CGPoint(x: 0, y: 400)

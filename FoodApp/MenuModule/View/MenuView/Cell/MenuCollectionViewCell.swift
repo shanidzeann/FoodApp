@@ -78,7 +78,7 @@ class MenuCollectionViewCell: UICollectionViewCell {
         ).cgPath
     }
     
-    // MARK: - Injections
+    // MARK: - Injection
     
     func inject(presenter: MenuCellPresenterProtocol) {
         self.presenter = presenter
@@ -88,30 +88,7 @@ class MenuCollectionViewCell: UICollectionViewCell {
         presenter.configure(with: item)
     }
     
-    // MARK: - Actions
-    
-    private func addTargets() {
-        priceButton.addTarget(self, action: #selector(didTapBuy(sender:)), for: .touchUpInside)
-    }
-    
-    @objc private func didTapBuy(sender: UIButton) {
-        presenter.addToCart()
-        animateView(sender)
-    }
-    
     // MARK: - UI
-
-    private func animateView(_ viewToAnimate: UIView) {
-        UIView.animate(withDuration: 0.15, delay: 0, usingSpringWithDamping: 0.2, initialSpringVelocity: 0.5, options: .curveEaseIn) {
-            viewToAnimate.transform = CGAffineTransform(scaleX: 0.92, y: 0.92)
-        } completion: { _ in
-            UIView.animate(withDuration: 0.15, delay: 0, usingSpringWithDamping: 0.4, initialSpringVelocity: 2, options: .curveEaseIn, animations: {
-                viewToAnimate.transform = CGAffineTransform(scaleX: 1, y: 1)
-            }) { _ in
-                self.callback?()
-            }
-        }
-    }
     
     private func configureView() {
         backgroundColor = .systemBackground
@@ -162,6 +139,31 @@ class MenuCollectionViewCell: UICollectionViewCell {
         menuImageView.kf.cancelDownloadTask()
         menuImageView.kf.setImage(with: URL(string: ""))
         menuImageView.image = nil
+    }
+    
+    // MARK: - Actions
+    
+    private func addTargets() {
+        priceButton.addTarget(self, action: #selector(didTapBuy(sender:)), for: .touchUpInside)
+    }
+    
+    @objc private func didTapBuy(sender: UIButton) {
+        presenter.addToCart()
+        animateView(sender)
+    }
+    
+    // MARK: - Animation
+
+    private func animateView(_ viewToAnimate: UIView) {
+        UIView.animate(withDuration: 0.15, delay: 0, usingSpringWithDamping: 0.2, initialSpringVelocity: 0.5, options: .curveEaseIn) {
+            viewToAnimate.transform = CGAffineTransform(scaleX: 0.92, y: 0.92)
+        } completion: { _ in
+            UIView.animate(withDuration: 0.15, delay: 0, usingSpringWithDamping: 0.4, initialSpringVelocity: 2, options: .curveEaseIn, animations: {
+                viewToAnimate.transform = CGAffineTransform(scaleX: 1, y: 1)
+            }) { _ in
+                self.callback?()
+            }
+        }
     }
     
 }

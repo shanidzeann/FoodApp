@@ -221,7 +221,7 @@ class HomeViewController: UIViewController {
     }
     
     private func addFrameAnimator() {
-        let frameAnimator = UIViewPropertyAnimator(duration: duration, dampingRatio: dampingRatio) {
+        let frameAnimator = UIViewPropertyAnimator(duration: duration, dampingRatio: dampingRatio) { [unowned self] in
             switch self.state {
             case .expanded:
                 self.menuViewController.view.frame.origin.y = self.view.frame.height/5 + self.view.safeAreaInsets.top
@@ -230,7 +230,8 @@ class HomeViewController: UIViewController {
             }
         }
         
-        frameAnimator.addCompletion { position in
+        frameAnimator.addCompletion { [weak self] position in
+            guard let self = self else { return }
             if position == .end {
                 switch self.state {
                 case .expanded:
@@ -249,7 +250,7 @@ class HomeViewController: UIViewController {
     }
     
     private func addBlurAnimator() {
-        let blurAnimator = UIViewPropertyAnimator(duration: duration, dampingRatio: dampingRatio) {
+        let blurAnimator = UIViewPropertyAnimator(duration: duration, dampingRatio: dampingRatio) { [unowned self] in
             switch self.state {
             case .expanded:
                 self.visualEffectView.effect = nil

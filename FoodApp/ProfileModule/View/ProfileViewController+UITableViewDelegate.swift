@@ -11,7 +11,6 @@ import FirebaseAuth
 extension ProfileViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        
         guard let selected = presenter.itemForRow(at: indexPath) else { return }
         
         switch selected {

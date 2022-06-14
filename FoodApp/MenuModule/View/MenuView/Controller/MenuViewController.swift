@@ -41,7 +41,6 @@ class MenuViewController: UIViewController {
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        
         layout()
     }
     
@@ -56,14 +55,6 @@ class MenuViewController: UIViewController {
         view.addSubview(moreButton)
         view.addSubview(menuCollectionView ?? UICollectionView())
         view.addSubview(categoriesCollectionView ?? UICollectionView())
-    }
-    
-    private func addTargets() {
-        moreButton.addTarget(self, action: #selector(didTapMore), for: .touchUpInside)
-    }
-    
-    @objc private func didTapMore() {
-        present(cardVC, animated: true, completion: nil)
     }
     
     private func configureCardVC() {
@@ -141,4 +132,15 @@ class MenuViewController: UIViewController {
             menuCollectionView!.rightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.rightAnchor)
         ])
     }
+    
+    // MARK: - Actions
+    
+    private func addTargets() {
+        moreButton.addTarget(self, action: #selector(didTapMore), for: .touchUpInside)
+    }
+    
+    @objc private func didTapMore() {
+        present(cardVC, animated: true, completion: nil)
+    }
+    
 }

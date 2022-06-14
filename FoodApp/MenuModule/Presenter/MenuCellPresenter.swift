@@ -36,14 +36,15 @@ class MenuCellPresenter: MenuCellPresenterProtocol {
     required init(view: MenuCellProtocol, databaseManager: LocalDatabaseManager) {
         self.view = view
         self.databaseManager = databaseManager
-        print(databaseManager.totalPrice, databaseManager.items)
     }
     
     // MARK: - Methods
     
     func configure(with item: MenuItem) {
         menuItem = item
-        guard let title = title, let description = description, let price = price else { return }
+        guard let title = title,
+                let description = description,
+                let price = price else { return }
 
         let image = item.image
         let url = URL(string: image)
@@ -54,8 +55,16 @@ class MenuCellPresenter: MenuCellPresenterProtocol {
     }
     
     func addToCart() {
-        guard let menuItem = menuItem, let title = title, let description = description, let price = price else { return }
-        databaseManager.addToDB(id: menuItem.id, title: title, description: description, price: price, imageUrl: menuItem.image, count: 1)
+        guard let menuItem = menuItem,
+                let title = title,
+                let description = description,
+                let price = price else { return }
+        databaseManager.addToDB(id: menuItem.id,
+                                title: title,
+                                description: description,
+                                price: price,
+                                imageUrl: menuItem.image,
+                                count: 1)
     }
     
     func deleteFromCart() {

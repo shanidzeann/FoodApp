@@ -11,7 +11,6 @@ class BannerPresenter: BannerPresenterProtocol {
 
     let images = ["image1.png", "image2.png"]
     
-    
     func numberOfItemsInSection(_ section: Int) -> Int {
         return images.count
     }

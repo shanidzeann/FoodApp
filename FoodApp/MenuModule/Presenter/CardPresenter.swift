@@ -11,7 +11,6 @@ class CardPresenter: CardPresenterProtocol {
     
     var sections = [(title: String, itemsCount: Int)]()
     
-
     required init(sections: [(title: String, itemsCount: Int)]) {
         self.sections = sections
     }

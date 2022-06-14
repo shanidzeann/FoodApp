@@ -7,11 +7,14 @@
 
 import UIKit
 
-class OrderHistoryViewController: UIViewController, OrderHistoryViewProtocol {
+class OrderHistoryViewController: UIViewController {
+    
+    // MARK: - Properties
     
     private(set) var presenter: OrderHistoryPresenterProtocol!
-    
     var ordersCollectionView: UICollectionView?
+    
+    // MARK: - VC Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,13 +23,16 @@ class OrderHistoryViewController: UIViewController, OrderHistoryViewProtocol {
         createCollectionView()
         addSubviews()
         setupConstraints()
-
         presenter.getUserOrders()
     }
+    
+    // MARK: - Injection
     
     func inject(_ presenter: OrderHistoryPresenterProtocol) {
         self.presenter = presenter
     }
+    
+    // MARK: - UI
     
     func addSubviews() {
         view.addSubview(ordersCollectionView ?? UICollectionView())
@@ -55,10 +61,6 @@ class OrderHistoryViewController: UIViewController, OrderHistoryViewProtocol {
         layout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
         layout.scrollDirection = .vertical
         return layout
-    }
-    
-    func show(_ orders: [Order]) {
-        ordersCollectionView?.reloadData()
     }
     
 }

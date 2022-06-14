@@ -66,7 +66,7 @@ class OrderCollectionViewCell: UICollectionViewCell {
         ).cgPath
     }
     
-    // MARK: - Injections
+    // MARK: - Injection
     
     func inject(_ presenter: OrderCellPresenterProtocol) {
         self.presenter = presenter

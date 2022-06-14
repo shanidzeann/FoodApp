@@ -144,6 +144,7 @@
 		01E7B3DF284F5512001567FC /* SignUpPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E7B3DE284F5512001567FC /* SignUpPresenter.swift */; };
 		01E7B3E1284F5572001567FC /* SignUpViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E7B3E0284F5572001567FC /* SignUpViewProtocol.swift */; };
 		01E8734D2858C2E900BD4FAD /* CheckoutViewController+CheckoutViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E8734C2858C2E900BD4FAD /* CheckoutViewController+CheckoutViewProtocol.swift */; };
+		01E8734F2858D71B00BD4FAD /* OrderHistoryViewController+OrderHistoryViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E8734E2858D71B00BD4FAD /* OrderHistoryViewController+OrderHistoryViewProtocol.swift */; };
 		01E97A712851196B00D6FD30 /* ProfileMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E97A702851196B00D6FD30 /* ProfileMenu.swift */; };
 		01F6C4AF2809A3ED00EABCE2 /* CartTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01F6C4AE2809A3ED00EABCE2 /* CartTableViewCell.swift */; };
 		01F6C4B12809A48200EABCE2 /* CartCellPresenterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01F6C4B02809A48200EABCE2 /* CartCellPresenterProtocol.swift */; };
@@ -302,6 +303,7 @@
 		01E7B3DE284F5512001567FC /* SignUpPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpPresenter.swift; sourceTree = "<group>"; };
 		01E7B3E0284F5572001567FC /* SignUpViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewProtocol.swift; sourceTree = "<group>"; };
 		01E8734C2858C2E900BD4FAD /* CheckoutViewController+CheckoutViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CheckoutViewController+CheckoutViewProtocol.swift"; sourceTree = "<group>"; };
+		01E8734E2858D71B00BD4FAD /* OrderHistoryViewController+OrderHistoryViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "OrderHistoryViewController+OrderHistoryViewProtocol.swift"; sourceTree = "<group>"; };
 		01E97A702851196B00D6FD30 /* ProfileMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileMenu.swift; sourceTree = "<group>"; };
 		01F6C4AE2809A3ED00EABCE2 /* CartTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartTableViewCell.swift; sourceTree = "<group>"; };
 		01F6C4B02809A48200EABCE2 /* CartCellPresenterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartCellPresenterProtocol.swift; sourceTree = "<group>"; };
@@ -673,6 +675,7 @@
 				01923D2F28573CF200F7E4C8 /* OrderHistoryViewController+UICollectionViewDataSource.swift */,
 				01923D3128573D1300F7E4C8 /* OrderHistoryViewController+UICollectionViewDelegate.swift */,
 				01923D3328573D3E00F7E4C8 /* OrderHistoryViewController+UICollectionViewDelegateFlowLayout.swift */,
+				01E8734E2858D71B00BD4FAD /* OrderHistoryViewController+OrderHistoryViewProtocol.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1293,6 +1296,7 @@
 				01C0F28E27EDD89C00380895 /* MenuCellPresenter.swift in Sources */,
 				010C5DE82821915B0005AA5D /* LoginViewController+LoginViewProtocol.swift in Sources */,
 				014AE381280DE972008D9A06 /* MenuOptions.swift in Sources */,
+				01E8734F2858D71B00BD4FAD /* OrderHistoryViewController+OrderHistoryViewProtocol.swift in Sources */,
 				017E2C502812F5B300C82CBF /* MapsManagerProtocol.swift in Sources */,
 				017E2C582812F7AE00C82CBF /* ContainerViewController+UIGestureRecognizerDelegate.swift in Sources */,
 				01C595392856085B0058B446 /* FirestoreManagerProtocol.swift in Sources */,
