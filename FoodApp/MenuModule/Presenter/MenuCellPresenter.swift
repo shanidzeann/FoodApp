@@ -36,6 +36,7 @@ class MenuCellPresenter: MenuCellPresenterProtocol {
     required init(view: MenuCellProtocol, databaseManager: LocalDatabaseManager) {
         self.view = view
         self.databaseManager = databaseManager
+        print(databaseManager.totalPrice, databaseManager.items)
     }
     
     // MARK: - Methods
@@ -63,7 +64,7 @@ class MenuCellPresenter: MenuCellPresenterProtocol {
     }
     
     func isInCart() -> Bool {
-        guard let id = id else { return false}
+        guard let id = id else { return false }
         return databaseManager.checkIfCartContains(id: id)
     }
 }

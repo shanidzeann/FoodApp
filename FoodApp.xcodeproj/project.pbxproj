@@ -85,6 +85,10 @@
 		01923D3228573D1300F7E4C8 /* OrderHistoryViewController+UICollectionViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01923D3128573D1300F7E4C8 /* OrderHistoryViewController+UICollectionViewDelegate.swift */; };
 		01923D3428573D3E00F7E4C8 /* OrderHistoryViewController+UICollectionViewDelegateFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01923D3328573D3E00F7E4C8 /* OrderHistoryViewController+UICollectionViewDelegateFlowLayout.swift */; };
 		01923D3628573EC000F7E4C8 /* OrderCollectionViewCell+OrderCellProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01923D3528573EC000F7E4C8 /* OrderCollectionViewCell+OrderCellProtocol.swift */; };
+		01923D3F2857401300F7E4C8 /* CheckoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01923D3E2857401300F7E4C8 /* CheckoutViewController.swift */; };
+		01923D412857404E00F7E4C8 /* CheckoutPresenterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01923D402857404E00F7E4C8 /* CheckoutPresenterProtocol.swift */; };
+		01923D432857405B00F7E4C8 /* CheckoutPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01923D422857405B00F7E4C8 /* CheckoutPresenter.swift */; };
+		01923D452857408300F7E4C8 /* CheckoutViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01923D442857408300F7E4C8 /* CheckoutViewProtocol.swift */; };
 		01975E44281FB3F40035AB31 /* DeliveryViewController+DeliveryViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01975E43281FB3F40035AB31 /* DeliveryViewController+DeliveryViewProtocol.swift */; };
 		01975E46281FB9420035AB31 /* CartViewController+CartViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01975E45281FB9420035AB31 /* CartViewController+CartViewProtocol.swift */; };
 		01975E48281FB95A0035AB31 /* CartViewController+CartDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01975E47281FB95A0035AB31 /* CartViewController+CartDelegate.swift */; };
@@ -236,6 +240,10 @@
 		01923D3128573D1300F7E4C8 /* OrderHistoryViewController+UICollectionViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "OrderHistoryViewController+UICollectionViewDelegate.swift"; sourceTree = "<group>"; };
 		01923D3328573D3E00F7E4C8 /* OrderHistoryViewController+UICollectionViewDelegateFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "OrderHistoryViewController+UICollectionViewDelegateFlowLayout.swift"; sourceTree = "<group>"; };
 		01923D3528573EC000F7E4C8 /* OrderCollectionViewCell+OrderCellProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "OrderCollectionViewCell+OrderCellProtocol.swift"; sourceTree = "<group>"; };
+		01923D3E2857401300F7E4C8 /* CheckoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutViewController.swift; sourceTree = "<group>"; };
+		01923D402857404E00F7E4C8 /* CheckoutPresenterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutPresenterProtocol.swift; sourceTree = "<group>"; };
+		01923D422857405B00F7E4C8 /* CheckoutPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutPresenter.swift; sourceTree = "<group>"; };
+		01923D442857408300F7E4C8 /* CheckoutViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutViewProtocol.swift; sourceTree = "<group>"; };
 		01975E43281FB3F40035AB31 /* DeliveryViewController+DeliveryViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DeliveryViewController+DeliveryViewProtocol.swift"; sourceTree = "<group>"; };
 		01975E45281FB9420035AB31 /* CartViewController+CartViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CartViewController+CartViewProtocol.swift"; sourceTree = "<group>"; };
 		01975E47281FB95A0035AB31 /* CartViewController+CartDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CartViewController+CartDelegate.swift"; sourceTree = "<group>"; };
@@ -656,6 +664,69 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		01923D3728573F4400F7E4C8 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				01C5952E2855ECF10058B446 /* OrderHistoryViewController.swift */,
+				01923D2F28573CF200F7E4C8 /* OrderHistoryViewController+UICollectionViewDataSource.swift */,
+				01923D3128573D1300F7E4C8 /* OrderHistoryViewController+UICollectionViewDelegate.swift */,
+				01923D3328573D3E00F7E4C8 /* OrderHistoryViewController+UICollectionViewDelegateFlowLayout.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		01923D3828573F4E00F7E4C8 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				01923D272856FDFA00F7E4C8 /* OrderCollectionViewCell.swift */,
+				01923D3528573EC000F7E4C8 /* OrderCollectionViewCell+OrderCellProtocol.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		01923D3928573F9300F7E4C8 /* CheckoutModule */ = {
+			isa = PBXGroup;
+			children = (
+				01923D3D2857400300F7E4C8 /* Model */,
+				01923D3C28573FFF00F7E4C8 /* View */,
+				01923D3B28573FF800F7E4C8 /* Presenter */,
+				01923D3A28573FEF00F7E4C8 /* Protocols */,
+			);
+			path = CheckoutModule;
+			sourceTree = "<group>";
+		};
+		01923D3A28573FEF00F7E4C8 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				01923D442857408300F7E4C8 /* CheckoutViewProtocol.swift */,
+				01923D402857404E00F7E4C8 /* CheckoutPresenterProtocol.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		01923D3B28573FF800F7E4C8 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				01923D422857405B00F7E4C8 /* CheckoutPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		01923D3C28573FFF00F7E4C8 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				01923D3E2857401300F7E4C8 /* CheckoutViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		01923D3D2857400300F7E4C8 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		01A04836280723C0001CB6B6 /* ShoppingCartModule */ = {
 			isa = PBXGroup;
 			children = (
@@ -789,6 +860,7 @@
 				0145C4C9284905FE0020D2FE /* SignUpModule */,
 				017E2C3C28127E4B00C82CBF /* DeliveryModule */,
 				01A04836280723C0001CB6B6 /* ShoppingCartModule */,
+				01923D3928573F9300F7E4C8 /* CheckoutModule */,
 				01C0F29927EDEE6400380895 /* Managers */,
 				01A306B527F10D6E0098C791 /* Extensions */,
 				01AFD60D27EDBF600081BA4C /* Assets.xcassets */,
@@ -945,12 +1017,8 @@
 		01C5952C2855ECBE0058B446 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				01C5952E2855ECF10058B446 /* OrderHistoryViewController.swift */,
-				01923D2F28573CF200F7E4C8 /* OrderHistoryViewController+UICollectionViewDataSource.swift */,
-				01923D3128573D1300F7E4C8 /* OrderHistoryViewController+UICollectionViewDelegate.swift */,
-				01923D3328573D3E00F7E4C8 /* OrderHistoryViewController+UICollectionViewDelegateFlowLayout.swift */,
-				01923D272856FDFA00F7E4C8 /* OrderCollectionViewCell.swift */,
-				01923D3528573EC000F7E4C8 /* OrderCollectionViewCell+OrderCellProtocol.swift */,
+				01923D3728573F4400F7E4C8 /* Controller */,
+				01923D3828573F4E00F7E4C8 /* Cell */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1185,6 +1253,7 @@
 				0145C4CF284906580020D2FE /* SignUpViewController.swift in Sources */,
 				01C0F29827EDDC4200380895 /* MenuCellProtocol.swift in Sources */,
 				01923D2E2857054800F7E4C8 /* OrderCellProtocol.swift in Sources */,
+				01923D452857408300F7E4C8 /* CheckoutViewProtocol.swift in Sources */,
 				01911876285262C9001A3B81 /* ProfileViewController+ProfileViewProtocol.swift in Sources */,
 				018EB4932816D46A00C08E3F /* DeliveryViewController+UIViewControllerTransitioningDelegate.swift in Sources */,
 				016BB265284A377300B55020 /* SignUpViewController+UITextFieldDelegate .swift in Sources */,
@@ -1192,10 +1261,12 @@
 				01923D2A285702BB00F7E4C8 /* OrderCellPresenter.swift in Sources */,
 				01C0F29027EDD8C600380895 /* MenuCellPresenterProtocol.swift in Sources */,
 				01C595332855ED230058B446 /* OrderHistoryPresenterProtocol.swift in Sources */,
+				01923D3F2857401300F7E4C8 /* CheckoutViewController.swift in Sources */,
 				01D198A2281EBE360096C97F /* UIViewControlle+addChild.swift in Sources */,
 				014E94192809E4DD00143B32 /* CartCellPresenter.swift in Sources */,
 				010C5DE628216F910005AA5D /* LoginPresenter.swift in Sources */,
 				01C0F29227EDD90500380895 /* MenuHeaderSupplementaryView.swift in Sources */,
+				01923D412857404E00F7E4C8 /* CheckoutPresenterProtocol.swift in Sources */,
 				018F87B22850D67100C6EA2B /* ProfilePresenter.swift in Sources */,
 				01975E4A281FBAF40035AB31 /* CartTableViewCell+CartCellProtocol.swift in Sources */,
 				01C995AB27F4F25A00FE3F1F /* CardViewController+UITableViewDataSource.swift in Sources */,
@@ -1210,6 +1281,7 @@
 				01A0483A280737E1001CB6B6 /* LocalDatabaseManager.swift in Sources */,
 				01D1989E281EB1370096C97F /* SideMenuCellPresenterProtocol.swift in Sources */,
 				01C5952628535C500058B446 /* VCPresentationStyle.swift in Sources */,
+				01923D432857405B00F7E4C8 /* CheckoutPresenter.swift in Sources */,
 				018EB48F2816CA9F00C08E3F /* DeliveryTermsPresentationController.swift in Sources */,
 				017E2C5C2812F9BE00C82CBF /* JSONParserProtocol.swift in Sources */,
 				01923D3228573D1300F7E4C8 /* OrderHistoryViewController+UICollectionViewDelegate.swift in Sources */,

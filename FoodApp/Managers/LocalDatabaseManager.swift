@@ -24,7 +24,7 @@ class LocalDatabaseManager: LocalDatabaseManagerProtocol {
     var items: [CartItem]?
     var totalPrice: Int = 0
     
-    init() {
+    private init() {
         connectToDB()
         createTable()
         getItems()
@@ -88,6 +88,16 @@ class LocalDatabaseManager: LocalDatabaseManagerProtocol {
         getItems()
     }
     
+    func deleteAll() {
+        do {
+            try db?.run(dishes.delete())
+            totalPrice = 0
+        } catch {
+            print(error)
+        }
+        items = [CartItem]()
+    }
+    
     func getItems() {
         var items = [CartItem]()
         do {
@@ -126,11 +136,8 @@ class LocalDatabaseManager: LocalDatabaseManagerProtocol {
             let search = try db?.prepare("SELECT EXISTS(SELECT id FROM dishes WHERE id = (?))")
             for row in try search!.run(id) {
                 let id = row[0] as! Int64
-                if Int(id) == 0 {
-                    return false
-                } else {
-                    return true
-                }
+                print(id)
+                return Int(id) != 0
             }
         } catch {
             print(error)

@@ -14,4 +14,5 @@ protocol LocalDatabaseManagerProtocol {
     var items: [CartItem]? { get set }
     var totalPrice: Int { get set }
     func checkIfCartContains(id: Int) -> Bool
+    func deleteAll()
 }

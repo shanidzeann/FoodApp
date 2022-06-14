@@ -8,9 +8,13 @@
 import Foundation
 
 struct Order {
-    let menuItems: [CartItem]
-    let userID: String
+    var menuItems: [CartItem]?
+    var userID: String?
     let address: String
-    let date: Date
-    let totalPrice: Int
+    let apartment: String
+    let floor: String
+    var date: Date?
+    var totalPrice: Int?
+    let userName: String
+    let userPhone: String
 }

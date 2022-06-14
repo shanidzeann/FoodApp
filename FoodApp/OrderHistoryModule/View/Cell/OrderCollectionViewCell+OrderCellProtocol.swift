@@ -9,8 +9,8 @@ import UIKit
 
 extension OrderCollectionViewCell: OrderCellProtocol {
     func setData(order: Order) {
-        dateLabel.text = order.date.description
+        dateLabel.text = order.date?.description
         addressLabel.text = order.address
-        priceLabel.text = "\(order.totalPrice) ₽"
+        priceLabel.text = "\(order.totalPrice ?? 0) ₽"
     }
 }

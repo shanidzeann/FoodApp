@@ -57,6 +57,7 @@ class CartViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.navigationBar.prefersLargeTitles = true
+        reloadData()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -111,8 +112,21 @@ class CartViewController: UIViewController {
     
     @objc private func checkout() {
         presenter.checkout { message in
-            show(message)
+            if message != nil {
+                show(message!)
+            } else {
+                navigationController?.pushViewController(checkoutVC(), animated: true)
+            }
         }
+    }
+    
+    private func checkoutVC() -> CheckoutViewController {
+        let checkoutVC = CheckoutViewController()
+        let presenter = CheckoutPresenter(view: checkoutVC,
+                                          firestoreManager: FirestoreManager(),
+                                          localDatabaseManager: LocalDatabaseManager.shared)
+        checkoutVC.inject(presenter)
+        return checkoutVC
     }
     
     private func show(_ message: String) {

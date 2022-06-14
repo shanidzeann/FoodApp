@@ -23,6 +23,8 @@ class CartPresenter: CartPresenterProtocol {
         self.view = view
         self.localDatabaseManager = localDatabaseManager
         self.firestoreManager = firestoreManager
+        
+        print(localDatabaseManager.totalPrice, localDatabaseManager.items)
     }
     
     func numberOfRowsInSection(_ section: Int) -> Int {
@@ -44,12 +46,11 @@ class CartPresenter: CartPresenterProtocol {
         
     }
     
-    func checkout(completion: (String) -> Void) {
-        if firestoreManager.currentUser() != nil {
-            firestoreManager.createOrder(with: localDatabaseManager.items!, totalPrice: localDatabaseManager.totalPrice)
-            completion("Заказ оформлен успешно")
-        } else {
+    func checkout(completion: (String?) -> Void) {
+        if firestoreManager.currentUser() == nil {
             completion("Авторизуйтесь перед оформлением заказа")
+        } else {
+            completion(nil)
         }
     }
 

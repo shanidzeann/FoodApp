@@ -68,17 +68,21 @@ class FirestoreManager: FirestoreManagerProtocol {
     
     // MARK: - Orders
     
-    func createOrder(with menuItems: [CartItem], totalPrice: Int) {
+    func createOrder(_ order: Order, completion: @escaping (String) -> Void) {
         let data: [String: Any] = [
             "userID": currentUser()?.uid as Any,
-            "address": "",
+            "address": order.address,
+            "apartment": order.apartment,
+            "floor": order.floor,
             "date": Date(),
-            "totalPrice": totalPrice
+            "totalPrice": order.totalPrice as Any,
+            "userName": order.userName,
+            "userPhone": order.userPhone
         ]
         let docRef = db.collection("orders").document()
         docRef.setData(data)
         
-        for item in menuItems {
+        for item in order.menuItems! {
             let data: [String: Any] = [
                 "id": item.id,
                 "title": item.title,
@@ -87,7 +91,10 @@ class FirestoreManager: FirestoreManagerProtocol {
                 "imageUrl": item.imageUrl,
                 "count": item.count
             ]
-            docRef.collection("menuItems").addDocument(data: data)
+            docRef.collection("menuItems").addDocument(data: data) { error in
+                let message = error != nil ? error!.localizedDescription : "Заказ оформлен успешно"
+                completion(message)
+            }
         }
     }
     
@@ -108,10 +115,14 @@ class FirestoreManager: FirestoreManagerProtocol {
                         switch result {
                         case .success(let items):
                             let order = Order(menuItems: items,
-                                              userID: data["userID"] as! String,
+                                              userID: data["userID"] as? String,
                                               address: data["address"] as! String,
+                                              apartment: data["apartment"] as! String,
+                                              floor: data["floor"] as! String,
                                               date: (data["date"] as! Timestamp).dateValue(),
-                                              totalPrice: data["totalPrice"] as! Int)
+                                              totalPrice: data["totalPrice"] as? Int,
+                                              userName: data["userName"] as! String,
+                                              userPhone: data["userPhone"] as! String)
                             orders.append(order)
                             dispatchGroup.leave()
                         case .failure(let error):
