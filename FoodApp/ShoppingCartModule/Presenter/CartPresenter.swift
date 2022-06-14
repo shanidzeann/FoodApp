@@ -17,14 +17,14 @@ class CartPresenter: CartPresenterProtocol {
     
     // MARK: - Init
     
-    required init(view: CartViewProtocol,
-                  localDatabaseManager: LocalDatabaseManagerProtocol,
-                  firestoreManager: FirestoreManagerProtocol) {
+    required init(
+        view: CartViewProtocol,
+        localDatabaseManager: LocalDatabaseManagerProtocol,
+        firestoreManager: FirestoreManagerProtocol
+    ) {
         self.view = view
         self.localDatabaseManager = localDatabaseManager
         self.firestoreManager = firestoreManager
-        
-        print(localDatabaseManager.totalPrice, localDatabaseManager.items)
     }
     
     func numberOfRowsInSection(_ section: Int) -> Int {
@@ -43,7 +43,6 @@ class CartPresenter: CartPresenterProtocol {
             view?.configureCheckoutButton(title: "Оформить заказ на \(localDatabaseManager.totalPrice) ₽", isEnabled: true)
             view?.showCart(isEmpty: false)
         }
-        
     }
     
     func checkout(completion: (String?) -> Void) {
@@ -53,6 +52,6 @@ class CartPresenter: CartPresenterProtocol {
             completion(nil)
         }
     }
-
+    
 }
 

@@ -143,6 +143,7 @@
 		01D3CFA0282286A40020D6F9 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 01D3CF9F282286A40020D6F9 /* GoogleService-Info.plist */; };
 		01E7B3DF284F5512001567FC /* SignUpPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E7B3DE284F5512001567FC /* SignUpPresenter.swift */; };
 		01E7B3E1284F5572001567FC /* SignUpViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E7B3E0284F5572001567FC /* SignUpViewProtocol.swift */; };
+		01E8734D2858C2E900BD4FAD /* CheckoutViewController+CheckoutViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E8734C2858C2E900BD4FAD /* CheckoutViewController+CheckoutViewProtocol.swift */; };
 		01E97A712851196B00D6FD30 /* ProfileMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E97A702851196B00D6FD30 /* ProfileMenu.swift */; };
 		01F6C4AF2809A3ED00EABCE2 /* CartTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01F6C4AE2809A3ED00EABCE2 /* CartTableViewCell.swift */; };
 		01F6C4B12809A48200EABCE2 /* CartCellPresenterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01F6C4B02809A48200EABCE2 /* CartCellPresenterProtocol.swift */; };
@@ -300,6 +301,7 @@
 		01D3CF9F282286A40020D6F9 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		01E7B3DE284F5512001567FC /* SignUpPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpPresenter.swift; sourceTree = "<group>"; };
 		01E7B3E0284F5572001567FC /* SignUpViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewProtocol.swift; sourceTree = "<group>"; };
+		01E8734C2858C2E900BD4FAD /* CheckoutViewController+CheckoutViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CheckoutViewController+CheckoutViewProtocol.swift"; sourceTree = "<group>"; };
 		01E97A702851196B00D6FD30 /* ProfileMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileMenu.swift; sourceTree = "<group>"; };
 		01F6C4AE2809A3ED00EABCE2 /* CartTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartTableViewCell.swift; sourceTree = "<group>"; };
 		01F6C4B02809A48200EABCE2 /* CartCellPresenterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartCellPresenterProtocol.swift; sourceTree = "<group>"; };
@@ -716,6 +718,7 @@
 			isa = PBXGroup;
 			children = (
 				01923D3E2857401300F7E4C8 /* CheckoutViewController.swift */,
+				01E8734C2858C2E900BD4FAD /* CheckoutViewController+CheckoutViewProtocol.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1283,6 +1286,7 @@
 				01C5952628535C500058B446 /* VCPresentationStyle.swift in Sources */,
 				01923D432857405B00F7E4C8 /* CheckoutPresenter.swift in Sources */,
 				018EB48F2816CA9F00C08E3F /* DeliveryTermsPresentationController.swift in Sources */,
+				01E8734D2858C2E900BD4FAD /* CheckoutViewController+CheckoutViewProtocol.swift in Sources */,
 				017E2C5C2812F9BE00C82CBF /* JSONParserProtocol.swift in Sources */,
 				01923D3228573D1300F7E4C8 /* OrderHistoryViewController+UICollectionViewDelegate.swift in Sources */,
 				014F1CD927F398B000D7F799 /* PresentationController.swift in Sources */,

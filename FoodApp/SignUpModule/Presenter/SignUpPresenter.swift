@@ -9,14 +9,36 @@ import Foundation
 
 class SignUpPresenter: SignUpPresenterProtocol {
     
+    // MARK: - Properties
+    
     weak var view: SignUpViewProtocol?
     private var authManager: AuthManager!
+    
+    // MARK: - Init
     
     init(view: SignUpViewProtocol, authManager: AuthManager) {
         self.view = view
         self.authManager = authManager
     }
     
+    // MARK: - Registration
+    
+    func register(_ user: FirebaseUser, completion: @escaping (String?) -> Void) {
+        do {
+            try validateFields(with: user)
+            authManager.create(user) { error in
+                completion(error)
+            }
+        } catch RegisterError.invalidPassword {
+            completion(RegisterError.invalidPassword.localizedDescription)
+        } catch RegisterError.emptyFields {
+            completion(RegisterError.emptyFields.localizedDescription)
+        } catch {
+            completion(error.localizedDescription)
+        }
+    }
+    
+    // MARK: - Validation
     
     func validateFields(with user: FirebaseUser) throws {
         if isEmpty(user.name) ||
@@ -42,24 +64,12 @@ class SignUpPresenter: SignUpPresenterProtocol {
         return passwordTest.evaluate(with: cleanedPassword)
     }
     
-    func register(_ user: FirebaseUser, completion: @escaping (String?) -> Void) {
-        do {
-            try validateFields(with: user)
-            authManager.create(user) { error in
-                completion(error)
-            }
-        } catch RegisterError.invalidPassword {
-            completion(RegisterError.invalidPassword.localizedDescription)
-        } catch RegisterError.emptyFields {
-            completion(RegisterError.emptyFields.localizedDescription)
-        } catch {
-            completion(error.localizedDescription)
-        }
-    }
+    // MARK: - Helper Methods
     
     func stringFrom(_ date: Date) -> String {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy/MM/dd"
         return dateFormatter.string(from: date)
     }
+    
 }

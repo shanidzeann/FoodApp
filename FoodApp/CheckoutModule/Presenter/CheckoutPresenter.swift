@@ -10,12 +10,17 @@ import CoreLocation
 
 class CheckoutPresenter: CheckoutPresenterProtocol {
     
+    // MARK: - Properties
+    
     weak var view: CheckoutViewProtocol?
     private var firestoreManager: FirestoreManagerProtocol!
     private var localDatabaseManager: LocalDatabaseManagerProtocol!
     
+    #warning("manager?")
     lazy var deliveryRegionCenter = CLLocationCoordinate2D(latitude: 55.751999, longitude: 37.617734)
     lazy var deliveryRegion = CLCircularRegion(center: deliveryRegionCenter, radius: 20000, identifier: "delivery")
+    
+    // MARK: - Init
     
     init(
         view: CheckoutViewProtocol,
@@ -28,12 +33,12 @@ class CheckoutPresenter: CheckoutPresenterProtocol {
     }
     
     func getData() {
-        firestoreManager.getUserData { result in
+        firestoreManager.getUserData { [weak self] result in
             switch result {
             case .success(let user):
-                self.view?.setData(phone: user.phone ?? "",
+                self?.view?.setData(phone: user.phone ?? "",
                                    username: user.name ?? "",
-                                   totalPrice: "\(self.localDatabaseManager.totalPrice) ₽")
+                                    totalPrice: "\(self?.localDatabaseManager.totalPrice ?? 0) ₽")
             case .failure(let error):
                 print(error)
             }
@@ -42,16 +47,11 @@ class CheckoutPresenter: CheckoutPresenterProtocol {
     
     func checkout(_ order: Order) {
         if areFieldsValid(order: order) {
-            var orderCopy = order
-            check(order.address) { passed, message in
+            check(order.address) { [weak self] passed, message in
                 if passed {
-                    orderCopy.menuItems = self.localDatabaseManager.items
-                    orderCopy.totalPrice = self.localDatabaseManager.totalPrice
-                    self.firestoreManager.createOrder(orderCopy) { message in
-                        self.view?.closeOrder(with: message)
-                    }
+                    self?.confirm(order)
                 } else {
-                    self.view?.show(message)
+                    self?.view?.show(message)
                 }
             }
         } else {
@@ -59,11 +59,32 @@ class CheckoutPresenter: CheckoutPresenterProtocol {
         }
     }
     
+    private func areFieldsValid(order: Order) -> Bool {
+        return !isEmpty(order.userName) &&
+        !isEmpty(order.userPhone) &&
+        !isEmpty(order.address) &&
+        !isEmpty(order.apartment) &&
+        !isEmpty(order.floor)
+    }
+    
+    private func isEmpty(_ text: String?) -> Bool {
+        return text?.trimmingCharacters(in: .whitespacesAndNewlines) == ""
+    }
+    
+    private func confirm(_ order: Order) {
+        var orderCopy = order
+        orderCopy.menuItems = localDatabaseManager.items
+        orderCopy.totalPrice = localDatabaseManager.totalPrice
+        firestoreManager.createOrder(orderCopy) { [weak self] message in
+            self?.view?.closeOrder(with: message)
+        }
+    }
+    
     func check(_ address: String, completion: @escaping (Bool, String) -> Void) {
-        let geoCoder = CLGeocoder()
-        geoCoder.geocodeAddressString(address) { (placemarks, error) in
+        CLGeocoder().geocodeAddressString(address) { [weak self] (placemarks, error) in
             guard let placemarks = placemarks,
-                  let location = placemarks.first?.location
+                  let location = placemarks.first?.location,
+                  let self = self
             else {
                 print(error?.localizedDescription as Any)
                 completion(false, "Некорректный адрес")
@@ -74,20 +95,7 @@ class CheckoutPresenter: CheckoutPresenterProtocol {
             } else {
                 completion(false, "Доставка недоступна")
             }
-            
         }
-    }
-    
-    func areFieldsValid(order: Order) -> Bool {
-        return !isEmpty(order.userName) &&
-        !isEmpty(order.userPhone) &&
-        !isEmpty(order.address) &&
-        !isEmpty(order.apartment) &&
-        !isEmpty(order.floor)
-    }
-    
-    private func isEmpty(_ text: String?) -> Bool {
-        return text?.trimmingCharacters(in: .whitespacesAndNewlines) == ""
     }
     
     func emptyShoppingCart() {

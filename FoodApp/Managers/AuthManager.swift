@@ -18,28 +18,26 @@ class AuthManager: AuthManagerProtocol {
     }
     
     func create(_ user: FirebaseUser, completion: @escaping (String?) -> Void) {
-        Auth.auth().createUser(withEmail: user.email, password: user.password!) { (result, error) in
+        Auth.auth().createUser(withEmail: user.email, password: user.password!) { [weak self] (result, error) in
             if error != nil {
                 completion(error?.localizedDescription)
             }
             else {
-                let data: [String: Any] = [
-                    "name": user.name!,
-                    "phone": user.phone!,
-                    "dateOfBirth": user.dateOfBirth!,
-                    "uid": result!.user.uid
-                ]
-                
-                self.dbManager.createDocument(in: "users", documentPath: result!.user.uid, data: data) { error in
-                    if error != nil {
-                        completion(error?.localizedDescription)
-                    }
+                let data = self?.data(of: user, with: result!.user.uid) ?? [:]
+                self?.dbManager.createDocument(in: "users", documentPath: result!.user.uid, data: data) { error in
+                    completion(error?.localizedDescription)
                 }
-                
-                completion(nil)
             }
-            
         }
+    }
+    
+    private func data(of user: FirebaseUser, with id: String) -> [String: Any] {
+        return [
+            "name": user.name!,
+            "phone": user.phone!,
+            "dateOfBirth": user.dateOfBirth!,
+            "uid": id
+        ]
     }
     
     

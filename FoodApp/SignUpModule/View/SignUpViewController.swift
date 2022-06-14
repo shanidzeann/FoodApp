@@ -190,14 +190,7 @@ class SignUpViewController: UIViewController, SignUpViewProtocol {
     }
     
     @objc private func didTapSignUp() {
-        let name = nameTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
-        let phone = phoneTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
-        let email = emailTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
-        let password = passwordTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
-        let dateOfBirth = dateOfBirthTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
-        let user = FirebaseUser(name: name, email: email, phone: phone, dateOfBirth: dateOfBirth, password: password)
-        
-        presenter.register(user) { error in
+        presenter.register(user()) { error in
             if error != nil {
                 self.showError(error!)
             } else {
@@ -206,10 +199,21 @@ class SignUpViewController: UIViewController, SignUpViewProtocol {
         }
     }
     
+    private func user() -> FirebaseUser {
+        let name = nameTextField.text!
+        let phone = phoneTextField.text!
+        let email = emailTextField.text!
+        let password = passwordTextField.text!
+        let dateOfBirth = dateOfBirthTextField.text!
+        return FirebaseUser(name: name, email: email, phone: phone, dateOfBirth: dateOfBirth, password: password)
+    }
+    
     private func dismiss() {
-        let alert = UIAlertController(title: "Вы были успешно зарегистрированы", message: "Для входа в личный кабинет введите свои данные на странице авторизации.", preferredStyle: .alert)
-        let cancelAction = UIAlertAction(title: "Ок", style: .cancel) { _ in
-            self.dismiss(animated: true)
+        let alert = UIAlertController(title: "Вы были успешно зарегистрированы",
+                                      message: "Для входа в личный кабинет введите свои данные на странице авторизации",
+                                      preferredStyle: .alert)
+        let cancelAction = UIAlertAction(title: "Ок", style: .cancel) { [weak self] _ in
+            self?.dismiss(animated: true)
         }
         alert.addAction(cancelAction)
         present(alert, animated: true)

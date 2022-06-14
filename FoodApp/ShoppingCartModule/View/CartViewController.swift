@@ -57,7 +57,6 @@ class CartViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.navigationBar.prefersLargeTitles = true
-        reloadData()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -132,7 +131,6 @@ class CartViewController: UIViewController {
     private func show(_ message: String) {
         let alert = UIAlertController(title: message, message: nil, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Ок", style: .cancel))
-        
         present(alert, animated: true)
     }
 

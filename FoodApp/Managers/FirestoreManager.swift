@@ -69,7 +69,21 @@ class FirestoreManager: FirestoreManagerProtocol {
     // MARK: - Orders
     
     func createOrder(_ order: Order, completion: @escaping (String) -> Void) {
-        let data: [String: Any] = [
+        let orderData = data(of: order)
+        let docRef = db.collection("orders").document()
+        docRef.setData(orderData)
+        
+        for item in order.menuItems! {
+            let data = data(of: item)
+            docRef.collection("menuItems").addDocument(data: data) { error in
+                let message = error != nil ? error!.localizedDescription : "Заказ оформлен успешно"
+                completion(message)
+            }
+        }
+    }
+    
+    private func data(of order: Order) -> [String: Any] {
+        return [
             "userID": currentUser()?.uid as Any,
             "address": order.address,
             "apartment": order.apartment,
@@ -79,23 +93,18 @@ class FirestoreManager: FirestoreManagerProtocol {
             "userName": order.userName,
             "userPhone": order.userPhone
         ]
-        let docRef = db.collection("orders").document()
-        docRef.setData(data)
-        
-        for item in order.menuItems! {
-            let data: [String: Any] = [
-                "id": item.id,
-                "title": item.title,
-                "description": item.description,
-                "price": item.price,
-                "imageUrl": item.imageUrl,
-                "count": item.count
-            ]
-            docRef.collection("menuItems").addDocument(data: data) { error in
-                let message = error != nil ? error!.localizedDescription : "Заказ оформлен успешно"
-                completion(message)
-            }
-        }
+    }
+    
+#warning("change name of menuItems in Order")
+    private func data(of item: CartItem) -> [String: Any] {
+        return [
+            "id": item.id,
+            "title": item.title,
+            "description": item.description,
+            "price": item.price,
+            "imageUrl": item.imageUrl,
+            "count": item.count
+        ]
     }
     
     func getUserOrders(completion: @escaping (Result<[Order], Error>) -> Void) {
@@ -103,67 +112,79 @@ class FirestoreManager: FirestoreManagerProtocol {
         var orders = [Order]()
         
         db.collection("orders").whereField("userID", isEqualTo: currentUser.uid).getDocuments { querySnapshot, error in
+            guard error == nil else {
+                print("Error getting documents: \(error!)")
+                completion(.failure(error!))
+                return
+            }
+            
             let dispatchGroup = DispatchGroup()
-            if let error = error {
-                print("Error getting documents: \(error)")
-                completion(.failure(error))
-            } else {
-                for document in querySnapshot!.documents {
-                    dispatchGroup.enter()
-                    let data = document.data()
-                    self.getMenuItems(documentID: document.documentID) { result in
-                        switch result {
-                        case .success(let items):
-                            let order = Order(menuItems: items,
-                                              userID: data["userID"] as? String,
-                                              address: data["address"] as! String,
-                                              apartment: data["apartment"] as! String,
-                                              floor: data["floor"] as! String,
-                                              date: (data["date"] as! Timestamp).dateValue(),
-                                              totalPrice: data["totalPrice"] as? Int,
-                                              userName: data["userName"] as! String,
-                                              userPhone: data["userPhone"] as! String)
-                            orders.append(order)
-                            dispatchGroup.leave()
-                        case .failure(let error):
-                            print(error)
-                            dispatchGroup.leave()
-                        }
+            for document in querySnapshot!.documents {
+                dispatchGroup.enter()
+                let data = document.data()
+                self.getMenuItems(documentID: document.documentID) { [weak self] result in
+                    guard let self = self else { return }
+                    switch result {
+                    case .success(let items):
+                        let order = self.order(from: data, with: items)
+                        orders.append(order)
+                    case .failure(let error):
+                        print(error)
                     }
+                    dispatchGroup.leave()
                 }
-                dispatchGroup.notify(queue: .main) {
-                    completion(.success(orders))
-                }
+            }
+            
+            dispatchGroup.notify(queue: .main) {
+                completion(.success(orders))
             }
         }
     }
     
+    private func order(from data: [String: Any], with items: [CartItem]) -> Order {
+        return Order(menuItems: items,
+                     userID: data["userID"] as? String,
+                     address: data["address"] as! String,
+                     apartment: data["apartment"] as! String,
+                     floor: data["floor"] as! String,
+                     date: (data["date"] as! Timestamp).dateValue(),
+                     totalPrice: data["totalPrice"] as? Int,
+                     userName: data["userName"] as! String,
+                     userPhone: data["userPhone"] as! String)
+    }
+    
     func getMenuItems(documentID: String, completion: @escaping (Result<[CartItem], Error>) -> Void) {
         var menuItems = [CartItem]()
-        db.collection("orders").document(documentID).collection("menuItems").getDocuments { querySnapshot, error in
-            if let error = error {
-                print("Error getting documents: \(error)")
-                completion(.failure(error))
-            } else {
-                for document in querySnapshot!.documents {
-                    let data = document.data()
-                    guard let id = data["id"] as? Int,
-                          let title = data["title"] as? String,
-                          let description = data["description"] as? String,
-                          let price = data["price"] as? Int,
-                          let imageUrl = data["imageUrl"] as? String,
-                          let count = data["count"] as? Int else { return }
-                    let menuItem = CartItem(id: id,
-                                            title: title,
-                                            description: description,
-                                            price: price,
-                                            imageUrl: imageUrl,
-                                            count: count)
-                    menuItems.append(menuItem)
-                }
-                completion(.success(menuItems))
+        db.collection("orders").document(documentID).collection("menuItems").getDocuments { [weak self] querySnapshot, error in
+            guard error == nil else {
+                print("Error getting documents: \(error!)")
+                completion(.failure(error!))
+                return
             }
+            
+            for document in querySnapshot!.documents {
+                let data = document.data()
+                guard let item = self?.menuItem(from: data) else { return }
+                menuItems.append(item)
+            }
+            
+            completion(.success(menuItems))
         }
+    }
+    
+    private func menuItem(from data: [String: Any]) -> CartItem? {
+        guard let id = data["id"] as? Int,
+              let title = data["title"] as? String,
+              let description = data["description"] as? String,
+              let price = data["price"] as? Int,
+              let imageUrl = data["imageUrl"] as? String,
+              let count = data["count"] as? Int else { return nil }
+        return CartItem(id: id,
+                        title: title,
+                        description: description,
+                        price: price,
+                        imageUrl: imageUrl,
+                        count: count)
     }
     
 }

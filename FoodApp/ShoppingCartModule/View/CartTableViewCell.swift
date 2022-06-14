@@ -88,20 +88,14 @@ class CartTableViewCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    // MARK: - Helper Methods
+    // MARK: - Injection
     
     func inject(presenter: CartCellPresenterProtocol, delegate: CartDelegate) {
         self.presenter = presenter
         self.cartDelegate = delegate
     }
     
-    @objc private func didTapAdd() {
-        presenter.addToCart()
-    }
-    
-    @objc private func didTapDelete() {
-        presenter.deleteFromCart()
-    }
+    // MARK: - UI
     
     private func addSubviews() {
         contentView.addSubview(cartImageView)
@@ -115,11 +109,6 @@ class CartTableViewCell: UITableViewCell {
     
     private func configureView() {
         backgroundColor = .systemBackground
-    }
-    
-    private func addTargets() {
-        addButton.addTarget(self, action: #selector(didTapAdd), for: .touchUpInside)
-        deleteButton.addTarget(self, action: #selector(didTapDelete), for: .touchUpInside)
     }
     
     private func setupConstraints() {
@@ -170,4 +159,20 @@ class CartTableViewCell: UITableViewCell {
         cartImageView.kf.setImage(with: URL(string: ""))
         cartImageView.image = nil
     }
+    
+    // MARK: - Actions
+    
+    private func addTargets() {
+        addButton.addTarget(self, action: #selector(didTapAdd), for: .touchUpInside)
+        deleteButton.addTarget(self, action: #selector(didTapDelete), for: .touchUpInside)
+    }
+    
+    @objc private func didTapAdd() {
+        presenter.addToCart()
+    }
+    
+    @objc private func didTapDelete() {
+        presenter.deleteFromCart()
+    }
+    
 }

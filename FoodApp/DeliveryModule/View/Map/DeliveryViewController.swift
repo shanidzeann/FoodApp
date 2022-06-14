@@ -82,7 +82,7 @@ class DeliveryViewController: UIViewController {
         self.presenter = presenter
     }
     
-    // MARK: - Targets and selectors
+    // MARK: - Actions
     
     private func addTargets() {
         userLocationButton.addTarget(self, action: #selector(showUserLocation), for: .touchUpInside)

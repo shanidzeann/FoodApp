@@ -10,7 +10,11 @@ import SnapKit
 
 class CheckoutViewController: UIViewController {
     
+    // MARK: - Properties
+    
     private(set) var presenter: CheckoutPresenterProtocol!
+    
+    // MARK: - UI
     
     private let dataLabel: UILabel = {
         let label = UILabel()
@@ -80,7 +84,7 @@ class CheckoutViewController: UIViewController {
         return label
     }()
     
-    private let priceLabel: UILabel = {
+    let priceLabel: UILabel = {
         let label = UILabel()
         label.font = .boldSystemFont(ofSize: 12)
         return label
@@ -94,24 +98,26 @@ class CheckoutViewController: UIViewController {
         return button
     }()
     
+    // MARK: - VC Lifecycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
+        navigationController?.navigationBar.topItem?.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
         
         addSubviews()
         setupConstraints()
-        
         presenter.getData()
-        
-        checkAddressButton.addTarget(self, action: #selector(checkAddress), for: .touchUpInside)
-        confirmButton.addTarget(self, action: #selector(confirmOrder), for: .touchUpInside)
-        
-        navigationController?.navigationBar.topItem?.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+        addTargets()
     }
+    
+    // MARK: - Injection
     
     func inject(_ presenter: CheckoutPresenterProtocol) {
         self.presenter = presenter
     }
+    
+    // MARK: - UI
     
     private func addSubviews() {
         view.addSubview(dataLabel)
@@ -192,6 +198,13 @@ class CheckoutViewController: UIViewController {
         
     }
     
+    // MARK: - Actions
+    
+    private func addTargets() {
+        checkAddressButton.addTarget(self, action: #selector(checkAddress), for: .touchUpInside)
+        confirmButton.addTarget(self, action: #selector(confirmOrder), for: .touchUpInside)
+    }
+    
     @objc private func checkAddress() {
         presenter.check(addressTextField.text!) { [weak self] passed, message  in
             self?.errorLabel.text = message
@@ -208,28 +221,4 @@ class CheckoutViewController: UIViewController {
         presenter.checkout(order)
     }
 
-}
-
-extension CheckoutViewController: CheckoutViewProtocol {
-    
-    func setData(phone: String, username: String, totalPrice: String) {
-        phoneTextField.text = phone
-        nameTextField.text = username
-        priceLabel.text = totalPrice
-    }
-    
-    func closeOrder(with message: String) {
-        show(message) {
-            self.presenter.emptyShoppingCart()
-            self.navigationController?.popToRootViewController(animated: true)
-        }
-    }
-    
-    func show(_ message: String, completion: (() -> Void)? = nil) {
-        let alert = UIAlertController(title: message, message: nil, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "Ок", style: .cancel, handler: { _ in
-            completion?()
-        }))
-        present(alert, animated: true)
-    }
 }

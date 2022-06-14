@@ -10,6 +10,8 @@ import SQLite
 
 class LocalDatabaseManager: LocalDatabaseManagerProtocol {
     
+    // MARK: - Properties
+    
     static let shared = LocalDatabaseManager()
     
     var db: Connection?
@@ -24,12 +26,16 @@ class LocalDatabaseManager: LocalDatabaseManagerProtocol {
     var items: [CartItem]?
     var totalPrice: Int = 0
     
+    // MARK: - Init
+    
     private init() {
         connectToDB()
         createTable()
         getItems()
         totalPrice = getTotalPrice()
     }
+    
+    // MARK: - Connection
     
     private func connectToDB() {
         do {
@@ -41,6 +47,8 @@ class LocalDatabaseManager: LocalDatabaseManagerProtocol {
             print(error)
         }
     }
+    
+    // MARK: - Create Data
     
     private func createTable() {
         do {
@@ -70,33 +78,7 @@ class LocalDatabaseManager: LocalDatabaseManagerProtocol {
         getItems()
     }
     
-    func deleteFromDB(id: Int) {
-        do {
-            let delete = try db?.prepare("SELECT price FROM dishes WHERE id = (?)")
-            for row in try delete!.run(id) {
-                let price = row[0] as! Int64
-                totalPrice -= Int(price)
-            }
-            
-            let updateStmt = try db?.prepare("UPDATE dishes SET count = CASE WHEN count > 0 THEN count - 1 ELSE 0 END WHERE id = (?)")
-            try updateStmt?.run(id)
-            let deleteStmt = try db?.prepare("DELETE FROM dishes WHERE count = 0 AND id = (?)")
-            try deleteStmt?.run(id)
-        } catch {
-            print(error)
-        }
-        getItems()
-    }
-    
-    func deleteAll() {
-        do {
-            try db?.run(dishes.delete())
-            totalPrice = 0
-        } catch {
-            print(error)
-        }
-        items = [CartItem]()
-    }
+    // MARK: - Get Data
     
     func getItems() {
         var items = [CartItem]()
@@ -144,4 +126,35 @@ class LocalDatabaseManager: LocalDatabaseManagerProtocol {
         }
         return false
     }
+    
+    // MARK: - Delete Data
+    
+    func deleteFromDB(id: Int) {
+        do {
+            let delete = try db?.prepare("SELECT price FROM dishes WHERE id = (?)")
+            for row in try delete!.run(id) {
+                let price = row[0] as! Int64
+                totalPrice -= Int(price)
+            }
+            
+            let updateStmt = try db?.prepare("UPDATE dishes SET count = CASE WHEN count > 0 THEN count - 1 ELSE 0 END WHERE id = (?)")
+            try updateStmt?.run(id)
+            let deleteStmt = try db?.prepare("DELETE FROM dishes WHERE count = 0 AND id = (?)")
+            try deleteStmt?.run(id)
+        } catch {
+            print(error)
+        }
+        getItems()
+    }
+    
+    func deleteAll() {
+        do {
+            try db?.run(dishes.delete())
+            totalPrice = 0
+        } catch {
+            print(error)
+        }
+        items = [CartItem]()
+    }
+    
 }
