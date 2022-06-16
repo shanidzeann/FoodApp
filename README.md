@@ -17,9 +17,7 @@
 - MapKit, CoreLocation
 
 
-<img src="https://github.com/shanidzeann/Screenshots/blob/master/FoodApp/food1.png" width="300">
-<img src="https://github.com/shanidzeann/Screenshots/blob/master/FoodApp/food2.png" width="300">
-<img src="https://github.com/shanidzeann/Screenshots/blob/master/FoodApp/food3.png" width="300">
+<img src="https://github.com/shanidzeann/Screenshots/blob/master/FoodApp/food1.png" width="300"><img src="https://github.com/shanidzeann/Screenshots/blob/master/FoodApp/food2.png" width="300"><img src="https://github.com/shanidzeann/Screenshots/blob/master/FoodApp/food3.png" width="300">
 
 
 <img src="https://github.com/shanidzeann/Screenshots/blob/master/FoodApp/menu.png" width="300">
