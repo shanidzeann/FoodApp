@@ -58,7 +58,7 @@ class OrderHistoryViewController: UIViewController {
     
     private func createFlowLayout() -> UICollectionViewFlowLayout {
         let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
-        layout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+        layout.sectionInset = UIEdgeInsets(top: 10, left: 0, bottom: 20, right: 0)
         layout.scrollDirection = .vertical
         return layout
     }

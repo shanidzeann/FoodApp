@@ -24,7 +24,7 @@ class SignUpViewController: UIViewController, SignUpViewProtocol {
     
     let nameTextField: UITextField = {
         let textField = UITextField()
-        textField.placeholder = "Login"
+        textField.placeholder = "Имя"
         textField.borderStyle = .roundedRect
         textField.returnKeyType = .next
         return textField
@@ -40,7 +40,7 @@ class SignUpViewController: UIViewController, SignUpViewProtocol {
     
     let phoneTextField: UITextField = {
         let textField = UITextField()
-        textField.placeholder = "Phone"
+        textField.placeholder = "Телефон"
         textField.borderStyle = .roundedRect
         textField.returnKeyType = .next
         return textField
@@ -48,7 +48,7 @@ class SignUpViewController: UIViewController, SignUpViewProtocol {
     
     let dateOfBirthTextField: UITextField = {
         let textField = UITextField()
-        textField.placeholder = "Date of birth"
+        textField.placeholder = "Дата рождения"
         textField.borderStyle = .roundedRect
         textField.returnKeyType = .next
         return textField
@@ -56,7 +56,7 @@ class SignUpViewController: UIViewController, SignUpViewProtocol {
     
     let passwordTextField: UITextField = {
         let textField = UITextField()
-        textField.placeholder = "Password"
+        textField.placeholder = "Пароль"
         textField.borderStyle = .roundedRect
         textField.isSecureTextEntry = true
         textField.returnKeyType = .done
@@ -78,7 +78,7 @@ class SignUpViewController: UIViewController, SignUpViewProtocol {
     private let signUpButton: UIButton = {
         let button = UIButton(configuration: .filled(), primaryAction: nil)
         button.configuration?.baseBackgroundColor = .systemGreen
-        button.setTitle("Sign Up", for: .normal)
+        button.setTitle("Зарегистрироваться", for: .normal)
         button.tintColor = .white
         return button
     }()

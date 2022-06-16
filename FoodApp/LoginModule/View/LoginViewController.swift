@@ -25,7 +25,7 @@ class LoginViewController: UIViewController {
     
     let emailTextField: UITextField = {
         let textField = UITextField()
-        textField.placeholder = "Login"
+        textField.placeholder = "Логин"
         textField.borderStyle = .roundedRect
         textField.returnKeyType = .next
         return textField
@@ -33,7 +33,7 @@ class LoginViewController: UIViewController {
     
     let passwordTextField: UITextField = {
         let textField = UITextField()
-        textField.placeholder = "Password"
+        textField.placeholder = "Пароль"
         textField.borderStyle = .roundedRect
         textField.isSecureTextEntry = true
         textField.returnKeyType = .done
@@ -43,20 +43,20 @@ class LoginViewController: UIViewController {
     private let logInButton: UIButton = {
         let button = UIButton(configuration: .filled(), primaryAction: nil)
         button.configuration?.baseBackgroundColor = .systemGreen
-        button.setTitle("Log In", for: .normal)
+        button.setTitle("Войти", for: .normal)
         button.tintColor = .white
         return button
     }()
     
     private let resetPasswordButton: UIButton = {
         let button = UIButton(configuration: .plain(), primaryAction: nil)
-        button.setTitle("Reset Password", for: .normal)
+        button.setTitle("Восстановить пароль", for: .normal)
         return button
     }()
     
     private let signUpButton: UIButton = {
         let button = UIButton(configuration: .plain(), primaryAction: nil)
-        button.setTitle("Sign Up", for: .normal)
+        button.setTitle("Регистрация", for: .normal)
         return button
     }()
     

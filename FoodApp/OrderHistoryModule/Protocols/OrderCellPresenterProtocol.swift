@@ -9,4 +9,5 @@ import Foundation
 
 protocol OrderCellPresenterProtocol {
     func configure(with order: Order)
+    func stringFrom(_ date: Date) -> String
 }

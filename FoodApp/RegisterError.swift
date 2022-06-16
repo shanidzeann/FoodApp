@@ -37,16 +37,16 @@ extension RegisterError: LocalizedError {
     public var errorDescription: String? {
         switch self {
         case .emptyFields:
-            return NSLocalizedString("Please fill in all fields.",
+            return NSLocalizedString("Пожалуйста, заполните все поля.",
                                      comment: "Empty Fields")
         case .invalidPassword:
             return NSLocalizedString(
-                "Please make sure your password is at least 8 characters, contains uppercase and lowercase letters and a number.",
+                "Пароль должен содержать не менее 8 символов, в том числе цифры, прописные и строчные буквы.",
                 comment: "Invalid Password"
             )
         case .unexpected(_):
             return NSLocalizedString(
-                "An unexpected error occurred.",
+                "Произошла непредвиденная ошибка.",
                 comment: "Unexpected Error"
             )
         }

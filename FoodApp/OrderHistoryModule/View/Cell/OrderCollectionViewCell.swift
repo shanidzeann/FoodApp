@@ -13,7 +13,7 @@ class OrderCollectionViewCell: UICollectionViewCell {
     
     // MARK: - Properties
     
-    private var presenter: OrderCellPresenterProtocol!
+    private(set) var presenter: OrderCellPresenterProtocol!
     
     // MARK: - UI
     
