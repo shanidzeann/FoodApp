@@ -17,14 +17,43 @@
 - MapKit, CoreLocation
 
 
-<img src="https://github.com/shanidzeann/Screenshots/blob/main/food1.png" width="300">
-![Image alt](https://github.com/shanidzeann/Screenshots/blob/main/food1.png)
-![Image alt](https://github.com/shanidzeann/Screenshots/blob/main/food11.png)
-![Image alt](https://github.com/shanidzeann/Screenshots/blob/main/food3.png)
-![Image alt](https://github.com/shanidzeann/Screenshots/blob/main/food4.png)
-![Image alt](https://github.com/shanidzeann/Screenshots/blob/main/food5.png)
-![Image alt](https://github.com/shanidzeann/Screenshots/blob/main/food6.png)
-![Image alt](https://github.com/shanidzeann/Screenshots/blob/main/food8.png)
-![Image alt](https://github.com/shanidzeann/Screenshots/blob/main/food9.png)
-![Image alt](https://github.com/shanidzeann/Screenshots/blob/main/food10.png)
+<img src="https://github.com/shanidzeann/Screenshots/blob/master/FoodApp/food1.png" width="300">
+<img src="https://github.com/shanidzeann/Screenshots/blob/master/FoodApp/food2.png" width="300">
+<img src="https://github.com/shanidzeann/Screenshots/blob/master/FoodApp/food3.png" width="300">
+
+
+<img src="https://github.com/shanidzeann/Screenshots/blob/master/FoodApp/menu.png" width="300">
+
+
+<img src="https://github.com/shanidzeann/Screenshots/blob/master/FoodApp/cart.png" width="300">
+<img src="https://github.com/shanidzeann/Screenshots/blob/master/FoodApp/cart2.png" width="300">
+
+
+<img src="https://github.com/shanidzeann/Screenshots/blob/master/FoodApp/auth.png" width="300">
+
+
+<img src="https://github.com/shanidzeann/Screenshots/blob/master/FoodApp/reg4.png" width="300">
+<img src="https://github.com/shanidzeann/Screenshots/blob/master/FoodApp/reg3.png" width="300">
+<img src="https://github.com/shanidzeann/Screenshots/blob/master/FoodApp/reg2.png" width="300">
+<img src="https://github.com/shanidzeann/Screenshots/blob/master/FoodApp/reg.png" width="300">
+
+
+<img src="https://github.com/shanidzeann/Screenshots/blob/master/FoodApp/profile.png" width="300">
+<img src="https://github.com/shanidzeann/Screenshots/blob/master/FoodApp/orders.png" width="300">
+
+
+<img src="https://github.com/shanidzeann/Screenshots/blob/master/FoodApp/delivery2.png" width="300">
+<img src="https://github.com/shanidzeann/Screenshots/blob/master/FoodApp/delivery1.png" width="300">
+
+
+<img src="https://github.com/shanidzeann/Screenshots/blob/master/FoodApp/order0.png" width="300">
+<img src="https://github.com/shanidzeann/Screenshots/blob/master/FoodApp/order1.png" width="300">
+<img src="https://github.com/shanidzeann/Screenshots/blob/master/FoodApp/order2.png" width="300">
+<img src="https://github.com/shanidzeann/Screenshots/blob/master/FoodApp/order3.png" width="300">
+
+
+<img src="https://github.com/shanidzeann/Screenshots/blob/master/FoodApp/users.png" width="300">
+<img src="https://github.com/shanidzeann/Screenshots/blob/master/FoodApp/orders1.png" width="300">
+<img src="https://github.com/shanidzeann/Screenshots/blob/master/FoodApp/orders2.png" width="300">
+
 
