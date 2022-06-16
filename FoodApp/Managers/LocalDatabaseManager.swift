@@ -118,7 +118,6 @@ class LocalDatabaseManager: LocalDatabaseManagerProtocol {
             let search = try db?.prepare("SELECT EXISTS(SELECT id FROM dishes WHERE id = (?))")
             for row in try search!.run(id) {
                 let id = row[0] as! Int64
-                print(id)
                 return Int(id) != 0
             }
         } catch {

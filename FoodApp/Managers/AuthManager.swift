@@ -21,8 +21,7 @@ class AuthManager: AuthManagerProtocol {
         Auth.auth().createUser(withEmail: user.email, password: user.password!) { [weak self] (result, error) in
             if error != nil {
                 completion(error?.localizedDescription)
-            }
-            else {
+            } else {
                 let data = self?.data(of: user, with: result!.user.uid) ?? [:]
                 self?.dbManager.createDocument(in: "users", documentPath: result!.user.uid, data: data) { error in
                     completion(error?.localizedDescription)

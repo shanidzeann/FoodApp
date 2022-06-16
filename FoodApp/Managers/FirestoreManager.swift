@@ -24,9 +24,7 @@ class FirestoreManager: FirestoreManagerProtocol {
             docRef = db.collection(collection).document(documentPath!)
         }
         docRef.setData(data) { (error) in
-            if error != nil {
-                completion(error!)
-            }
+            completion(error)
         }
     }
     
