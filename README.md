@@ -13,11 +13,11 @@
 - SnapKit
 - URLSession
 - DispatchGroup
-- API - spoonacular (не все нужные данные имеются, так что потом подберу другой)
+- API - spoonacular
 - MapKit, CoreLocation
 
 
-<img src="https://github.com/shanidzeann/Screenshots/blob/master/FoodApp/food1.png" width="225" height="487"><img src="https://github.com/shanidzeann/Screenshots/blob/master/FoodApp/food2.png" width="321" height="696"><img src="https://github.com/shanidzeann/Screenshots/blob/master/FoodApp/food3.png" width="321" height="696">
+<img src="https://github.com/shanidzeann/Screenshots/blob/master/FoodApp/food1.png" width="321" height="696"><img src="https://github.com/shanidzeann/Screenshots/blob/master/FoodApp/food2.png" width="321" height="696"><img src="https://github.com/shanidzeann/Screenshots/blob/master/FoodApp/food3.png" width="321" height="696">
 
 
 <img src="https://github.com/shanidzeann/Screenshots/blob/master/FoodApp/menu.png" width="321" height="696">
