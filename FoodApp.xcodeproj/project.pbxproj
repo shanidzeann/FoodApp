@@ -99,6 +99,7 @@
 		01A0483C28082390001CB6B6 /* CartPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A0483B28082390001CB6B6 /* CartPresenter.swift */; };
 		01A0483E2808240A001CB6B6 /* CartViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A0483D2808240A001CB6B6 /* CartViewProtocol.swift */; };
 		01A04840280854D7001CB6B6 /* CartItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A0483F280854D7001CB6B6 /* CartItem.swift */; };
+		01A287B72866ED6F002B1252 /* OrderItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A287B62866ED6F002B1252 /* OrderItem.swift */; };
 		01A306A127F0BD760098C791 /* BannerCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A306A027F0BD760098C791 /* BannerCollectionViewCell.swift */; };
 		01A306A627F10B530098C791 /* HomeViewController+UIGestureRecognizerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A306A527F10B530098C791 /* HomeViewController+UIGestureRecognizerDelegate.swift */; };
 		01A306A827F10BB10098C791 /* BannerViewController+UICollectionViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A306A727F10BB10098C791 /* BannerViewController+UICollectionViewDataSource.swift */; };
@@ -256,6 +257,7 @@
 		01A0483B28082390001CB6B6 /* CartPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartPresenter.swift; sourceTree = "<group>"; };
 		01A0483D2808240A001CB6B6 /* CartViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartViewProtocol.swift; sourceTree = "<group>"; };
 		01A0483F280854D7001CB6B6 /* CartItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartItem.swift; sourceTree = "<group>"; };
+		01A287B62866ED6F002B1252 /* OrderItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderItem.swift; sourceTree = "<group>"; };
 		01A306A027F0BD760098C791 /* BannerCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerCollectionViewCell.swift; sourceTree = "<group>"; };
 		01A306A527F10B530098C791 /* HomeViewController+UIGestureRecognizerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeViewController+UIGestureRecognizerDelegate.swift"; sourceTree = "<group>"; };
 		01A306A727F10BB10098C791 /* BannerViewController+UICollectionViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BannerViewController+UICollectionViewDataSource.swift"; sourceTree = "<group>"; };
@@ -729,6 +731,7 @@
 		01923D3D2857400300F7E4C8 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				01A287B62866ED6F002B1252 /* OrderItem.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1237,6 +1240,7 @@
 				01923D3428573D3E00F7E4C8 /* OrderHistoryViewController+UICollectionViewDelegateFlowLayout.swift in Sources */,
 				012D7B1C280D69AF0068C99D /* CartDelegate.swift in Sources */,
 				01A04840280854D7001CB6B6 /* CartItem.swift in Sources */,
+				01A287B72866ED6F002B1252 /* OrderItem.swift in Sources */,
 				014AE387280DEC46008D9A06 /* SideMenuPresenter.swift in Sources */,
 				017FC4F5280E936A006D6A9B /* SideMenuState.swift in Sources */,
 				016BB263284A370400B55020 /* RegisterError.swift in Sources */,

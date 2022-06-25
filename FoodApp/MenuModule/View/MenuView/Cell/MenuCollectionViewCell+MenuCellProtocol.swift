@@ -8,7 +8,6 @@
 import UIKit
 
 extension MenuCollectionViewCell: MenuCellProtocol {
-    #warning("item?")
     func setData(title: String, description: String, price: String, imageURL: URL?, subtitle: String?) {
         titleLabel.text = title
         desctiptionLabel.text = description

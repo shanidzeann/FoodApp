@@ -73,7 +73,7 @@ class CheckoutPresenter: CheckoutPresenterProtocol {
     
     private func confirm(_ order: Order) {
         var orderCopy = order
-        orderCopy.menuItems = localDatabaseManager.items
+        orderCopy.orderItems = localDatabaseManager.items
         orderCopy.totalPrice = localDatabaseManager.totalPrice
         firestoreManager.createOrder(orderCopy) { [weak self] message in
             self?.view?.closeOrder(with: message)

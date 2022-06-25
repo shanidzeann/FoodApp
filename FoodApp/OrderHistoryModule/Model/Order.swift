@@ -8,7 +8,7 @@
 import Foundation
 
 struct Order {
-    var menuItems: [CartItem]?
+    var orderItems: [OrderItem]?
     var userID: String?
     let address: String
     let apartment: String

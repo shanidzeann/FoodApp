@@ -71,9 +71,9 @@ class FirestoreManager: FirestoreManagerProtocol {
         let docRef = db.collection("orders").document()
         docRef.setData(orderData)
         
-        for item in order.menuItems! {
+        for item in order.orderItems! {
             let data = data(of: item)
-            docRef.collection("menuItems").addDocument(data: data) { error in
+            docRef.collection("orderItems").addDocument(data: data) { error in
                 let message = error != nil ? error!.localizedDescription : "Заказ оформлен успешно"
                 completion(message)
             }
@@ -93,8 +93,7 @@ class FirestoreManager: FirestoreManagerProtocol {
         ]
     }
     
-#warning("change name of menuItems in Order")
-    private func data(of item: CartItem) -> [String: Any] {
+    private func data(of item: OrderItem) -> [String: Any] {
         return [
             "id": item.id,
             "title": item.title,
@@ -120,7 +119,7 @@ class FirestoreManager: FirestoreManagerProtocol {
             for document in querySnapshot!.documents {
                 dispatchGroup.enter()
                 let data = document.data()
-                self.getMenuItems(documentID: document.documentID) { [weak self] result in
+                self.getOrderItems(documentID: document.documentID) { [weak self] result in
                     guard let self = self else { return }
                     switch result {
                     case .success(let items):
@@ -139,8 +138,8 @@ class FirestoreManager: FirestoreManagerProtocol {
         }
     }
     
-    private func order(from data: [String: Any], with items: [CartItem]) -> Order {
-        return Order(menuItems: items,
+    private func order(from data: [String: Any], with items: [OrderItem]) -> Order {
+        return Order(orderItems: items,
                      userID: data["userID"] as? String,
                      address: data["address"] as! String,
                      apartment: data["apartment"] as! String,
@@ -151,9 +150,9 @@ class FirestoreManager: FirestoreManagerProtocol {
                      userPhone: data["userPhone"] as! String)
     }
     
-    func getMenuItems(documentID: String, completion: @escaping (Result<[CartItem], Error>) -> Void) {
-        var menuItems = [CartItem]()
-        db.collection("orders").document(documentID).collection("menuItems").getDocuments { [weak self] querySnapshot, error in
+    func getOrderItems(documentID: String, completion: @escaping (Result<[OrderItem], Error>) -> Void) {
+        var orderItems = [OrderItem]()
+        db.collection("orders").document(documentID).collection("orderItems").getDocuments { [weak self] querySnapshot, error in
             guard error == nil else {
                 print("Error getting documents: \(error!)")
                 completion(.failure(error!))
@@ -162,22 +161,22 @@ class FirestoreManager: FirestoreManagerProtocol {
             
             for document in querySnapshot!.documents {
                 let data = document.data()
-                guard let item = self?.menuItem(from: data) else { return }
-                menuItems.append(item)
+                guard let item = self?.orderItem(from: data) else { return }
+                orderItems.append(item)
             }
             
-            completion(.success(menuItems))
+            completion(.success(orderItems))
         }
     }
     
-    private func menuItem(from data: [String: Any]) -> CartItem? {
+    private func orderItem(from data: [String: Any]) -> OrderItem? {
         guard let id = data["id"] as? Int,
               let title = data["title"] as? String,
               let description = data["description"] as? String,
               let price = data["price"] as? Int,
               let imageUrl = data["imageUrl"] as? String,
               let count = data["count"] as? Int else { return nil }
-        return CartItem(id: id,
+        return OrderItem(id: id,
                         title: title,
                         description: description,
                         price: price,

@@ -217,7 +217,7 @@ class CheckoutViewController: UIViewController {
         let address = addressTextField.text!
         let apartment = apartmentTextField.text!
         let floor = floorTextField.text!
-        let order = Order(menuItems: nil, userID: nil, address: address, apartment: apartment, floor: floor, date: nil, totalPrice: nil, userName: name, userPhone: phone)
+        let order = Order(orderItems: nil, userID: nil, address: address, apartment: apartment, floor: floor, date: nil, totalPrice: nil, userName: name, userPhone: phone)
         presenter.checkout(order)
     }
 
