@@ -59,9 +59,20 @@ final class HomeViewController: UIViewController {
     // MARK: - Observers
     
     private func addObservers() {
-        NotificationCenter.default.addObserver(self, selector: #selector(enablePanGestureRecognizer), name: NSNotification.Name("enableHomePanGestureRecognizer"), object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(animateTransition), name: NSNotification.Name("animateTransitionIfNeeded"), object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(animateTransitionBeforeSideMenu), name: NSNotification.Name("animateTransitionBeforeSideMenu"), object: nil)
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(enablePanGestureRecognizer),
+                                               name: NSNotification.Name("enableHomePanGestureRecognizer"),
+                                               object: nil)
+        
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(animateTransition),
+                                               name: NSNotification.Name("animateTransitionIfNeeded"),
+                                               object: nil)
+        
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(animateTransitionBeforeSideMenu),
+                                               name: NSNotification.Name("animateTransitionBeforeSideMenu"),
+                                               object: nil)
     }
     
     @objc func enablePanGestureRecognizer() {
@@ -95,7 +106,7 @@ final class HomeViewController: UIViewController {
         let presenter = BannerPresenter()
         bannerViewController.presenter = presenter
         
-        add(bannerViewController)
+        add(asChildViewController: bannerViewController)
     }
     
     private func createMenu() {
@@ -105,7 +116,7 @@ final class HomeViewController: UIViewController {
         let presenter = MenuPresenter(networkManager: networkManager)
         menuViewController.presenter = presenter
         
-        add(menuViewController)
+        add(asChildViewController: menuViewController)
     }
     
     private func createVisualEffectView() {

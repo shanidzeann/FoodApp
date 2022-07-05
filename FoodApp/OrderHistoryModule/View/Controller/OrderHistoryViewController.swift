@@ -19,7 +19,7 @@ final class OrderHistoryViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Мои заказы"
-        view.backgroundColor = .secondarySystemBackground
+        view.backgroundColor = .systemBackground
         createCollectionView()
         addSubviews()
         setupConstraints()

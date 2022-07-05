@@ -10,7 +10,7 @@ import UIKit
 extension ContainerViewController: SideMenuViewControllerDelegate {
     func didSelect(menuItem: MenuOptions) {
         toggleMenu()
-        checkChildren()
+        removeUnnecessaryChildIfExists()
         showSelected(menuItem)
     }
     
@@ -23,7 +23,7 @@ extension ContainerViewController: SideMenuViewControllerDelegate {
         case .profile:
             changeNavControllerTitle("")
             hideCartButton(true)
-            checkUser()
+            showProfileOrLogin()
         case .delivery:
             hideCartButton(true)
             changeNavControllerTitle("Доставка")

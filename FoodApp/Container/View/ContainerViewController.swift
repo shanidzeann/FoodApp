@@ -15,7 +15,6 @@ final class ContainerViewController: UIViewController {
     var hasSetFrame = false
     var frame: CGRect!
     var safeNavBarFrame: CGRect!
-    var shadowView: UIView?
     var sideMenuState: SideMenuState = .closed
     
     let menuVC = SideMenuViewController()
@@ -30,7 +29,6 @@ final class ContainerViewController: UIViewController {
         
         addChildren()
         addGestureRecognizers()
-        
         addObservers()
     }
     
@@ -43,6 +41,26 @@ final class ContainerViewController: UIViewController {
     
     // MARK: - Private
     
+    private func setFrames() {
+        hasSetFrame = true
+        frame = CGRect(x: 0,
+                       y: 0,
+                       width: view.frame.size.width,
+                       height: view.frame.size.height)
+        menuVC.view.frame = CGRect(x: -frame.width * 0.7,
+                                   y: frame.minY,
+                                   width: frame.width * 0.7,
+                                   height: frame.height)
+        
+        let navBarFrame = navController?.navigationBar.frame
+        safeNavBarFrame = CGRect(x: 0,
+                                 y: 0,
+                                 width: navBarFrame!.width,
+                                 height: navBarFrame!.height + view.safeAreaInsets.top)
+    }
+    
+    // MARK: - VC Children
+    
     private func addChildren() {
         addMenuVC()
         addHomeVC()
@@ -52,15 +70,17 @@ final class ContainerViewController: UIViewController {
         let presenter = SideMenuPresenter()
         menuVC.presenter = presenter
         menuVC.delegate = self
-        add(menuVC)
+        add(asChildViewController: menuVC)
     }
     
     private func addHomeVC() {
         homeVC.delegate = self
         let navController = UINavigationController(rootViewController: homeVC)
-        add(navController)
+        add(asChildViewController: navController)
         self.navController = navController
     }
+    
+    // MARK: - Gesture Recognizers
     
     private func addGestureRecognizers() {
         let tap = UITapGestureRecognizer(target: self, action: #selector(handleTap(_:)))
@@ -73,10 +93,23 @@ final class ContainerViewController: UIViewController {
         toggleMenu()
     }
     
+    // MARK: - Observers
+    
     private func addObservers() {
-        NotificationCenter.default.addObserver(self, selector: #selector(showProfile), name: NSNotification.Name("showProfile"), object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(signOut), name: NSNotification.Name("signOut"), object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(showOrders), name: NSNotification.Name("showOrders"), object: nil)
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(showProfile),
+                                               name: NSNotification.Name("showProfile"),
+                                               object: nil)
+        
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(signOut),
+                                               name: NSNotification.Name("signOut"),
+                                               object: nil)
+        
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(showOrders),
+                                               name: NSNotification.Name("showOrders"),
+                                               object: nil)
     }
     
     @objc private func showProfile() {
@@ -91,42 +124,29 @@ final class ContainerViewController: UIViewController {
         navController?.pushViewController(orderHistoryVC(), animated: true)
     }
     
-    private func setFrames() {
-        hasSetFrame = true
-        frame = CGRect(x: 0,
-                       y: 0,
-                       width: view.frame.size.width,
-                       height: view.frame.size.height)
-        let navBarFrame = navController?.navigationBar.frame
-        safeNavBarFrame = CGRect(x: 0,
-                                 y: 0,
-                                 width: navBarFrame!.width,
-                                 height: navBarFrame!.height + view.safeAreaInsets.top)
-        menuVC.view.frame = CGRect(x: -frame.width * 0.7,
-                                   y: frame.minY,
-                                   width: frame.width * 0.7,
-                                   height: frame.height)
-    }
-    
     // MARK: - Assembly
     
     func profileVC() -> ProfileViewController {
         let profileVC = ProfileViewController()
-        let presenter = ProfilePresenter(view: profileVC, databaseManager: FirestoreManager())
+        let firestoreManager = FirestoreManager()
+        let presenter = ProfilePresenter(view: profileVC, databaseManager: firestoreManager)
         profileVC.inject(presenter)
         return profileVC
     }
     
     func orderHistoryVC() -> OrderHistoryViewController {
         let orderHistoryVC = OrderHistoryViewController()
-        let presenter = OrderHistoryPresenter(view: orderHistoryVC, firestoreManager: FirestoreManager())
+        let firestoreManager = FirestoreManager()
+        let presenter = OrderHistoryPresenter(view: orderHistoryVC, firestoreManager: firestoreManager)
         orderHistoryVC.inject(presenter)
         return orderHistoryVC
     }
     
     func loginVC() -> LoginViewController {
         let loginVC = LoginViewController()
-        let presenter = LoginPresenter(view: loginVC, authManager: AuthManager(databaseManager: FirestoreManager()))
+        let firestoreManager = FirestoreManager()
+        let authManager = AuthManager(databaseManager: firestoreManager)
+        let presenter = LoginPresenter(view: loginVC, authManager: authManager)
         loginVC.inject(presenter)
         return loginVC
     }
@@ -137,28 +157,21 @@ final class ContainerViewController: UIViewController {
         let presenter = DeliveryPresenter(view: deliveryVC, mapsManager: mapsManager)
         deliveryVC.inject(presenter: presenter)
         
-        createShadowView()
-        if let shadowView = shadowView {
-            deliveryVC.view.addSubview(shadowView)
-        }
+        let shadowView = UIView(frame: safeNavBarFrame)
+        shadowView.dropShadow(shadowColor: UIColor.lightGray,
+                              backgroundColor: .secondarySystemBackground,
+                              opacity: 0.8,
+                              offSet: CGSize(width: 0, height: 2.0),
+                              radius: 2)
+        deliveryVC.view.addSubview(shadowView)
+        
         return deliveryVC
-    }
-    
-    private func createShadowView() {
-        shadowView = UIView(frame: safeNavBarFrame)
-        guard let shadowView = shadowView else { return }
-        shadowView.backgroundColor = .secondarySystemBackground
-        shadowView.layer.masksToBounds = false
-        shadowView.layer.shadowColor = UIColor.lightGray.cgColor
-        shadowView.layer.shadowOpacity = 0.8
-        shadowView.layer.shadowOffset = CGSize(width: 0, height: 2.0)
-        shadowView.layer.shadowRadius = 2
     }
     
     // MARK: - Routing
     
     func show(_ vc: UIViewController, style: VCPresentationStyle) {
-        homeVC.add(vc)
+        homeVC.add(asChildViewController: vc)
         let frame = homeVC.view.frame
         switch style {
         case .replace:
@@ -171,23 +184,23 @@ final class ContainerViewController: UIViewController {
             UIView.animate(withDuration: 0.3, delay: 0, options: .curveEaseInOut) {
                 vc.view.frame = self.homeVC.view.frame
             } completion: { _ in
-                self.checkChildren()
+                self.removeUnnecessaryChildIfExists()
             }
         }
     }
     
-    func resetToHome() {
-        navController?.navigationBar.barTintColor = .systemBackground
-    }
-    
-    func checkChildren() {
-        if homeVC.children.count > 2 {
+    func removeUnnecessaryChildIfExists() {
+        if !isMenuLastOpened() {
             homeVC.view.subviews[2].removeFromSuperview()
             homeVC.children[2].removeFromParent()
         }
     }
     
-    func checkUser() {
+    private func isMenuLastOpened() -> Bool {
+        homeVC.children.count == 2
+    }
+    
+    func showProfileOrLogin() {
         if isUserAuthenticated() {
             show(profileVC(), style: .replace)
         } else {
@@ -197,6 +210,10 @@ final class ContainerViewController: UIViewController {
     
     private func isUserAuthenticated() -> Bool {
         Auth.auth().currentUser != nil
+    }
+    
+    func resetToHome() {
+        navController?.navigationBar.barTintColor = .systemBackground
     }
     
     // MARK: - NavBar Configuration
