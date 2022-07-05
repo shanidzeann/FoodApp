@@ -7,7 +7,7 @@
 
 import Foundation
 
-class CartCellPresenter: CartCellPresenterProtocol {
+final class CartCellPresenter: CartCellPresenterProtocol {
     
     weak var view: CartCellProtocol?
     var cartItem: CartItem?

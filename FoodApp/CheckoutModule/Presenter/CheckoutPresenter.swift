@@ -8,7 +8,7 @@
 import Foundation
 import CoreLocation
 
-class CheckoutPresenter: CheckoutPresenterProtocol {
+final class CheckoutPresenter: CheckoutPresenterProtocol {
     
     // MARK: - Properties
     

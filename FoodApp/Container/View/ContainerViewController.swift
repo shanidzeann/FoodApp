@@ -8,7 +8,7 @@
 import UIKit
 import FirebaseAuth
 
-class ContainerViewController: UIViewController {
+final class ContainerViewController: UIViewController {
     
     // MARK: -  Properties
     
@@ -158,16 +158,19 @@ class ContainerViewController: UIViewController {
     // MARK: - Routing
     
     func show(_ vc: UIViewController, style: VCPresentationStyle) {
+        homeVC.add(vc)
+        let frame = homeVC.view.frame
         switch style {
         case .replace:
-            homeVC.add(vc)
             vc.view.frame = homeVC.view.frame
         case .slide:
-            homeVC.add(vc)
-            vc.view.frame = CGRect(x: homeVC.view.frame.maxX, y: homeVC.view.frame.minY, width: homeVC.view.frame.width, height: homeVC.view.frame.height)
+            vc.view.frame = CGRect(x: frame.maxX,
+                                   y: frame.minY,
+                                   width: frame.width,
+                                   height: frame.height)
             UIView.animate(withDuration: 0.3, delay: 0, options: .curveEaseInOut) {
                 vc.view.frame = self.homeVC.view.frame
-            } completion: { done in
+            } completion: { _ in
                 self.checkChildren()
             }
         }
@@ -185,11 +188,15 @@ class ContainerViewController: UIViewController {
     }
     
     func checkUser() {
-        if Auth.auth().currentUser == nil {
-            show(loginVC(), style: .replace)
-        } else {
+        if isUserAuthenticated() {
             show(profileVC(), style: .replace)
+        } else {
+            show(loginVC(), style: .replace)
         }
+    }
+    
+    private func isUserAuthenticated() -> Bool {
+        Auth.auth().currentUser != nil
     }
     
     // MARK: - NavBar Configuration

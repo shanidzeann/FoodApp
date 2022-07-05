@@ -7,7 +7,7 @@
 
 import UIKit
 
-class OrderHistoryViewController: UIViewController {
+final class OrderHistoryViewController: UIViewController {
     
     // MARK: - Properties
     

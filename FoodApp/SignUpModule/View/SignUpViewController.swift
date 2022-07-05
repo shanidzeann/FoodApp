@@ -7,7 +7,7 @@
 
 import UIKit
 
-class SignUpViewController: UIViewController, SignUpViewProtocol {
+final class SignUpViewController: UIViewController, SignUpViewProtocol {
     
     // MARK: - Properties
     

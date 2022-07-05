@@ -8,7 +8,7 @@
 import UIKit
 import SnapKit
 
-class CartViewController: UIViewController {
+final class CartViewController: UIViewController {
     
     // MARK: - Properties
     
@@ -128,10 +128,4 @@ class CartViewController: UIViewController {
         return checkoutVC
     }
     
-    private func show(_ message: String) {
-        let alert = UIAlertController(title: message, message: nil, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "Ок", style: .cancel))
-        present(alert, animated: true)
-    }
-
 }

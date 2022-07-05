@@ -9,7 +9,7 @@ import UIKit
 import Kingfisher
 import SnapKit
 
-class BannerCollectionViewCell: UICollectionViewCell {
+final class BannerCollectionViewCell: UICollectionViewCell {
     
     // MARK: - UI
     

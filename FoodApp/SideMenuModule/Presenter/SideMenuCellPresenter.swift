@@ -7,7 +7,7 @@
 
 import Foundation
 
-class SideMenuCellPresenter: SideMenuCellPresenterProtocol {
+final class SideMenuCellPresenter: SideMenuCellPresenterProtocol {
     
     func cellText(at indexPath: IndexPath) -> String {
         return MenuOptions.allCases[indexPath.row].rawValue

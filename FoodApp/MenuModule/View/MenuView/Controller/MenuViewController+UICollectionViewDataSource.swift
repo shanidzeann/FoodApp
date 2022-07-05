@@ -68,7 +68,7 @@ extension MenuViewController: UICollectionViewDataSource {
         let cellPresenter = MenuCellPresenter(view: cell, databaseManager: dbManager)
         cell.inject(presenter: cellPresenter)
         cell.configure(with: item)
-        cell.callback = {
+        cell.animationCallback = {
             self.menuCollectionView?.reloadData()
         }
         

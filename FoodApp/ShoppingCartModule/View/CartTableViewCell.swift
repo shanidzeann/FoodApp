@@ -8,7 +8,7 @@
 import UIKit
 import Kingfisher
 
-class CartTableViewCell: UITableViewCell {
+final class CartTableViewCell: UITableViewCell {
 
     // MARK: - Properties
     

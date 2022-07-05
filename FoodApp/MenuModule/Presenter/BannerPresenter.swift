@@ -7,7 +7,7 @@
 
 import Foundation
 
-class BannerPresenter: BannerPresenterProtocol {
+final class BannerPresenter: BannerPresenterProtocol {
 
     let images = ["image1.png", "image2.png"]
     

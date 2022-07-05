@@ -7,7 +7,7 @@
 
 import UIKit
 
-class DeliveryTermsViewController: UIViewController {
+final class DeliveryTermsViewController: UIViewController {
     
     // MARK: - Properties
     

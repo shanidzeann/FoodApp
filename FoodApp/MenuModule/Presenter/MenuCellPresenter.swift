@@ -7,7 +7,7 @@
 
 import Foundation
 
-class MenuCellPresenter: MenuCellPresenterProtocol {
+final class MenuCellPresenter: MenuCellPresenterProtocol {
     
     // MARK: - Properties
     

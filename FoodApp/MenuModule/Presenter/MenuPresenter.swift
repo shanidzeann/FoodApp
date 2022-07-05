@@ -8,7 +8,7 @@
 import Foundation
 
 
-class MenuPresenter: MenuPresenterProtocol {
+final class MenuPresenter: MenuPresenterProtocol {
     
     // MARK: - Properties
     
@@ -63,7 +63,7 @@ class MenuPresenter: MenuPresenterProtocol {
     }
     
     private func getSectionTitles() {
-        let categories = categoriesData()
+        let categories = getCategoriesData()
         for category in categories {
             if let titleRange = category.url.range(of: #"=[a-z]*&"#,
                                              options: .regularExpression) {
@@ -73,7 +73,7 @@ class MenuPresenter: MenuPresenterProtocol {
         }
     }
     
-    private func categoriesData() -> [(url: String, itemsCount: Int)] {
+    private func getCategoriesData() -> [(url: String, itemsCount: Int)] {
         var categoriesData = [(url: String, itemsCount: Int)]()
         guard let menu = menu else { return [] }
         for category in menu {

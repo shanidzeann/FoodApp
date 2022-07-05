@@ -7,7 +7,7 @@
 
 import Foundation
 
-class JSONParser: JSONParserProtocol {
+final class JSONParser: JSONParserProtocol {
     func parseJSON<T>(data: Data, completion: @escaping (Result<T, Error>) -> Void) where T : Decodable {
         do {
             let result = try JSONDecoder().decode(T.self, from: data)

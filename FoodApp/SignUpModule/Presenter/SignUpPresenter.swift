@@ -7,7 +7,7 @@
 
 import Foundation
 
-class SignUpPresenter: SignUpPresenterProtocol {
+final class SignUpPresenter: SignUpPresenterProtocol {
     
     // MARK: - Properties
     

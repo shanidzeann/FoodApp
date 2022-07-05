@@ -7,7 +7,7 @@
 
 import UIKit
 
-class MenuHeaderSupplementaryView: UICollectionReusableView {
+final class MenuHeaderSupplementaryView: UICollectionReusableView {
     
     // MARK: - UI
     
@@ -15,7 +15,6 @@ class MenuHeaderSupplementaryView: UICollectionReusableView {
         let label = UILabel()
         label.font = .boldSystemFont(ofSize: 17)
         label.textColor = .secondaryLabel
-        label.text = "Section"
         return label
     }()
     

@@ -7,7 +7,7 @@
 
 import Foundation
 
-class OrderCellPresenter: OrderCellPresenterProtocol {
+final class OrderCellPresenter: OrderCellPresenterProtocol {
     
     weak var view: OrderCellProtocol?
     

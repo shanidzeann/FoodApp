@@ -7,7 +7,7 @@
 
 import UIKit
 
-class DeliveryAlert {
+final class DeliveryAlert {
     
     private let backgroundView: UIView = {
         let backgroundView = UIView()

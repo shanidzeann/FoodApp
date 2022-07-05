@@ -41,14 +41,14 @@ extension ContainerViewController: HomeViewControllerDelegate {
     
     private func animateMenu(menuX: Double, vcX: Double, vcY: Double, vcHeight: Double) {
         menuVC.view.frame.origin.x = frame.width * menuX
-        navController?.view.frame = CGRect(x: frame.size.width * vcX,
-                           y: frame.size.height * vcY,
-                           width: frame.size.width,
-                           height: frame.size.height * vcHeight)
-        shadowView?.frame = CGRect(x: safeNavBarFrame.size.width * vcX,
-                                     y: safeNavBarFrame.size.height * vcY,
-                                     width: safeNavBarFrame.size.width,
-                                     height: safeNavBarFrame.size.height * vcHeight)
+        navController?.view.frame = CGRect(x: frame.width * vcX,
+                           y: frame.height * vcY,
+                           width: frame.width,
+                           height: frame.height * vcHeight)
+        shadowView?.frame = CGRect(x: safeNavBarFrame.width * vcX,
+                                     y: safeNavBarFrame.height * vcY,
+                                     width: safeNavBarFrame.width,
+                                     height: safeNavBarFrame.height * vcHeight)
     }
     
     private func menuAnimationCompletion(isOpened: Bool) {

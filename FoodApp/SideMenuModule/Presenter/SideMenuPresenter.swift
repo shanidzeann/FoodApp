@@ -7,7 +7,7 @@
 
 import Foundation
 
-class SideMenuPresenter: SideMenuPresenterProtocol {
+final class SideMenuPresenter: SideMenuPresenterProtocol {
     
     func numberOfRowsInSection() -> Int {
         return MenuOptions.allCases.count

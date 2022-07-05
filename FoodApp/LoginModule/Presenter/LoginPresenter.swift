@@ -7,7 +7,7 @@
 
 import Foundation
 
-class LoginPresenter: LoginPresenterProtocol {
+final class LoginPresenter: LoginPresenterProtocol {
     
     weak var view: LoginViewProtocol?
     private var authManager: AuthManagerProtocol!

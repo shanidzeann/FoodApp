@@ -22,11 +22,4 @@ extension CheckoutViewController: CheckoutViewProtocol {
         }
     }
     
-    func show(_ message: String, completion: (() -> Void)? = nil) {
-        let alert = UIAlertController(title: message, message: nil, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "Ок", style: .cancel, handler: { _ in
-            completion?()
-        }))
-        present(alert, animated: true)
-    }
 }

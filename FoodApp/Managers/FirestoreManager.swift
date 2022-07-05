@@ -9,7 +9,7 @@ import Foundation
 import FirebaseFirestore
 import FirebaseAuth
 
-class FirestoreManager: FirestoreManagerProtocol {
+final class FirestoreManager: FirestoreManagerProtocol {
     
     private let db = Firestore.firestore()
     

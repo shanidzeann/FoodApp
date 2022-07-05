@@ -7,7 +7,7 @@
 
 import Foundation
 
-class CardPresenter: CardPresenterProtocol {
+final class CardPresenter: CardPresenterProtocol {
     
     var sections = [(title: String, itemsCount: Int)]()
     

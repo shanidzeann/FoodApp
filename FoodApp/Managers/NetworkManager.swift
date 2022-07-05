@@ -7,7 +7,7 @@
 
 import Foundation
 
-class NetworkManager: NetworkManagerProtocol {
+final class NetworkManager: NetworkManagerProtocol {
     
     private let jsonParser: JSONParserProtocol!
     

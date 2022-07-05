@@ -8,7 +8,7 @@
 import Foundation
 import MapKit
 
-class MapsManager: MapsManagerProtocol {
+final class MapsManager: MapsManagerProtocol {
     func loadInitialData() -> [Restaurant]? {
         guard let fileName = Bundle.main.url(forResource: "restaurants", withExtension: "geojson"),
               let restaurantsData = try? Data(contentsOf: fileName) else { return nil }

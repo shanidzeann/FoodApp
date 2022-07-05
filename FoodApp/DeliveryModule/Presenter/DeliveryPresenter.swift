@@ -7,7 +7,7 @@
 
 import Foundation
 
-class DeliveryPresenter: DeliveryPresenterProtocol {
+final class DeliveryPresenter: DeliveryPresenterProtocol {
     
     weak var view: DeliveryViewProtocol?
     var mapsManager: MapsManagerProtocol!

@@ -9,7 +9,7 @@ import UIKit
 import SnapKit
 import Kingfisher
 
-class OrderCollectionViewCell: UICollectionViewCell {
+final class OrderCollectionViewCell: UICollectionViewCell {
     
     // MARK: - Properties
     
@@ -97,20 +97,21 @@ class OrderCollectionViewCell: UICollectionViewCell {
     }
     
     private func setupConstraints() {
+        let inset = 10.0
         dateLabel.snp.makeConstraints { make in
-            make.left.top.equalToSuperview().inset(10)
+            make.left.top.equalToSuperview().inset(inset)
             make.width.equalToSuperview().multipliedBy(0.7)
         }
         
         addressLabel.snp.makeConstraints { make in
-            make.top.equalTo(dateLabel.snp.bottom).offset(10)
-            make.left.right.equalToSuperview().inset(10)
+            make.top.equalTo(dateLabel.snp.bottom).offset(inset)
+            make.left.right.equalToSuperview().inset(inset)
         }
         
         priceLabel.snp.makeConstraints { make in
             make.top.equalTo(dateLabel)
-            make.left.greaterThanOrEqualTo(dateLabel.snp.right).inset(10)
-            make.right.equalToSuperview().inset(10)
+            make.left.greaterThanOrEqualTo(dateLabel.snp.right).inset(inset)
+            make.right.equalToSuperview().inset(inset)
         }
     }
 

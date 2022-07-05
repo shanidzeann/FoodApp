@@ -9,7 +9,7 @@ import Foundation
 import FirebaseFirestore
 import FirebaseAuth
 
-class AuthManager: AuthManagerProtocol {
+final class AuthManager: AuthManagerProtocol {
     
     private let dbManager: FirestoreManagerProtocol
     

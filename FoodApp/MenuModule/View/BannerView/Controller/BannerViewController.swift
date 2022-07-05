@@ -7,7 +7,7 @@
 
 import UIKit
 
-class BannerViewController: UIViewController {
+final class BannerViewController: UIViewController {
     
     // MARK: - Properties
     

@@ -7,7 +7,7 @@
 
 import Foundation
 
-class ProfilePresenter: ProfilePresenterProtocol {
+final class ProfilePresenter: ProfilePresenterProtocol {
     
     weak var view: ProfileViewProtocol?
     private var databaseManager: FirestoreManagerProtocol!

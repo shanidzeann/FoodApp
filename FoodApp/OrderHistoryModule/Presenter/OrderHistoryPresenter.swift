@@ -7,7 +7,7 @@
 
 import Foundation
 
-class OrderHistoryPresenter: OrderHistoryPresenterProtocol {
+final class OrderHistoryPresenter: OrderHistoryPresenterProtocol {
     
     weak var view: OrderHistoryViewProtocol?
     private var firestoreManager: FirestoreManagerProtocol!

@@ -9,7 +9,7 @@ import UIKit
 import MapKit
 import CoreLocation
 
-class DeliveryViewController: UIViewController {
+final class DeliveryViewController: UIViewController {
     
     // MARK: - Properties
     

@@ -8,7 +8,7 @@
 import Foundation
 import MapKit
 
-class Restaurant: NSObject, MKAnnotation {
+final class Restaurant: NSObject, MKAnnotation {
     let title: String?
     let locationName: String?
     let discipline: String?

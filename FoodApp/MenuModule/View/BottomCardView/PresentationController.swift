@@ -34,16 +34,16 @@ class PresentationController: UIPresentationController {
     override func presentationTransitionWillBegin() {
         blurEffectView.alpha = 0
         containerView?.addSubview(blurEffectView)
-        presentedViewController.transitionCoordinator?.animate { _ in
-            self.blurEffectView.alpha = 0.3
+        presentedViewController.transitionCoordinator?.animate { [weak self] _ in
+            self?.blurEffectView.alpha = 0.3
         }
     }
     
     override func dismissalTransitionWillBegin() {
-        self.presentedViewController.transitionCoordinator?.animate(alongsideTransition: { _ in
-            self.blurEffectView.alpha = 0
-        }, completion: { _ in
-            self.blurEffectView.removeFromSuperview()
+        self.presentedViewController.transitionCoordinator?.animate(alongsideTransition: { [weak self] _ in
+            self?.blurEffectView.alpha = 0
+        }, completion: { [weak self] _ in
+            self?.blurEffectView.removeFromSuperview()
         })
     }
     
@@ -59,6 +59,6 @@ class PresentationController: UIPresentationController {
     }
     
     @objc func dismissController() {
-        self.presentedViewController.dismiss(animated: true, completion: nil)
+        presentedViewController.dismiss(animated: true, completion: nil)
     }
 }

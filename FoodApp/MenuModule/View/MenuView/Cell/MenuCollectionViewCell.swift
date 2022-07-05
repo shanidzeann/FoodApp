@@ -9,13 +9,13 @@ import UIKit
 import SnapKit
 import Kingfisher
 
-class MenuCollectionViewCell: UICollectionViewCell {
+final class MenuCollectionViewCell: UICollectionViewCell {
     
     // MARK: - Properties
     
     private var presenter: MenuCellPresenterProtocol!
     var delegate: MenuViewController?
-    var callback: (() -> Void)?
+    var animationCallback: (() -> Void)?
     
     // MARK: - UI
     
@@ -161,7 +161,7 @@ class MenuCollectionViewCell: UICollectionViewCell {
             UIView.animate(withDuration: 0.15, delay: 0, usingSpringWithDamping: 0.4, initialSpringVelocity: 2, options: .curveEaseIn, animations: {
                 viewToAnimate.transform = CGAffineTransform(scaleX: 1, y: 1)
             }) { _ in
-                self.callback?()
+                self.animationCallback?()
             }
         }
     }

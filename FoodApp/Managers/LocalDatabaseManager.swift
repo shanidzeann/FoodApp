@@ -8,7 +8,7 @@
 import Foundation
 import SQLite
 
-class LocalDatabaseManager: LocalDatabaseManagerProtocol {
+final class LocalDatabaseManager: LocalDatabaseManagerProtocol {
     
     // MARK: - Properties
     

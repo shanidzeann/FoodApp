@@ -7,7 +7,7 @@
 
 import UIKit
 
-class HomeViewController: UIViewController {
+final class HomeViewController: UIViewController {
     
     // MARK: - Properties
     
@@ -31,7 +31,7 @@ class HomeViewController: UIViewController {
         image: UIImage(systemName: "cart"),
         style: .plain,
         target: self,
-        action: #selector(showShoppingCart)
+        action: #selector(didTapShoppingCart)
     )
     
     // MARK: - VC Lifecycle
@@ -46,8 +46,14 @@ class HomeViewController: UIViewController {
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        bannerViewController.view.frame = CGRect(x: 0, y: view.safeAreaInsets.top, width: view.bounds.width, height: view.bounds.height/5)
-        menuViewController.view.frame = CGRect(x: 0, y: view.bounds.height/5 + view.safeAreaInsets.top, width: view.bounds.width, height: view.bounds.height - view.safeAreaInsets.top)
+        bannerViewController.view.frame = CGRect(x: 0,
+                                                 y: view.safeAreaInsets.top,
+                                                 width: view.bounds.width,
+                                                 height: view.bounds.height/5)
+        menuViewController.view.frame = CGRect(x: 0,
+                                               y: view.bounds.height/5 + view.safeAreaInsets.top,
+                                               width: view.bounds.width,
+                                               height: view.bounds.height - view.safeAreaInsets.top)
     }
     
     // MARK: - Observers
@@ -128,7 +134,7 @@ class HomeViewController: UIViewController {
         delegate?.showSideMenu()
     }
     
-    @objc private func showShoppingCart() {
+    @objc private func didTapShoppingCart() {
         let cartVC = CartViewController()
         let databaseManager = LocalDatabaseManager.shared
         let cartPresenter = CartPresenter(view: cartVC, localDatabaseManager: databaseManager, firestoreManager: FirestoreManager())

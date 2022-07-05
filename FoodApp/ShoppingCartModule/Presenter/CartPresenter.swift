@@ -7,7 +7,7 @@
 
 import Foundation
 
-class CartPresenter: CartPresenterProtocol {
+final class CartPresenter: CartPresenterProtocol {
     
     // MARK: - Properties
     

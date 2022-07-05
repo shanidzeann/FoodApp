@@ -7,7 +7,7 @@
 
 import UIKit
 
-class DeliveryTermsPresentationController: PresentationController {
+final class DeliveryTermsPresentationController: PresentationController {
     override var frameOfPresentedViewInContainerView: CGRect {
         guard let frame = containerView?.frame else { return CGRect() }
         return CGRect(origin: CGPoint(x: 0, y: frame.height * 0.7),
