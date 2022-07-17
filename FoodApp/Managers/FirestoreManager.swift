@@ -30,6 +30,7 @@ final class FirestoreManager: FirestoreManagerProtocol {
     
     // MARK: - User Data
     
+    #warning("auth manager")
     func currentUser() -> User? {
         return Auth.auth().currentUser
     }

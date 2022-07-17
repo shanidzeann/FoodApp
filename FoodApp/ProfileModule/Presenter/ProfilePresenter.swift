@@ -10,7 +10,7 @@ import Foundation
 final class ProfilePresenter: ProfilePresenterProtocol {
     
     weak var view: ProfileViewProtocol?
-    private var databaseManager: FirestoreManagerProtocol!
+    private var databaseManager: FirestoreManagerProtocol
     
     init(view: ProfileViewProtocol, databaseManager: FirestoreManagerProtocol) {
         self.view = view

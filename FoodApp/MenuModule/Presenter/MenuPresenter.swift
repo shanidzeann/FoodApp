@@ -7,12 +7,11 @@
 
 import Foundation
 
-
 final class MenuPresenter: MenuPresenterProtocol {
     
     // MARK: - Properties
     
-    let networkManager: NetworkManagerProtocol!
+    let networkManager: NetworkManagerProtocol
     var menu: [Result<(url: String, menu: Menu), Error>]?
     var sections = [(title: String, itemsCount: Int)]()
     

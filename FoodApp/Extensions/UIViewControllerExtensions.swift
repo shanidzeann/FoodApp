@@ -24,3 +24,15 @@ extension UIViewController {
         present(alert, animated: true)
     }
 }
+
+extension UIViewController {
+    func createNavBarShadowView(frame: CGRect) {
+        let shadowView = UIView(frame: frame)
+        shadowView.dropShadow(shadowColor: UIColor.lightGray,
+                              backgroundColor: .secondarySystemBackground,
+                              opacity: 0.8,
+                              offSet: CGSize(width: 0, height: 2.0),
+                              radius: 2)
+        view.addSubview(shadowView)
+    }
+}

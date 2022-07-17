@@ -6,20 +6,21 @@
 //
 
 import UIKit
-import FirebaseAuth
 
-final class ContainerViewController: UIViewController {
+final class ContainerViewController: UIViewController, ContainerViewProtocol {
     
     // MARK: -  Properties
+    
+    var presenter: ContainerPresenterProtocol!
     
     var hasSetFrame = false
     var frame: CGRect!
     var safeNavBarFrame: CGRect!
     var sideMenuState: SideMenuState = .closed
     
-    let menuVC = SideMenuViewController()
-    let homeVC = HomeViewController()
-    var navController: UINavigationController?
+    var navController: UINavigationController!
+    var sideMenuVC: SideMenuViewController!
+    var homeVC: HomeViewController!
     
     // MARK: - VC Lifecycle
     
@@ -27,6 +28,7 @@ final class ContainerViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .lightGray
         
+        createChildren()
         addChildren()
         addGestureRecognizers()
         addObservers()
@@ -34,50 +36,42 @@ final class ContainerViewController: UIViewController {
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
+        
         if !hasSetFrame {
             setFrames()
         }
     }
     
-    // MARK: - Private
+    // MARK: - Injection
     
-    private func setFrames() {
-        hasSetFrame = true
-        frame = CGRect(x: 0,
-                       y: 0,
-                       width: view.frame.size.width,
-                       height: view.frame.size.height)
-        menuVC.view.frame = CGRect(x: -frame.width * 0.7,
-                                   y: frame.minY,
-                                   width: frame.width * 0.7,
-                                   height: frame.height)
-        
-        let navBarFrame = navController?.navigationBar.frame
-        safeNavBarFrame = CGRect(x: 0,
-                                 y: 0,
-                                 width: navBarFrame!.width,
-                                 height: navBarFrame!.height + view.safeAreaInsets.top)
+    func inject(_ presenter: ContainerPresenterProtocol) {
+        self.presenter = presenter
     }
     
     // MARK: - VC Children
     
-    private func addChildren() {
-        addMenuVC()
-        addHomeVC()
+    private func createChildren() {
+        createSideMenuVC()
+        createHomeVC()
     }
     
-    private func addMenuVC() {
+    private func createSideMenuVC() {
+        sideMenuVC = SideMenuViewController()
         let presenter = SideMenuPresenter()
-        menuVC.presenter = presenter
-        menuVC.delegate = self
-        add(asChildViewController: menuVC)
+        sideMenuVC.presenter = presenter
+        sideMenuVC.delegate = self
     }
     
-    private func addHomeVC() {
+    private func createHomeVC() {
+        homeVC = HomeViewController()
         homeVC.delegate = self
         let navController = UINavigationController(rootViewController: homeVC)
-        add(asChildViewController: navController)
         self.navController = navController
+    }
+    
+    private func addChildren() {
+        add(asChildViewController: sideMenuVC)
+        add(asChildViewController: navController)
     }
     
     // MARK: - Gesture Recognizers
@@ -113,20 +107,20 @@ final class ContainerViewController: UIViewController {
     }
     
     @objc private func showProfile() {
-        show(profileVC(), style: .slide)
+        show(createProfileVC(), style: .slide)
     }
     
     @objc private func signOut() {
-        show(loginVC(), style: .slide)
+        show(createLoginVC(), style: .slide)
     }
     
     @objc private func showOrders() {
-        navController?.pushViewController(orderHistoryVC(), animated: true)
+        navController?.pushViewController(createOrderHistoryVC(), animated: true)
     }
     
     // MARK: - Assembly
     
-    func profileVC() -> ProfileViewController {
+    func createProfileVC() -> ProfileViewController {
         let profileVC = ProfileViewController()
         let firestoreManager = FirestoreManager()
         let presenter = ProfilePresenter(view: profileVC, databaseManager: firestoreManager)
@@ -134,7 +128,7 @@ final class ContainerViewController: UIViewController {
         return profileVC
     }
     
-    func orderHistoryVC() -> OrderHistoryViewController {
+    func createOrderHistoryVC() -> OrderHistoryViewController {
         let orderHistoryVC = OrderHistoryViewController()
         let firestoreManager = FirestoreManager()
         let presenter = OrderHistoryPresenter(view: orderHistoryVC, firestoreManager: firestoreManager)
@@ -142,7 +136,7 @@ final class ContainerViewController: UIViewController {
         return orderHistoryVC
     }
     
-    func loginVC() -> LoginViewController {
+    func createLoginVC() -> LoginViewController {
         let loginVC = LoginViewController()
         let firestoreManager = FirestoreManager()
         let authManager = AuthManager(databaseManager: firestoreManager)
@@ -151,20 +145,12 @@ final class ContainerViewController: UIViewController {
         return loginVC
     }
     
-    func deliveryVC() -> DeliveryViewController {
+    func createDeliveryVC() -> DeliveryViewController {
         let deliveryVC = DeliveryViewController()
         let mapsManager = MapsManager()
         let presenter = DeliveryPresenter(view: deliveryVC, mapsManager: mapsManager)
         deliveryVC.inject(presenter: presenter)
-        
-        let shadowView = UIView(frame: safeNavBarFrame)
-        shadowView.dropShadow(shadowColor: UIColor.lightGray,
-                              backgroundColor: .secondarySystemBackground,
-                              opacity: 0.8,
-                              offSet: CGSize(width: 0, height: 2.0),
-                              radius: 2)
-        deliveryVC.view.addSubview(shadowView)
-        
+        deliveryVC.createNavBarShadowView(frame: safeNavBarFrame)
         return deliveryVC
     }
     
@@ -172,20 +158,23 @@ final class ContainerViewController: UIViewController {
     
     func show(_ vc: UIViewController, style: VCPresentationStyle) {
         homeVC.add(asChildViewController: vc)
-        let frame = homeVC.view.frame
         switch style {
         case .replace:
             vc.view.frame = homeVC.view.frame
         case .slide:
-            vc.view.frame = CGRect(x: frame.maxX,
-                                   y: frame.minY,
-                                   width: frame.width,
-                                   height: frame.height)
-            UIView.animate(withDuration: 0.3, delay: 0, options: .curveEaseInOut) {
-                vc.view.frame = self.homeVC.view.frame
-            } completion: { _ in
-                self.removeUnnecessaryChildIfExists()
-            }
+            self.presentFromRight(vc)
+        }
+    }
+    
+    private func presentFromRight(_ vc: UIViewController) {
+        vc.view.frame = CGRect(x: frame.maxX,
+                               y: frame.minY,
+                               width: frame.width,
+                               height: frame.height)
+        UIView.animate(withDuration: 0.3, delay: 0, options: .curveEaseInOut) {
+            vc.view.frame = self.homeVC.view.frame
+        } completion: { _ in
+            self.removeUnnecessaryChildIfExists()
         }
     }
     
@@ -202,28 +191,34 @@ final class ContainerViewController: UIViewController {
     
     func showProfileOrLogin() {
         if isUserAuthenticated() {
-            show(profileVC(), style: .replace)
+            show(createProfileVC(), style: .replace)
         } else {
-            show(loginVC(), style: .replace)
+            show(createLoginVC(), style: .replace)
         }
     }
     
     private func isUserAuthenticated() -> Bool {
-        Auth.auth().currentUser != nil
+        presenter.isUserAuthenticated()
     }
     
-    func resetToHome() {
-        navController?.navigationBar.barTintColor = .systemBackground
-    }
+    // MARK: - Private
     
-    // MARK: - NavBar Configuration
-    
-    func hideCartButton(_ isHidden: Bool) {
-        navController?.navigationBar.topItem?.rightBarButtonItem = isHidden ? nil : homeVC.cartButton
-    }
-    
-    func changeNavControllerTitle(_ title: String) {
-        navController?.navigationBar.topItem?.title = title
+    private func setFrames() {
+        hasSetFrame = true
+        frame = CGRect(x: 0,
+                       y: 0,
+                       width: view.frame.size.width,
+                       height: view.frame.size.height)
+        sideMenuVC.view.frame = CGRect(x: -frame.width * 0.7,
+                                   y: frame.minY,
+                                   width: frame.width * 0.7,
+                                   height: frame.height)
+        
+        let navBarFrame = navController?.navigationBar.frame
+        safeNavBarFrame = CGRect(x: 0,
+                                 y: 0,
+                                 width: navBarFrame!.width,
+                                 height: navBarFrame!.height + view.safeAreaInsets.top)
     }
     
 }

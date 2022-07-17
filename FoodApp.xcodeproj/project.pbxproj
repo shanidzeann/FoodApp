@@ -124,6 +124,9 @@
 		01C0F29027EDD8C600380895 /* MenuCellPresenterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01C0F28F27EDD8C600380895 /* MenuCellPresenterProtocol.swift */; };
 		01C0F29227EDD90500380895 /* MenuHeaderSupplementaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01C0F29127EDD90500380895 /* MenuHeaderSupplementaryView.swift */; };
 		01C0F29827EDDC4200380895 /* MenuCellProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01C0F29727EDDC4200380895 /* MenuCellProtocol.swift */; };
+		01C3C19E288496B100B4CA1F /* ContainerPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01C3C19D288496B100B4CA1F /* ContainerPresenter.swift */; };
+		01C3C1A1288496CE00B4CA1F /* ContainerPresenterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01C3C1A0288496CE00B4CA1F /* ContainerPresenterProtocol.swift */; };
+		01C3C1A32884987100B4CA1F /* ContainerViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01C3C1A22884987100B4CA1F /* ContainerViewProtocol.swift */; };
 		01C5952628535C500058B446 /* VCPresentationStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01C5952528535C500058B446 /* VCPresentationStyle.swift */; };
 		01C5952828536CFE0058B446 /* MenuCollectionViewCell+MenuCellProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01C5952728536CFE0058B446 /* MenuCollectionViewCell+MenuCellProtocol.swift */; };
 		01C5952F2855ECF10058B446 /* OrderHistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01C5952E2855ECF10058B446 /* OrderHistoryViewController.swift */; };
@@ -284,6 +287,9 @@
 		01C0F28F27EDD8C600380895 /* MenuCellPresenterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuCellPresenterProtocol.swift; sourceTree = "<group>"; };
 		01C0F29127EDD90500380895 /* MenuHeaderSupplementaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuHeaderSupplementaryView.swift; sourceTree = "<group>"; };
 		01C0F29727EDDC4200380895 /* MenuCellProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuCellProtocol.swift; sourceTree = "<group>"; };
+		01C3C19D288496B100B4CA1F /* ContainerPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerPresenter.swift; sourceTree = "<group>"; };
+		01C3C1A0288496CE00B4CA1F /* ContainerPresenterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerPresenterProtocol.swift; sourceTree = "<group>"; };
+		01C3C1A22884987100B4CA1F /* ContainerViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerViewProtocol.swift; sourceTree = "<group>"; };
 		01C5952528535C500058B446 /* VCPresentationStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VCPresentationStyle.swift; sourceTree = "<group>"; };
 		01C5952728536CFE0058B446 /* MenuCollectionViewCell+MenuCellProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MenuCollectionViewCell+MenuCellProtocol.swift"; sourceTree = "<group>"; };
 		01C5952E2855ECF10058B446 /* OrderHistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderHistoryViewController.swift; sourceTree = "<group>"; };
@@ -578,6 +584,8 @@
 			children = (
 				01C5952428535C480058B446 /* Model */,
 				01C5952328535C310058B446 /* View */,
+				01C3C19C2884968000B4CA1F /* Presenter */,
+				01C3C19F288496B900B4CA1F /* Protocols */,
 			);
 			path = Container;
 			sourceTree = "<group>";
@@ -960,6 +968,23 @@
 			path = Managers;
 			sourceTree = "<group>";
 		};
+		01C3C19C2884968000B4CA1F /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				01C3C19D288496B100B4CA1F /* ContainerPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		01C3C19F288496B900B4CA1F /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				01C3C1A22884987100B4CA1F /* ContainerViewProtocol.swift */,
+				01C3C1A0288496CE00B4CA1F /* ContainerPresenterProtocol.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
 		01C59522285359B50058B446 /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
@@ -1254,6 +1279,7 @@
 				017E2C3F2812BDAC00C82CBF /* Restaurant.swift in Sources */,
 				018F87AE2850AD4E00C6EA2B /* ProfileViewController.swift in Sources */,
 				014F1CDD27F39A0B00D7F799 /* CardViewController.swift in Sources */,
+				01C3C1A32884987100B4CA1F /* ContainerViewProtocol.swift in Sources */,
 				018F28B02822ACAF00191F25 /* AuthManagerProtocol.swift in Sources */,
 				01A306AA27F10BED0098C791 /* BannerViewController+UICollectionViewDelegateFlowLayout.swift in Sources */,
 				01F6C4AF2809A3ED00EABCE2 /* CartTableViewCell.swift in Sources */,
@@ -1271,6 +1297,7 @@
 				01923D2A285702BB00F7E4C8 /* OrderCellPresenter.swift in Sources */,
 				01C0F29027EDD8C600380895 /* MenuCellPresenterProtocol.swift in Sources */,
 				01C595332855ED230058B446 /* OrderHistoryPresenterProtocol.swift in Sources */,
+				01C3C1A1288496CE00B4CA1F /* ContainerPresenterProtocol.swift in Sources */,
 				01923D3F2857401300F7E4C8 /* CheckoutViewController.swift in Sources */,
 				01D198A2281EBE360096C97F /* UIViewControllerExtensions.swift in Sources */,
 				014E94192809E4DD00143B32 /* CartCellPresenter.swift in Sources */,
@@ -1282,6 +1309,7 @@
 				01C995AB27F4F25A00FE3F1F /* CardViewController+UITableViewDataSource.swift in Sources */,
 				017E2C5A2812F8ED00C82CBF /* JSONParser.swift in Sources */,
 				010C5DE428216F680005AA5D /* LoginViewController.swift in Sources */,
+				01C3C19E288496B100B4CA1F /* ContainerPresenter.swift in Sources */,
 				017FC4F9280EFFF3006D6A9B /* CardPresenter.swift in Sources */,
 				01F6C4B12809A48200EABCE2 /* CartCellPresenterProtocol.swift in Sources */,
 				0145C4D32849164A0020D2FE /* UITextField.swift in Sources */,

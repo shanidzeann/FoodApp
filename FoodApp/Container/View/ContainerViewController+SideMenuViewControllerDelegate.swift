@@ -8,6 +8,7 @@
 import UIKit
 
 extension ContainerViewController: SideMenuViewControllerDelegate {
+    
     func didSelect(menuItem: MenuOptions) {
         toggleMenu()
         removeUnnecessaryChildIfExists()
@@ -17,18 +18,30 @@ extension ContainerViewController: SideMenuViewControllerDelegate {
     private func showSelected(_ menuItem: MenuOptions) {
         switch menuItem {
         case .home:
-            changeNavControllerTitle("")
-            hideCartButton(false)
-            resetToHome()
+            setNavControllerTitle("")
+            showCartButton(true)
+            setNavBarColor(.systemBackground)
         case .profile:
-            changeNavControllerTitle("")
-            hideCartButton(true)
+            setNavControllerTitle("")
+            showCartButton(false)
             showProfileOrLogin()
         case .delivery:
-            hideCartButton(true)
-            changeNavControllerTitle("Доставка")
-            show(deliveryVC(), style: .replace)
+            showCartButton(false)
+            setNavControllerTitle("Доставка")
+            show(createDeliveryVC(), style: .replace)
         }
+    }
+    
+    private func showCartButton(_ isShowed: Bool) {
+        navController?.navigationBar.topItem?.rightBarButtonItem = isShowed ? homeVC.cartButton : nil
+    }
+    
+    private func setNavControllerTitle(_ title: String) {
+        navController?.navigationBar.topItem?.title = title
+    }
+    
+    private func setNavBarColor(_ color: UIColor) {
+        navController?.navigationBar.barTintColor = color
     }
     
 }

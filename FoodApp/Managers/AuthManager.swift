@@ -11,9 +11,13 @@ import FirebaseAuth
 
 final class AuthManager: AuthManagerProtocol {
     
-    private let dbManager: FirestoreManagerProtocol
+    private let dbManager: FirestoreManagerProtocol?
     
-    init(databaseManager: FirestoreManagerProtocol) {
+    var currentUser: User? {
+        Auth.auth().currentUser
+    }
+    
+    init(databaseManager: FirestoreManagerProtocol? = nil) {
         self.dbManager = databaseManager
     }
     
@@ -23,7 +27,7 @@ final class AuthManager: AuthManagerProtocol {
                 completion(error?.localizedDescription)
             } else {
                 let data = self?.data(of: user, with: result!.user.uid) ?? [:]
-                self?.dbManager.createDocument(in: "users", documentPath: result!.user.uid, data: data) { error in
+                self?.dbManager?.createDocument(in: "users", documentPath: result!.user.uid, data: data) { error in
                     completion(error?.localizedDescription)
                 }
             }
